@@ -1,0 +1,87 @@
+https://git-scm.com/book/ru/v2
+
+ПРЕДВАРИТЕЛЬНЫЕ НАСТРОЙКИ НА WINDOWS:
+git config --global user.name "Username" - установление подписи username.
+git config --global user.email "test@gmail.com" - установление подписи почты.
+git config --global core.autocrlf true - CRLF->LF при коммите и LF->CRLF при выгрузке будет происходить автоматически.
+git config --global core.safecrlf warn - предупреждает, если преобразование необратимое.
+git config --global core.quotepath off - отключает помещение "необычных" символов в кавычки.
+git config --global init.defaultBranch main - устанавливает название ветки по умолчанию.
+git config --global --list - показывает установленные настройки.
+
+ДОКУМЕНТАЦИЯ
+git help -g
+git help config
+
+РАБОТА С ЛОКАЛЬНЫМ РЕПОЗИТОРИЕМ
+git init - создание локального гита в текущей директории
+git status - текущее состояние локального гита
+git add <имена файлов через запятую> - добавление файлов в снимок для следующего коммита
+
+git commit -m "Комментарий" - сохраняет изменения с указанным комментарием. Для первых коммитов используют комментарий "Initial commit". Флаг -m позволяет записать комментарий
+git commit - сохраняет изменения. В этом случае попросит написать комментарий. Нажимаем Enter, вписываем комментарий, нажимаем Ctrl + C. Вписываем :x! (в самом низу будет отображаться, что вписывается)
+
+git log --oneline - показывает историю коммитов.
+
+git commit --amend -m "Комментарий" - переписывает комментарий у последнего коммита, а также обновляет коммит.
+
+git add -A - добавление всех файлов в снимок для следующего коммита.
+git checkout <commit hash-code> - переход на коммит по хешу.
+git log --oneline --all - показывает всю историю коммитов.
+git checkout main - переход на ветку main.
+
+ПОДГОТОВКА К УДАЛЁННОМУ РЕПОЗИТОРИЮ
+ssh-keygen - генерация SSH ключа для работы с GitHub. Копируем путь .ssh/id_rsa.pub.
+cat ~/.ssh/id_rsa.pub - читает файл по указанному пути. Символ ~ означает корневую папку пользователя.
+git remote -v - вызов подробной информации по связи.
+git remote add origin <SSH-GitHub> - установление связи с удалённым репозиторием. Удалённому репозиторию даётся имя origin.
+git push -u origin main - создаёт в удалённом репозитории ветку main, соответствующую локальной. -u команда на отслеживание изменение ветки.
+
+РАБОТА С ВЕТКАМИ
+git branch - показать ветки.
+git branch <branch> - создаёт новую ветку.
+git checkout <branch> - переход на ветку.
+
+git status
+git add -A
+git status
+git commit -m "Changed..."
+git push -u origin <branch> - создаёт в удалённом репозитории ветку и отслеживает её.
+git log <branch> --oneline - показывает историю коммитов ветки.
+
+СЛИЯНИЕ ВЕТОК
+git checkout main
+git merge <branch> - производит слияние текущей ветки с указанной.
+
+РЕШЕНИЕ КОНФЛИКТА
+git checkout -b <branch> - создаёт и переходит на ветку.
+git add -A
+git commit -m "Changed..."
+git checkout main
+git commit -a -m "Changed..." - сразу добавляет в коммит, которые коммитились до этого, и сохраняет изменения.
+git merge <branch>
+
+РАБОТА С УЖЕ ИМЕЮЩИМСЯ РЕПОЗИТОРИЕМ
+git clone <SSH-GitHub> <name> - клонирование репозитория.
+cd <name> - переход в директорию.
+git status
+git add -A
+git commit -m "Initial commit"
+git push -u origin main
+cd .. - перейти на директорию выше.
+git add -A
+git commit -m "Added..."
+git push -u origin main
+cd ..
+cd <name>
+git commit -a -m "Changed..."
+git push - добавить изменения в ветку, в которую уже вносились изменения.
+git pull - обновление локального репозитория. По сути сначала git fetch (забирает изменения из репозитория и сохраняет их в промежуточном состоянии, не применяя к файлам на компьютере), затем git merge (сливает изменения в текущую ветку).
+Esc :wq - write quit.
+git push
+git revert <commit hash-code> - создаёт новый коммит, откатывая изменения.
+git push
+git log --oneline
+
+dir - показать информацию о текущей директории
+cls - почистить терминал
