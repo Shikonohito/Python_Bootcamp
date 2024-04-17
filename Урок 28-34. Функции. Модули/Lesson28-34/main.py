@@ -19,26 +19,27 @@
 # print(max_elem)
 
 
-# import random
+# from random import randint, choice
 #
 # for i in range(5):
-#     num = random.randint(1, 100)
+#     num = randint(1, 100)
 #     print(num, end="\t")
+#
 #
 # my_list = ["Bob", "Tom", "Jim", "Kid"]
 # for i in range(5):
-#     choice = random.choice(my_list)
-#     print(choice, end="\t")
+#     selected = choice(my_list)
+#     print(selected, end="\t")
 
 
-# import math
+# from math import ceil, floor
 #
 # my_list = [26, 12, 14, 3, 1]
 # sum_list = sum(my_list)
 # size_list = len(my_list)
 # result = sum_list / size_list
-# result_ceil = math.ceil(result)
-# result_floor = math.floor(result)
+# result_ceil = ceil(result)
+# result_floor = floor(result)
 # print(result, result_ceil, result_floor)
 
 
@@ -59,13 +60,13 @@
 
 
 # def calculate(num_1, num_2):
-#     print("{0} + {1} = {2}".format(num_1, num_2, num_1 + num_2))
-#     print("{0} - {1} = {2}".format(num_1, num_2, num_1 - num_2))
-#     print("{0} * {1} = {2}".format(num_1, num_2, num_1 * num_2))
-#     print("{0} / {1} = {2}".format(num_1, num_2, num_1 / num_2))
-#     print("{0} % {1} = {2}".format(num_1, num_2, num_1 % num_2))
-#     print("{0} // {1} = {2}".format(num_1, num_2, num_1 // num_2))
-#     print("{0} ** {1} = {2}".format(num_1, num_2, num_1 ** num_2))
+#     print(f"{num_1} + {num_2} = {num_1 + num_2}")
+#     print(f"{num_1} - {num_2} = {num_1 - num_2}")
+#     print(f"{num_1} * {num_2} = {num_1 * num_2}")
+#     print(f"{num_1} / {num_2} = {num_1 / num_2}")
+#     print(f"{num_1} % {num_2} = {num_1 % num_2}")
+#     print(f"{num_1} // {num_2} = {num_1 // num_2}")
+#     print(f"{num_1} ** {num_2} = {num_1 ** num_2}")
 #     print()
 #
 #
@@ -77,11 +78,7 @@
 
 
 # ====================================================================================================
-# Задание 1 - напишите функцию, которая на вход принимает размер стороны.
-#             Функция должна рисовать в консоли квадрат из * указанного размера.
-
-# Задание 2 - напишите функцию, которая на вход принимает ширину и длину.
-#             Функция должна рисовать в консоли четырёхугольник из * указанного размера.
+# ПЗ 28.1 - 28.2
 # ====================================================================================================
 
 
@@ -96,18 +93,103 @@
 # print(maximum)
 #
 
+def main_menu():
+    MENU_DESC = ["Показать корзину", "Оплатить корзину", "Добавить товар в корзину", "Завершить программу"]
+    menu_size = len(MENU_DESC)
+    for i in range(1, menu_size + 1):
+        print(f"{i}. {MENU_DESC[i - 1]}")
+    choice = input("Ваш выбор: ")
+    if choice.isdigit():
+        choice = int(choice)
+        if choice > menu_size or choice < 1:
+            choice = -1
+    else:
+        choice = -1
+    return [choice, menu_size]
+
+
+def print_cart(cart: list[str]):
+    print("Ваша корзина:")
+    for product_name in cart:
+        print("+", product_name)
+    print("===========================")
+
+
+def get_price(product_name: str, storage_product_names: list[str], storage_product_prices: list[float]):
+    product_price = 0
+    for i in range(len(storage_product_names)):
+        print(product_name)
+        if product_name == storage_product_names[i]:
+            product_price = storage_product_prices[i]
+            break
+    return product_price
+
+
+def get_total_price(cart: list[str], storage_product_names: list[str], storage_product_prices: list[float]):
+    total_price = 0
+    for product_name in cart:
+        total_price += get_price(product_name, storage_product_names, storage_product_prices)
+    return total_price
+
+
+def pay_сart(cart: list[str], balance, storage_product_names: list[str], storage_product_prices: list[float]):
+    is_success = True
+    total_price = get_total_price(cart, storage_product_names, storage_product_prices)
+    if balance < total_price:
+        is_success = False
+        msg = f"Для оплаты Вашей корзины требуется {total_price} денег. Ваш баланс: {balance}."
+    else:
+        balance -= total_price
+        cart.clear()
+        msg = f"Оплата пройдена успешно. На Вашем счету осталось {balance} денег."
+    return [is_success, msg]
+
+
+def product_menu(storage_product_names: list[str], storage_product_prices: list[float]):
+    print("0. Вернуться")
+    for i in range(len(storage_product_names)):
+        print(f"{i + 1}. {storage_product_names[i]} - {storage_product_prices[i]}")
+    choice = input("Ваш выбор: ")
+    if choice.isdigit():
+        choice = int(choice)
+        if choice > len(storage_product_names) or choice < 0:
+            choice = -1
+    else:
+        choice = -1
+    return choice
+
+
+PRODUCT_NAMES = ["Хлеб", "Молоко", "Яйца (10шт)"]
+PRODUCT_PRICES = [0.4, 2.8, 2.4]
+customer_cart = list()
+CUSTOMER_BALANCE = 1000
+while True:
+    choice_mm = main_menu()
+    if choice_mm[0] == choice_mm[1]:
+        print("Завершение программы")
+        break
+    elif choice_mm[0] == 1:
+        print_cart(customer_cart)
+    elif choice_mm[0] == 2:
+        pay_cart_logs = pay_сart(customer_cart, CUSTOMER_BALANCE, PRODUCT_NAMES, PRODUCT_PRICES)
+        print(pay_cart_logs[1])
+    elif choice_mm[0] == 3:
+        choice_pm = None
+        while choice_pm != 0:
+            print_cart(customer_cart)
+            choice_pm = product_menu(PRODUCT_NAMES, PRODUCT_PRICES)
+            if choice_pm == -1:
+                print("Товар под указанным номером отсутствует")
+            elif choice_pm >= 1:
+                product_index = choice_pm - 1
+                customer_cart.append(PRODUCT_NAMES[product_index])
+    else:
+        print("Функционал под этим номером отсутствует. Введите другой номер.")
+
+
+
 # ====================================================================================================
-# Задание 3 - напишите функцию, которая на вход принимает число. Функция должна найти факториал
-#             этого числа и вернуть результат. Например, факториал числа 5 = 1 * 2 * 3 * 4 * 5 = 120
-
-# Задание 4 - напишите функцию, которая на вход принимает начало и конец диапазона и возвращает список
-#             нечётных чисел в этом диапазоне, включая границы.
-
-# Задание 5 - напишите функцию, которая на вход принимает список чисел. Функция должна найти сумму всех
-#             чисел списка и вернуть результат. Делать через цикл.
-
-# Задание 6 - напишите функцию, которая на вход принимает список чисел. Функция должна найти максимальное
-#             число из списка и вернуть результат. Делать через цикл.
+# ПЗ 28.3 - 28.7
 # ====================================================================================================
 
 
