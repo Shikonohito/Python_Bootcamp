@@ -1,35 +1,5 @@
-НЕ ИСПОЛЬЗОВАТЬ ОПЕРАТОР in В УСЛОВИИ!!! ДЛЯ ВЫПОЛНЕНИЯ ЭТИХ ЗАДАНИЙ ДОСТАТОЧНО ОПИСАТЬ ФУНКЦИИ!!! ПРОВЕРЯЙТЕ РАБОТОСПОСОБНОСТЬ ФУНКЦИЙ!!!
-
-Задание 1.
-Напишите функцию, которая отображает в консоли форматированный текст, указанный ниже:
-“Don't compare yourself with anyone in this world…
-if you do so, you are insulting yourself.”
-					Bill Gates
-
-Задание 2.
-Напишите функцию, которая рисует в консоли незаполненный прямоугольник 3 на 5 из символов "*".
-Функция ничего не принимает.
-
-Задание 3.
-Напишите функцию, которая принимает символ, длину, ширину и рисует в консоли незаполненный прямоугольник из этого символа указанного размера.
-
-Задание 4.
-Напишите функцию, которая отображает в консоли пустой или заполненный квадрат из некоторого символа.
-Функция принимает в качестве параметров: длину стороны квадрата, символ и переменную логического типа:
-- если она равна True, квадрат заполненный;
-- если False, квадрат пустой.
-
-Задание 5.
-Напишите функцию, которая принимает два числа и отображает в консоли все чётные числа между ними.
-
-Задание 6. НЕ ИСПОЛЬЗОВАТЬ МЕТОДЫ СПИСКОВ!!!
-Напишите функцию, которая на вход принимает список и искомое число. Функция должна вывести в консоль индексы искомых чисел, если они есть в списке.
-В противном случае должна вывести в консоль "Искомое число не найдено".
-
-Задание 7.
-Напишите функцию, которая принимает цифру и текст "RU" или "EN". Функция выводит в консоль текстовое представление числа в зависимости от выбранного языка.
-Например для 1 это "Один" или "One".
-
+Примечание:
+Оформляйте ввод и вывод данных в соответствии с примерами заданий. Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор in. Не используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методах. Методы .format(), .split() и append() использовать можно. Не используйте срезы.
 
 
 Задание 28.1
@@ -56,4 +26,132 @@ _ - это свободные места
 
 
 Задание 28.2
-Напишите функцию, которая работает как range().
+Напишите функцию print_BG, которая отображает в консоли форматированный текст, указанный ниже:
+“Don't compare yourself with anyone in this world…
+if you do so, you are insulting yourself.”
+																				Bill Gates
+
+
+Задание 28.3
+Напишите функцию draw_rectangle, которая ничего не принимает и рисует в консоли незаполненный прямоугольник 3 на 5 из символов "*".
+
+
+Задание 28.4
+Напишите функцию draw_quad, которая принимает символ, длину, ширину и рисует в консоли незаполненный прямоугольник из этого символа указанного размера.
+
+
+Задание 28.5
+Напишите функцию generate_list, которая принимает размер, начало и конец диапазона, затем формирует список по параметрам и возвращает результат.
+ПОДСКАЗКИ
+1. Используйте следующий код для генерации числа:
+from random import randint  # Подключение модуля random и импорт функции randint
+
+randint(start, end)  # Использование функции для генерации одного числа от start до end включительно
+
+
+Задание 28.6
+Напишите функцию get_indexes, которая принимает список и элемент для поиска, затем ищет элементы в списке и добавляет в новый список найденные индексы. После этого возвращает полученный список.
+
+
+Задание 28.7
+Напишите функцию has_alpha_eng, которая принимает строку и возвращает True, если в строке есть английские буквы, и False в противном случае.
+Затем напишите программу, которая использует эту функцию. Если функция возвращает True, то программа должна выводить в консоль "В строке содержатся английские буквы". В противном случае программа должна выводить в консоль "В строке отсутствуют английские буквы".
+ПОДСКАЗКИ
+1. Решение Вы можете взять из домашнего задания 24.3. Только вместо вывода в консоль функция должна возвращать True или False.
+
+
+Задание 28.8
+Teston Lebra написал функции и программу. Составьте комментарии по коду - что делает программа, как она работает, какие данные принимает. Также опишите каждую функцию - что она делает и как она работает. Также добавьте в главное меню пунктами "Очистить корзину" и "Пополнить баланс".
+КОД:
+def main_menu():
+    MENU_DESC = ["Показать корзину", "Оплатить корзину", "Добавить товар в корзину", "Завершить программу"]
+    menu_size = len(MENU_DESC)
+    for i in range(1, menu_size + 1):
+        print(f"{i}. {MENU_DESC[i - 1]}")
+    choice = input("Ваш выбор: ")
+    if choice.isdigit():
+        choice = int(choice)
+        if choice > menu_size or choice < 1:
+            choice = -1
+    else:
+        choice = -1
+    return [choice, menu_size]
+
+
+def print_cart(cart: list[str]):
+    print("Ваша корзина:")
+    for product_name in cart:
+        print("+", product_name)
+    print("===========================")
+
+
+def get_price(product_name: str, storage_product_names: list[str], storage_product_prices: list[float]):
+    product_price = 0
+    for i in range(len(storage_product_names)):
+        print(product_name)
+        if product_name == storage_product_names[i]:
+            product_price = storage_product_prices[i]
+            break
+    return product_price
+
+
+def get_total_price(cart: list[str], storage_product_names: list[str], storage_product_prices: list[float]):
+    total_price = 0
+    for product_name in cart:
+        total_price += get_price(product_name, storage_product_names, storage_product_prices)
+    return total_price
+
+
+def pay_сart(cart: list[str], balance, storage_product_names: list[str], storage_product_prices: list[float]):
+    is_success = True
+    total_price = get_total_price(cart, storage_product_names, storage_product_prices)
+    if balance < total_price:
+        is_success = False
+        msg = f"Для оплаты Вашей корзины требуется {total_price} денег. Ваш баланс: {balance}."
+    else:
+        balance -= total_price
+        cart.clear()
+        msg = f"Оплата пройдена успешно. На Вашем счету осталось {balance} денег."
+    return [is_success, msg]
+
+
+def product_menu(storage_product_names: list[str], storage_product_prices: list[float]):
+    print("0. Вернуться")
+    for i in range(len(storage_product_names)):
+        print(f"{i + 1}. {storage_product_names[i]} - {storage_product_prices[i]}")
+    choice = input("Ваш выбор: ")
+    if choice.isdigit():
+        choice = int(choice)
+        if choice > len(storage_product_names) or choice < 0:
+            choice = -1
+    else:
+        choice = -1
+    return choice
+
+
+PRODUCT_NAMES = ["Хлеб", "Молоко", "Яйца (10шт)"]
+PRODUCT_PRICES = [0.4, 2.8, 2.4]
+customer_cart = list()
+CUSTOMER_BALANCE = 1000
+while True:
+    choice_mm = main_menu()
+    if choice_mm[0] == choice_mm[1]:
+        print("Завершение программы")
+        break
+    elif choice_mm[0] == 1:
+        print_cart(customer_cart)
+    elif choice_mm[0] == 2:
+        pay_cart_logs = pay_сart(customer_cart, CUSTOMER_BALANCE, PRODUCT_NAMES, PRODUCT_PRICES)
+        print(pay_cart_logs[1])
+    elif choice_mm[0] == 3:
+        choice_pm = None
+        while choice_pm != 0:
+            print_cart(customer_cart)
+            choice_pm = product_menu(PRODUCT_NAMES, PRODUCT_PRICES)
+            if choice_pm == -1:
+                print("Товар под указанным номером отсутствует")
+            elif choice_pm >= 1:
+                product_index = choice_pm - 1
+                customer_cart.append(PRODUCT_NAMES[product_index])
+    else:
+        print("Функционал под этим номером отсутствует. Введите другой номер.")
