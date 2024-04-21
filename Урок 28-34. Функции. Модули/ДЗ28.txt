@@ -29,7 +29,7 @@ _ - это свободные места
 Напишите функцию print_BG, которая отображает в консоли форматированный текст, указанный ниже:
 “Don't compare yourself with anyone in this world…
 if you do so, you are insulting yourself.”
-																				Bill Gates
+										Bill Gates
 
 
 Задание 28.3
