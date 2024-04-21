@@ -108,11 +108,11 @@
 # Расположение обязательных, упаковки, необязательных параметров
 
 
-# def print_hello():
+# def print_hello() -> None:
 #     print("Hello")
 
 
-# def print_msg(message):
+# def print_msg(message: str) -> None:
 #     print("Your message is \"{0}\"".format(message))
 
 
@@ -141,6 +141,7 @@
 # message = code_to_message(404)
 # print(message)
 
+# ====================================================================================================
 
 # def total_sum(nums):
 #     num_sum = 0
@@ -149,7 +150,7 @@
 #     return num_sum
 #
 #
-# num_list = [1, 2, 3, 4, 5]
+# num_list = [10, 20, 30, 40, 50]
 # result = total_sum(num_list)
 # print(result)
 
@@ -161,22 +162,27 @@
 #     return num_sum
 #
 #
-# num_list = [1, 2, 3, 4, 5]
-# result = total_sum(num_list)
+# result = total_sum(10, 20, 30, 40, 50)
+# print(result)
+#
+# num_list = [10, 20, 30, 40, 50]
+# result = total_sum(*num_list)
 # print(result)
 
+# ====================================================================================================
 
 # def show_data(name: str, age=0, group="Unknown") -> None:
-#     print(f"Name: {name}\nAge: {age}\nGroup: {group}\n")
-
+#     print(f"Name: {name}\t\tAge: {age}\t\tGroup: {group}")
+#
+#
 # show_data("Tom", 18, "233BC_Python")
-# show_data()
+# # show_data()
 # show_data("Jacob")
 # show_data("Jim", 25)
 # show_data(age=15, group="Python", name="Tom")
 
 
-# def show_data(name: str, *groups: str, work="None") -> None:
+# def show_data(name: str, *groups: str, work="No") -> None:
 #     print("Name: {}".format(name))
 #     print("Groups:")
 #     for group in groups:
@@ -184,29 +190,11 @@
 #     print("Work: {}".format(work))
 #
 #
-# show_data("Tom", "232BC_Python 10:00", "232BC_Python 13:00", "232BC_Python 19:00", work="QA Tester")
+# show_data("Tom", "Python 10:00", "Python 13:00", "Python 19:00", work="QA Tester")
 
 
 # ====================================================================================================
-# Задание 7 - напишите функцию, которая на вход принимает ширину, длину и флаг заполнения.
-#             Функция должна рисовать в консоли четырёхугольник из * указанного размера.
-#             Если последний параметр равен True, то четырёхугольник должен быть заполненный.
-#             Если же последний параметр равен False, то четырёхугольник внутри должен быть пустой.
-#             Последний параметр сделать необязательным.
-
-# Задание 8 - напишите функцию, которая на вход принимает начало и конец диапазона.
-#             Функция должна вернуть список чисел от начала до конца диапазона (границы включительно).
-#             Сделать начало и конец диапазона необязательными.
-
-# Задание 9 - напишите функцию, которая на вход принимает несколько чисел.
-#             Функция должна вернуть список положительных чисел.
-
-# Задание 10 - напишите функцию, которая на вход принимает несколько строк.
-#              Функция должна вернуть список длин этих строк.
-
-# Задание 11 - напишите функцию, которая на вход принимает несколько чисел и флаг поиска.
-#              Если флаг поиска равен True, то функция возвращает максимальное число.
-#              Если флаг поиска равен False, то функция возвращает минимальное число.
+# ПЗ 29.1 - 29.4
 # ====================================================================================================
 
 
@@ -216,59 +204,64 @@
 
 
 # Local
-# def func() -> None:
-#     num = 10
+# def func(num):
+#     num += 10
 #     print(num)
 #
+# func(5)
+
+
+# Global
+# glob_num_1 = 10
+# glob_num_2 = 20
+# def func():
+#     num = 1
+#     print(glob_num_1 + num)
+#
+#     global glob_num_2
+#     glob_num_2 += num
+#
+#
 # func()
+# print(glob_num_1, glob_num_2)
 
 
 # Enclosing
-# def outer_function():
-#     num_1 = 20  # Enclosing область
-#     num_2 = 30  # Enclosing область
-#     def inner_function():
-#         print(num_1)
-#         nonlocal num_2
-#         num_2 += num_1
+# def outer_function(num_2):
+#     num_1 = 1  # Enclosing область для func
 #
-#     inner_function()
+#     def func(num):  # Closure/Замыкание
+#         print(num_1, end="\t")
+#
+#         nonlocal num_2
+#         num_2 += num
+#         print(num_2)
+#
+#     return func
+#
+#
+# inner_func = outer_function(2)  # Closure object
+# inner_func(10)
+# inner_func(10)
+# inner_func(10)
+
+
+# Built-in
+# print("global:", len("Hello World"))
+# def outer_function():
+#     print("outer_function:", len("Hello World"))
+#
+#     def func():
+#         print("func:", len("Hello World"))
+#
+#     func()
 #
 #
 # outer_function()
 
 
-# Global
-# num_1 = 20
-# num_2 = 30
-# def my_function():
-#     print(num_1)
-#     global num_2
-#     num_2 += num_1
-#
-#
-# my_function()
-# print(num_1, num_2)
-
-# Built-in
-# print(len("Hello, World!"))
-
-
 # ====================================================================================================
-# Задание 12 - напишите функцию, которая определяет, к какой возрастной группе относится
-#              пользователь. Возрастная группа следующая:
-#              до 13 включительно - детство
-#              от 14 до 24 включительно - молодость
-#              от 25 до 59 включительно - зрелость
-#              от 60 - старость
-#              Сигнатура функции следующая:
-#              check_age(age) - возвращает одно из строк "Детство", "Молодость", "Зрелость", "Старость".
-
-# Задание 13 - напишите функцию, которая принимает число от 1 до 7 включительно и возвращает день
-#              недели. Сигнатура функции следующая:
-#              num_to_day(num) - возвращает одно из строк "Понедельник", "Вторник", "Среда", "Четверг",
-#              "Пятница", "Суббота", "Воскресенье". Учесть, что в качестве num может быть число
-#              вне диапазона [1, 7].
+#
 # ====================================================================================================
 
 
@@ -497,6 +490,7 @@
 # Карринг
 # Декораторы
 # Решение задач с использованием своих функций
+# ПОКАЗАТЬ ПРИМЕР КАК В ЛУА ЧТЕНИЕ ФАЙЛОВ
 
 
 # def send_msg(user_to, msg_txt):
