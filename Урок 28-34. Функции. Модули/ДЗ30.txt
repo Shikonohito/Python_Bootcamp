@@ -34,13 +34,128 @@
 ]
 
 
+Задание 30.5
+Изменить указанный ниже код так, чтобы функции перестали использовать глобальную переменную.
+КОД:
+student_list = list()
 
 
+def show_students():
+    for student in student_list:
+        print(student[0], student[1])
 
 
-Задание 30.
-Задание перевод глобальных переменных в локальную область (Простое)
+def get_student_index(name: str):
+    found_index = -1
+    for i in range(len(student_list)):
+        if name == student_list[i][0]:
+            found_index = i
+            break
+    return found_index
 
 
-Задание 30.
-Задание перевод глобальных переменных в локальную область (Сложное)
+def get_student(name: str):
+    found_student = None
+    index = get_student_index(name)
+    if index != -1:
+        found_student = student_list[index]
+    return found_student
+
+
+def add_student(new_student: list):
+    is_success = False
+    new_student_name = new_student[0]
+    index = get_student_index(new_student_name)
+    if index == -1:
+        student_list.append(new_student)
+        is_success = True
+    return is_success
+
+
+def change_student(new_student: list, index: int):
+    is_success = False
+    found_index = get_student_index(new_student[0])
+    if found_index == -1 and 0 <= index and index < len(student_list):
+        student = student_list[index]
+        if new_student[0] != "":
+            student[0] = new_student[0]
+        if new_student[1] != "":
+            student[1] = new_student[1]
+        is_success = True
+    return is_success
+
+
+def remove_student(index: int):
+    is_success = False
+    if 0 <= index and index < len(student_list):
+        del student_list[index]
+        is_success = True
+    return is_success
+
+
+while True:
+    print("1. Показать студентов")
+    print("2. Найти индекс студента по имени")
+    print("3. Найти студента по имени")
+    print("4. Добавить студента")
+    print("5. Изменить студента по индексу")
+    print("6. Удалить студента по индексу")
+    print("7. Завершить программу")
+
+    choice = input("Выберите действие: ")
+    if choice == "1":
+        show_students()
+        print("==================================")
+    elif choice == "2":
+        name = input("Введите имя: ")
+        found_index = get_student_index(name)
+        if found_index == -1:
+            print(f"Студента с именем {name} не существует.")
+        else:
+            print(f"Студент {name} найден по индексу {found_index}.")
+        print("==================================")
+    elif choice == "3":
+        name = input("Введите имя: ")
+        found_student = get_student(name)
+        if found_student:
+            print(f"Имя: {found_student[0]}\t\tВозраст: {found_student[1]}")
+        else:
+            print("Студент с именем {name} не найден.")
+        print("==================================")
+    elif choice == "4":
+        new_student_name = input("Введите имя нового студента: ")
+        new_student_age = int(input("Введите возраст нового студента: "))
+        new_student = [new_student_name, new_student_age]
+        if add_student(new_student):
+            print(f"{new_student_name} был добавлен в список.")
+        else:
+            print("Такое имя уже присутствует.")
+        print("==================================")
+    elif choice == "5":
+        index = int(input("Введите индекс: "))
+        new_student_name = input("Введите имя нового студента: ")
+        new_student_age = input("Введите возраст нового студента: ")
+        if new_student_age != "":
+            new_student_age = int(new_student_age)
+        new_student = [new_student_name, new_student_age]
+        if change_student(new_student, index):
+            print("Данные студента были изменены.")
+        else:
+            print("Изменения отклонены. Возможно Вы указали неверный индекс или имя студента уже есть в списке.")
+        print("==================================")
+    elif choice == "6":
+        index = int(input("Введите индекс: "))
+        if remove_student(index):
+            print("Студент был удалён.")
+        else:
+            print("Студент не был найден.")
+        print("==================================")
+    elif choice == "7":
+        print("==================================")
+        print("Программа завершается.")
+    else:
+        print("Неверный ввод. Пожалуйста, выберите пункт из меню.")
+
+
+Задание 30.6 (Необязательное)
+Измените исходный код из Задания 30.5 таким образом, чтобы student_list перестал быть глобальной переменной. Используйте замыкание.
