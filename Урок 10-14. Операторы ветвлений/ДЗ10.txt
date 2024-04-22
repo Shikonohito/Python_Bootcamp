@@ -139,7 +139,7 @@ from datetime import datetime
 
 print("1. Показать текущую дату")
 print("2. Показать текущее время")
-choice = int(input("Введите выбор: "))
+choice = int(input("Выберите действие: "))
 if choice == "1":
     print(datetime.now().date())
 if choice == "2":
