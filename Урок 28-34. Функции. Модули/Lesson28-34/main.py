@@ -417,7 +417,6 @@ import unicodedata
 # map, filter, sorted
 
 
-
 # def send_hi(user_to, msg_txt):
 #     print(f"Dear {user_to}, welcome to the Python! {msg_txt}")
 #
