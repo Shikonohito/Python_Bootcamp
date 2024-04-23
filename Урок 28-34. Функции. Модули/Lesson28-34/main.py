@@ -413,58 +413,62 @@ import unicodedata
 # ==============================================LESSON33==============================================
 # Карринг
 # Декораторы
-# Решение задач с использованием своих функций
-# ПОКАЗАТЬ ПРИМЕР КАК В ЛУА ЧТЕНИЕ ФАЙЛОВ
+# Лямбда-выражения и анонимные функции
+# map, filter, sorted
 
 
-# def send_msg(user_to, msg_txt):
-#     print("Dear {}, welcome to the Python! {}".format(user_to, msg_txt))
+
+# def send_hi(user_to, msg_txt):
+#     print(f"Dear {user_to}, welcome to the Python! {msg_txt}")
 #
 #
-# send_msg("admin", "Have a nice day!")
-# send_msg("admin", "See you!")
-# send_msg("admin", "Good luck!")
-# send_msg("student", "Good luck!")
-# print()
+# def send_goodbye(user_to, msg_txt):
+#     print(f"Goodbye, {user_to}! {msg_txt}")
 #
-# def send_msg_to(user_to):  # Каррированный вариант
-#     def set_msg(msg_txt):
-#         print("Dear {}, welcome to the Python! {}".format(user_to, msg_txt))
-#     return set_msg
+#
+# def send_msg(msg_type, user_to, msg_txt):
+#     print(f"Message type: {msg_type}\nDear {user_to}, {msg_txt}")
+#
+#
+# users = ["Teston", "Jim", "Kate"]
+# msgs = ["Nice to see you.", "Hope to see you soon.", "The deadline has been extended by 30 days."]
+# msg_type = "Information"
+# funcs = [send_hi, send_goodbye, send_msg]
+#
+# for i in range(len(funcs)):
+#     funcs[i](users[i], msgs[i])
 
-
-# send_msg_admin = send_msg_to("admin")
-# send_msg_admin("Have a nice day!")
-# send_msg_admin("See you!")
-# send_msg_admin("Good luck!")
-
-# send_msg_student = send_msg_to("student")
-# send_msg_student("Good luck!")
-
-# send_msg_to("admin")("Have a nice day!")
-
+# ====================================================================================================
 
 # def simple_decorator(func):  # Декоратор
 #     def simple_wrapper():  # Обёртка
-#         print("====================")
+#         print("simple_wrapper: BEFORE MAIN FUNC")
 #         func()
-#         print("====================")
+#         print("simple_wrapper: AFTER MAIN FUNC")
 #
-#     print("WORKING DECORATOR")
 #     return simple_wrapper
 #
 #
 # def print_message():
-#     print("Hello")
+#     print("print_message: Hello")
 #
 #
 # show_message = simple_decorator(print_message)
 # show_message()
+
+
+# def simple_decorator(func):  # Декоратор
+#     def simple_wrapper():  # Обёртка
+#         print("simple_wrapper: BEFORE MAIN FUNC")
+#         func()
+#         print("simple_wrapper: AFTER MAIN FUNC")
+#
+#     return simple_wrapper
 #
 #
 # @simple_decorator
 # def print_message():
-#     print("Hello")
+#     print("print_message: Hello")
 #
 #
 # print_message()
@@ -472,102 +476,67 @@ import unicodedata
 
 # def simple_decorator(func):
 #     def simple_wrapper(*args):
-#         print("====================")
+#         print("simple_wrapper: BEFORE MAIN FUNC")
 #         func(*args)
-#         print("====================")
+#         print("simple_wrapper: AFTER MAIN FUNC")
 #
-#     print("WORKING DECORATOR")
 #     return simple_wrapper
 #
 #
 # def print_message(name, age=0):
-#     print("Hello", name, age)
+#     print(f"print_message: Hello {name}, {age}")
+#
+# def print_sum(num_1, num_2, num_3):
+#     print(f"print_sum: {num_1} + {num_2} + {num_3} = {num_1 + num_2 + num_3}")
 #
 #
 # show_message = simple_decorator(print_message)
 # show_message("Tom")
+# print()
+# show_sum = simple_decorator(print_sum)
+# show_sum(2, 5, 10)
+
+
+# def simple_decorator(func):
+#     def simple_wrapper(*args):
+#         print("simple_wrapper: BEFORE MAIN FUNC")
+#         func(*args)
+#         print("simple_wrapper: AFTER MAIN FUNC")
+#
+#     return simple_wrapper
 #
 #
 # @simple_decorator
-# def print_message(name):
-#     print("Hello", name)
+# def print_message(name, age=0):
+#     print(f"print_message: Hello {name}, {age}")
+#
+#
+# @simple_decorator
+# def print_sum(num_1, num_2, num_3):
+#     print(f"print_sum: {num_1} + {num_2} + {num_3} = {num_1 + num_2 + num_3}")
 #
 #
 # print_message("Tom")
+# print()
+# print_sum(2, 5, 10)
 
 
 # def simple_decorator(func):
 #     def simple_wrapper(num_1, num_2):
-#         print("====================")
+#         print("simple_wrapper: BEFORE MAIN FUNC")
 #         func(num_1, num_2)
-#         print("====================")
+#         print("simple_wrapper: AFTER MAIN FUNC")
 #     return simple_wrapper
 #
 #
 # def num_sum(num_1, num_2):
-#     print(num_1 + num_2)
+#     print(f"num_sum: {num_1} + {num_2} = {num_1 + num_2}")
 #
 #
 # operation = simple_decorator(num_sum)
 # operation(2, 5)
-#
-#
-# @simple_decorator
-# def num_sum(num_1, num_2):
-#     print(num_1 + num_2)
-#
-#
-# num_sum(2, 5)
 
 # ====================================================================================================
-# Задание 23 - реализуйте следующее меню.
-#              1. Войти
-#              2. Зарегистрироваться
-#              3. Завершить программу
-#              Данные для входа должны хранится в виде списков. Например:
-#              [["admin", "5869"], ["step_guest", "guest8877"], ["zeynalov_f", "1234"]]
-#              При выборе пункта 1 программа должна запрашивать логин и пароль. После входа должно
-#              показываться меню
-#              1. Выйти из аккаунта
-#              2. Завершить программу
-#              Реализовать это меню. Первый пункт должен перекидывать на меню входа.
-#              Реализовать при помощи функций:
-#              show_enter_menu() - показывает меню входа, запрашивает ввод, возвращает выбор
-#              show_main_menu() - показывает главное меню, запрашивает ввод, возвращает выбор
-#              is_account_registered(account_list, login, password) - возвращает True, если
-#              аккаунт зарегистрирован, или False в противном случае.
-#              registration(account_list, new_login, new_password) - добавляет новый аккаунт,
-#              возвращает True, если получилось добавить, и False в противном случае.
-
-# Задание 24 - напишите функцию, которая принимает список, начало, конец и шаг, и возвращает срез
-#              списка. Если в функцию передать отрицательный шаг, то должен получится обратный список.
-#              Сигнатура функции следующая:
-#              make_slice(some_list, start, end, step)
-#              Реализовать при помощи циклов.
-#              Дополнительно - реализовать эту функцию, как range(end), range(start, end),
-#              range(start, end, step), то есть если функция принимает только some_list и end, то
-#              start и step выставляются автоматически.
-
-# Задание 25 - напишите функцию, которая принимает список и элемент, который требуется найти. Функция
-#              должна вернуть -1, если не нашла этот элемент, или индекс первого вхождения элемента,
-#              если он есть в списке. Сигнатура следующая:
-#              list_find(some_list, to_find)
-
-# Задание 26 - используя функцию из задания 25, напишите функцию, которая находит все индексы искомого
-#              элемента, формирует из них список и возвращает этот список. Сигнатура следующая:
-#              list_find_all(some_list, to_find)
-
-# Задание 27 - есть некоторый список имён посетителей и их затрат вида:
-#              [["Tom", 150, 200, 237], ["Bob", 1800], ["Tom", 160, 25], ["Tom", 130]]
-#              Нужно определить, кто из клиентов
-#              часто посещает сервис (3 раза) и часто тратит деньги (5 раз), чтобы в дальнейшем таким
-#              клиентам выдавалась скидка.
-#              Также вывести итоговые затраты таких клиентов с учётом скидки в 5%.
-# ====================================================================================================
-
-# ==============================================LESSON34==============================================
-# Лямбда-выражения и анонимные функции
-# map, filter, sorted
 
 # def num_prod_two(x):
 #     return x * 2
@@ -598,7 +567,7 @@ import unicodedata
 
 
 # nums = [10, 15, 20, 25, 30]
-# nums = list(filter(lambda x: x % 2 == 0, nums))
+# nums = list(filter(lambda x: x % 2 == 0, nums))  # filter требует предикат
 # print(nums)
 
 # nums = [20, 15, 10, 30, 25]
@@ -613,6 +582,11 @@ import unicodedata
 # num_1 = 10
 # num_2 = 20
 # print((lambda x, y: x * y)(num_1, num_2))
+
+
+# ==============================================LESSON34==============================================
+# Решение задач с использованием своих функций
+
 
 # ====================================================================================================
 # ДЗ34
