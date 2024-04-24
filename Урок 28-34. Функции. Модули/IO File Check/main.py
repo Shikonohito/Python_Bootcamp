@@ -65,4 +65,3 @@ for func_name, func in read_funcs.items():
         if os.path.exists(output_file_path):
             remove(output_file_path)
     print()
-

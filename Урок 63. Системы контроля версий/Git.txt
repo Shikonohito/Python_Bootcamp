@@ -85,3 +85,10 @@ git log --oneline
 
 dir - показать информацию о текущей директории
 cls - почистить терминал
+
+
+VIM
+I - INSERT
+ESC - command mode
+:wq - write quit
+:q! - quit without changes
