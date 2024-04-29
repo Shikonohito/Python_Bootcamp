@@ -561,187 +561,187 @@
 
 # ====================================================================================================
 
-class BankCard:
-    __id = ""
-    __f_name = ""
-    __l_name = ""
-    __month = 0
-    __year = 0
-    __balance = 0
-
-    # Это конструктор. Принимает идентификатор, имя, ...
-    def __init__(self, id: str, f_name: str, l_name: str, month: int, year: int, balance: int):
-        self.__id = id
-        self.__f_name = f_name
-        self.__l_name = l_name
-        self.__month = month
-        self.__year = year
-        self.__balance = balance
-
-    def __str__(self):
-        result = f"{self.__id} {self.__f_name} {self.__balance}"
-        return result
-
-    def set_f_name(self, f_name: str):
-        self.__f_name = f_name
-
-    def get_f_name(self):
-        return self.__f_name
-
-    def set_l_name(self, l_name: str):
-        self.__l_name = l_name
-
-    def get_l_name(self):
-        return self.__l_name
-
-    def set_id(self, id: str):
-        self.__id = id
-
-    def get_id(self):
-        return self.__id
-
-    def set_month(self, month: int):
-        if month >= 1 and month <= 12:
-            self.__month = month
-        else:
-            self.__month = 1
-
-    def get_month(self):
-        return self.__month
-
-    def set_year(self, year):
-        if year >= 1900 and year <= 2028:
-            self.__year = year
-        else:
-            self.__year = 2028
-
-    def get_year(self):
-        return self.__year
-
-    def set_balance(self, balance: int):
-        if balance >= 0:
-            self.__balance = balance
-        else:
-            self.__balance = 0
-
-    def get_balance(self):
-        return self.__balance
-
-    def withdraw(self, money: int) -> bool:
-        is_success = False
-        if money >= 0 and money <= self.__balance:
-            self.__balance -= money
-            is_success = True
-        return is_success
-
-    def deposit(self, money: int) -> bool:
-        is_success = False
-        if money > 0:
-            self.__balance += money
-            is_success = True
-        return is_success
-
-
-class Customer:
-    __id = ""
-    __f_name = ""
-    __l_name = ""
-    __bank_cards = list()
-
-    def __init__(self, id: str, f_name: str, l_name: str, bank_cards: list[BankCard]):
-        self.__id = id
-        self.__f_name = f_name
-        self.__l_name = l_name
-        self.__bank_cards = bank_cards
-
-    def __str__(self):
-        result = f"{self.__id} {self.__f_name} {self.__l_name}"
-        return result
-
-    def set_id(self, id: str):
-        self.__id = id
-
-    def get_id(self):
-        return self.__id
-
-    def set_f_name(self, f_name: str):
-        self.__f_name = f_name
-
-    def get_f_name(self):
-        return self.__f_name
-
-    def set_l_name(self, l_name: str):
-        self.__l_name = l_name
-
-    def get_l_name(self):
-        return self.__l_name
-
-    def set_bank_cards(self, bank_cards: list[BankCard]):
-        self.__bank_cards = bank_cards
-
-    def get_bank_cards(self):
-        return self.__bank_cards
-
-    def find_card_index_by_id(self, card_id: str):
-        index = -1
-        for i in range(len(self.__bank_cards)):
-            if self.__bank_cards[i].get_id() == card_id:
-                index = i
-                break
-        return index
-
-    def find_card_by_id(self, card_id: str) -> BankCard:
-        index = self.find_card_index_by_id(card_id)
-        if index == -1:
-            bank_card = None
-        else:
-            bank_card = self.__bank_cards[index]
-        return bank_card
-
-    def add_bank_card(self, new_card: BankCard) -> bool:
-        is_success = False
-        index = self.find_card_index_by_id(new_card.get_id())
-        if index == -1:
-            self.__bank_cards.append(new_card)
-            is_success = True
-        return is_success
-
-    def change_bank_card_by_id(self, current_card_id: str, new_card: BankCard) -> bool:
-        is_success = False
-        index_current = self.find_card_index_by_id(current_card_id)
-        if index_current:
-            index_new_card = self.find_card_index_by_id(new_card.get_id())
-            if index_new_card == -1 or index_new_card == index_current:
-                self.__bank_cards[index_current] = new_card
-                is_success = True
-        return is_success
-
-    def remove_bank_card_by_id(self, card_id: str) -> bool:
-        is_success = False
-        index = self.find_card_index_by_id(card_id)
-        if index != -1:
-            del self.__bank_cards[index]
-            is_success = True
-        return is_success
-
-    def deposit_card_by_id(self, card_id: str, money: int) -> bool:
-        is_success = False
-        index = self.find_card_index_by_id(card_id)
-        if index != -1:
-            is_success = self.__bank_cards[index].deposit(money)
-        return is_success
-
-    def withdraw_card_by_id(self, card_id: str, money: int) -> bool:
-        is_success = False
-        index = self.find_card_index_by_id(card_id)
-        if index != -1:
-            is_success = self.__bank_cards[index].withdraw(money)
-        return is_success
-
-card_1 = BankCard("1234123412341234", "Tom", "Jackson", 5, 2028, 1250)
-card_2 = BankCard("5869586958695869", "Tom", "Jackson", 5, 2028, 750)
-
-customer_1 = Customer("ABC1234", "Tom", "Jackson", [card_1, card_2])
+# class BankCard:
+#     __id = ""
+#     __f_name = ""
+#     __l_name = ""
+#     __month = 0
+#     __year = 0
+#     __balance = 0
+#
+#     # Это конструктор. Принимает идентификатор, имя, ...
+#     def __init__(self, id: str, f_name: str, l_name: str, month: int, year: int, balance: int):
+#         self.__id = id
+#         self.__f_name = f_name
+#         self.__l_name = l_name
+#         self.__month = month
+#         self.__year = year
+#         self.__balance = balance
+#
+#     def __str__(self):
+#         result = f"{self.__id} {self.__f_name} {self.__balance}"
+#         return result
+#
+#     def set_f_name(self, f_name: str):
+#         self.__f_name = f_name
+#
+#     def get_f_name(self):
+#         return self.__f_name
+#
+#     def set_l_name(self, l_name: str):
+#         self.__l_name = l_name
+#
+#     def get_l_name(self):
+#         return self.__l_name
+#
+#     def set_id(self, id: str):
+#         self.__id = id
+#
+#     def get_id(self):
+#         return self.__id
+#
+#     def set_month(self, month: int):
+#         if month >= 1 and month <= 12:
+#             self.__month = month
+#         else:
+#             self.__month = 1
+#
+#     def get_month(self):
+#         return self.__month
+#
+#     def set_year(self, year):
+#         if year >= 1900 and year <= 2028:
+#             self.__year = year
+#         else:
+#             self.__year = 2028
+#
+#     def get_year(self):
+#         return self.__year
+#
+#     def set_balance(self, balance: int):
+#         if balance >= 0:
+#             self.__balance = balance
+#         else:
+#             self.__balance = 0
+#
+#     def get_balance(self):
+#         return self.__balance
+#
+#     def withdraw(self, money: int) -> bool:
+#         is_success = False
+#         if money >= 0 and money <= self.__balance:
+#             self.__balance -= money
+#             is_success = True
+#         return is_success
+#
+#     def deposit(self, money: int) -> bool:
+#         is_success = False
+#         if money > 0:
+#             self.__balance += money
+#             is_success = True
+#         return is_success
+#
+#
+# class Customer:
+#     __id = ""
+#     __f_name = ""
+#     __l_name = ""
+#     __bank_cards = list()
+#
+#     def __init__(self, id: str, f_name: str, l_name: str, bank_cards: list[BankCard]):
+#         self.__id = id
+#         self.__f_name = f_name
+#         self.__l_name = l_name
+#         self.__bank_cards = bank_cards
+#
+#     def __str__(self):
+#         result = f"{self.__id} {self.__f_name} {self.__l_name}"
+#         return result
+#
+#     def set_id(self, id: str):
+#         self.__id = id
+#
+#     def get_id(self):
+#         return self.__id
+#
+#     def set_f_name(self, f_name: str):
+#         self.__f_name = f_name
+#
+#     def get_f_name(self):
+#         return self.__f_name
+#
+#     def set_l_name(self, l_name: str):
+#         self.__l_name = l_name
+#
+#     def get_l_name(self):
+#         return self.__l_name
+#
+#     def set_bank_cards(self, bank_cards: list[BankCard]):
+#         self.__bank_cards = bank_cards
+#
+#     def get_bank_cards(self):
+#         return self.__bank_cards
+#
+#     def find_card_index_by_id(self, card_id: str):
+#         index = -1
+#         for i in range(len(self.__bank_cards)):
+#             if self.__bank_cards[i].get_id() == card_id:
+#                 index = i
+#                 break
+#         return index
+#
+#     def find_card_by_id(self, card_id: str) -> BankCard:
+#         index = self.find_card_index_by_id(card_id)
+#         if index == -1:
+#             bank_card = None
+#         else:
+#             bank_card = self.__bank_cards[index]
+#         return bank_card
+#
+#     def add_bank_card(self, new_card: BankCard) -> bool:
+#         is_success = False
+#         index = self.find_card_index_by_id(new_card.get_id())
+#         if index == -1:
+#             self.__bank_cards.append(new_card)
+#             is_success = True
+#         return is_success
+#
+#     def change_bank_card_by_id(self, current_card_id: str, new_card: BankCard) -> bool:
+#         is_success = False
+#         index_current = self.find_card_index_by_id(current_card_id)
+#         if index_current:
+#             index_new_card = self.find_card_index_by_id(new_card.get_id())
+#             if index_new_card == -1 or index_new_card == index_current:
+#                 self.__bank_cards[index_current] = new_card
+#                 is_success = True
+#         return is_success
+#
+#     def remove_bank_card_by_id(self, card_id: str) -> bool:
+#         is_success = False
+#         index = self.find_card_index_by_id(card_id)
+#         if index != -1:
+#             del self.__bank_cards[index]
+#             is_success = True
+#         return is_success
+#
+#     def deposit_card_by_id(self, card_id: str, money: int) -> bool:
+#         is_success = False
+#         index = self.find_card_index_by_id(card_id)
+#         if index != -1:
+#             is_success = self.__bank_cards[index].deposit(money)
+#         return is_success
+#
+#     def withdraw_card_by_id(self, card_id: str, money: int) -> bool:
+#         is_success = False
+#         index = self.find_card_index_by_id(card_id)
+#         if index != -1:
+#             is_success = self.__bank_cards[index].withdraw(money)
+#         return is_success
+#
+# card_1 = BankCard("1234123412341234", "Tom", "Jackson", 5, 2028, 1250)
+# card_2 = BankCard("5869586958695869", "Tom", "Jackson", 5, 2028, 750)
+#
+# customer_1 = Customer("ABC1234", "Tom", "Jackson", [card_1, card_2])
 
 # print(customer_1.find_card_index_by_id("5869586958695869"))
 # print(customer_1.find_card_by_id("5869586958695869"))
