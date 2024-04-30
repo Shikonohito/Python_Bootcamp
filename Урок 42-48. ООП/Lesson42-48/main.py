@@ -58,49 +58,291 @@
 # Деструктор __del__()
 
 
-# public, protected, private
 # class Student:
-#     f_name = "Unknown"
-#     _l_name = "Unknown"
-#     __age = 0
+#     f_name = "Unknown"  # Public field
+#     age = 18  # Public field
 #
-#     def __init__(self, f_name: str, l_name: str, age: int):
+#     def __init__(self, f_name: str, age: int):
 #         self.f_name = f_name
-#         self._l_name = l_name
-#         self.__age = age
-#
-#     # def get_age(self):
-#     #     return self.__age
-#     #
-#     # def set_age(self, age: int):
-#     #     if age < 0:
-#     #         self.__age = 0
-#     #     else:
-#     #         self.__age = age
+#         self.age = age
 #
 #     def __str__(self):
-#         result = f"{self.f_name} {self._l_name} {self.__age}"
+#         return f"{self.f_name} {self.age}"
+#
+#
+# student_1 = Student("Teston", -55)
+# print(student_1.age)
+#
+# student_2 = Student("Teston", 25)
+# student_2.age = -55
+# print(student_2.age)
+
+
+# class Student:
+#     __f_name = "Unknown"  # Private field
+#     __age = 18  # Private field
+#
+#     def __init__(self, f_name: str, age: int):
+#         self.__f_name = f_name
+#         self.set_age(age)
+#
+#     def __str__(self):
+#         return f"{self.__f_name} {self.__age}"
+#
+#     def set_age(self, age: int):
+#         if age < 0:
+#             self.__age = 18
+#         else:
+#             self.__age = age
+#
+#     def get_age(self):
+#         return self.__age
+#
+#     def set_name(self, name: str):
+#         self.__f_name = name
+#
+#     def get_name(self):
+#         return self.__f_name
+#
+#
+# student_1 = Student("Teston", -55)
+# print(student_1.get_age())
+# student_1.set_age(25)
+# print(student_1.get_age())
+# print(student_1)
+
+# print(student_1.__f_name)
+# print(student_1._Student__f_name)  # Обходной путь
+# student_1.__f_name = "Tom"
+# print(student_1.__f_name)
+# print(student_1)
+
+# ====================================================================================================
+# Инкапсуляция со стороны
+
+# from BankCard import BankCard
+#
+# card_1 = BankCard("5869586958695869", "Teston", "Lebra", 10, 2028, 5000)
+# print(card_1)
+# card_1.set_card_id("1234123412341234")
+# card_1.set_f_name("Tom")
+# card_1.set_l_name("Jackson")
+# card_1.set_month(11)
+# card_1.set_year(2023)
+# card_1.set_balance(3000)
+# print(card_1)
+#
+# print()
+# if card_1.top_up(500):
+#     print("Баланс успешно пополнен")
+# print(card_1)
+#
+# print()
+# if card_1.withdraw(500):
+#     print("Деньги успешно сняты с баланса")
+# print(card_1)
+#
+# print()
+# if card_1.is_expired():
+#     print("Карта просрочена")
+
+# ====================================================================================================
+# Деструктор __del__()
+
+# class Student:
+#     __f_name = "Unknown"  # Private field
+#     __age = 18  # Private field
+#
+#     def __init__(self, f_name: str, age: int):
+#         self.__f_name = f_name
+#         self.set_age(age)
+#
+#     def __str__(self):
+#         return f"{self.__f_name} {self.__age}"
+#
+#     def set_age(self, age: int):
+#         if age < 0:
+#             self.__age = 18
+#         else:
+#             self.__age = age
+#
+#     def get_age(self):
+#         return self.__age
+#
+#     def set_name(self, name: str):
+#         self.__f_name = name
+#
+#     def get_name(self):
+#         return self.__f_name
+#
+#     def __del__(self):
+#         print("DESTRUCTOR IS WORKING")
+#
+#
+# student_1 = Student("Teston", 23)
+#
+#
+# student_2 = Student("Teston", 23)
+# student_3 = student_2
+# print("===================")
+# del student_2
+# print("===================")
+# del student_3
+# print("===================")
+
+
+# ====================================================================================================
+# ПЗ 43.1 - 43.2
+# ====================================================================================================
+
+
+# ==============================================LESSON44==============================================
+# Принципы ООП - Наследование
+# Наследование на примерах
+# Переопределение конструктора и вызов конструктора родителя super()
+# Переопределение метода и вызов базового метода при помощи super()
+
+
+# class Human:
+#     _name = "Unknown"
+#     _age = 0
+#
+#     def __init__(self, name="Unknown", age=0):
+#         self._name = name
+#         self._age = age
+#
+#     def __str__(self):
+#         result = f"{self._name} {self._age}"
 #         return result
 #
-#     # def __del__(self):
-#     #     print("DESTRUCTOR IS WORKING")
+#
+# class Employee(Human):  # Наследование
+#     __work = "Unknown"
+#     __salary = 0
+#
+#     # Переопределение конструктора родителя
+#     def __init__(self, name="Unknown", age=0, work="Unknown", salary=0):
+#         super().__init__(name, age)  # Вызов конструктора родителя
+#         self.__work = work
+#         self.__salary = salary
+#
+#     # Переопределение метода родителя
+#     def __str__(self):
+#         result = f"{self._name} {self._age} {self.__work} {self.__salary}"
+#         return result
 #
 #
-# student_1 = Student("Tom", "Jackson", 23)
-# print(student_1)
+# human_1 = Human("Tom", 25)
+# print(human_1)
+#
+# employee_1 = Employee("Bob", 25, "Programmer", 1250)
+# print(employee_1)
+#
+# print(employee_1._name)
 
+# ====================================================================================================
 
-# student_1._Student__age = -100  # Костыль
-# print(student_1)
+# class Product:
+#     _id = str()
+#     _type = str()
+#     _price = float()
+#
+#     def __init__(self, id: str, type: str, price: float):
+#         self.set_id(id)
+#         self.set_type(type)
+#         self.set_price(price)
+#
+#     def __str__(self):
+#         return f"{self._id} {self._type} {self._price}"
+#
+#     def set_id(self, id: str):
+#         self._id = id
+#
+#     def get_id(self):
+#         return self._id
+#
+#     def set_type(self, type: str):
+#         self._type = type.lower()
+#
+#     def get_type(self):
+#         return self._type
+#
+#     def set_price(self, price: float):
+#         self._price = price
+#
+#     def get_price(self):
+#         return self._price
+#
+#
+# class Phone(Product):
+#     __brand = ""
+#     __model = ""
+#
+#     def __init__(self, id: str, type: str, price: float, brand: str, model: str):
+#         super().__init__(id, type, price)
+#         self.set_brand(brand)
+#         self.set_model(model)
+#
+#     def __str__(self):
+#         return f"{self._id} {self._type} {self.__brand} {self.__model} {self._price}"
+#
+#     def set_brand(self, brand: str):
+#         self.__brand = brand
+#
+#     def get_brand(self):
+#         return self.__brand
+#
+#     def set_model(self, model: str):
+#         self.__model = model
+#
+#     def get_model(self):
+#         return self.__model
+#
+#
+# class Laptop(Product):
+#     __cpu = ""
+#     __gpu = ""
+#
+#     def __init__(self, id: str, type: str, price: float, cpu: str, gpu: str):
+#         super().__init__(id, type, price)
+#         self.set_cpu(cpu)
+#         self.set_gpu(gpu)
+#
+#     def __str__(self):
+#         return f"{self._id} {self._type} {self.__cpu} {self.__gpu} {self._price}"
+#
+#     def set_cpu(self, cpu: str):
+#         self.__cpu = cpu
+#
+#     def get_cpu(self):
+#         return self.__cpu
+#
+#     def set_gpu(self, gpu: str):
+#         self.__gpu = gpu
+#
+#     def get_gpu(self):
+#         return self.__gpu
+#
+#
+# def product_total_sum(product_list: list[Product]):
+#     total_sum = 0
+#     for product in product_list:
+#         total_sum += product.get_price()
+#     return total_sum
+#
+#
+# phone_1 = Phone("ABC123", "Phone", 5000, "Samsung", "A99")
+# phone_2 = Phone("ABC124", "Phone", 9999, "iPhone", "99 Plus")
+# laptop_1 = Laptop("ABC125", "Laptop", 4000, "i9-13980HX", "RTX 4080")
+# laptop_2 = Laptop("ABC126", "Laptop", 4500, "AMD Ryzen 5 7645HX", "RTX 4050")
+#
+# products = [phone_1, phone_2, laptop_1, laptop_2]
+#
+# total_price = product_total_sum(products)
+# print(total_price)
 
-
-# student_1 = Student("Tom", "Jackson", 23)
-# student_2 = student_1
-# del student_1
-# del student_2
-# print("NOT WORKED DESTRUCTOR")
-
-
+# ====================================================================================================
+# ПЗ 44.1 - 44.2
 # ====================================================================================================
 # Задание 1 - создать класс "Студент". Этот класс должен хранить поля "Идентификатор", "Имя", "Фамилия",
 #             "Отчество", "Группа", "Список оценок", "Средняя оценка".
@@ -152,55 +394,7 @@
 #             Для класса "Покупатель" определить метод покупки продуктов из списка продуктов.
 #             При вызове этого метода, из баланса покупателя должна сниматься итоговая сумма продуктов
 #             из списка продуктов, а список продуктов должен опустошаться.
-# ====================================================================================================
 
-
-# ==============================================LESSON44==============================================
-# Принципы ООП - Наследование
-# Наследование на примерах
-# Переопределение конструктора и вызов конструктора родителя super()
-# Переопределение метода и вызов базового метода при помощи super()
-
-
-# class Human:
-#     _name = "Unknown"
-#     _age = 0
-#
-#     def __init__(self, name="Unknown", age=0):
-#         self._name = name
-#         self._age = age
-#
-#     def __str__(self):
-#         result = f"{self._name} {self._age}"
-#         return result
-#
-#
-# class Employee(Human):  # Наследование
-#     __work = "Unknown"
-#     __salary = 0
-#
-#     # Переопределение конструктора родителя
-#     def __init__(self, name="Unknown", age=0, work="Unknown", salary=0):
-#         super().__init__(name, age)  # Вызов конструктора родителя
-#         self.__work = work
-#         self.__salary = salary
-#
-#     # Переопределение метода родителя
-#     # def __str__(self):
-#     #     result = f"{super().__str__()} {self.__work} {self.__salary}"
-#     #     return result
-#
-#
-# human_1 = Human("Tom", 25)
-# print(human_1)
-#
-# employee_1 = Employee("Bob", 25, "Programmer", 1250)
-# print(employee_1)
-#
-# print(employee_1._name)
-
-
-# ====================================================================================================
 # Задание 9 - создать класс "Человек". Этот класс должен хранить поля "Имя", "Фамилия", "Возраст".
 #             Все поля должны быть protected. Определить для класса конструктор __init__, методы __str__,
 #             сеттеры и геттеры.
