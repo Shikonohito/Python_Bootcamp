@@ -1,6 +1,6 @@
 # ==============================================LESSON59==============================================
 # Работа с файлами. Readline, Writeline, Pickle. Бинарная запись DB.
-import datetime
+
 
 # with open("test01.txt", "w") as test_file:
 #     test_file.write("HELLO")
