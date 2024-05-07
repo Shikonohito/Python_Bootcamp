@@ -566,40 +566,45 @@
 #         return result
 #
 #
+# class Teacher:
+#     __name = ""
+#
+#     def __init__(self, name=""):
+#         self.__name = name
+#
+#     def __str__(self):
+#         return f"{self.__name}"
+#
+#
 # class Group:
 #     __title = "Unknown"
 #     __amount_students = 0
 #     __students = list()
+#     __teacher = Teacher()
 #
-#     def __init__(self, title="Unknown"):
+#     def __init__(self, teacher_name: str, title):
+#         self.__teacher = Teacher(teacher_name)  # Композиция
 #         self.__title = title
 #
 #     def add_student(self, student: Student):  # Агрегация
 #         self.__amount_students += 1
 #         self.__students.append(student)
 #
-#     def create_student(self, name: str, age: int):
-#         new_student = Student(name, age)  # Композиция
-#         self.add_student(new_student)
-#
 #     def get_title(self):
 #         return self.__title
 #
 #     def __str__(self):
-#         result = f"{self.__title} {self.__amount_students}"
+#         result = f"Teacher: {self.__teacher}\nGroup: {self.__title}\t\tNumber of students: {self.__amount_students}"
 #         for student in self.__students:
 #             result += "\n{}".format(student)
 #         return result
-
-
+#
+#
 # student_1 = Student("Tom", 25)
-# group = Group("Python")
+# group = Group("Teston", "Python")
 # group.add_student(student_1)
 # print(group)
 
-# print()
-# group.create_student("Kate", 25)
-# print(group)
 
 # ====================================================================================================
 # ДЗ 48.1 - 48.2
