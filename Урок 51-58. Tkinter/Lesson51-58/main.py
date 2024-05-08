@@ -806,240 +806,121 @@
 
 
 # ====================================================================================================
-# class Person:
-#     __id = "0000000"
-#     __name = "Unknown"
-#     __age = 0
+# class Student:
+#     __id = ""
+#     __name = ""
+#     __grades = list()
 #
-#     def __init__(self, id: str, name: str, age: int):
+#     def __init__(self, id: str, name: str, grades=None):
 #         self.__id = id
-#         self.__name = name
-#         self.set_age(age)
+#         self.__name = name.title()
+#         if grades:
+#             self.__grades = grades
+#         else:
+#             self.__grades = list()
 #
 #     def __str__(self):
 #         result = f"{self.__id} {self.__name}"
 #         return result
 #
-#     def set_id(self, new_id: str):
-#         self.__id = new_id
-#
-#     def get_id(self):
-#         return self.__id
-#
-#     def set_name(self, new_name: str):
-#         self.__name = new_name
-#
-#     def get_name(self):
-#         return self.__name
-#
-#     def set_age(self, new_age: int):
-#         if new_age < 0:
-#             new_age = 0
-#         self.__age = new_age
-#
-#     def get_age(self):
-#         return self.__age
-#
-#
-# class Product:
-#     __id = "0000000"
-#     __name = "Unknown"
-#     __price = 0
-#
-#     def __init__(self, id: str, name: str, price: int):
+#     def set_id(self, id: str):
 #         self.__id = id
-#         self.__name = name
-#         self.set_price(price)
-#
-#     def __str__(self):
-#         result = f"{self.__id} {self.__name}"
-#         return result
-#
-#     def set_id(self, new_id: str):
-#         self.__id = new_id
 #
 #     def get_id(self):
 #         return self.__id
 #
-#     def set_name(self, new_name: str):
-#         self.__name = new_name
+#     def set_name(self, name: str):
+#         self.__name = name
 #
 #     def get_name(self):
 #         return self.__name
 #
-#     def set_price(self, price: int):
-#         if price < 0:
-#             price = 0
-#         self.__price = price
+#     def set_grades(self, grades: list[int]):
+#         self.__grades = grades
 #
-#     def get_price(self):
-#         return self.__price
+#     def get_grades(self):
+#         return self.__grades
+#
+#     def add_grade(self, grade: int):
+#         is_success = False
+#         if 1 <= grade and grade <= 12:
+#             self.__grades.append(grade)
+#             is_success = True
+#         return is_success
 #
 #
 # class DB:
-#     __person_list = list()
-#     __product_list = list()
+#     __student_list = list()
 #
 #     def __init__(self):
-#         self.__person_list = list()
-#         self.__product_list = list()
+#         self.__student_list = list()
 #
-#     def set_persons(self, new_list: list[Person]):
-#         self.__person_list = new_list
+#     def set_students(self, student_list: list[Student]):
+#         self.__student_list = student_list
 #
-#     def get_persons(self) -> list[Person]:
-#         return self.__person_list
+#     def get_students(self):
+#         return tuple(self.__student_list)
 #
-#     def set_products(self, new_list: list[Product]):
-#         self.__product_list = new_list
-#
-#     def get_products(self) -> list[Product]:
-#         return self.__product_list
-#
-#     def find_person_index_by_id(self, person_id):
+#     def find_by_id(self, student_id: str):
 #         found_index = -1
-#         for i in range(len(self.__person_list)):
-#             if person_id == self.__person_list[i].get_id():
+#         for i in range(len(self.__student_list)):
+#             if student_id == self.__student_list[i].get_id():
 #                 found_index = i
 #                 break
 #         return found_index
 #
-#     def add_person(self, new_person: Person) -> bool:
+#     def add_student(self, student: Student):
 #         is_success = False
-#         index = self.find_person_index_by_id(new_person.get_id())
+#         index = self.find_by_id(student.get_id())
 #         if index == -1:
-#             self.__person_list.append(new_person)
+#             self.__student_list.append(student)
 #             is_success = True
 #         return is_success
 #
-#     def remove_person_by_id(self, person_id) -> bool:
+#     def remove_student_by_id(self, student_id: str):
 #         is_success = False
-#         index = self.find_person_index_by_id(person_id)
+#         index = self.find_by_id(student_id)
 #         if index != -1:
-#             del self.__person_list[index]
+#             del self.__student_list[index]
 #             is_success = True
 #         return is_success
 #
-#     def change_person_by_id(self, person_id, new_person: Person) -> bool:
+#     def change_student_by_id(self, student_id: str, student: Student):
 #         is_success = False
-#         index = self.find_person_index_by_id(person_id)
+#         index = self.find_by_id(student_id)
 #         if index != -1:
-#             new_person_id = new_person.get_id()
-#             new_index = self.find_person_index_by_id(new_person_id)
-#             if person_id == new_person_id or new_index == -1:
-#                 self.__person_list[index] = new_person
+#             new_person_id = student.get_id()
+#             new_index = self.find_by_id(new_person_id)
+#             if student_id == new_person_id or new_index == -1:
+#                 self.__student_list[index] = student
 #                 is_success = True
 #         return is_success
 #
-#     def get_person_by_id(self, person_id) -> Person:
-#         index = self.find_person_index_by_id(person_id)
+#     def get_student_by_id(self, student_id: str) -> None | Student:
+#         index = self.find_by_id(student_id)
 #         if index != -1:
-#             person = self.__person_list[index]
+#             student = self.__student_list[index]
 #         else:
-#             person = None
-#         return person
-#
-#     def find_product_index_by_id(self, product_id):
-#         found_index = -1
-#         for i in range(len(self.__product_list)):
-#             if product_id == self.__product_list[i].get_id():
-#                 found_index = i
-#                 break
-#         return found_index
-#
-#     def add_product(self, new_product: Product) -> bool:
-#         is_success = False
-#         index = self.find_product_index_by_id(new_product.get_id())
-#         if index == -1:
-#             self.__product_list.append(new_product)
-#             is_success = True
-#         return is_success
-#
-#     def remove_product_by_id(self, product_id) -> bool:
-#         is_success = False
-#         index = self.find_product_index_by_id(product_id)
-#         if index != -1:
-#             del self.__product_list[index]
-#             is_success = True
-#         return is_success
-#
-#     def change_product_by_id(self, product_id, new_product: Product) -> bool:
-#         is_success = False
-#         index = self.find_product_index_by_id(product_id)
-#         if index != -1:
-#             new_product_id = new_product.get_id()
-#             new_index = self.find_product_index_by_id(new_product_id)
-#             if product_id == new_product_id or new_index == -1:
-#                 self.__product_list[index] = new_product
-#                 is_success = True
-#         return is_success
-#
-#     def get_product_by_id(self, product_id) -> Product:
-#         index = self.find_product_index_by_id(product_id)
-#         if index != -1:
-#             product = self.__product_list[index]
-#         else:
-#             product = None
-#         return product
-#
-#
-# # db_person = DB()
-# #
-# # person_1 = Person("ABC1234", "Tom", 18)
-# # db_person.add_person(person_1)
-# #
-# # person_2 = Person("XYZ5869", "Bob", 24)
-# # db_person.add_person(person_2)
-# #
-# # person_3 = Person("CBE1324", "Tom", 28)
-# # db_person.add_person(person_3)
-# #
-# # person_4 = Person("ABC1234", "Kate", 24)
-# # db_person.add_person(person_4)  # Не добавит
-# #
-# # person_5 = Person("RTE2345", "Jim", 16)
-# # db_person.add_person(person_5)
-# #
-# # for person in db_person.get_persons():
-# #     print(person)
-# # print("=========")
-# #
-# # person_6 = Person("ABC1234", "Arthur", 30)
-# # db_person.change_person_by_id("ABC1234", person_6)
-# #
-# # for person in db_person.get_persons():
-# #     print(person)
-# # print("=========")
-# #
-# # db_person.remove_person_by_id("ABC1234")
-# #
-# # for person in db_person.get_persons():
-# #     print(person)
+#             student = None
+#         return student
 #
 #
 # import tkinter
 # from tkinter import ttk
 #
-# person_1 = Person("ABC1234", "Tom", 18)
-# person_2 = Person("XYZ5869", "Bob", 24)
-# person_3 = Person("CBE1324", "Tom", 28)
-# person_4 = Person("XYZ1234", "Kate", 24)
-# person_5 = Person("RTE2345", "Jim", 16)
+# student_1 = Student("ABC1234", "Tom")
+# student_2 = Student("XYZ5869", "Bob")
+# student_3 = Student("CBE1324", "Tom")
+# student_4 = Student("XYZ1234", "Kate")
+# student_5 = Student("RTE2345", "Jim")
 #
-# product_1 = Product("50004", "Apple", 5)
-# product_2 = Product("50005", "Bread", 2)
-# product_3 = Product("50006", "Tomato", 6)
 #
 # db = DB()
-# db.add_person(person_1)
-# db.add_person(person_2)
-# db.add_person(person_3)
-# db.add_person(person_4)
-# db.add_person(person_5)
-#
-# db.add_product(product_1)
-# db.add_product(product_2)
-# db.add_product(product_3)
+# db.add_student(student_1)
+# db.add_student(student_2)
+# db.add_student(student_3)
+# db.add_student(student_4)
+# db.add_student(student_5)
 #
 # root = tkinter.Tk()
 # root.title("Listbox")
@@ -1047,34 +928,23 @@
 # root.resizable(False, False)
 #
 #
-# def show_persons():
+# def show_students():
 #     # Скрываем всё, что не нужно
-#     frame_product.pack_forget()
-#     frame_operations.pack_forget()
+#     frame_grades.pack_forget()
 #
 #     # Показываем всё, что требуется показать
-#     frame_person.pack(fill="both", expand=True)
+#     frame_student.pack(fill="both", expand=True)
 #     root.geometry("720x480")
 #
 #
-# def show_products():
+# def show_grades():
 #     # Скрываем всё, что не нужно
-#     frame_person.pack_forget()
-#     frame_operations.pack_forget()
+#     frame_student.pack_forget()
 #
 #     # Показываем всё, что нужно
-#     frame_product.pack(fill="both", expand=True)
-#     root.geometry("680x350")
-#
-#
-# def show_operations():
-#     # Скрываем всё, что не нужно
-#     frame_person.pack_forget()
-#     frame_product.pack_forget()
-#
-#     # Показываем всё, что нужно
-#     frame_operations.pack(fill="both", expand=True)
+#     frame_grades.pack(fill="both", expand=True)
 #     root.geometry("720x480")
+#
 #
 # def close_program():
 #     root.quit()
@@ -1083,403 +953,250 @@
 # root_menu = tkinter.Menu(root)
 # root.config(menu=root_menu)
 # show_menu = tkinter.Menu(root_menu, tearoff=False)
-# show_menu.add_command(label="Persons", command=show_persons)
-# show_menu.add_command(label="Products", command=show_products)
-# show_menu.add_command(label="Operations", command=show_operations)
+# show_menu.add_command(label="Students", command=show_students)
+# show_menu.add_command(label="Grades", command=show_grades)
 # show_menu.add_separator()
 # show_menu.add_command(label="Exit", command=close_program)
 # root_menu.add_cascade(label="Show", menu=show_menu)
 #
 #
-# # BEGIN FRAME PERSON
-# frame_person = tkinter.Frame(root)
-# frame_person.pack(expand=True, fill="both")
+# # BEGIN FRAME STUDENT
+# frame_student = tkinter.Frame(root)
+# frame_student.pack(expand=True, fill="both")
 #
-# person_listbox = tkinter.Listbox(frame_person, font=("Arial", 18), height=13)
-# person_listbox.place(x=20, y=20)
-#
-#
-# def fill_person_listbox():
-#     person_listbox.delete(0, tkinter.END)
-#     for person in db.get_persons():
-#         person_listbox.insert(tkinter.END, str(person))
+# student_listbox = tkinter.Listbox(frame_student, font=("Arial", 18), height=13)
+# student_listbox.place(x=20, y=20)
 #
 #
-# fill_person_listbox()
-#
-# person_id_lbl = tkinter.Label(frame_person, text="ID:", font=("Arial", 18))
-# person_id_lbl.place(x=340, y=20)
-#
-# person_id_entry = tkinter.Entry(frame_person, font=("Arial", 18))
-# person_id_entry.place(x=340, y=60)
-#
-# person_name_lbl = tkinter.Label(frame_person, text="Name:", font=("Arial", 18))
-# person_name_lbl.place(x=340, y=100)
-#
-# person_name_entry = tkinter.Entry(frame_person, font=("Arial", 18))
-# person_name_entry.place(x=340, y=140)
-#
-# person_age_lbl = tkinter.Label(frame_person, text="Age:", font=("Arial", 18))
-# person_age_lbl.place(x=340, y=180)
-#
-# person_age_entry = tkinter.Entry(frame_person, font=("Arial", 18), width=3)
-# person_age_entry.place(x=340, y=220)
-#
-# person_info_lbl = tkinter.Label(frame_person, text="User info:", font=("Arial", 18))
-# person_info_lbl.place(x=340, y=300)
-#
-# person_info = tkinter.Label(frame_person, text="", font=("Arial", 18))
-# person_info.place(x=340, y=340)
+# def fill_student_listbox():
+#     student_listbox.delete(0, tkinter.END)
+#     for student in db.get_students():
+#         student_listbox.insert(tkinter.END, str(student))
 #
 #
-# def add_person():
+# fill_student_listbox()
+#
+# student_id_lbl = tkinter.Label(frame_student, text="ID:", font=("Arial", 18))
+# student_id_lbl.place(x=340, y=20)
+#
+# student_id_entry = tkinter.Entry(frame_student, font=("Arial", 18))
+# student_id_entry.place(x=340, y=60)
+#
+# student_name_lbl = tkinter.Label(frame_student, text="Name:", font=("Arial", 18))
+# student_name_lbl.place(x=340, y=100)
+#
+# student_name_entry = tkinter.Entry(frame_student, font=("Arial", 18))
+# student_name_entry.place(x=340, y=140)
+#
+# student_info_lbl = tkinter.Label(frame_student, text="User info:", font=("Arial", 18))
+# student_info_lbl.place(x=340, y=300)
+#
+# student_info = tkinter.Label(frame_student, text="", font=("Arial", 18))
+# student_info.place(x=340, y=340)
+#
+#
+# def add_student():
 #     # Считываем данные из полей фронтенда
-#     new_id = person_id_entry.get()
-#     new_name = person_name_entry.get()
-#     new_age = int(person_age_entry.get())
+#     new_id = student_id_entry.get()
+#     new_name = student_name_entry.get()
 #
 #     # Формируем из данных объект
-#     new_person = Person(new_id, new_name, new_age)
+#     new_student = Student(new_id, new_name)
 #
 #     # Добавляем объект в бэкенд
-#     if db.add_person(new_person):
+#     if db.add_student(new_student):
 #         # Формируем строковое представление объекта
-#         new_person_listbox = str(new_person)
+#         new_student_listbox = str(new_student)
 #
 #         # Добавляем строковое представление объекта во фронтенд
-#         person_listbox.insert(tkinter.END, new_person_listbox)
+#         student_listbox.insert(tkinter.END, new_student_listbox)
 #
-#         person_combobox["values"] = db.get_persons()
+#         student_combobox["values"] = db.get_students()
 #
 #     # Для проверки соответствия наполнения бэкенда и фронтенда
 #     print()
-#     for person in db.get_persons():
-#         print(f"{person.get_id()} {person.get_name()} {person.get_age()}")
+#     for student in db.get_students():
+#         print(student)
 #
 #
-# person_add_btn = tkinter.Button(frame_person, text="New", font=("Arial", 14), command=add_person)
-# person_add_btn.place(x=20, y=400)
+# student_add_btn = tkinter.Button(frame_student, text="New", font=("Arial", 14), command=add_student)
+# student_add_btn.place(x=20, y=400)
 #
 #
-# def delete_person():
+# def delete_student():
 #     # Считываем индексы выделенных элементов из фронтенда
-#     person_listbox_ind = person_listbox.curselection()
-#     if len(person_listbox_ind) > 0:
+#     student_listbox_ind = student_listbox.curselection()
+#     if len(student_listbox_ind) > 0:
 #         # Считываем элемент по индексу
-#         selected_person = person_listbox.get(person_listbox_ind[0])
+#         selected_student = student_listbox.get(student_listbox_ind[0])
 #
 #         # Отдельно выделяем идентификатор
-#         customer_id = selected_person.split()[0]
+#         student_id = selected_student.split()[0]
 #
 #         # Пытаемся удалить из бэкенда
-#         if db.remove_person_by_id(customer_id):
+#         if db.remove_student_by_id(student_id):
 #             # Удаляем из фронтенда
-#             person_listbox.delete(person_listbox_ind[0])
+#             student_listbox.delete(student_listbox_ind[0])
 #
-#             person_combobox["values"] = db.get_persons()
+#             student_combobox["values"] = db.get_students()
 #
 #     # Для проверки соответствия наполнения бэкенда и фронтенда
 #     print()
-#     for person in db.get_persons():
-#         print(f"{person.get_id()} {person.get_name()} {person.get_age()}")
+#     for student in db.get_students():
+#         print(student)
 #
 #
-# person_delete_btn = tkinter.Button(frame_person, text="Delete", font=("Arial", 14), command=delete_person)
-# person_delete_btn.place(x=75, y=400)
+# student_delete_btn = tkinter.Button(frame_student, text="Delete", font=("Arial", 14), command=delete_student)
+# student_delete_btn.place(x=75, y=400)
 #
 #
-# def change_person():
+# def change_student():
 #     # Считываем индексы выделенных элементов из фронтенда
-#     person_listbox_ind = person_listbox.curselection()
-#     if len(person_listbox_ind) > 0:
+#     student_listbox_ind = student_listbox.curselection()
+#     if len(student_listbox_ind) > 0:
 #         # Считываем элемент по индексу
-#         selected_person = person_listbox.get(person_listbox_ind[0])
+#         selected_student = student_listbox.get(student_listbox_ind[0])
 #
 #         # Отдельно выделяем идентификатор
-#         selected_id = selected_person.split()[0]
+#         selected_id = selected_student.split()[0]
 #
 #         # Считываем данные из полей фронтенда
-#         new_id = person_id_entry.get()
-#         new_name = person_name_entry.get()
-#         new_age = int(person_age_entry.get())
+#         new_id = student_id_entry.get()
+#         new_name = student_name_entry.get()
 #
 #         # Формируем из данных объект
-#         new_person = Person(new_id, new_name, new_age)
+#         new_student = Student(new_id, new_name)
 #
 #         # Пытаемся изменить объект в бэкенде
-#         if db.change_person_by_id(selected_id, new_person):
+#         if db.change_student_by_id(selected_id, new_student):
 #             # Формируем строковое представление объекта
-#             new_person_listbox = str(new_person)
+#             new_student_listbox = str(new_student)
 #
 #             # Изменяем данные во фронтенде
-#             person_listbox.delete(person_listbox_ind[0])
-#             person_listbox.insert(person_listbox_ind[0], new_person_listbox)
+#             student_listbox.delete(student_listbox_ind[0])
+#             student_listbox.insert(student_listbox_ind[0], new_student_listbox)
 #
-#             person_combobox["values"] = db.get_persons()
+#             student_combobox["values"] = db.get_students()
 #
 #     # Для проверки соответствия наполнения бэкенда и фронтенда
 #     print()
-#     for person in db.get_persons():
-#         print(f"{person.get_id()} {person.get_name()} {person.get_age()}")
+#     for student in db.get_students():
+#         print(student)
 #
 #
-# person_change_btn = tkinter.Button(frame_person, text="Change", font=("Arial", 14), command=change_person)
-# person_change_btn.place(x=150, y=400)
+# student_change_btn = tkinter.Button(frame_student, text="Change", font=("Arial", 14), command=change_student)
+# student_change_btn.place(x=150, y=400)
 #
 #
-# def show_person_data():
+# def show_student_data():
 #     # Считываем индексы выделенных элементов из фронтенда
-#     person_listbox_ind = person_listbox.curselection()
-#     if len(person_listbox_ind) > 0:
+#     student_listbox_ind = student_listbox.curselection()
+#     if len(student_listbox_ind) > 0:
 #         # Считываем элемент по индексу
-#         selected_person = person_listbox.get(person_listbox_ind[0])
+#         selected_student = student_listbox.get(student_listbox_ind[0])
 #
 #         # Отдельно выделяем идентификатор
-#         selected_id = selected_person.split()[0]
+#         selected_id = selected_student.split()[0]
 #
 #         # Запрашиваем из бэкенда объект по идентификатору
-#         person = db.get_person_by_id(selected_id)
-#         if person:
-#             person_data = f"ID: {person.get_id()}\nName: {person.get_name()}\nAge: {person.get_age()}"
-#             person_info.config(text=person_data, justify="left")
+#         student = db.get_student_by_id(selected_id)
+#         if student:
+#             student_data = f"ID: {student.get_id()}\nName: {student.get_name()}"
+#             student_info.config(text=student_data, justify="left")
 #
 #
-# person_info_btn = tkinter.Button(frame_person, text="Info", font=("Arial", 14), command=show_person_data)
-# person_info_btn.place(x=235, y=400)
+# student_info_btn = tkinter.Button(frame_student, text="Info", font=("Arial", 14), command=show_student_data)
+# student_info_btn.place(x=235, y=400)
 #
-# # def fill_person_info(event):
-# #     person_listbox_ind = person_listbox.curselection()
-# #     if len(person_listbox_ind) > 0:
-# #         selected_person = person_listbox.get(person_listbox_ind[0])
-# #         selected_id = selected_person.split()[0]
-# #         person = db_person.get_person_by_id(selected_id)
-# #         if person:
-# #             person_id_entry.delete(0, tkinter.END)
-# #             person_id_entry.insert(0, person.get_id())
-# #             person_name_entry.delete(0, tkinter.END)
-# #             person_name_entry.insert(0, person.get_name())
-# #             person_age_entry.delete(0, tkinter.END)
-# #             person_age_entry.insert(0, person.get_age())
+# # def fill_student_info(event):
+# #     student_listbox_ind = student_listbox.curselection()
+# #     if len(student_listbox_ind) > 0:
+# #         selected_student = student_listbox.get(student_listbox_ind[0])
+# #         selected_id = selected_student.split()[0]
+# #         student = db.get_student_by_id(selected_id)
+# #         if student:
+# #             student_id_entry.delete(0, tkinter.END)
+# #             student_id_entry.insert(0, student.get_id())
+# #             student_name_entry.delete(0, tkinter.END)
+# #             student_name_entry.insert(0, student.get_name())
 # #
 # #
-# # person_listbox.bind("<<ListboxSelect>>", fill_person_info)
+# # student_listbox.bind("<<ListboxSelect>>", fill_student_info)
 #
-# # END FRAME PERSON
+# # END FRAME STUDENT
 #
-# # BEGIN FRAME PRODUCT
-# frame_product = tkinter.Frame(root)
-# frame_product.pack_forget()
+# # BEGIN FRAME GRADES
+# frame_grades = tkinter.Frame(root)
+# frame_grades.pack_forget()
 #
-# product_listbox = tkinter.Listbox(frame_product, font=("Arial", 18), height=8)
-# product_listbox.place(x=20, y=20)
+# student_lbl = tkinter.Label(frame_grades, text="Student:", font=("Arial", 16))
+# student_lbl.place(x=20, y=20)
+# student_combobox = ttk.Combobox(frame_grades, values=db.get_students(), font=("Arial", 18), state="readonly")
+# student_combobox.place(x=20, y=60)
 #
+# selected_student_info_lbl = tkinter.Label(frame_grades, text="Student:", font=("Arial", 16))
+# selected_student_info_lbl.place(x=400, y=20)
+# selected_student_info = tkinter.Label(frame_grades, text="", font=("Arial", 16))
+# selected_student_info.place(x=480, y=20)
 #
-# def fill_product_listbox():
-#     product_listbox.delete(0, tkinter.END)
-#     for product in db.get_products():
-#         product_listbox.insert(tkinter.END, str(product))
+# grades_listbox = tkinter.Listbox(frame_grades, font=("Arial", 18), height=13)
+# grades_listbox.place(x=400, y=60)
 #
-#
-# fill_product_listbox()
-#
-# product_id_lbl = tkinter.Label(frame_product, text="ID:", font=("Arial", 18))
-# product_id_lbl.place(x=20, y=260)
-#
-# product_id_entry = tkinter.Entry(frame_product, font=("Arial", 18), width=10)
-# product_id_entry.place(x=20, y=300)
-#
-# product_name_lbl = tkinter.Label(frame_product, text="Name:", font=("Arial", 18))
-# product_name_lbl.place(x=220, y=260)
-#
-# product_name_entry = tkinter.Entry(frame_product, font=("Arial", 18))
-# product_name_entry.place(x=220, y=300)
-#
-# product_price_lbl = tkinter.Label(frame_product, text="Price:", font=("Arial", 18))
-# product_price_lbl.place(x=540, y=260)
-#
-# product_price_entry = tkinter.Entry(frame_product, font=("Arial", 18), width=8)
-# product_price_entry.place(x=540, y=300)
-#
-# product_info_lbl = tkinter.Label(frame_product, text="Product info:", font=("Arial", 18))
-# product_info_lbl.place(x=460, y=20)
-#
-# product_info = tkinter.Label(frame_product, text="", font=("Arial", 18))
-# product_info.place(x=460, y=60)
+# student_grade_lbl = tkinter.Label(frame_grades, text="Grade:", font=("Arial", 16))
+# student_grade_lbl.place(x=20, y=100)
+# student_grade_entry = tkinter.Entry(frame_grades, width=3, font=("Arial", 16))
+# student_grade_entry.place(x=100, y=100)
 #
 #
-# def add_product():
-#     # Считываем данные из полей фронтенда
-#     new_id = product_id_entry.get()
-#     new_name = product_name_entry.get()
-#     new_price = int(product_price_entry.get())
-#
-#     # Формируем из данных объект
-#     new_product = Product(new_id, new_name, new_price)
-#
-#     # Добавляем объект в бэкенд
-#     if db.add_product(new_product):
-#         # Формируем строковое представление объекта
-#         new_product_listbox = str(new_product)
-#
-#         # Добавляем строковое представление объекта во фронтенд
-#         product_listbox.insert(tkinter.END, new_product_listbox)
-#
-#         product_combobox["values"] = db.get_products()
-#
-#     # Для проверки соответствия наполнения бэкенда и фронтенда
-#     print()
-#     for product in db.get_products():
-#         print(f"{product.get_id()} {product.get_name()} {product.get_price()}")
+# def fill_grades_listbox(student: Student):
+#     grades_listbox.delete(0, tkinter.END)
+#     for grade in student.get_grades():
+#         grades_listbox.insert(tkinter.END, str(grade))
 #
 #
-# product_add_btn = tkinter.Button(frame_product, text="New", font=("Arial", 14), command=add_product)
-# product_add_btn.place(x=300, y=20)
-#
-#
-# def delete_product():
-#     # Считываем индексы выделенных элементов из фронтенда
-#     product_listbox_ind = product_listbox.curselection()
-#     if len(product_listbox_ind) > 0:
-#         # Считываем элемент по индексу
-#         selected_product = product_listbox.get(product_listbox_ind[0])
-#
-#         # Отдельно выделяем идентификатор
-#         product_id = selected_product.split()[0]
-#
-#         # Пытаемся удалить из бэкенда
-#         if db.remove_product_by_id(product_id):
-#             # Удаляем из фронтенда
-#             product_listbox.delete(product_listbox_ind[0])
-#
-#             product_combobox["values"] = db.get_products()
-#
-#     # Для проверки соответствия наполнения бэкенда и фронтенда
-#     print()
-#     for product in db.get_products():
-#         print(f"{product.get_id()} {product.get_name()} {product.get_price()}")
-#
-#
-# product_delete_btn = tkinter.Button(frame_product, text="Delete", font=("Arial", 14), command=delete_product)
-# product_delete_btn.place(x=300, y=70)
-#
-#
-# def change_product():
-#     # Считываем индексы выделенных элементов из фронтенда
-#     product_listbox_ind = product_listbox.curselection()
-#     if len(product_listbox_ind) > 0:
-#         # Считываем элемент по индексу
-#         selected_product = product_listbox.get(product_listbox_ind[0])
-#
-#         # Отдельно выделяем идентификатор
-#         selected_id = selected_product.split()[0]
-#
-#         # Считываем данные из полей фронтенда
-#         new_id = product_id_entry.get()
-#         new_name = product_name_entry.get()
-#         new_price = int(product_price_entry.get())
-#
-#         # Формируем из данных объект
-#         new_product = Product(new_id, new_name, new_price)
-#
-#         # Пытаемся изменить объект в бэкенде
-#         if db.change_product_by_id(selected_id, new_product):
-#             # Формируем строковое представление объекта
-#             new_product_listbox = str(new_product)
-#
-#             # Изменяем данные во фронтенде
-#             product_listbox.delete(product_listbox_ind[0])
-#             product_listbox.insert(product_listbox_ind[0], new_product_listbox)
-#
-#             product_combobox["values"] = db.get_products()
-#
-#     # Для проверки соответствия наполнения бэкенда и фронтенда
-#     print()
-#     for product in db.get_products():
-#         print(f"{product.get_id()} {product.get_name()} {product.get_price()}")
-#
-#
-# product_change_btn = tkinter.Button(frame_product, text="Change", font=("Arial", 14), command=change_product)
-# product_change_btn.place(x=300, y=120)
-#
-#
-# def show_product_data():
-#     # Считываем индексы выделенных элементов из фронтенда
-#     product_listbox_ind = product_listbox.curselection()
-#     if len(product_listbox_ind) > 0:
-#         # Считываем элемент по индексу
-#         selected_product = product_listbox.get(product_listbox_ind[0])
-#
-#         # Отдельно выделяем идентификатор
-#         selected_id = selected_product.split()[0]
-#
-#         # Запрашиваем из бэкенда объект по идентификатору
-#         product = db.get_product_by_id(selected_id)
-#         if product:
-#             product_data = f"ID: {product.get_id()}\nName: {product.get_name()}\nPrice: {product.get_price()}₼"
-#             product_info.config(text=product_data, justify="left")
-#
-#
-# product_info_btn = tkinter.Button(frame_product, text="Info", font=("Arial", 14), command=show_product_data)
-# product_info_btn.place(x=300, y=170)
-# # END FRAME PRODUCT
-#
-# # BEGIN FRAME OPERATIONS
-# frame_operations = tkinter.Frame(root)
-# frame_operations.pack_forget()
-#
-# person_lbl = tkinter.Label(frame_operations, text="Person:", font=("Arial", 16))
-# person_lbl.place(x=20, y=20)
-# person_combobox = ttk.Combobox(frame_operations, values=db.get_persons(), font=("Arial", 18), state="readonly")
-# person_combobox.place(x=20, y=60)
-#
-# # person_list = db.get_persons()
-# # person_list[0].set_bank_cards([{"id": "1234", "balance": 100}, {"id": "5869", "balance": 200}])
-# # person_list[1].set_bank_cards([{"id": "4221", "balance": 99999}, {"id": "0001", "balance": 1}])
-#
-# person_cards_combobox = ttk.Combobox(frame_operations, values=[], font=("Arial", 18), state="readonly")
-# person_cards_combobox.place(x=20, y=300)
-#
-#
-# # def fill_person_cards_combobox(event):
-# #     person_str = person_combobox.get()
-# #     id_person_str = person_str.split()[0]
+# # def show_grades_event(event):
+# #     student_str = student_combobox.get()
+# #     selected_student_info.config(text=f"{student_str}", justify="left")
 # #
-# #     obj_person = db.get_person_by_id(id_person_str)
+# #     student_str_id = student_str.split()[0]
+# #     student = db.get_student_by_id(student_str_id)
 # #
-# #     some_list = list()
-# #     for card in obj_person.get_bank_cards():
-# #         if card["balance"] > 200:
-# #             some_list.append(card)
-# #
-# #     person_cards_combobox["values"] = some_list
-# #     person_cards_combobox.set("")
+# #     if student:
+# #         fill_grades_listbox(student)
 # #
 # #
-# # person_combobox.bind("<<ComboboxSelected>>", fill_person_cards_combobox)
-#
-# product_lbl = tkinter.Label(frame_operations, text="Product:", font=("Arial", 16))
-# product_lbl.place(x=20, y=120)
-# product_combobox = ttk.Combobox(frame_operations, values=db.get_products(), font=("Arial", 18), state="readonly")
-# product_combobox.place(x=20, y=160)
-#
-# operations_info = tkinter.Label(frame_operations, text="", font=("Arial", 16))
-# operations_info.place(x=20, y=200)
+# # student_combobox.bind("<<ComboboxSelected>>", show_grades_event)
 #
 #
-# def make_operation():
-#     person_str = person_combobox.get()
-#     product_str = product_combobox.get()
+# def show_grades():
+#     student_str = student_combobox.get()
+#     selected_student_info.config(text=f"{student_str}", justify="left")
 #
-#     # person_id = person_str.split()[0]
-#     # product_id = product_str.split()[0]
-#     # selected_person = db.get_person_by_id(person_id)
-#     # selected_product = db.get_product_by_id(product_id)
+#     student_str_id = student_str.split()[0]
+#     student = db.get_student_by_id(student_str_id)
 #
-#     operations_info.config(text=f"Person: {person_str}\nProduct: {product_str}", justify="left")
+#     if student:
+#         fill_grades_listbox(student)
 #
 #
-# make_operation_btn = tkinter.Button(frame_operations, text="Make operation", font=("Arial", 16), command=make_operation)
-# make_operation_btn.place(x=400, y=20)
+# show_grades_btn = tkinter.Button(frame_grades, text="Show grades", font=("Arial", 16), command=show_grades)
+# show_grades_btn.place(x=400, y=430)
+#
+#
+# def add_grade():
+#     grade = int(student_grade_entry.get())
+#     student_str = student_combobox.get()
+#     student_str_id = student_str.split()[0]
+#     student = db.get_student_by_id(student_str_id)
+#
+#     if student:
+#         student.add_grade(grade)
+#         show_grades()
+#
+#
+# add_grades_btn = tkinter.Button(frame_grades, text="Add grade", font=("Arial", 16), command=add_grade)
+# add_grades_btn.place(x=20, y=140)
+#
 # # END FRAME OPERATIONS
 #
 # root.mainloop()
