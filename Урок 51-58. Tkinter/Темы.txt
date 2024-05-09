@@ -1,0 +1,4 @@
+Python Bootcamp - Урок 51-52. Знакомство с Tkinter. Позиционирование. Виджеты Label, Entry, Button. Операции над виджетом Listbox.
+Python Bootcamp - Урок 53-54. Использование ООП и Tkinter.
+Python Bootcamp - Урок 55-56. Использование виджетов Frame и Menu.
+Python Bootcamp - Урок 57-58. Добавление картинок в Tkinter. Знакомство с некоторыми виджетами.

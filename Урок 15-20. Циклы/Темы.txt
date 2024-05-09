@@ -1,0 +1,3 @@
+Python Bootcamp - Урок 15-16. Цикл while. Управляющие операторы continue, break, else.
+Python Bootcamp - Урок 17-18. Цикл for. Вложенные циклы.
+Python Bootcamp - Урок 19-20. Разбор задач. Создание консольного меню.

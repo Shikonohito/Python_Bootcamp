@@ -1,0 +1,2 @@
+Python Bootcamp - Урок 37-38. Коллекции tuple, set, dict.
+Python Bootcamp - Урок 39-40. Работа со вложенными словарями.
