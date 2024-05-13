@@ -146,6 +146,7 @@ salary_per_month = input("Введите зарплату за месяц: ")
 count_month = 12
 
 total_salary = salary_per_month * count_month
+print()
 print("Зарплата за", count_month, "месяцев равна", total_salary)
 
 ПРИМЕР
@@ -165,7 +166,7 @@ bd_year = int(input("Введите год рождения: ")
 now_year = datetime.now().year
 
 years = bd_year - now_year
-
+print()
 print("Прошло" + years + "лет.")
 
 ПРИМЕР
@@ -183,7 +184,7 @@ hours = int(input("Введите сколько часов прошло: "))
 
 hours = hours // 24
 count_full_days = hours % 24
-
+print()
 print("Сейчас", hours, "час.")
 print("Всего полных дней:", count_full_days)
 
