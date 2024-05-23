@@ -1,0 +1,124 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Практическое задание 03</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    a {
+      color: #FFC000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Практическое Задание 3.1</h2>
+        <p>Сделайте скриншот экрана и сохраните его как файл на рабочем столе. Затем создайте текстовый документ на рабочем столе, выделите только что созданный документ и скриншот, затем заархивируйте их.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 3.2</h2>
+        <p>Посчитайте общую минимальную мощность, которая потребуется для следующей сборки ПК:
+          <br>— Процессор Intel Core I5 12400f
+          <br>— Видеокарта RTX 4060 Inno3d compact
+          <br>— ОЗУ 16gb ddr4 3200 G.Skill Aegis (2 модуля по 8гб)
+          <br>— Материнская плата Gigabyte b760m ds3h ddr4
+          <br>— SSD NVME 1tb XPG SX6000 LITE
+          <br>— Кулер ID-Cooling SE-214 XT Basic
+          <br>— Корпус PowerCase Mistral Micro D3B ARGB
+        </p>
+        <p>Укажите, какую мощность Вы бы порекомендовали для данной сборки и почему.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 3.3</h2>
+        <p>На сайте <a href="https://pcpartpicker.com/">https://pcpartpicker.com/</a> сделайте сборку ПК, которая удовлетворяет следующим требованиям:
+          <br>— Выбран CPU
+          <br>— Выбран CPU Cooler
+          <br>— Выбран Motherboard
+          <br>— Выбран Memory
+          <br>— Выбран Storage
+          <br>— Выбран Video Card
+          <br>— Выбран Case
+          <br>— Выбран Power Supply
+        </p>
+      </div>
+    </div>
+  </div>
+
+</body>
