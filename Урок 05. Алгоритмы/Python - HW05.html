@@ -1,0 +1,131 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Домашнее задание 03</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #333333 0%, #404040 57%, #333333 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #343434 0%, #363636 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+      min-width: 900px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    .right-rect img {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    a {
+      color: #FFC000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2><strong>Примечание</strong></h2>
+        <p>Используйте сайт <a href="https://programforyou.ru/block-diagram-redactor">https://programforyou.ru/block-diagram-redactor</a> для создания блок-схем.
+          Словесный алгоритм записывайте при помощи блока <span class="hl-text">"Текст / комментарий"</span>.</p>
+        <img src="https://i.imgur.com/UZktLG6.png" alt="Text/Comments" height="150px">
+        <p>После того, как выполните все задания, нажмите <span class="hl-text">"Сохранить схему (json)"</span>. Сохранённый файл заархивируйте и отправьте полученный архив в качестве домашнего задания.
+          <span class="hl-text">Линейные алгоритмы не принимаются!</span></p>
+        <img src="https://i.imgur.com/9KIIhnl.png" alt="Save as json" height="150px">
+        <h3>Пример блок-схемы и словесного алгоритма:</h3>
+        <img src="https://i.imgur.com/BXcNO4m.png" alt="Example" width="900px">
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 5.1</h2>
+        <p>Напишите в словесной форме и составьте блок-схему алгоритма работы кассира.</p>
+
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 5.2</h2>
+        <p>Каждый день в ресторане посетителей просят поставить балл <span class="hl-text">от 1 до 5 включительно</span>, где 1 - очень плохо, а 5 - очень хорошо. В конце рабочей смены подсчитывают средний балл. Если средний балл <span class="hl-text">от 4.7 и до 4.9 не включительно</span>, то работникам выдают премию. Если средний балл <span class="hl-text">от 4.9 и выше</span>, то работникам выдают двойную премию. Если средний балл <span class="hl-text">ниже 4.0</span>, то работников штрафуют. Напишите в словесной форме и составьте блок-схему алгоритма подсчёта среднего балла и выдачи премии или штрафа.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 5.3</h2>
+        <p>На фотосессию пришли 7 спортсменов. Фотограф решил сделать общую фотографию, где спортсмены стоят по <span class="hl-text">возрастанию роста</span>. Напишите в словесной форме и составьте блок-схему алгоритма выставления спортсменов по возрастанию роста.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 5.4</h2>
+        <p>Преподавателю дали задание подсчитать среднюю оценку студентов по одному предмету. Если средняя оценка <span class="hl-text">ниже 7 баллов</span>, то студенту нужно поставить метку <span class="hl-text">"Недопущен"</span>. В противном случае нужно поставить метку <span class="hl-text">"Допущен"</span>. Напишите в словесной форме и составьте блок-схему алгоритма подсчёта средней оценки и допуска.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 5.5</h2>
+        <p>После хорошего ужина осталась куча грязной посуды. Напишите в словесной форме и составьте блок-схему алгоритма мытья посуды.</p>
+      </div>
+    </div>
+  </div>
+</body>
