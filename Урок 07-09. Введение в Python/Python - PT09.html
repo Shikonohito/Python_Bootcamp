@@ -1,0 +1,249 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT09</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .number {
+      color: #2AACB8;
+    }
+
+    .grey {
+      color: #BCBEC4;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Примечание</h2>
+        <p>Оформляйте ввод и вывод данных.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 9.1</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли два положительных числа</span> и <span class="hl-text">выводит в консоль сумму</span>, <span class="hl-text">разность</span>, <span class="hl-text">произведение</span> и <span class="hl-text">частное этих двух чисел</span>. Вывод оформите в соответствии с примером.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите первое положительное число: <span class="input">8</span>
+Введите второе положительное число: <span class="input">2</span>
+
+8 + 2 = 10
+8 - 2 = 6
+8 * 2 = 16
+8 / 2 = 4</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 9.2</h2>
+        <p><span class="hl-text">Teston Lebra</span> и его четверо друзей решили собрать деньги для совместного отпуска. Напишите программу, которая <span class="number"><b>5</b></span> <span class="hl-text">раз запрашивает ввод денег как числа с консоли</span> и <span class="hl-text">выводит в консоль итоговую сумму денег</span>. Используйте сокращённую запись для суммирования.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите первую сумму: <span class="input">150</span>
+Введите вторую сумму: <span class="input">250</span>
+Введите третью сумму: <span class="input">400</span>
+Введите четвёртую сумму: <span class="input">300</span>
+Введите пятую сумму: <span class="input">250</span>
+
+Итоговая сумма денег: 1350</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 9.3</h2>
+        <p>Выполните <span class="hl-text">Практическое Задание 9.2</span>, используя <span class="hl-text">только <span class="number"><b>2</b></span> переменные</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 9.4</h2>
+        <p>Выполните <span class="hl-text">Практическое Задание 9.2</span>, <span class="hl-text">не использовав переменные</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 9.5</h2>
+        <p>Руководитель попросил <span class="hl-text">Teston Lebra</span> поработать над системой безопасности. <span class="hl-text">Teston</span>, недолго думая, решил ввести для всех сотрудников уникальный четырёхзначный код, который проверяется умножением цифр. Напишите программу, которая <span class="hl-text">запрашивает с консоли четырёхзначное число</span> и <span class="hl-text">выводит в консоль произведение цифр числа</span>. Используйте сокращённую запись для произведения.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите четырёхзначное число: <span class="input">5869</span>
+
+Произведение цифр равно 2160</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 9.6</h2>
+        <p><span class="hl-text">Teston Lebra</span> нужно оформить четырёхзначное число в виде X---X---X---X, где X - это число. Напишите программу, которая <span class="hl-text">запрашивает с консоли четырёхзначное число</span> и <span class="hl-text">выводит в консоль в требуемом виде</span>. Используйте разделитель при выводе.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите четырёхзначное число: <span class="input">5869</span>
+
+5---8---6---9</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 9.7</h2>
+        <p><span class="hl-text">Teston Lebra</span> решил поклеить обои, но не знает, сколько нужно взять рулонов и во сколько денег это обойдётся. Напишите программу, которая <span class="hl-text">запрашивает с консоли площадь поклейки в метрах</span>, <span class="hl-text">сколько метров в рулоне</span>, <span class="hl-text">цену за рулон</span>, затем <span class="hl-text">выводит в консоль количество рулонов</span> и <span class="hl-text">итоговую цену</span>.</p>
+        <h3>Подсказка</h3>
+        <p>Чтобы получилось целое число, нужно метры в рулоне поделить на <span class="number"><b>2</b></span> и добавить к итоговому количеству площади поклейки, затем нацело поделить на метры в рулоне.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите площадь поклейки (метры): <span class="input">98</span>
+Введите количество метров в рулоне: <span class="input">25</span>
+Введите цену за рулон: <span class="input">125</span>
+
+Потребуется 4 рулона
+Итоговая сумма: 500</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 9.8</h2>
+        <p><span class="hl-text">Teston Lebra</span> любит путешествовать на своей машине. Он собрался в долгую дорогу, но не знает, сколько денег ему понадобится на бензин. Напишите программу, которая <span class="hl-text">запрашивает с консоли общее расстояние поездки в километрах</span>, <span class="hl-text">средний расход топлива на 100 км (в литрах)</span> и <span class="hl-text">стоимость литра бензина</span>, затем <span class="hl-text">выводит в консоль общую стоимость бензина для поездки</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите общее расстояние поездки в километрах: <span class="input">500</span>
+Введите средний расход топлива на 100 км (литры): <span class="input">8</span>
+Введите стоимость литра бензина: <span class="input">45</span>
+
+Общая стоимость бензина для поездки: 18000.00</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 9.9</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли месяц как число</span> и <span class="hl-text">выводит в консоль, к какому кварталу относится этот месяц</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите номер месяца: <span class="input">1</span>
+
+Месяц 1 находится в 1 квартале года.</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 9.10</h2>
+        <p><span class="hl-text">Teston Lebra</span> хочет сделать вклад в банк под годовой процент, но не хочет долго высчитывать, сколько денег у него будет через несколько лет. Напишите программу, которая <span class="hl-text">запрашивает с консоли начальную сумму вклада</span>, <span class="hl-text">годовую процентную ставку</span> и <span class="hl-text">количество лет</span>, затем <span class="hl-text">выводит в консоль сумму вклада через указанное количество лет</span>.</p>
+        <p>Программа должна считать по формуле:
+          <br><span class="grey"><b><span class="number">&ltсумма_вклада&gt</span> = <span class="number">&ltначальная_сумма_вклада&gt</span> * ((<span class="number">1</span> + <span class="number">&ltгодовая_процентная_ставка&gt</span> / <span class="number">100</span>) ** <span class="number">&ltколичество_лет&gt</span>)</b></span>
+        </p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите начальную сумму вклада: <span class="input">1000</span>
+Введите годовую процентную ставку: <span class="input">5</span>
+Введите количество лет: <span class="input">5</span>
+
+Сумма вклада через 5 лет: 1276.28</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 9.11</h2>
+        <p>На корпоративе у <span class="hl-text">Teston Lebra</span> была корзина с подарками для сотрудников. Напишите программу, которая <span class="hl-text">запрашивает с консоли количество сотрудников</span> и <span class="hl-text">количество подарков</span>, затем <span class="hl-text">выводит в консоль сколько подарков досталось каждому сотруднику</span> и <span class="hl-text">сколько подарков осталось в корзине</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите количество сотрудников: <span class="input">4</span>
+Введите количество подарков: <span class="input">11</span>
+
+Количество подарков у каждого сотрудника: 2
+Оставшееся количество подарков: 3</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

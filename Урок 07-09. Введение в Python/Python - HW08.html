@@ -1,0 +1,480 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - HW08</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #343434 0%, #363636 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+      min-width: 600px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+
+    .string {
+      color: #6AAB73;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+    }
+
+    .self {
+      color: #94558D;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+    }
+
+    .number {
+      color: #2AACB8;
+    }
+
+    .comments {
+      color: #7A7E85;
+    }
+
+    .metadata {
+      color: #B3AE60;
+    }
+
+    .built-in {
+      color: #8888C6;
+    }
+
+    .function {
+      color: #56A8F5;
+    }
+
+    .special-names {
+      color: #B200B2;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+    }
+
+    ol {
+      counter-reset: list;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ol li {
+      counter-increment: list;
+      position: relative;
+      padding-left: 1.2em;
+    }
+
+    ol li::before {
+      content: counter(list) ". ";
+      position: absolute;
+      left: 0;
+      color: #FFC000;
+      font-weight: bold;
+    }
+
+    .grey {
+      color: #BCBEC4;
+    }
+    
+        .right-rect img {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2><strong>Примечание</strong></h2>
+        <p>Оформляйте ввод и вывод данных в соответствии с примерами заданий. Используйте только то, что было пройденно до этого урока включительно.</p>
+        <h3>Как отправлять</h3>
+        <p>Под каждую выдачу домашнего задания создавайте новый файл с кодом и заполняйте его, как указано ниже.</p>
+        <img src="https://i.imgur.com/Wn3QvIk.png" alt="example" height="250px">
+        <p>После выполнения всех заданий заархивируйте файл с кодом и отправьте полученный архив. Для этого в <span class="hl-text">PyCharm</span> слева сверху нажмите <span class="hl-text">Правой Кнопкой Мыши</span> по файлу с кодом, затем наведите курсор на <span class="hl-text">"Open In"</span> и нажмите <span class="hl-text">Левой Кнопкой Мыши</span> на <span class="hl-text">"Explorer"</span>. Откроется проводник в том месте, где находится Ваш файл.</p>
+        <img src="https://i.imgur.com/kNb2ERu.png" alt="File location" height="600px">
+        <p>Чтобы заархивировать файл, нажмите <span class="hl-text">Правой Кнопкой Мыши</span> по файлу с кодом, затем наведите курсор на <span class="hl-text">"WinRAR"</span> и нажмите <span class="hl-text">Левой Кнопкой Мыши</span> по <span class="hl-text">"Add to "Название""</span>. Полученный архив отправляйте в качестве выполненного домашнего задания.</p>
+        <img src="https://i.imgur.com/zMkNUCA.png" alt="Archiving" width="600px">
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 8.1</h2>
+        <p>Выведите в консоль следующую надпись, сохранив формат и используя один <code class="python"><b>print</b></code>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>To be
+or not
+to be</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 8.2</h2>
+        <p>Выведите в консоль следующую надпись, сохранив формат и используя один <code class="python"><b>print</b></code>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>"Life is what happens
+       when
+           you're busy making other plans"
+                                       John Lennon.</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 8.3</h2>
+        <p>Напишите конвертер валют. Программа <span class="hl-text">запрашивает с консоли название исходной валюты</span>, <span class="hl-text">целевой валюты</span>, <span class="hl-text">курс конверсии</span>, <span class="hl-text">сумму для конвертации</span>, затем <span class="hl-text">выводит в консоль конвертированную сумму</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите сумму для конвертации: <span class="input">100</span>
+Введите исходную валюту (например, USD): <span class="input">USD</span>
+Введите целевую валюту (например, EUR): <span class="input">EUR</span>
+Введите курс конверсии (сколько EUR за 1 USD): <span class="input">0.92</span>
+
+Результат: 92.0 EUR</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 8.4</h2>
+        <p><span class="hl-text">Teston Lebra</span> нашёл другую работу, другой кредит и влез в долги за коммунальные услуги. Напишите программу, которая <span class="hl-text">запрашивает с консоли зарплату за месяц</span>, <span class="hl-text">сумму месячного платежа по кредиту в банке</span> и <span class="hl-text">задолжность за коммунальные услуги</span>, затем <span class="hl-text">выводит в консоль сумму, которая останется после всех выплат</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите зарплату за месяц: <span class="input">1000</span>
+Введите сумму месячного платежа по кредиту в банке: <span class="input">250</span>
+Введите задолжность за коммунальные услуги: <span class="input">320</span>
+
+Итоговая сумма после выплат: 430</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 8.5</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли рост</span> и <span class="hl-text">выводит в консоль оптимальный вес на основе роста</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите рост: <span class="input">180</span>
+
+Оптимальный вес (кг): 80</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 8.6</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли год</span>, <span class="hl-text">месяц</span> и <span class="hl-text">день рождения</span>, <span class="hl-text">формирует из этих чисел одно число</span> и <span class="hl-text">выводит полученное число в консоль</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите год: <span class="input">2000</span>
+Введите месяц: <span class="input">2</span>
+Введите день: <span class="input">10</span>
+
+2000210</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 8.7</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли количество секунд</span> и <span class="hl-text">выводит в консоль количество полных лет</span>, <span class="hl-text">дней</span>, <span class="hl-text">часов</span>, <span class="hl-text">минут</span> и <span class="hl-text">секунд</span>. Считайте, что в году <span class="number"><b>365</b></span> дней.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите количество секунд: <span class="input">31719845</span>
+
+Лет: 1
+Дней: 2
+Часов: 3
+Минут: 4
+Секунд: 5</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 8.8</h2>
+        <p><span class="hl-text">Teston Lebra</span> и его друзья решили пойти в ресторан и не знают, сколько денег с собой взять, чтобы каждый мог заплатить за себя. Напишите программу, которая <span class="hl-text">запрашивает с консоли общую сумму счёта</span>, <span class="hl-text">процент чаевых</span> и <span class="hl-text">количество человек</span>, затем <span class="hl-text">выводит в консоль сумму, которую должен оплатить каждый человек</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите общую сумму счета: <span class="input">5000</span>
+Введите процент чаевых: <span class="input">10</span>
+Введите количество человек: <span class="input">4</span>
+
+Каждый должен заплатить: 1375.0</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 8.9</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли четырёхзначное число</span> и <span class="hl-text">выводит в консоль каждую цифру числа на отдельной строке</span>. Решите задание двумя способами.</p>
+
+        <h3>Подсказки к первому способу:</h3>
+        <ol>
+          <li>Любое число можно представить в виде <span class="grey"><b><span class="number">1</span> * <span class="number">1000</span> + <span class="number">2</span> * <span class="number">100</span> + <span class="number">3</span> * <span class="number">10</span> + <span class="number">4</span> * <span class="number">1</span> = <span class="number">1234</span></b>.</li>
+          <li><span class="grey"><b><span class="number">&ltчисло&gt</span> % <span class="number">10</span> = <span class="number">&ltпоследняя_цифра_числа&gt</span></b></span>.</li>
+          <li><span class="grey"><b><span class="number">&ltчисло&gt</span> // <span class="number">10</span> = <span class="number">&ltчисло_без_последней_цифры&gt</span></b></span>.</li>
+          <li>Используйте смешанные деления, чтобы выделять конкретные цифры в числе.</li>
+        </ol>
+        <h3>Подсказки ко второму способу:</h3>
+        <ol>
+          <li>Любое число можно представить в виде <span class="grey"><b><span class="number">123</span> * <span class="number">10</span> + <span class="number">4</span> = <span class="number">1234</span></b></span>.</li>
+          <li><span class="grey"><b><span class="number">&ltчисло&gt</span> % <span class="number">10</span> = <span class="number">&ltпоследняя_цифра_числа&gt</span></b></span>.</li>
+          <li><span class="grey"><b><span class="number">&ltчисло&gt</span> // <span class="number">10</span> = <span class="number">&ltчисло_без_последней_цифры&gt</span></b></span>.</li>
+          <li>Выделите последнюю цифру, избавьтесь от последней цифры в исходном числе. Повторите это ещё <span class="number"><b>3</b></span> раза.</li>
+        </ol>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите четырёхзначное число: <span class="input">1234</span>
+
+Первая цифра: 1
+Вторая цифра: 2
+Третья цифра: 3
+Четвёртая цифра: 4</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 8.10</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли четырёхзначное число</span>, <span class="hl-text">переворачивает введённое число</span> и <span class="hl-text">выводит полученное число в консоль</span>. Решите задание двумя способами.</p>
+
+        <h3>Подсказки к первому способу:</h3>
+        <ol>
+          <li>Выделите каждую цифру в отдельные переменные при помощи операций <span class="grey"><b>%</b></span> и <span class="grey"><b>//</b></span>.</li>
+          <li>Умножьте каждую полученную цифру на соответствующие десятки и найдите их сумму: <span class="grey"><b><span class="number">4</span> * <span class="number">1000</span> + <span class="number">3</span> * <span class="number">100</span> + <span class="number">2</span> * <span class="number">10</span> + <span class="number">1</span> * <span class="number">1</span> = <span class="number">4321</span></b></span>.</li>
+        </ol>
+        <h3>Подсказки ко второму способу:</h3>
+        <ol>
+          <li>Выделите последнюю цифру исходного числа при помощи операции <span class="grey"><b>%</b></span>.</li>
+          <li>Умножьте перевёрнутое число на <span class="number"><b>10</b></span>.</li>
+          <li>Прибавьте к нему выделенную цифру.</li>
+          <li>Избавьтесь от последней цифры исходного числа при помощи опеарции <span class="grey"><b>//</b></span>.</li>
+          <li>Повторите шаги <span class="number">1</span>-<span class="number">4</span> ещё три раза.</li>
+        </ol>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите четырёхзначное число: <span class="input">1234</span>
+
+Перевёрнутое число: 4321</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 8.11</h2>
+        <p><span class="hl-text">Teston Lebra</span> решил попробовать себя в качестве программиста и написал программу, которая запрашивает с консоли количество зарплаты в месяц и выводит в консоль итоговую зарплату за <span class="number">12</span> месяцев. Но программа почему-то работает некорректно. <span class="hl-text">Исправьте программу, чтобы она работала верно</span>, и <span class="hl-text">рядом напишите комментарии о том, почему изменённый вариант должен работать верно</span>.</p>
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">salary_per_month = input("Введите зарплату за месяц: ")
+count_month = 12
+
+total_salary = salary_per_month * count_month
+print()
+print("Зарплата за", count_month, "месяцев равна", total_salary)</code></pre>
+        </div>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите зарплату за месяц: <span class="input">500</span>
+
+Зарплата за 12 месяцев равна 6000</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function() {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>
