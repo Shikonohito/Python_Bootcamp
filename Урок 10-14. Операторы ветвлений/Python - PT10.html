@@ -1,0 +1,431 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT10</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+    .string {
+          color: #6AAB73;
+      }
+
+      .string-bracket,
+      .string-esc,
+      .keyword {
+        color: #CF8E6D;
+      }
+
+      .self {
+          color: #94558D;
+      }
+
+      .string-bracket-inner {
+        color: #BCBEC4;
+      }
+
+      .number {
+        color: #2AACB8;
+      }
+
+      .comments {
+        color: #7A7E85;
+      }
+
+      .metadata {
+        color: #B3AE60;
+      }
+
+      .built-in {
+        color: #8888C6;
+      }
+
+      .function {
+        color: #56A8F5;
+      }
+
+      .special-names {
+        color: #B200B2;
+      }
+
+      .keyword-argument {
+        color: #AA4926;
+      }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Практическое Задание 10.1</h2>
+        <p>Что произойдёт в коде ниже при запуске программы?</p>
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">num_1 = 5
+num_2 = 8
+print(num_1 > num_2)</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 10.2</h2>
+        <p>Что произойдёт в коде ниже при запуске программы?</p>
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">num_1 = 5
+num_2 = 5
+print(num_1 > num_2)</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 10.3</h2>
+        <p>Что произойдёт в коде ниже при запуске программы?</p>
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">num_1 = 5
+num_2 = 5
+print(num_1 >= num_2)</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 10.4</h2>
+        <p>Что произойдёт в коде ниже при запуске программы?</p>
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">num_1 = 5
+num_2 = 8
+print(num_1 % num_2 == 0)</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 10.5</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли число</span> и <span class="hl-text">в зависимости от числа выводит в консоль положительное</span>, <span class="hl-text">отрицательное</span> или <span class="hl-text">равно нулю</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите число: <span class="input">5</span>
+
+Число положительное.</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 10.6</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли два числа</span>, затем <span class="hl-text">выводит в консоль выбор</span> - найти сумму чисел или произведение чисел. Затем <span class="hl-text">запрашивает с консоли выбор</span>. В зависимости от выбора программа <span class="hl-text">выводит в консоль сумму</span> или <span class="hl-text">произведение</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите первое число: <span class="input">5</span>
+Введите второе число: <span class="input">10</span>
+1. Найти сумму чисел
+2. Найти произведение чисел
+Выберите действие: <span class="input">2</span>
+
+Произведение чисел равно 50.</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 10.7</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли число</span> и <span class="hl-text">выводит в консоль</span>, что оно <span class="hl-text">чётное</span> или <span class="hl-text">нечётное</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите число: <span class="input">4</span>
+
+Число чётное.</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 10.8</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли два числа</span>, затем <span class="hl-text">выводит в консоль максимальное из двух чисел</span>. Если числа одинаковые, то программа <span class="hl-text">об этом сообщает</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите первое число: <span class="input">3</span>
+Введите второе число: <span class="input">6</span>
+
+Максимальное число: 6</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 10.9</h2>
+        <p>В магазине <span class="hl-text">"Всё Не Дорого"</span> при покупке на сумму <span class="number"><b>1000</b></span> клиенту выдают скидку на <span class="number"><b>5%</b></span>. Если же клиент ещё является постоянным, то дополнительно выдаётся скидка на <span class="number"><b>10%</b></span>. Напишите программу, которая <span class="hl-text">запрашивает с консоли <span class="number"><b>3</b></span> стоимости</span>, затем <span class="hl-text">запрашивает с консоли подтверждение того, что клиент является постоянным</span>, и <span class="hl-text">выводит в консоль итоговую стоимость с учётом скидки</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите цену первого товара: <span class="input">200</span>
+Введите цену второго товара: <span class="input">650</span>
+Введите цену третьего товара: <span class="input">500</span>
+Клиент является постоянным (Y/N): <span class="input">Y</span>
+======================================
+Итоговая стоимость: 1147.5</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 10.10</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли итоговую стоимость</span> и <span class="hl-text">сумму, которую дал покупатель</span>, затем <span class="hl-text">выводит в консоль сдачу</span>, если покупатель дал больше, чем требуется, или <span class="hl-text">сумму доплаты</span>, если покупатель дал меньше.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите итоговую стоимость: <span class="input">1250</span>
+Введите оплату покупателя: <span class="input">2000</span>
+
+Сдача: 750</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 10.11</h2>
+        <p>В магазине <span class="hl-text">"Всё Не Дорого"</span> стала доступна доставка по адресу. Сама доставка стоит <span class="number"><b>10%</b></span> от стоимости суммы корзины. Если же сумма корзины больше <span class="number"><b>700</b></span>, то доставка бесплатная. Если же сумма корзины больше <span class="number"><b>1000</b></span>, то клиенту дополнительно выдают скидку на <span class="number"><b>5%</b></span>. Напишите программу, которая <span class="hl-text">запрашивает с консоли сумму корзины</span> и <span class="hl-text">выводит в консоль сколько клиент должен оплатить за корзину</span> и <span class="hl-text">за доставку</span>. </p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите сумму корзины: <span class="input">1200</span>
+
+Итоговая стоимость: 1140
+Стоимость доставки: бесплатно</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function() {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+   
+    document.addEventListener('DOMContentLoaded', function () {
+          const codeBlocks = document.querySelectorAll('code.python');
+          codeBlocks.forEach(function (codeBlock, index) {
+              let innerHTML = codeBlock.innerHTML;
+              console.log(index, innerHTML);
+
+              // STRING
+              let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+              innerHTML = innerHTML.replace(regex, (match) => {
+                  return `<span class="string">${match}</span>`;
+              });
+
+              regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+              innerHTML = innerHTML.replace(regex, (match) => {
+                  return `<span class="string">${match}</span>`;
+              });
+
+            
+              // KEYWORD CLASS
+              regex = /(class)(?!=)/g;
+              innerHTML = innerHTML.replace(regex, (match) => {
+                  return `<span class="keyword">${match}</span>`;
+              });
+
+              // KEYWORDS
+              const keywords = [
+                  'def', 'for', 'in', 'while', 'and', 'or', 'not', 
+                  'if', 'elif', 'else', 'continue', 'break', 'try', 'with', 
+                  'as', 'except', 'finally', 'return', 'True', 'False'
+              ];
+
+              regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+              innerHTML = innerHTML.replace(regex, (match) => {
+                  return `<span class="keyword">${match}</span>`;
+              });
+
+
+              // KEYWORD NUMBER
+              regex = /\b\d+(\.\d+)?/g;
+              innerHTML = innerHTML.replace(regex, (match) => {
+                  return `<span class="number">${match}</span>`;
+              });
+
+
+              // STRING-ESC
+              regex = /\\./g;
+              innerHTML = innerHTML.replace(regex, (match) => {
+                  return `<span class="string-esc">${match}</span>`;
+              });
+
+
+              // COMMENTS
+              regex = /(#.*$)/gm;
+              innerHTML = innerHTML.replace(regex, (match) => {
+                  return `<span class="comments">${match}</span>`;
+              });
+
+            
+            // METADATA
+            regex = /^(\s*@\w+)/gm;
+            innerHTML = innerHTML.replace(regex, (match) => {
+                return `<span class="metadata">${match}</span>`;
+            });
+
+
+            // SELF
+            regex = /\bself\b/g;
+            innerHTML = innerHTML.replace(regex, (match) => {
+                return `<span class="self">${match}</span>`;
+            });
+
+
+            // BUILT-IN
+            regex = /\b(open|print|input|int|float|str|list|set|dict|range|len)\b/g;
+            innerHTML = innerHTML.replace(regex, (match) => {
+                return `<span class="built-in">${match}</span>`;
+            });
+
+
+            // FUNCTION
+            regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+            innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+
+
+            // SPECIAL-NAMES
+            regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+            innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+
+
+            // KEYWORD-ARGUMENT
+            regex = /, (end|sep)=/g;
+            innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+            
+              codeBlock.innerHTML = innerHTML
+          });
+      });
+  </script>
+</body>

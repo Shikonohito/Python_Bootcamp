@@ -1,0 +1,506 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - HW14</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #343434 0%, #363636 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+
+    .string {
+      color: #6AAB73;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+    }
+
+    .self {
+      color: #94558D;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+    }
+
+    .number {
+      color: #2AACB8;
+    }
+
+    .comments {
+      color: #7A7E85;
+    }
+
+    .metadata {
+      color: #B3AE60;
+    }
+
+    .built-in {
+      color: #8888C6;
+    }
+
+    .function {
+      color: #56A8F5;
+    }
+
+    .special-names {
+      color: #B200B2;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+    }
+    ol {
+      counter-reset: list;
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    ol li {
+      counter-increment: list;
+      position: relative;
+      padding-left: 1.2em;
+      padding-bottom: 1.2em;
+    }
+
+    ol li::before {
+      content: counter(list) ". ";
+      position: absolute;
+      left: 0;
+      color: #FFC000;
+      font-weight: bold;
+    }
+
+    .grey {
+      color: #BCBEC4;
+    }
+
+    .no-padding-bottom {
+      padding-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2><strong>Примечание</strong></h2>
+        <p>Оформляйте ввод и вывод данных в соответствии с примерами заданий. Используйте только то, что было пройденно до этого урока включительно. Не используйте готовые функции <code class="python"><b>sum()</b></code>, <code class="python"><b>min()</b></code>, <code class="python"><b>max()</b></code>, а также оператор <code class="python"><b>in</b></code> в условиях.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 14.1</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли уровень загрязнения воздуха (в микрограммах на кубический метр)</span>, <span class="hl-text">уровень шума (в децибелах)</span>, <span class="hl-text">концентрацию углекислого газа (в частях на миллион)</span>, а также <span class="hl-text">уровень радиации (в микрозивертах в час)</span>, затем <span class="hl-text">выводит в консоль оценку качества окружающей среды</span>.</p>
+        <p>Градация оценки:
+          <br>— <span class="hl-text"><b>Отличное:</b></span> все параметры находятся в пределах нормы.
+          <br>— <span class="hl-text"><b>Хорошее:</b></span> <span class="number"><b>1</b></span> параметр выходит за пределы нормы.
+          <br>— <span class="hl-text"><b>Удовлетворительное:</b></span> <span class="number"><b>2</b></span> параметра выходят за пределы нормы.
+          <br>— <span class="hl-text"><b>Плохое:</b></span> <span class="number"><b>3</b></span> параметра выходят за пределы нормы.
+          <br>— <span class="hl-text"><b>Очень плохое:</b></span> все параметры выходят за пределы нормы.</p>
+
+<p>Нормы:
+<br>— <span class="hl-text"><b>Уровень загрязнения воздуха:</b></span> до <span class="number"><b>50</b></span> мг/м³.
+  <br>— <span class="hl-text"><b>Уровень шума:</b></span> до <span class="number"><b>70</b></span> дБ.
+<br>— <span class="hl-text"><b>Концентрация углекислого газа:</b></span> до <span class="number"><b>400</b></span> ppm.
+  <br>— <span class="hl-text"><b>Уровень радиации:</b></span> до <span class="number"><b>0.3</b></span> мкЗв/ч.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите уровень загрязнения воздуха (мг/м³): <span class="input">25</span>
+Введите уровень шума (дБ): <span class="input">65.5</span>
+Введите концентрацию углекислого газа (ppm): <span class="input">350</span>
+Введите уровень радиации (мкЗв/ч): <span class="input">0.25</span>
+
+Оценка качества окружающей среды: Отличное</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 14.2</h2>
+        <p>Магазин <span class="hl-text">"Всё Не Дорого"</span> имеет сайт, в котором клиент может положить товары в корзину, указать вид оплаты и доставку. Напишите программу, которая <span class="hl-text">запрашивает с консоли стоимость корзины клиента</span>, <span class="hl-text">вид оплаты (наличными или картой)</span> и <span class="hl-text">вид доставки (самовывоз или курьер)</span>.</p>
+
+        <p>Если выбрана <span class="hl-text">оплата картой</span>, программа должна <span class="hl-text">проверить, выбран ли вид доставки</span> <span class="string"><b>"Курьер"</b></span>, и, если да, то должна <span class="hl-text">запрашивать с консоли расстояние (в километрах)</span>, а <span class="hl-text">скорость доставки должна выставляться как</span> <span class="string"><b>"Быстрая доставка"</b></span>. Каждая <span class="hl-text">единица расстояния</span>, которая больше <span class="number"><b>15</b></span>, <span class="hl-text">добавляет <span class="number"><b>0.1%</b></span> от стоимости корзины клиента к сумме оплаты</span>, а <span class="string"><b>"Быстрая доставка"</b></span> <span class="hl-text">добавляет <span class="number"><b>7%</b></span> от стоимости корзины клиента к сумме оплаты</span>. После проверки на вид доставки, программа должна <span class="hl-text">проверить</span>, достаточно ли денег на карте, и если да, то <span class="hl-text">сумма оплаты списывается с карты</span> (создайте переменную, которая хранит <span class="number"><b>1000</b></span> денег), затем <span class="hl-text">выводится в консоль данные</span>. В противном случае программа должна <span class="hl-text">вывести в консоль</span> <span class="string"><b>"Недостаточно средств на карте! Требуется ... денег."</b></span>, где указывается требуемая сумма денег.</p> <p>Данные, которые нужно выводить следующие:
+        <br>— В случае вида доставки <span class="string"><b>"Курьер"</b></span>: <span class="hl-text">уникальный идентификатор заказа</span>, <span class="hl-text">тип доставки</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">отдельно стоимость корзины + сумма доставки</span>, <span class="hl-text">сумму остатка на карте</span>.
+        <br>— В случае вида доставки <span class="string"><b>"Самовывоз"</b></span>: <span class="hl-text">четырёхзначный номер</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">сумма оплаты</span>, <span class="hl-text">сумму остатка на карте</span>.</p>
+        
+        <p>Если выбрана <span class="hl-text">оплата наличными</span>, программа должна <span class="hl-text">проверить, выбран ли вид доставки</span> <span class="string"><b>"Курьер"</b></span>, и, если да, то программа <span class="hl-text">запрашивает с консоли расстояние (в километрах)</span>, затем <span class="hl-text">скорость доставки</span> (быстрая, медленная, доставка через <span class="number"><b>24</b></span> часа). Каждая <span class="hl-text">единица расстояния</span>, которая больше 15, <span class="hl-text">добавляет <span class="number"><b>0.1%</b></span> от стоимости корзины клиента к сумме оплаты</span>, а <span class="string"><b>"Быстрая доставка"</b></span> <span class="hl-text">добавляет <span class="number"><b>7%</b></span> от стоимости корзины клиента к сумме оплаты</span>, медленная - <span class="number"><b>5%</b></span>, доставка через <span class="number"><b>24</b></span> часа - <span class="number"><b>3%</b></span>.</p>
+        <p>После проверки на вид доставки, в консоль выводятся следующие данные:
+          <br>— В случае вида доставки <span class="string"><b>"Курьер"</b></span>: <span class="hl-text">уникальный идентификатор заказа</span>, <span class="hl-text">тип доставки</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">отдельно стоимость корзины + сумма доставки</span>.
+          <br>— В случае вида доставки <span class="string"><b>"Самовывоз"</b></span>: <span class="hl-text">четырёхзначный номер</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">сумма оплаты</span>.</p>
+        <h3>Подсказки:</h3>
+        <ol>
+          <li>Чтобы получить уникальный идентификатор, используйте следующий код:<div class="console">
+              <pre><code class="python">from uuid import uuid4  # Подключение модуля uuid и импорт функции uuid4
+
+random_uuid = uuid4()  # Генерация случайного уникального идентификатора</code></pre>
+            </div>
+          </li>
+          <li class="no-padding-bottom">Чтобы получить четырёхзначный номер, используйте следующий код:<div class="console">
+              <pre><code class="python">from random import randint  # Подключение модуля random и импорт функции randint
+
+number = randint(1000, 9999)  # Генерация случайного четырёхзначного числа</code></pre>
+            </div>
+          </li>
+        </ol>
+        <h3>Пример 1:</h3>
+        <div class="console">
+          <pre><code>Введите стоимость корзины: <span class="input">500</span>
+Выберите вид оплаты (1 - Карта, 2 - Наличные): <span class="input">1</span>
+Выберите вид доставки (1 - Самовывоз, 2 - Курьер): <span class="input">2</span>
+==================================================
+Введите расстояние (км): <span class="input">20</span>
+==================================================
+Идентификатор заказа: 411a08ee-28ed-46df-b5dd-7fc8831a8dfc
+Тип доставки: Быстрая
+Вид оплаты: Карта
+Стоимость оплаты (корзина + доставка): 500 + 37.5
+Сумма остатка на карте: 462.5</code></pre>
+        </div>
+        <h3>Пример 2:</h3>
+        <div class="console">
+          <pre><code>Введите стоимость корзины: <span class="input">800</span>
+Выберите вид оплаты (1 - Карта, 2 - Наличные): <span class="input">2</span>
+Выберите вид доставки (1 - Самовывоз, 2 - Курьер): <span class="input">2</span>
+==================================================
+Введите расстояние (км): <span class="input">25</span>
+Скорость доставки (1 - Быстрая, 2 - Медленная, 3 - Через 24 часа): <span class="input">1</span>
+==================================================
+Идентификатор заказа: 77940864-3186-4980-8057-63c2e5b0a260
+Тип доставки: Быстрая
+Вид оплаты: Наличные
+Стоимость оплаты (корзина + доставка): 800 + 64</code></pre>
+        </div>
+        <h3>Пример 3:</h3>
+        <div class="console">
+          <pre><code>Введите стоимость корзины: <span class="input">930</span>
+Выберите вид оплаты (1 - Карта, 2 - Наличные): <span class="input">1</span>
+Выберите вид доставки (1 - Самовывоз, 2 - Курьер): <span class="input">2</span>
+==================================================
+Введите расстояние (км): <span class="input">30</span>
+==================================================
+На счету недостаточно средств! Требуется 1009.05 денег.</code></pre>
+        </div>
+        <h3>Пример 4:</h3>
+        <div class="console">
+          <pre><code>Введите стоимость корзины: <span class="input">470</span>
+Выберите вид оплаты (1 - Карта, 2 - Наличные): <span class="input">2</span>
+Выберите вид доставки (1 - Самовывоз, 2 - Курьер): <span class="input">1</span>
+==================================================
+Номер заказа: 5869
+Вид оплаты: Наличные
+Стоимость оплаты: 800</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 14.3</h2>
+        <p><span class="hl-text">Teston Lebra</span> попросили написать программу, которая поможет HR-менеджерам определить уровень кандидата и давать некоторые комментарии по навыкам, если они низкие. Проверять нужно опыт работы (от <span class="number"><b>1</b></span> до <span class="number"><b>10</b></span> лет - баллы соответственно), образование (специальное - <span class="number"><b>2</b></span> балла, базовое - <span class="number"><b>1</b></span> балл, отсутствует - <span class="number"><b>0</b></span> баллов), навыки (от <span class="number"><b>1</b></span> до <span class="number"><b>8</b></span> баллов включительно). Полученные баллы нужно суммировать и проверять на уровень кандидата. <span class="hl-text">Teston Lebra</span> написал программу и отдал HR-менеджерам на пользование. Менеджеры провели несколько десятков собеседований, но заметили, что им очень часто попадаются средний и низкий уровни кандидатов, а также показывается только одна подсказка. <span class="hl-text">Исправьте программу, чтобы она работала корректно, и рядом напишите комментарии о том, почему изменённый вариант должен работать верно</span>.</p>
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">rating = 0
+
+job_exp = int(input("Введите опыт работы (полные года): "))
+if job_exp >= 10:
+    rating += 10
+if job_exp >= 1:
+    rating += job_exp
+
+education_level = input("Введите образование (1 - специальное, 2 - базовое, 3 - отсутствует): ")
+if education_level == 1:
+    rating += 2
+elif education_level == 2:
+    rating += 1
+else:
+    rating += 0
+
+print()
+print("Оцените от 1 до 8 баллов включительно уровень навыков, где 1 - низкий уровень, 8 - высокий уровень.")
+communication_skill = int(input("Введите уровень коммуникативных навыков: "))
+technical_skill = int(input("Введите уровень технических навыков: "))
+leadership_skill = int(input("Введите уровень лидерских навыков: "))
+analytic_skill = int(input("Введите уровень аналитических способностей: "))
+teamwork_skill = int(input("Введите уровень работы в команде: "))
+
+total_skill = (communication_skill + technical_skill + leadership_skill + analytic_skill + teamwork_skill) // 5
+
+if communication_skill <= 3:
+    print("- Есть проблемы с коммуникацией")
+elif technical_skill < 5:
+    print("- Технические навыки слабые")
+elif leadership_skill < 3:
+    print("- Не обладает лидерскими навыками")
+elif analytic_skill < 5:
+    print("- Слабый аналитические способности")
+elif teamwork_skill < 4:
+    print("- Работа в команде слабая")
+
+print()
+if 0 <= rating and rating <= 5:
+    print("Низкий уровень кандидата, не рекомендуется для приема на работу.")
+if 6 <= rating and rating <= 10:
+    print("Средний уровень кандидата, требуется дополнительное обучение и развитие.")
+if 11 <= rating and rating <= 16:
+    print("Хороший уровень кандидата, рекомендуется к рассмотрению на должность.")
+if 17 <= rating and rating <= 20:
+    print("Высокий уровень кандидата, рекомендуется для приема на работу.")</code></pre>
+        </div>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите опыт работы (полные года): <span class="input">12</span>
+Введите образование (1 - специальное, 2 - базовое, 3 - отсутствует): <span class="input">1</span>
+
+Оцените от 1 до 8 баллов включительно уровень навыков, где 1 - низкий уровень, 8 - высокий уровень.
+Введите уровень коммуникативных навыков: <span class="input">6</span>
+Введите уровень технических навыков: <span class="input">8</span>
+Введите уровень лидерских навыков: <span class="input">6</span>
+Введите уровень аналитических способностей: <span class="input">7</span>
+Введите уровень работы в команде: <span class="input">7</span>
+
+Высокий уровень кандидата, рекомендуется для приема на работу.</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 14.4</h2>
+        <p><span class="hl-text">Teston Lebra</span> написал программу, которая запрашивает с консоли уровень кислотности почвы (pH) и выводит в консоль тип почвы.</p>
+        <p>Типы почв:
+          <br>— <span class="hl-text"><b>Кислая почва:</b></span> pH <span class="number"><b>6</b></span> и меньше.
+          <br>— <span class="hl-text"><b>Нейтральная почва:</b></span> pH выше <span class="number"><b>6</b></span> и до <span class="number"><b>7</b></span>.
+          <br>— <span class="hl-text"><b>Щелочная почва:</b></span> pH <span class="number"><b>7</b></span> и выше.</p>
+<p>Программа хоть и работает, но не совсем корректно. <span class="hl-text">Исправьте программу так, чтобы она работала верно, и рядом напишите комментарии о том, почему изменённый вариант должен работать верно</span>.</p>
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">acidity = int(input("Введите уровень кислотности почвы (pH): "))
+print()
+if acidity <= 6:
+    print("Кислая почва.")
+if 6 <= acidity and acidity <= 7:
+    print("Нейтральная почва.")
+if acidity >= 7:
+    print("Щелочная почва.")</code></pre>
+        </div>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите уровень кислотности почвы (pH): <span class="input">6.5</span>
+
+Нейтральная почва.</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function() {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>

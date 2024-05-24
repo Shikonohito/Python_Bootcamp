@@ -1,0 +1,167 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT14</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string {
+      color: #6AAB73;
+    }
+
+    .number {
+      color: #2AACB8;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Практическое Задание 14.1</h2>
+        <p>Реализуйте программу, которая <span class="hl-text">выводит в консоль меню</span> из двух пунктов:
+          <br>1. Определить чётность числа
+          <br>2. Провести операцию над 2-мя числами
+        </p>
+        <p>Затем программа <span class="hl-text">запрашивает ввод выбора с консоли</span>.</p>
+        <p>Если выбран <span class="hl-text">первый пункт</span>, то программа <span class="hl-text">запрашивает с консоли число</span> и <span class="hl-text">определяет его чётность</span>.</p>
+        <p>Если выбран <span class="hl-text">второй пункт</span>, то программа <span class="hl-text">запрашивает с консоли два числа</span> и <span class="hl-text">операцию (+, -, *, /)</span>, затем <span class="hl-text">выводит в консоль результат операции</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>1. Определить чётность числа
+2. Провести операцию над 2-мя числами
+Выберите действие: <span class="input">2</span>
+===========================================
+Введите первое число: <span class="input">10</span>
+Введите второе число: <span class="input">5</span>
+Введите операцию (+, -, *, /): <span class="input">+</span>
+===========================================
+10 + 5 = 15</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 14.2</h2>
+        <p>Напишите программу, которая <span class="hl-text">выводит в консоль меню</span> из двух пунктов:
+          <br>1. Положить деньги на счёт
+          <br>2. Снять деньги со счёта
+        </p>
+        <p>Затем программа <span class="hl-text">запрашивает ввод выбора с консоли</span>.</p>
+        <p>Если выбран <span class="hl-text">первый пункт</span>, то программа <span class="hl-text">запрашивает ввод суммы с консоли</span>. Если сумма отрицательная, то программа должна <span class="hl-text">вывести в консоль</span> <span class="string"><b>"Невозможно положить на счёт отрицательную сумму."</b></span>. Если же сумма положительная, то <span class="hl-text">деньги кладутся на счёт</span> и <span class="hl-text">выводится сумма счёта</span>.</p>
+        <p>Если выбран <span class="hl-text">второй пункт</span>, то программа <span class="hl-text">запрашивает ввод суммы с консоли</span>. Если сумма отрицательная, то программа должна <span class="hl-text">вывести в консоль</span> <span class="string"><b>"Невозможно снять со счёта отрицательную сумму."</b></span>. Если сумма превышает количество денег на счету, то программа <span class="hl-text">сообщает</span> <span class="string"><b>"На счету недостаточно денег."</b></span>. В противном случае, программа <span class="hl-text">снимает со счёта деньги</span> и <span class="hl-text">выводит в консоль текущий счёт</span>.</p>
+        <p>Считайте, что изначально на счету находится <span class="number"><b>250</b></span> денег.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>1. Положить деньги на счёт
+2. Снять деньги со счёта
+Выберите действие: <span class="input">1</span>
+===========================
+Введите сумму: <span class="input">25</span>
+У Вас на счету 275 денег.</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

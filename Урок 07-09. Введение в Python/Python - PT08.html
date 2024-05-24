@@ -1,0 +1,212 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT08</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .number {
+      color: #2AACB8;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Примечание</h2>
+        <p>Оформляйте ввод и вывод данных.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 8.1</h2>
+        <p>Сотрудник <span class="hl-text">Teston Lebra</span> работает на трёх работах и получает три разные зарплаты. Напишите программу, которая <span class="hl-text">запрашивает с консоли три строки зарплаты</span> и <span class="hl-text">выводит в консоль итоговую сумму этих зарплат</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите первую зарплату: <span class="input">250</span>
+Введите вторую зарплату: <span class="input">1600</span>
+Введите третью зарплату: <span class="input">350</span>
+
+Итоговая зарплата: 2200</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 8.2</h2>
+        <p><span class="hl-text">Teston Lebra</span> взял кредит в банке. Напишите программу, которая <span class="hl-text">запрашивает с консоли сумму кредита</span> и <span class="hl-text">процент</span>, затем <span class="hl-text">выводит в консоль сумму, которую нужно вернуть в банк</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите сумму кредита: <span class="input">15000</span>
+Введите процент: <span class="input">10</span>
+
+Сумму, которую нужно будет вернуть в банк: 16500</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 8.3</h2>
+        <p>На работе <span class="hl-text">Teston Lebra</span> дали задание - определить среднюю температуру за неделю. Напишите программу, которая <span class="hl-text">запрашивает с консоли температуру за каждый день</span> и <span class="hl-text">выводит в консоль среднее значение</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите температуру в Понедельник: <span class="input">18</span>
+Введите температуру в Вторник: <span class="input">20</span>
+Введите температуру в Среда: <span class="input">22</span>
+Введите температуру в Четверг: <span class="input">21</span>
+Введите температуру в Пятница: <span class="input">19</span>
+Введите температуру в Суббота: <span class="input">20</span>
+Введите температуру в Воскресенье: <span class="input">18</span>
+
+Средняя температура за неделю: 19.71°C</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 8.4</h2>
+        <p><span class="hl-text">Teston Lebra</span> решил покрасить стены, но не знает, сколько банок краски нужно взять. Напишите программу, которая <span class="hl-text">запрашивает с консоли площадь покраски в квадратных метрах</span>, <span class="hl-text">сколько грамм требуется для покраски одного квадратного метра</span> и <span class="hl-text">сколько грамм в банке</span>, затем <span class="hl-text">выводит в консоль количество банок краски</span>.</p>
+        <h3>Подсказка</h3>
+        <p>Чтобы получилось целое число, нужно граммы в банке с краской поделить на <span class="number"><b>2</b></span> и добавить к итоговому количеству граммов, затем нацело поделить на граммы в банке.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите площадь покраски (квадратные метры): <span class="input">98</span>
+Введите количество грамм требуемое для покраски одного квадратного метра: <span class="input">150</span>
+Введите количество грамм в банке с краской: <span class="input">1000</span>
+
+Потребуется 15 банок.</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 8.5</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли число</span> и <span class="hl-text">выводит в консоль самую правую цифру этого числа</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите число: <span class="input">5869</span>
+
+Самая правая цифра этого числа: 9</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 8.6</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли двузначное число</span> и <span class="hl-text">выводит в консоль каждую цифру поотдельности</span>. <span class="hl-text"><b>(2 способа)</b></span></p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите двузначное число: <span class="input">25</span>
+
+Первая цифра: 2
+Вторая цифра: 5</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 8.7</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли трёхзначное число</span> и <span class="hl-text">выводит в консоль каждую цифру поотдельности</span>.
+          <span class="hl-text"><b>(2 способа)</b></span></p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите трёхзначное число: <span class="input">567</span>
+
+Первая цифра: 5
+Вторая цифра: 6
+Третья цифра: 7</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
