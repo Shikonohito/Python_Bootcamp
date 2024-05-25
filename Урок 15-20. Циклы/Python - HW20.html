@@ -1,0 +1,445 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - HW20</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #343434 0%, #363636 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+
+    .string {
+      color: #6AAB73;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+    }
+
+    .self {
+      color: #94558D;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+    }
+
+    .number {
+      color: #2AACB8;
+    }
+
+    .comments {
+      color: #7A7E85;
+    }
+
+    .metadata {
+      color: #B3AE60;
+    }
+
+    .built-in {
+      color: #8888C6;
+    }
+
+    .function {
+      color: #56A8F5;
+    }
+
+    .special-names {
+      color: #B200B2;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+    }
+
+    ol {
+      counter-reset: list;
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    ol li {
+      counter-increment: list;
+      position: relative;
+      padding-left: 1.2em;
+      padding-bottom: 1.2em;
+    }
+
+    ol li::before {
+      content: counter(list) ". ";
+      position: absolute;
+      left: 0;
+      color: #FFC000;
+      font-weight: bold;
+    }
+
+    .grey {
+      color: #BCBEC4;
+    }
+
+    .no-padding-bottom {
+      padding-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2><strong>Примечание</strong></h2>
+        <p>Оформляйте ввод и вывод данных в соответствии с примерами заданий. Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 20.1</h2>
+        <p>Реализуйте следующее меню:</p>
+        <div class="console">
+          <pre><code>1. Зарегистрироваться
+2. Войти
+3. Завершить программу
+Выберите действие: <span class="input">...</span></code></pre>
+        </div>
+
+        <p>В программе есть две роли - <span class="hl-text">клиент</span> и <span class="hl-text">администратор</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает логин</span> и <span class="hl-text">пароль нового клиента</span>. Затем <span class="hl-text">возвращается в меню входа</span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает логин</span> и <span class="hl-text">пароль</span>. Если вводятся данные клиента, то <span class="hl-text">показывается меню клиента</span>. Если вводятся данные администратора, то <span class="hl-text">показывается меню администратора</span>.</p>
+
+        <h3>Меню клиента:</h3>
+        <div class="console">
+          <pre><code>Пользователь: &ltлогин&gt    Роль: Клиент
+1. Мой кабинет
+2. Аренда
+3. Выйти из аккаунта
+4. Завершить программу
+Выберите действие: <span class="input">...</span></code></pre>
+        </div>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает идентификатор клиента</span>, <span class="hl-text">арендованный товар</span>, <span class="hl-text">текущий баланс аккаунта</span>, а также <span class="hl-text">показывает меню</span>:</p>
+        <div class="console">
+          <pre><code>Идентификатор: &ltчисло&gt
+Текущий баланс: &ltчисло&gt
+Арендованные товар: &ltотсутствует/товар&gt
+=========================================
+1. Пополнить счёт
+2. Вернуться
+3. Завершить программу
+Выберите действие: <span class="input">...</span></code></pre>
+        </div>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает <span class="number"><b>16</b></span>-значный номер карты</span>, <span class="hl-text">месяц</span> и <span class="hl-text">год окончания</span>, <span class="hl-text">CVV/CVC код</span>. Если они совпадают с определёнными данными, то программа <span class="hl-text">запрашивает сумму</span>. В противном случае программа <span class="hl-text">возвращается в меню</span> <span class="string"><b>"Мой кабинет"</b></span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">возвращается в меню клиента</span>.</p>
+
+        <p><span class="hl-text">В меню клиента</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">показывает следующие данные</span> и <span class="hl-text">меню</span>:
+        <p>
+        <div class="console">
+          <pre><code>Ваш текущий баланс: &ltчисло&gt
+==========================================================
+1. Вернуться
+2. Завершить программу
+==========================================================
+Выберите товары, которые хотите арендовать.
+3. Эконом класс - доступно: 0, цена аренды на 1 день: 13
+4. Средний класс - доступно: 15, цена аренды на 1 день: 17
+5. Бизнес класс - доступно: 30, цена аренды на 1 день: 42
+Выберите действие: <span class="input">...</span></code></pre>
+        </div>
+
+        <p><span class="hl-text">При выборе товара</span> программа <span class="hl-text">запрашивает количество целых дней для выбранного товара</span>.</p>
+
+        <p>После этого программа <span class="hl-text">показывает товар</span> и <span class="hl-text">количество дней аренды</span>, а также <span class="hl-text">итоговую сумму</span> и <span class="hl-text">просит подтверждение</span>. Если пользователь подтвердил и на балансе достаточное количество денег, то программа <span class="hl-text">снимает деньги с баланса</span>, а также <span class="hl-text">отнимает количество доступного товара</span> и <span class="hl-text">меняет у клиента арендованный товар</span>.</p>
+
+        <h3>Меню администратора:</h3>
+        <div class="console">
+          <pre><code>Пользователь: &ltлогин&gt     Роль: Администратор
+1. Показать данные клиента
+2. Вернуть товар по идентификатору клиента
+3. Магазин
+4. Выйти из аккаунта
+5. Завершить программу
+Выберите действие: <span class="input">...</span></code></pre>
+        </div>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает идентификатор клиента</span>. Если он верный, то программа <span class="hl-text">показывает текущий баланс</span> и <span class="hl-text">арендованный товар выбранного клиента</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает идентификатор клиента</span>. Если он верный, то программа <span class="hl-text">увеличивает на <span class="number"><b>1</b></span> товар</span>, который указан у клиента, и <span class="hl-text">меняет арендованный товар клиента на</span> <span class="string"><b>"Отсутствует"</b></span>.</p>
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">показвает следующие данные</span> и <span class="hl-text">меню</span>:</p>
+        <div class="console">
+          <pre><code>1. Вернуться
+2. Завершить программу
+====================================================
+Выберите товар, чтобы обновить его данные.
+3. Эконом класс - доступно: 0, цена аренды на 1 день: 13
+4. Средний класс - доступно: 15, цена аренды на 1 день: 17
+5. Бизнес класс - доступно: 30, цена аренды на 1 день: 42
+Выберите действие: <span class="input">...</span></code></pre>
+        </div>
+
+        <p><span class="hl-text">При выборе товара</span> программа <span class="hl-text">запрашивает новое название</span>, <span class="hl-text">количество доступных</span> и <span class="hl-text">цену</span>. Если вводятся пустые данные, то <span class="hl-text">соответствующая информация не меняется</span>. После этого программа <span class="hl-text">показывает старые данные</span> и <span class="hl-text">новые данные</span>, затем <span class="hl-text">запрашивает подтверждение на изменение</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 20.2 (Необязательное)</h2>
+        <p>Напишите программу <span class="hl-text">"Казино"</span>. В игре <span class="number"><b>4</b></span> <span class="hl-text">игрока</span> - <span class="number"><b>1</b></span> <span class="hl-text">человек</span> и <span class="number"><b>3</b></span> <span class="hl-text">бота</span>. Изначально у <span class="hl-text">каждого игрока</span> <span class="number"><b>1000</b></span> очков. Программа сперва <span class="hl-text">предлагает каждому игроку сделать ставку, которая уходит в общий банк</span>. Затем <span class="hl-text">предлагает каждому игроку выбрать число от <span class="number"><b>1</b></span> до <span class="number"><b>6</b></span> включительно</span>. Если игрок угадывает число, то <span class="hl-text">банк уходит к победителю</span>. Если таких игроков несколько, то <span class="hl-text">банк делится между победителями</span>. После этого <span class="hl-text">банк обнуляется</span>. Если у игрока <span class="number"><b>0</b></span> очков, то <span class="hl-text">он выбывает из игры</span>. Побеждает тот, кто остаётся <span class="hl-text">последний с очками</span>. В случае проигрыша или выигрыша программа должна <span class="hl-text">предложить сыграть снова</span>.</p>
+        <h3>Подсказки:</h3>
+        <ol>
+          <li>Используйте следующий код, чтобы генерировать числа:<div class="console">
+              <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                  <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+                </svg>
+                Copy code</button>
+              <pre><code class="python">from random import randint  # Подключение модуля random и импорт функции randint
+
+number = randint(start, end)  # Генерация случайного числа от start до end включительно</code></pre>
+            </div>
+          </li>
+          <li>Перед тем, как программа будет запрашивать ставки, проверяйте их наличие. <span class="number"><b>0</b></span> очков означает, что игрок не может делать ставки.</li>
+          <li class="no-padding-bottom">Когда игроки делают ставки не забудьте отнять эти ставки из очков игроков.</li>
+        </ol>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Игрок 1 (Вы): 1000 очков
+Игрок 2: 1000 очков
+Игрок 3: 1000 очков
+Игрок 4: 1000 очков
+
+Делайте ставки:
+Ставка Игрока 2: 343
+Ставка Игрока 3: 450
+Ставка Игрока 4: 120
+Ставка Игрока 1 (Вы): <span class="input">200</span>
+
+На какое число ставка:
+Игрок 2: 3
+Игрок 3: 2
+Игрок 4: 6
+Игрок 1 (Вы): <span class="input">3</span>
+=============================================
+Выпало число: 3
+556.5 очков уходит Игроку 1 (Вы) и Игроку 2.
+
+Игрок 1 (Вы): 1356.5 очков
+Игрок 2: 1213.5 очков
+Игрок 3: 550 очков
+Игрок 4: 880 очков
+
+Делайте ставки:
+. . . . . . . . .
+
+На какое число ставка:
+. . . . . . . . .
+=============================================</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function() {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>
