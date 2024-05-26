@@ -1,0 +1,410 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - HW26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #343434 0%, #363636 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+
+    .string {
+      color: #6AAB73;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+    }
+
+    .self {
+      color: #94558D;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+    }
+
+    .number {
+      color: #2AACB8;
+    }
+
+    .comments {
+      color: #7A7E85;
+    }
+
+    .metadata {
+      color: #B3AE60;
+    }
+
+    .built-in {
+      color: #8888C6;
+    }
+
+    .function {
+      color: #56A8F5;
+    }
+
+    .special-names {
+      color: #B200B2;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+    }
+
+    ol {
+      counter-reset: list;
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    ol li {
+      counter-increment: list;
+      position: relative;
+      padding-left: 1.2em;
+      padding-bottom: 1.2em;
+    }
+
+    ol li::before {
+      content: counter(list) ". ";
+      position: absolute;
+      left: 0;
+      color: #FFC000;
+      font-weight: bold;
+    }
+
+    .grey {
+      color: #BCBEC4;
+    }
+
+    .no-padding-bottom {
+      padding-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2><strong>Примечание</strong></h2>
+        <p>Оформляйте ввод и вывод данных в соответствии с примерами заданий. Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>. Не используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методов. Методы <code class="python"><b>format()</b></code>, <code class="python"><b>split()</b></code> и <code class="python"><b>append()</b></code> использовать можно. Не используйте срезы.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 26.1</h2>
+        <p><span class="hl-text">Teston Lebra</span> услышал в новостях, что средняя зарплата по его стране выросла. Он посмеялся и пошёл вручную вычислять среднюю зарплату сотрудников в его работе. Напишите программу, которая <span class="hl-text">запрашивает с консоли на каждой строке зарплату сотрудника до тех пор, пока не будет введена пустая строка</span>. Введённые данные должны <span class="hl-text">помещаться в список</span>. Затем программа <span class="hl-text">выводит в консоль среднюю арифметическую</span>, <span class="hl-text">медиану</span> и <span class="hl-text">моду по зарплатам</span>.</p>
+        <h3>Подсказки:</h3>
+        <ol>
+          <li>После прочтения данных приведите их к числам.</li>
+          <li><span class="hl-text">Медиана</span> - это число, слева и справа от которого равное количество чисел из выборки.</li>
+          <li>Для определения медианы сперва используйте метод списка <code class="python"><b>sort()</b></code>, чтобы отсортировать список. Затем следуйте следующим условиям:
+            <br>— Если количество элементов в списке <span class="hl-text">чётное</span>, то нужно поделить количество на <span class="number"><b>2</b></span>, взять число по полученному индексу и взять число на единицу меньше полученного индекса, сложить их и поделить на <span class="number"><b>2</b></span>.<br>Например:
+            <br><span class="number"><b>300 350 360 380 390 410 1100 2000 8000 10000</b></span>
+            <br><span class="number"><b>10</b></span> чисел делим на <span class="number"><b>2</b></span> - получаем индекс <span class="number"><b>5</b></span>. По этому индексу находится число <span class="number"><b>410</b></span>. Берём ещё число на единицу меньше полученного индекса - это <span class="number"><b>390</b></span>. Получаем медиану <span class="grey"><b>(<span class="number">390</span> + <span class="number">410</span>) / <span class="number">2</span> = <span class="number">400</span></b></span>.
+            <br><br>— Если количество элементов в списке <span class="hl-text">нечётное</span>, то берём индекс последнего числа и делим на <span class="number"><b>2</b></span>. Число по полученному индексу будет медианой.<br>Например:
+            <br><span class="number"><b>300 350 360 380 390 410 1100 2000 8000 10000 999999</b></span>
+            <br><span class="number"><b>11</b></span> чисел, индекс последнего числа <span class="number"><b>10</b></span>. Делим <span class="number"><b>10</b></span> на <span class="number"><b>2</b></span> - получаем <span class="number"><b>5</b></span>. По полученному индексу находится медиана - <span class="number"><b>410</b></span>.
+          </li>
+          <li><span class="hl-text">Мода</span> - это число, которое чаще всех повторяется в выборке. Если каждое число повторяется только <span class="number"><b>1</b></span> раз, то моды нет.</li>
+          <li>Для вычисления моды сперва отсортируйте список при помощи его метода <code class="python"><b>sort()</b></code> для простоты алгоритма. Затем создайте переменную, которая будет хранить число, и переменную, которая будет хранить максимальное количество таких чисел (изначально <span class="number"><b>0</b></span>). Также создайте переменную, которая будет хранить временное число, и переменную, которая будет хранить его количество.</li>
+          <li>Во время прохода по списку, если рассматриваемое число не совпадает с числом из временной переменной, то проводите сравнение количества.</li>
+          <li class="no-padding-bottom">Выводить нужно первую моду. Например:
+            <br><span class="number"><b>300 300 360 360 390 410 1100 2000 8000 10000</b></span>
+            <br>Здесь две моды - <span class="number"><b>300</b></span> и <span class="number"><b>360</b></span>, так как они обе повторяются по <span class="number"><b>2</b></span> раза. Выводить нужно первую моду, то есть <span class="number"><b>300</b></span>.
+          </li>
+        </ol>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите зарплату сотрудника (1): <span class="input">10000</span>
+Введите зарплату сотрудника (2): <span class="input">8000</span>
+Введите зарплату сотрудника (3): <span class="input">300</span>
+Введите зарплату сотрудника (4): <span class="input">350</span>
+Введите зарплату сотрудника (5): <span class="input">2000</span>
+Введите зарплату сотрудника (6): <span class="input">1100</span>
+Введите зарплату сотрудника (7): <span class="input">360</span>
+Введите зарплату сотрудника (8): <span class="input">380</span>
+Введите зарплату сотрудника (9): <span class="input">390</span>
+Введите зарплату сотрудника (10): <span class="input">410</span>
+Введите зарплату сотрудника (11): 
+
+Средняя зарплата по данным 10 сотрудников: 2329
+Медианная зарплата по данным 10 сотрудников: 400
+Мода зарплаты по данным 10 сотрудников: Отсутствует</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 26.2</h2>
+        <p>Реализуйте следующее меню:
+          <br>1. Зарегистрировать аккаунт
+          <br>2. Войти
+          <br>3. Завершить программу
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает с консоли новый логин</span> и <span class="hl-text">пароль</span>. Логин должен попасть <span class="hl-text">в первый список</span>, пароль <span class="hl-text">во второй</span>. Если введённый логин уже присутствует в списке, то <span class="hl-text">программа должна сообщить об этом</span> и <span class="hl-text">снова запросить логин</span>. После этого программа <span class="hl-text">возвращается в меню входа</span>. Организация списков следующая: <span class="hl-text">первый список содержит только логины</span>, а <span class="hl-text">второй список только пароли</span>. Если обратиться по индексу <span class="number"><b>0</b></span> у первого списка, то пароль от полученного логина тоже должен быть <span class="hl-text">по индексу <span class="number"><b>0</b></span> у второго списка</span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли логин</span> и <span class="hl-text">пароль</span>. Программа должна <span class="hl-text">позволить использовать любой зарегистрированный логин</span> и <span class="hl-text">соответствующий пароль</span>. Если вход успешен, то программа <span class="hl-text">выводит следующее меню</span>:
+          <br>1. Удалить текущий аккаунт
+          <br>2. Изменить логин
+          <br>3. Изменить пароль
+          <br>4. Выйти из аккаунта
+          <br>5. Показать логины и пароли всех аккаунтов
+          <br>6. Завершить программу
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа должна <span class="hl-text">запросить с консоли подтверждение удаления</span>. В случае подтверждения, <span class="hl-text">логин</span> и <span class="hl-text">пароль</span>, с помощью которых был произведён вход, должны быть <span class="hl-text">удалены из списков</span>, и программа должна <span class="hl-text">вернуться в меню входа</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 2</span> программа должна <span class="hl-text">запросить с консоли логин</span> и <span class="hl-text">внести изменения в список логинов</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 3</span> программа должна <span class="hl-text">запросить с консоли пароль</span> и <span class="hl-text">внести изменения в список паролей</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 4</span> программа должна <span class="hl-text">просто вернуться в меню входа</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 5</span> программа должна <span class="hl-text">показать в консоли все логины</span> и <span class="hl-text">пароли в формате</span> <span class="string"><b>"логин - пароль"</b></span>. Этот пункт должен работать, если зашли в аккаунт только с логином <span class="string"><b>"admin"</b></span> и паролем <span class="string"><b>"5869"</b></span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 26.3</h2>
+        <p>В месте, где работает <span class="hl-text">Teston Lebra</span>, начали сокращение сотрудников. Сотрудники, чьи имена находятся на нечётных индексах, будут увольнять. Напишите программу, которая <span class="hl-text">запрашивает с консоли имена до тех пор, пока не будет введена пустая строка</span>. Введённые данные должны <span class="hl-text">помещаться в список</span>. Затем программа <span class="hl-text">выводит в консоль полученный список</span>, после чего <span class="hl-text">удаляет из списка имена</span> и <span class="hl-text">выводит в консоль изменённый список</span>.</p>
+        <h3>Подсказки:</h3>
+        <p>Для удаления используйте <code class="python"><b>del</b></code>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите имя: <span class="input">Kate</span>
+Введите имя: <span class="input">Jack</span>
+Введите имя: <span class="input">Bob</span>
+Введите имя: <span class="input">Jim</span>
+Введите имя: <span class="input">Teston</span>
+Введите имя: <span class="input">Arthur</span>
+
+Имена сотрудников: Kate, Jack, Bob, Jim, Teston, Arthur
+Оставшиеся сотрудники: Kate, Bob, Teston</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 26.4</h2>
+        <p>Реализуйте следующее меню:
+          <br>1. Показать список
+          <br>2. Ввести новый список студентов
+          <br>3. Добавить студентов
+          <br>4. Удалить студента по индексу
+          <br>5. Изменить студента по индексу
+          <br>6. Получить индекс по имени
+          <br>7. Получить список студентов по первой букве
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает в консоли всех студентов</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли имена до тех пор, пока не введут пустую строку</span>. Из введённых данных программа должна <span class="hl-text">cформировать список</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли имена до тех пор, пока не введут пустую строку</span>. Введённые данные программа должна <span class="hl-text">добавлять список</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли индекс</span> и <span class="hl-text">удаляет студента по индексу</span>. Используйте <code class="python"><b>del</b></code>.</p>
+        <p>При выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает с консоли индекс</span>, затем <span class="hl-text">показывает в консоли имя под выбранным индексом</span>. После этого программа <span class="hl-text">запрашивает с консоли новое имя</span> и <span class="hl-text">запрашивает подтверждение на изменение</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 6</span> программа <span class="hl-text">запрашивает с консоли индекс</span>, затем <span class="hl-text">показывает в консоли имя под выбранным индексом</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 7</span> программа <span class="hl-text">запрашивает с консоли букву</span>, затем <span class="hl-text">проходит по списку имён</span> и <span class="hl-text">добавляет в новый список имена, которые начинаются на указанную букву</span> (заглавные и строчные буквы программа должна считать за одинаковые буквы). После этого программа должна <span class="hl-text">вывести в консоль имена из нового списка</span>, если они есть. В противном случае программа должна <span class="hl-text">вывести в консоль</span> <span class="string"><b>"Не найдено."</b></span>.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function() {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'del'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>
