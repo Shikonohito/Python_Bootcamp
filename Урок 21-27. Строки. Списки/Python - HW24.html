@@ -1,0 +1,413 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - HW24</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #343434 0%, #363636 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+
+    .string {
+      color: #6AAB73;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+    }
+
+    .self {
+      color: #94558D;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+    }
+
+    .number {
+      color: #2AACB8;
+    }
+
+    .comments {
+      color: #7A7E85;
+    }
+
+    .metadata {
+      color: #B3AE60;
+    }
+
+    .built-in {
+      color: #8888C6;
+    }
+
+    .function {
+      color: #56A8F5;
+    }
+
+    .special-names {
+      color: #B200B2;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+    }
+
+    ol {
+      counter-reset: list;
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    ol li {
+      counter-increment: list;
+      position: relative;
+      padding-left: 1.2em;
+      padding-bottom: 1.2em;
+    }
+
+    ol li::before {
+      content: counter(list) ". ";
+      position: absolute;
+      left: 0;
+      color: #FFC000;
+      font-weight: bold;
+    }
+
+    .grey {
+      color: #BCBEC4;
+    }
+
+    .no-padding-bottom {
+      padding-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2><strong>Примечание</strong></h2>
+        <p>Оформляйте ввод и вывод данных в соответствии с примерами заданий. Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>. Не используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методов. Не используйте срезы.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 24.1</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span>, затем <span class="hl-text">переводит все заглавные английские буквы в строчные</span> и <span class="hl-text">выводит результат в консоль</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите строку: <span class="input">SoMe TeXT</span>
+
+Строка маленькими буквами: some text</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 24.2</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span> и <span class="hl-text">выводит в консоль количество слов в строке</span>. Словом является набор символов <span class="hl-text">разделённые пробелами</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите строку: <span class="input">abc abc     abc</span>
+
+Всего слов: 3</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 24.3</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span> и <span class="hl-text">выводит в консоль</span> <span class="string"><b>"В строке содержатся английские буквы."</b></span> или <span class="string"><b>"В строке отсутствуют английские буквы."</b></span> <span class="hl-text">в зависимости от строки</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите строку: <span class="input">12345abc</span>
+
+В строке содержатся английские буквы.</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 24.4</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span> и <span class="hl-text">выводит в консоль</span> <span class="string"><b>"Строка является палиндромом."</b></span> или <span class="string"><b>"Строка не является палиндромом."</b></span> <span class="hl-text">в зависимости от строки</span>. Палиндром — слово или текст, которое читается одинаково <span class="hl-text">слева направо</span> и <span class="hl-text">справа налево</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите строку: <span class="input">А роза упала на лапу Азора</span>
+
+Строка является палиндромом.</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 24.5</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку текста на английском</span>, <span class="hl-text">преобразует каждое предложение в тексте так, чтобы оно начиналось с большой буквы</span>, и <span class="hl-text">выводит результат в консоль</span>.</p>
+        <h3>Подсказки:</h3>
+        <ol>
+          <li>Создайте булевую переменную, по которой можно будет определить, нужно ли менять текущую букву на заглавную.</li>
+          <li class="no-padding-bottom">Используйте алгоритм, который был рассмотрен на уроке, где заглавные буквы нужно было заменить на строчные.</li>
+        </ol>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите строку текста: <span class="input">abc. def? ghi! jkl.</span>
+
+Преобразованный текст: Abc. Def? Ghi! Jkl.</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 24.6</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span> и <span class="hl-text">выводит в консоль</span> <span class="string"><b>"В строке присутствуют только английские буквы."</b></span> или <span class="string"><b>"В строке присутствуют не только английские буквы."</b></span> <span class="hl-text">в зависимости от строки</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите строку: <span class="input">abc5de</span>
+
+В строке присутствуют не только английские буквы</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 24.7</h2>
+        <p><span class="hl-text">Teston Lebra</span> написал программу, которая ищет последовательность символов в строке и заменяет их на другую последовательность. Однако она работает некорректно. <span class="hl-text">Исправьте программу так, чтобы она работала верно, и рядом напишите комментарии о том, почему изменённый вариант должен работать верно</span>.</p>
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">text = input("Введите строку: ")
+to_find = input("Введите искомую строку: ")
+to_change = input("Введите строку изменения: ")
+len_text = len(text)
+len_find = len(to_find)
+result = ""
+
+i = 0
+while i < len_text:
+    is_find = False
+    j = 0
+    while j < len_find:
+        if text[i + j] == to_find[j]:
+            is_find = True
+            break
+        j += 1
+    if is_find:
+        result += to_change
+        i += len_find
+    else:
+        result += text[i]
+        i += 1
+
+print(f"Изменённая строка: {result}")</code></pre>
+        </div>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите строку: <span class="input">abcabcdabc abcd</span>
+Введите искомую строку: <span class="input">abcd</span>
+Введите строку изменения: <span class="input">xx</span>
+
+Изменённая строка: abcxxabc xx</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function() {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>

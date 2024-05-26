@@ -1,0 +1,232 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT21</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .string {
+      color: #6AAB73;
+    }
+
+    .number {
+      color: #2AACB8;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Практическое Задание 21.1</h2>
+        <p>Напишите программу, которая <span class="hl-text">выводит в консоль слово</span> <span class="string"><b>"Python"</b></span>, а затем <span class="hl-text">выводит в консоль символы на чётных индексах</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Python
+P
+t
+o</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 21.2</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span>, а затем <span class="hl-text">выводит в консоль символы на чётных индексах в одну строку</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите строку: <span class="input">Test String</span>
+
+T s  t i g</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 21.3</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span>, <span class="hl-text">формирует обратную строку</span> и <span class="hl-text">выводит в консоль результат</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите строку: <span class="input">Test String</span>
+
+gnirtS tesT</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 21.4</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли слово маленькими буквами</span> и <span class="hl-text">выводит в консоль</span> <span class="string"><b>"Это палиндром."</b></span> или <span class="string"><b>"Это не палиндром."</b></span> в зависимости от слова.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите слово: <span class="input">потоп</span>
+
+Это палиндром.</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 21.5</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span> и <span class="hl-text">выводит в консоль последние <span class="number"><b>3</b></span> символа строки</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите строку: <span class="input">abcdef</span>
+
+Последние 3 символа: f, e, d</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 21.6</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span> и <span class="hl-text">выводит в консоль каждый символ</span> и <span class="hl-text">следующий за ним символ в строке</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите строку: <span class="input">Test String</span>
+
+Пары следующие: Te es st t   S St tr ri in ng g</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 21.7</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли фамилию</span>, <span class="hl-text">имя</span> и <span class="hl-text">отчество</span>, а затем <span class="hl-text">выводит в консоль первые буквы введённых данных</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите фамилию: <span class="input">Lebra</span>
+Введите имя: <span class="input">Teston</span>
+Введите отчество: <span class="input">Experimenton</span>
+
+Инициалы: LTE</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 21.8</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span> и <span class="hl-text">символ</span>, затем <span class="hl-text">выводит в консоль количество вхождения символа в строку</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите строку: <span class="input">Test String</span>
+Введите символ: <span class="input">t</span>
+
+Количество символа t в ведённой строке: 2</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 21.9</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли в одной строке дату</span> и <span class="hl-text">выводит в консоль данные на разных строчках</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите дату (dd/mm/yyyy): <span class="input">10/12/2023</span>
+
+День: 10
+Месяц: 12
+Год: 2023</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 21.10</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли <span class="number"><b>16</b></span>-значный номер карты</span> и <span class="hl-text">выводит в консоль этот же номер, но с замаскированными символами, кроме последних четырёх</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите номер карты: <span class="input">5869586958695869</span>
+
+Ваш номер карты: ************5869</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

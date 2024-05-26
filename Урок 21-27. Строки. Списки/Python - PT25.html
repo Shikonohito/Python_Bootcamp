@@ -1,0 +1,168 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT25</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .string {
+      color: #6AAB73;
+    }
+
+    .number {
+      color: #2AACB8;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Практическое Задание 25.1</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли температуры в одной строке</span> и <span class="hl-text">выводит в консоль среднее значение</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите температуры через пробел: <span class="input">25 26 30 29 30</span>
+
+Средняя температура: 28</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 25.2</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли оценки до тех пор, пока не введут пустую строку</span>. Затем программа <span class="hl-text">формирует список</span> и <span class="hl-text">выводит в консоль минимальную оценку</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите оценку (1): <span class="input">12</span>
+Введите оценку (2): <span class="input">11</span>
+Введите оценку (3): <span class="input">12</span>
+Введите оценку (4): <span class="input">10</span>
+Введите оценку (5): <span class="input">11</span>
+Введите оценку (6): 
+
+Минимальная оценка: 10</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 25.3</h2>
+        <p>Реализуйте следующее меню:
+          <br>1. Внести доход/расход в отчёт
+          <br>2. Показать полную историю
+          <br>3. Показать историю по границам
+          <br>4. Завершить программу
+        <p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает с консоли числа до тех пор, пока не введут пустую строку</span>. Все числа должны <span class="hl-text">помещаться в список</span>. После этого программа <span class="hl-text">возвращается в главное меню</span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">выводит в консоль данные из списка по следующему шаблону</span>:
+          <br><span class="number"><b>&ltиндекс&gt<span class="string">&ltслово доход/расход&gt</span>&ltчисло_как_есть&gt</b></span>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли начальный индекс</span> и <span class="hl-text">конечный индекс</span>. Затем программа <span class="hl-text">выводит в консоль данные из списка в границах индексов включительно по тому же шаблону, что и выше</span>.</p>
+      </div>
+    </div>
+  </div>
+</body>
