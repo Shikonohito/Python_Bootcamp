@@ -1,0 +1,196 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT31</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    .string {
+      color: #6AAB73;
+    }
+
+    .number {
+      color: #2AACB8;
+    }
+
+    .function {
+      color: #56A8F5;
+    }
+
+    ol {
+      counter-reset: list;
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    ol li {
+      counter-increment: list;
+      position: relative;
+      padding-left: 1.8em;
+      padding-bottom: 0.7em;
+    }
+
+    ol li::before {
+      content: counter(list) ". ";
+      position: absolute;
+      left: 0;
+      color: #FFC000;
+      font-weight: bold;
+    }
+
+    .grey {
+      color: #BCBEC4;
+    }
+
+    .no-padding-bottom {
+      padding-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Практическое Задание 31.1</h2>
+        <p>Напишите программу по приготовлению салата <span class="string"><b>"Мимоза"</b></span> с использованием <span class="hl-text">разных функций</span> и <span class="hl-text">вызове их через цикл</span>.</p>
+        <h3>Рецепт:</h3>
+        <ol>
+          <li>Отварить картофель, морковь, яйца.</li>
+          <li>Почистить картофель, морковь, яйца.</li>
+          <li>Отдельно натереть на мелкой тёрке картофель, морковь, белок, желток, сыр.</li>
+          <li>Выложить в салатницу рыбу с маслом.</li>
+          <li>Размять вилкой по всей поверхности дна посуды.</li>
+          <li>Верхушку смазать небольшим количеством майонеза.</li>
+          <li>Сверху разложить натёртые белки.</li>
+          <li>Верхушку смазать небольшим количеством майонеза.</li>
+          <li>Сверху разложить натёртую морковь.</li>
+          <li>Верхушку смазать небольшим количеством майонеза.</li>
+          <li>Нарезать мелко лук.</li>
+          <li>Залить кипятком нарезанный лук.</li>
+          <li>Дать нарезанному луку настояться в течении 5-10 минут.</li>
+          <li>Сверху разложить нарезанный лук.</li>
+          <li>Сверху разложить натёртый картофель.</li>
+          <li>Верхушку смазать небольшим количеством майонеза.</li>
+          <li>Сверху разложить натёртый сыр.</li>
+          <li>Верхушку смазать небольшим количеством майонеза.</li>
+          <li class="no-padding-bottom">Сверху разложить натёртый желток.</li>
+        </ol>
+        <h3>Функции:</h3>
+        <ol>
+          <li><span class="function"><b>boil</span><span class="grey">(&ltсписок_продуктов&gt, &ltиндексы_продуктов&gt)</b></span>
+            <br>Возвращает строку <span class="string"><b>"Отварить &ltназвание_продукта&gt, &ltназвание_продукта&gt, ... ."</b></span> и меняет название продуктов по индексам на <span class="string"><b>"варёный &ltназвание_продукта&gt"</b></span>.
+          </li>
+          <li><span class="function"><b>peel</span><span class="grey">(&ltсписок_продуктов&gt, &ltиндексы_продуктов&gt)</b></span>
+            <br>Возвращает строку <span class="string"><b>"Почистить &ltназвание_продукта&gt, &ltназвание_продукта&gt, ... ."</b></span>.
+          </li>
+          <li><span class="function"><b>grater</span><span class="grey">(<span class="string">&ltвместе/отдельно&gt</span>, <span class="string">&ltмелко/средне/крупно&gt</span>, &ltсписок_продуктов&gt, &ltиндексы_продуктов&gt)</b></span>
+            <br>Возвращает функцию <span class="function"><b>grate</b></span>, которая описана внутри него.
+          </li>
+          <li><span class="function"><b>grate</span><span class="grey">(&ltсписок_продуктов&gt, &ltиндексы_продуктов&gt)</b></span>
+            <br>Возвращает строку <span class="string"><b>"&ltВместе/Отдельно&gt натереть на &ltмелкой/средней/крупной&gt тёрке &ltназвание_продукта&gt, &ltназвание_продукта&gt, ... ."</b></span> и меняет название продуктов по индексам на <span class="string"><b>"натёртый &ltназвание_продукта&gt"</b></span>.
+          </li>
+          <li><span class="function"><b>cutter</span><span class="grey">(<span class="string">&ltмелко/средне/крупно&gt</span>, &ltсписок_продуктов&gt, &ltиндексы_продуктов&gt)</b></span>
+            <br>Возвращает функцию <span class="function"><b>chop</b></span>, которая описана внутри него.
+          </li>
+          <li><span class="function"><b>chop</span><span class="grey">(&ltсписок_продуктов&gt, &ltиндексы_продуктов&gt)</b></span>
+            <br>Возвращает строку <span class="string"><b>"&ltМелко/Средне/Крупно&gt нарезать &ltназвание_продукта&gt, &ltназвание_продукта&gt, ... ."</b></span> и меняет название продуктов по индексам на <span class="string"><b>"нарезанный &ltназвание_продукта&gt"</b></span>.
+          </li>
+          <li><span class="function"><b>put</span><span class="grey">(<span class="string">&ltсверху/сбоку/без_разницы&gt</span>, <span class="string">&ltсмазать/разложить/без_разницы&gt</span>, &ltсписок_продуктов&gt, &ltиндексы_продуктов&gt)</b></span>
+            <br>Возвращает функцию <span class="function"><b>place</b></span>, которая описана внутри него.
+          </li>
+          <li><span class="function"><b>place</span><span class="grey">(&ltсписок_продуктов&gt, &ltиндексы_продуктов&gt)</b></span>
+            <br>Возвращает строку <span class="string"><b>"&ltСмазать/Разложить/Положить&gt &ltСверху/Сбоку&gt &ltназвание_продукта&gt, &ltназвание_продукта&gt, ... ."</b></span>.
+          </li>
+          <li><span class="function"><b>cooking_steps</span><span class="grey">(<span class="string">&ltназвание_блюда&gt</span>)</b></span>
+            <br>Возвращает список функций.
+          </li>
+          <li class="no-padding-bottom"><span class="function"><b>cook</span><span class="grey">(<span class="string">&ltназвание_блюда&gt</span>)</b></span>
+            <br>Вызывает <span class="function"><b>cooking_steps</b></span> и проходится по ним. Затем выводит в консоль <span class="string"><b>"Готово"</b></span>.
+          </li>
+        </ol>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 31.2</h2>
+        <p>Напишите программу, которая <span class="hl-text">по-разному приветствует пользователей</span>. Создайте <span class="hl-text">список</span> <span class="grey"><b>users</b></span>, который будет содержать имена <span class="string"><b>"Teston"</b></span>, <span class="string"><b>"Иван"</b></span>, <span class="string"><b>"Kate"</b></span>. Создайте <span class="hl-text">три функции</span>, которые <span class="hl-text">принимают строку имени</span> и <span class="hl-text">возвращают строки приветствия</span>. Первая функция <span class="hl-text">возвращает</span> <span class="string"><b>"Доброго времени суток, магистр &ltИмя&gt."</span>, вторая функция <span class="hl-text">возвращает</span> <span class="string"><b>"Здравствуйте, лорд &ltИмя&gt."</span>, третья функция - <span class="string"><b>"Добро пожаловать, &ltИмя&gt."</b></span>.</p>
+
+        <p>Напишите ещё одну функцию, которая <span class="hl-text">принимает список имён</span> и <span class="hl-text">список функций приветствий</span>, затем функция <span class="hl-text">в цикле вызывает функции приветствий, передавая им имена</span>.</p>
+      </div>
+    </div>
+  </div>
+</body>

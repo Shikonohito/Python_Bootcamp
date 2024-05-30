@@ -1,0 +1,447 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - HW30</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #343434 0%, #363636 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+
+    .string {
+      color: #6AAB73;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+    }
+
+    .self {
+      color: #94558D;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+    }
+
+    .number {
+      color: #2AACB8;
+    }
+
+    .comments {
+      color: #7A7E85;
+    }
+
+    .metadata {
+      color: #B3AE60;
+    }
+
+    .built-in {
+      color: #8888C6;
+    }
+
+    .function {
+      color: #56A8F5;
+    }
+
+    .special-names {
+      color: #B200B2;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+    }
+
+    .grey {
+      color: #BCBEC4;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2><strong>Примечание</strong></h2>
+        <p>Оформляйте ввод и вывод данных в соответствии с примерами заданий. Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>. Не используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методов. Методы <code class="python"><b>format()</b></code>, <code class="python"><b>split()</b></code> и <code class="python"><b>append()</b></code> использовать можно. Не используйте срезы.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 30.1</h2>
+        <p>Напишите функцию <span class="function"><b>generate_password</b></span>, которая <span class="hl-text">принимает необязательную длину</span> (по умолчанию <span class="number"><b>8</b></span>) и <span class="number"><b>3</b></span> <span class="hl-text">необязательных параметра</span> (по умолчанию <code class="python"><b>False</b></code>), которые принимают только <code class="python"><b>True</b></code> или <code class="python"><b>False</b></code> - <span class="hl-text">содержит цифры</span>, <span class="hl-text">заглавные буквы</span>, <span class="hl-text">специальные символы</span>. Функция должна <span class="hl-text">сформировать строку пароля по указанным параметрам</span> и <span class="hl-text">вернуть её</span>.</p>
+        <h3>Подсказка:</h3>
+        <p>Решение можете взять из <span class="hl-text">Домашнего Задания 22.8</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 30.2</h2>
+        <p>Напишите функцию <span class="function"><b>convert_seconds</b></span>, которая <span class="hl-text">принимает секунды</span> и <span class="hl-text">необязательный символ</span> (по умолчанию <span class="string"><b>"m"</b></span>). Функция должна <span class="hl-text">перевести секунды</span> и <span class="hl-text">вернуть результат</span>. Переводы зависят от необязательного символа:
+          <br>— Если символ <span class="string"><b>"m"</b></span>, то перевод в <span class="hl-text">минуты</span>
+          <br>— Если символ <span class="string"><b>"h"</b></span>, то перевод в <span class="hl-text">часы</span>
+          <br>— Если символ <span class="string"><b>"d"</b></span>, то перевод в <span class="hl-text">дни</span>
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 30.3</h2>
+        <p>Напишите функцию <span class="function"><b>find_str_index</b></span>, которая <span class="hl-text">принимает строку</span>, <span class="hl-text">символ</span> и <span class="hl-text">необязательный индекс</span> (по умолчанию <span class="number"><b>0</b></span>). Функция должна <span class="hl-text">вернуть индекс первого вхождения символа в строку, начиная поиск с указанного индекса</span>. Если индекс не найден, то функция должна <span class="hl-text">вернуть</span> <span class="grey"><b>-</span><span class="number">1</span></b>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 30.4</h2>
+        <p>Напишите функцию <span class="function"><b>users_expiration_check</b></span>, которая <span class="hl-text">принимает список пользователей</span> и <span class="hl-text">необязательные количество дней как число</span> (по умолчанию <span class="number"><b>30</b></span>) и <span class="hl-text">режим как строку</span> (по умолчанию <span class="string"><b>"safe"</b></span>). Функция должна <span class="hl-text">найти всех пользователей, у которых число дней с последнего захода больше, чем указано</span>, и <span class="hl-text">действовать в зависимости от режима</span>:
+          <br>— <span class="hl-text"><b>safe:</b></span> не изменяет список пользователей, возвращает список из найденных индексов пользователей
+          <br>— <span class="hl-text"><b>pop:</b></span> добавляет найденного пользователя в новый список, удаляет из списка пользователей, возвращает новый список
+          <br>— <span class="hl-text"><b>remove:</b></span> удаляет из списка пользователей найденных пользователей, возвращает пустой список
+        </p>
+
+        <p>Структура списка пользователей:
+          <br><span class="grey"><b>[
+              <br>&nbsp[<span class="string">"Login"</span>, <span class="string">"Password"</span>, <span class="number">&ltчисло_дней_с_последнего_захода&gt</span>],
+              <br>&nbsp[<span class="string">"Login"</span>, <span class="string">"Password"</span>, <span class="number">&ltчисло_дней_с_последнего_захода&gt</span>],
+              <br>&nbsp[<span class="string">"Login"</span>, <span class="string">"Password"</span>, <span class="number">&ltчисло_дней_с_последнего_захода&gt</span>],
+              <br>&nbsp. . . . . . . . . . . . .
+              <br>]</b></span>
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 30.5</h2>
+        <p>Измените указанный ниже код так, чтобы <span class="hl-text">функции перестали использовать глобальную переменную</span>.</p>
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">student_list = list()
+
+
+def show_students():
+    for student in student_list:
+        print(student[0], student[1])
+
+
+def get_student_index(name: str):
+    found_index = -1
+    for i in range(len(student_list)):
+        if name == student_list[i][0]:
+            found_index = i
+            break
+    return found_index
+
+
+def get_student(name: str):
+    found_student = None
+    index = get_student_index(name)
+    if index != -1:
+        found_student = student_list[index]
+    return found_student
+
+
+def add_student(new_student: list):
+    is_success = False
+    new_student_name = new_student[0]
+    index = get_student_index(new_student_name)
+    if index == -1:
+        student_list.append(new_student)
+        is_success = True
+    return is_success
+
+
+def change_student(new_student: list, index: int):
+    is_success = False
+    found_index = get_student_index(new_student[0])
+    if found_index == -1 and 0 <= index and index < len(student_list):
+        student = student_list[index]
+        if new_student[0] != "":
+            student[0] = new_student[0]
+        if new_student[1] != "":
+            student[1] = new_student[1]
+        is_success = True
+    return is_success
+
+
+def remove_student(index: int):
+    is_success = False
+    if 0 <= index and index < len(student_list):
+        del student_list[index]
+        is_success = True
+    return is_success
+
+
+while True:
+    print("1. Показать студентов")
+    print("2. Найти индекс студента по имени")
+    print("3. Найти студента по имени")
+    print("4. Добавить студента")
+    print("5. Изменить студента по индексу")
+    print("6. Удалить студента по индексу")
+    print("7. Завершить программу")
+
+    choice = input("Выберите действие: ")
+    if choice == "1":
+        show_students()
+        print("==================================")
+    elif choice == "2":
+        name = input("Введите имя: ")
+        found_index = get_student_index(name)
+        if found_index == -1:
+            print(f"Студента с именем {name} не существует.")
+        else:
+            print(f"Студент {name} найден по индексу {found_index}.")
+        print("==================================")
+    elif choice == "3":
+        name = input("Введите имя: ")
+        found_student = get_student(name)
+        if found_student:
+            print(f"Имя: {found_student[0]}\t\tВозраст: {found_student[1]}")
+        else:
+            print(f"Студент с именем {name} не найден.")
+        print("==================================")
+    elif choice == "4":
+        new_student_name = input("Введите имя нового студента: ")
+        new_student_age = int(input("Введите возраст нового студента: "))
+        new_student = [new_student_name, new_student_age]
+        if add_student(new_student):
+            print(f"{new_student_name} был добавлен в список.")
+        else:
+            print("Такое имя уже присутствует.")
+        print("==================================")
+    elif choice == "5":
+        index = int(input("Введите индекс: "))
+        new_student_name = input("Введите имя нового студента: ")
+        new_student_age = input("Введите возраст нового студента: ")
+        if new_student_age != "":
+            new_student_age = int(new_student_age)
+        new_student = [new_student_name, new_student_age]
+        if change_student(new_student, index):
+            print("Данные студента были изменены.")
+        else:
+            print("Изменения отклонены. Возможно Вы указали неверный индекс или имя студента уже есть в списке.")
+        print("==================================")
+    elif choice == "6":
+        index = int(input("Введите индекс: "))
+        if remove_student(index):
+            print("Студент был удалён.")
+        else:
+            print("Студент не был найден.")
+        print("==================================")
+    elif choice == "7":
+        print("==================================")
+        print("Программа завершается.")
+    else:
+        print("Неверный ввод. Пожалуйста, выберите пункт из меню.")</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 30.6 (Необязательное)</h2>
+        <p>Измените исходный код из <span class="hl-text">Домашнего Задания 30.5</span> таким образом, чтобы <span class="grey"><b>student_list</b></span> перестал быть глобальной переменной, используя <span class="hl-text">замыкание</span>.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function() {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>

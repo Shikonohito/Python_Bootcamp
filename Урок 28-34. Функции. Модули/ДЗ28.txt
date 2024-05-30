@@ -21,7 +21,7 @@ _ - это свободные места
 
 Затем программа снова показывает главное меню.
 При выборе пункта 2 программа запрашивает с консоли ряд и колонку. Если место свободно, то программа должна вывести в консоль "Место успешно забронировано.". В противном случае должна вывести "Место уже занято. Пожалуйста, выберите другое место." и после этого программа будет предлагать забронировать место до тех пор, пока не выберется свободное место или же не будут введены пустые строки. После этого программа возвращается в главное меню.
-После успешного бронирования пункт 1 должен отобрать новые бронирования.
+После успешного бронирования пункт 1 должен отобразить новые бронирования.
 
 
 Задание 28.2
@@ -60,7 +60,7 @@ randint(start, end)  # Использование функции для гене
 
 
 Задание 28.8
-Teston Lebra написал функции и программу. Составьте комментарии по коду - что делает программа, как она работает, какие данные принимает. Также опишите каждую функцию - что она делает и как она работает. Также добавьте в главное меню пунктами "Очистить корзину" и "Пополнить баланс".
+Teston Lebra написал функции и программу. Составьте комментарии по коду - что делает программа, как она работает, какие данные принимает. Также опишите каждую функцию - что она делает и как она работает. Также добавьте в главное меню пункты "Очистить корзину" и "Пополнить баланс".
 КОД:
 def main_menu():
     MENU_DESC = ["Показать корзину", "Оплатить корзину", "Добавить товар в корзину", "Завершить программу"]
@@ -101,7 +101,7 @@ def get_total_price(cart: list[str], storage_product_names: list[str], storage_p
     return total_price
 
 
-def pay_сart(cart: list[str], balance, storage_product_names: list[str], storage_product_prices: list[float]):
+def pay_cart(cart: list[str], balance, storage_product_names: list[str], storage_product_prices: list[float]):
     is_success = True
     total_price = get_total_price(cart, storage_product_names, storage_product_prices)
     if balance < total_price:
@@ -140,7 +140,7 @@ while True:
     elif choice_mm[0] == 1:
         print_cart(customer_cart)
     elif choice_mm[0] == 2:
-        pay_cart_logs = pay_сart(customer_cart, CUSTOMER_BALANCE, PRODUCT_NAMES, PRODUCT_PRICES)
+        pay_cart_logs = pay_cart(customer_cart, CUSTOMER_BALANCE, PRODUCT_NAMES, PRODUCT_PRICES)
         print(pay_cart_logs[1])
     elif choice_mm[0] == 3:
         choice_pm = None

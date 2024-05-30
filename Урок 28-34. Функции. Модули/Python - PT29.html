@@ -1,0 +1,318 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT29</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+
+    .string {
+      color: #6AAB73;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+    }
+
+    .self {
+      color: #94558D;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+    }
+
+    .number {
+      color: #2AACB8;
+    }
+
+    .comments {
+      color: #7A7E85;
+    }
+
+    .metadata {
+      color: #B3AE60;
+    }
+
+    .built-in {
+      color: #8888C6;
+    }
+
+    .function {
+      color: #56A8F5;
+    }
+
+    .special-names {
+      color: #B200B2;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Практическое Задание 29.1</h2>
+        <p>Напишите функцию <span class="function"><b>draw_quad</b></span>, которая <span class="hl-text">принимает ширину</span>, <span class="hl-text">высоту</span> и <span class="hl-text">символ</span>. По умолчанию <span class="hl-text">третий параметр равен</span> <span class="string"><b>"*"</b></span>. Функция должна <span class="hl-text">рисовать в консоли четырёхугольник из указанного символа</span> и <span class="hl-text">указанного размера</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 29.2</h2>
+        <p>В магазине <span class="hl-text">"Всё Не Дорого"</span> ввели кэшбек от стоимости покупки. Поэтому им потребовалась универсальная функция <span class="function"><b>get_cashback</b></span>, которая <span class="hl-text">принимает необязательную скидку</span> (по умолчанию <span class="number"><b>5%</b></span>) и <span class="hl-text">несколько цен</span> (числа). Затем функция должна <span class="hl-text">возвращать сумму кэшбека</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 29.3</h2>
+        <p>Напишите функцию <span class="function"><b>generate_list</b></span>, которая <span class="hl-text">принимает последовательность элементов</span> и <span class="hl-text">необязательные начало</span> и <span class="hl-text">конец</span>. Функция должна <span class="hl-text">сформировать список из последовательности элементов от начала до конца включительно</span>. Затем функция должна <span class="hl-text">вернуть полученный список</span>.</p>
+        <p>После этого реализуйте меню, которое будет использовать созданную функцию:
+          <br>1. Показать данные
+          <br>2. Ввести новые данные
+          <br>3. Сформировать список из данных
+          <br>4. Сделать срез из данных списка
+          <br>5. Завершить программу
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает в консоли отдельно имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">день рождения</span>, <span class="hl-text">месяц рождения</span>, <span class="hl-text">год рождения</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">день рождения</span>, <span class="hl-text">месяц рождения</span>, <span class="hl-text">год рождения</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">вызывает функцию</span> и <span class="hl-text">передаёт ей имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">день рождения</span>, <span class="hl-text">месяц рождения</span>, <span class="hl-text">год рождения</span>, а затем <span class="hl-text">выводит в консоль сформированный список</span>.
+        <p>
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">выводит в консоль сформированный список</span> и <span class="hl-text">запрашивает начало</span> и <span class="hl-text">конец среза</span>. Затем <span class="hl-text">передаёт данные в функцию</span> и <span class="hl-text">выводит в консоль полученный срез</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 29.4</h2>
+        <p>Напишите функцию <span class="function"><b>start_game</b></span>, которая <span class="hl-text">принимает сложность, как необязательное число от <span class="number"><b>1</b></span> до <span class="number"><b>3</b></span> включительно</span> (по умолчанию <span class="number"><b>1</b></span>), и <span class="hl-text">запускает игру</span> <span class="string"><b>"Угадай число"</b></span>. Функция должна <span class="hl-text">загадать число в диапазоне в зависимости от сложности</span> и <span class="hl-text">запрашивать с консоли ввод числа</span>. Если введённое число не совпадает, то функция <span class="hl-text">выводит в консоль</span> <span class="string"><b>"Загаданное число больше."</b></span> или <span class="string"><b>"Загаданное число меньше."</b></span> и затем <span class="hl-text">снова запрашивает ввод с консоли</span>. Если введённое число совпало с загаднным, то функция должна <span class="hl-text">вывести в консоль количество попыток, потраченные на угадывание</span>.</p>
+        <p>Зависимость диапазона от сложности:
+          <br>— <span class="hl-text"><b>Сложность 1:</b></span> диапазон [<span class="number"><b>1</b></span>, <span class="number"><b>100</b></span>]
+          <br>— <span class="hl-text"><b>Сложность 2:</b></span> диапазон [<span class="number"><b>1</b></span>, <span class="number"><b>300</b></span>]
+          <br>— <span class="hl-text"><b>Сложность 3:</b></span> диапазон [<span class="number"><b>1</b></span>, <span class="number"><b>500</b></span>]
+        </p>
+
+        <h3>Подсказка:</h3>
+        <p>Используйте следующий код, чтобы генерировать числа:
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">from random import randint  # Подключение модуля random и импорт функции randint
+
+number = randint(start, end)  # Использование функции для генерации одного числа от start до end включительно</code></pre>
+        </div>
+        </p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function() {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>
