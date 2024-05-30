@@ -1,0 +1,447 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - HW28</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #343434 0%, #363636 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+
+    .string {
+      color: #6AAB73;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+    }
+
+    .self {
+      color: #94558D;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+    }
+
+    .number {
+      color: #2AACB8;
+    }
+
+    .comments {
+      color: #7A7E85;
+    }
+
+    .metadata {
+      color: #B3AE60;
+    }
+
+    .built-in {
+      color: #8888C6;
+    }
+
+    .function {
+      color: #56A8F5;
+    }
+
+    .special-names {
+      color: #B200B2;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2><strong>Примечание</strong></h2>
+        <p>Оформляйте ввод и вывод данных в соответствии с примерами заданий. Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>. Не используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методов. Методы <code class="python"><b>format()</b></code>, <code class="python"><b>split()</b></code> и <code class="python"><b>append()</b></code> использовать можно. Не используйте срезы.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 28.1</h2>
+        <p>У кинотеатра <span class="hl-text">"Посидим, посмотрим"</span> открылась возможность забронировать место на сессию. Реализуйте следующее меню:
+          <br>1. Показать места на сессию
+          <br>2. Забронировать место
+          <br>3. Завершить программу
+        </p>
+        <p>При выборе <span class="hl-text">пункта 1</span> программа должна <span class="hl-text">показать места следующим образом</span>:</p>
+        <div class="console">
+          <pre><code>  1 2 3 4 5 6 7 8 9
+1 _ _ _ _ _ _ _ _ _
+2 _ _ X X _ _ _ _ _
+3 _ _ _ _ X X X _ _
+4 _ _ X X _ X X _ _
+5 _ _ _ _ _ _ _ _ _
+
+X - занятые места
+_ - свободные места</code></pre>
+        </div>
+        <p>Затем программа <span class="hl-text">снова показывает главное меню<span>.</p>
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли ряд</span> и <span class="hl-text">колонку</span>. Если место свободно, то программа должна в<span class="hl-text">ывести в консоль</span> <span class="string"><b>"Место успешно забронировано."</b></span>. В противном случае должна <span class="hl-text">вывести</span> <span class="string"><b>"Место уже занято. Пожалуйста, выберите другое место."</b></span> и после этого программа будет <span class="hl-text">предлагать забронировать место до тех пор, пока не выберется свободное место</span> или же <span class="hl-text">не будут введены пустые строки</span>. После этого программа <span class="hl-text">возвращается в главное меню</span>.</p>
+        <p>После успешного бронирования <span class="hl-text">пункт 1 должен отобразить новые бронирования</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 28.2</h2>
+        <p>Напишите функцию <span class="function"><b>print_BG</b></span>, которая <span class="hl-text">отображает в консоли форматированный текст, указанный ниже</span>.</p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>"Don't compare yourself with anyone in this world...
+if you do so, you are insulting yourself."
+                                        Bill Gates</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 28.3</h2>
+        <p>Напишите функцию <span class="function"><b>draw_rectangle</b></span>, которая <span class="hl-text">ничего не принимает</span> и <span class="hl-text">рисует в консоли незаполненный прямоугольник <span class="number"><b>3</b></span> на <span class="number"><b>5</b></span> из символов</span> <span class="string"><b>"*"</b></span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 28.4</h2>
+        <p>Напишите функцию <span class="function"><b>draw_quad</b></span>, которая <span class="hl-text">принимает символ</span>, <span class="hl-text">длину</span>, <span class="hl-text">ширину</span> и <span class="hl-text">рисует в консоли незаполненный прямоугольник из этого символа указанного размера</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 28.5</h2>
+        <p>Напишите функцию <span class="function"><b>generate_list</b></span>, которая <span class="hl-text">принимает размер</span>, <span class="hl-text">начало</span> и <span class="hl-text">конец диапазона</span>, затем <span class="hl-text">формирует список по параметрам</span> и <span class="hl-text">возвращает результат</span>.</p>
+        <h3>Подсказка:</h3>
+        <p>Используйте следующий код для генерации числа:</p>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">from random import randint  # Подключение модуля random и импорт функции randint
+
+number = randint(start, end)  # Использование функции для генерации одного числа от start до end включительно</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 28.6</h2>
+        <p>Напишите функцию <span class="function"><b>get_indexes</b></span>, которая <span class="hl-text">принимает список</span> и <span class="hl-text">элемент для поиска</span>, затем <span class="hl-text">ищет элементы в списке</span> и <span class="hl-text">добавляет в новый список найденные индексы</span>. После этого <span class="hl-text">возвращает полученный список</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 28.7</h2>
+        <p>Напишите функцию <span class="function"><b>has_alpha_eng</b></span>, которая <span class="hl-text">принимает строку</span> и <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>, если в строке есть английские буквы, и <span class="python"><b>False</b></code> в противном случае.</p>
+
+        <p>Затем напишите программу, которая <span class="hl-text">использует эту функцию</span>. Если функция возвращает <code class="python"><b>True</b></code>, то программа должна <span class="hl-text">выводить в консоль</span> <span class="string"><b>"В строке содержатся английские буквы."</b></span>. В противном случае программа должна выводить в консоль <span class="string"><b>"В строке отсутствуют английские буквы."</b></span>.</p>
+
+        <h3>Подсказка:</h3>
+        <p>Решение Вы можете взять из <span class="hl-text">Домашнего Задания 24.3</span>. Только вместо вывода в консоль функция должна возвращать <code class="python"><b>True</b></code> или <code class="python"><b>False</b></code>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 28.8</h2>
+        <p><span class="hl-text">Teston Lebra</span> написал функции и программу. Составьте комментарии по коду - <span class="hl-text">что делает программа</span>, <span class="hl-text">как она работает</span>, <span class="hl-text">какие данные принимает</span>. Также опишите каждую функцию - <span class="hl-text">что она делает</span> и <span class="hl-text">как она работает</span>. Также добавьте в главное меню пункты <span class="string"><b>"Очистить корзину"</b></span> и <span class="string"><b>"Пополнить баланс"</b></span>.</p>
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">def main_menu():
+    MENU_DESC = ["Показать корзину", "Оплатить корзину", "Добавить товар в корзину", "Завершить программу"]
+    menu_size = len(MENU_DESC)
+    for i in range(1, menu_size + 1):
+        print(f"{i}. {MENU_DESC[i - 1]}")
+    choice = input("Выберите действие: ")
+    if choice.isdigit():
+        choice = int(choice)
+        if choice > menu_size or choice < 1:
+            choice = -1
+    else:
+        choice = -1
+    return [choice, menu_size]
+
+
+def print_cart(cart: list[str]):
+    print("Ваша корзина:")
+    for product_name in cart:
+        print("+", product_name)
+    print("===========================")
+
+
+def get_price(product_name: str, storage_product_names: list[str], storage_product_prices: list[float]):
+    product_price = 0
+    for i in range(len(storage_product_names)):
+        print(product_name)
+        if product_name == storage_product_names[i]:
+            product_price = storage_product_prices[i]
+            break
+    return product_price
+
+
+def get_total_price(cart: list[str], storage_product_names: list[str], storage_product_prices: list[float]):
+    total_price = 0
+    for product_name in cart:
+        total_price += get_price(product_name, storage_product_names, storage_product_prices)
+    return total_price
+
+
+def pay_cart(cart: list[str], balance, storage_product_names: list[str], storage_product_prices: list[float]):
+    is_success = True
+    total_price = get_total_price(cart, storage_product_names, storage_product_prices)
+    if balance < total_price:
+        is_success = False
+        msg = f"Для оплаты Вашей корзины требуется {total_price} денег. Ваш баланс: {balance}."
+    else:
+        balance -= total_price
+        cart.clear()
+        msg = f"Оплата пройдена успешно. На Вашем счету осталось {balance} денег."
+    return [is_success, msg]
+
+
+def product_menu(storage_product_names: list[str], storage_product_prices: list[float]):
+    print("0. Вернуться")
+    for i in range(len(storage_product_names)):
+        print(f"{i + 1}. {storage_product_names[i]} - {storage_product_prices[i]}")
+    choice = input("Выберите действие: ")
+    if choice.isdigit():
+        choice = int(choice)
+        if choice > len(storage_product_names) or choice < 0:
+            choice = -1
+    else:
+        choice = -1
+    return choice
+
+
+PRODUCT_NAMES = ["Хлеб", "Молоко", "Яйца (10шт)"]
+PRODUCT_PRICES = [0.4, 2.8, 2.4]
+customer_cart = list()
+CUSTOMER_BALANCE = 1000
+while True:
+    choice_mm = main_menu()
+    if choice_mm[0] == choice_mm[1]:
+        print("Завершение программы")
+        break
+    elif choice_mm[0] == 1:
+        print_cart(customer_cart)
+    elif choice_mm[0] == 2:
+        pay_cart_logs = pay_cart(customer_cart, CUSTOMER_BALANCE, PRODUCT_NAMES, PRODUCT_PRICES)
+        print(pay_cart_logs[1])
+    elif choice_mm[0] == 3:
+        choice_pm = None
+        while choice_pm != 0:
+            print_cart(customer_cart)
+            choice_pm = product_menu(PRODUCT_NAMES, PRODUCT_PRICES)
+            if choice_pm == -1:
+                print("Товар под указанным номером отсутствует")
+            elif choice_pm >= 1:
+                product_index = choice_pm - 1
+                customer_cart.append(PRODUCT_NAMES[product_index])
+    else:
+        print("Функционал под этим номером отсутствует. Введите другой номер.")</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function() {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>

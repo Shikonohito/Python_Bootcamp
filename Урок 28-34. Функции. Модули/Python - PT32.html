@@ -1,0 +1,116 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT32</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    .function {
+      color: #56A8F5;
+    }
+
+    a {
+      color: #FFC000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Практическое Задание 32.1</h2>
+        <p>Создайте рекурсивную функцию <span class="function"><b>factorial</b></span>, которая <span class="hl-text">вычисляет факториал</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 32.2</h2>
+        <p>Создайте рекурсивную функцию <span class="function"><b>get_max</b></span>, которая <span class="hl-text">находит максимальное значение из списка</span>.</p>
+
+        <h3>Подсказка:</h3>
+        <p>Функция принимает список чисел и количество чисел.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 32.3</h2>
+        <p>Создайте рекурсивную функцию <span class="function"><b>power</b></span>, которая <span class="hl-text">вычисляет число в степени</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 32.4</h2>
+        <p>На словах попробуйте создать рекурсивную функцию, которая будет <span class="hl-text">обходить</span> <a href="https://ru.wikipedia.org/wiki/Двоичное_дерево">бинарное дерево</a>. Пример бинарного дерева <a href="https://habrastorage.org/files/826/c95/0ae/826c950ae33346b28fbc5d88505b6abb.png">здесь</a>.</p>
+      </div>
+    </div>
+  </div>
+</body>
