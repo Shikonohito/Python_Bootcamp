@@ -90,10 +90,6 @@
       padding: 20px 10px;
     }
 
-    .console code {
-      color: #BCBEC4;
-    }
-
     .console .input {
       color: #6AAB73;
       font-style: italic;
@@ -163,6 +159,7 @@
     .keyword-argument {
       color: #AA4926;
     }
+
     ol {
       counter-reset: list;
       list-style: none;
@@ -211,16 +208,18 @@
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли уровень загрязнения воздуха (в микрограммах на кубический метр)</span>, <span class="hl-text">уровень шума (в децибелах)</span>, <span class="hl-text">концентрацию углекислого газа (в частях на миллион)</span>, а также <span class="hl-text">уровень радиации (в микрозивертах в час)</span>, затем <span class="hl-text">выводит в консоль оценку качества окружающей среды</span>.</p>
         <p>Градация оценки:
           <br>— <span class="hl-text"><b>Отличное:</b></span> все параметры находятся в пределах нормы.
-          <br>— <span class="hl-text"><b>Хорошее:</b></span> <span class="number"><b>1</b></span> параметр выходит за пределы нормы.
-          <br>— <span class="hl-text"><b>Удовлетворительное:</b></span> <span class="number"><b>2</b></span> параметра выходят за пределы нормы.
-          <br>— <span class="hl-text"><b>Плохое:</b></span> <span class="number"><b>3</b></span> параметра выходят за пределы нормы.
-          <br>— <span class="hl-text"><b>Очень плохое:</b></span> все параметры выходят за пределы нормы.</p>
+          <br>— <span class="hl-text"><b>Хорошее:</b></span> <code><span class="number"><b>1</b></span></code> параметр выходит за пределы нормы.
+          <br>— <span class="hl-text"><b>Удовлетворительное:</b></span> <code><span class="number"><b>2</b></span></code> параметра выходят за пределы нормы.
+          <br>— <span class="hl-text"><b>Плохое:</b></span> <code><span class="number"><b>3</b></span></code> параметра выходят за пределы нормы.
+          <br>— <span class="hl-text"><b>Очень плохое:</b></span> все параметры выходят за пределы нормы.
+        </p>
 
-<p>Нормы:
-<br>— <span class="hl-text"><b>Уровень загрязнения воздуха:</b></span> до <span class="number"><b>50</b></span> мг/м³.
-  <br>— <span class="hl-text"><b>Уровень шума:</b></span> до <span class="number"><b>70</b></span> дБ.
-<br>— <span class="hl-text"><b>Концентрация углекислого газа:</b></span> до <span class="number"><b>400</b></span> ppm.
-  <br>— <span class="hl-text"><b>Уровень радиации:</b></span> до <span class="number"><b>0.3</b></span> мкЗв/ч.</p>
+        <p>Нормы:
+          <br>— <span class="hl-text"><b>Уровень загрязнения воздуха:</b></span> до <code><span class="number"><b>50</b></span></code> мг/м³.
+          <br>— <span class="hl-text"><b>Уровень шума:</b></span> до <code><span class="number"><b>70</b></span></code> дБ.
+          <br>— <span class="hl-text"><b>Концентрация углекислого газа:</b></span> до <code><span class="number"><b>400</b></span></code> ppm.
+          <br>— <span class="hl-text"><b>Уровень радиации:</b></span> до <code><span class="number"><b>0.3</b></span></code> мкЗв/ч.
+        </p>
         <h3>Консоль:</h3>
         <div class="console">
           <pre><code>Введите уровень загрязнения воздуха (мг/м³): <span class="input">25</span>
@@ -235,23 +234,34 @@
         <h2>Домашнее Задание 14.2</h2>
         <p>Магазин <span class="hl-text">"Всё Не Дорого"</span> имеет сайт, в котором клиент может положить товары в корзину, указать вид оплаты и доставку. Напишите программу, которая <span class="hl-text">запрашивает с консоли стоимость корзины клиента</span>, <span class="hl-text">вид оплаты (наличными или картой)</span> и <span class="hl-text">вид доставки (самовывоз или курьер)</span>.</p>
 
-        <p>Если выбрана <span class="hl-text">оплата картой</span>, программа должна <span class="hl-text">проверить, выбран ли вид доставки</span> <span class="string"><b>"Курьер"</b></span>, и, если да, то должна <span class="hl-text">запрашивать с консоли расстояние (в километрах)</span>, а <span class="hl-text">скорость доставки должна выставляться как</span> <span class="string"><b>"Быстрая доставка"</b></span>. Каждая <span class="hl-text">единица расстояния</span>, которая больше <span class="number"><b>15</b></span>, <span class="hl-text">добавляет <span class="number"><b>0.1%</b></span> от стоимости корзины клиента к сумме оплаты</span>, а <span class="string"><b>"Быстрая доставка"</b></span> <span class="hl-text">добавляет <span class="number"><b>7%</b></span> от стоимости корзины клиента к сумме оплаты</span>. После проверки на вид доставки, программа должна <span class="hl-text">проверить</span>, достаточно ли денег на карте, и если да, то <span class="hl-text">сумма оплаты списывается с карты</span> (создайте переменную, которая хранит <span class="number"><b>1000</b></span> денег), затем <span class="hl-text">выводится в консоль данные</span>. В противном случае программа должна <span class="hl-text">вывести в консоль</span> <span class="string"><b>"Недостаточно средств на карте! Требуется ... денег."</b></span>, где указывается требуемая сумма денег.</p> <p>Данные, которые нужно выводить следующие:
-        <br>— В случае вида доставки <span class="string"><b>"Курьер"</b></span>: <span class="hl-text">уникальный идентификатор заказа</span>, <span class="hl-text">тип доставки</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">отдельно стоимость корзины + сумма доставки</span>, <span class="hl-text">сумму остатка на карте</span>.
-        <br>— В случае вида доставки <span class="string"><b>"Самовывоз"</b></span>: <span class="hl-text">четырёхзначный номер</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">сумма оплаты</span>, <span class="hl-text">сумму остатка на карте</span>.</p>
-        
-        <p>Если выбрана <span class="hl-text">оплата наличными</span>, программа должна <span class="hl-text">проверить, выбран ли вид доставки</span> <span class="string"><b>"Курьер"</b></span>, и, если да, то программа <span class="hl-text">запрашивает с консоли расстояние (в километрах)</span>, затем <span class="hl-text">скорость доставки</span> (быстрая, медленная, доставка через <span class="number"><b>24</b></span> часа). Каждая <span class="hl-text">единица расстояния</span>, которая больше 15, <span class="hl-text">добавляет <span class="number"><b>0.1%</b></span> от стоимости корзины клиента к сумме оплаты</span>, а <span class="string"><b>"Быстрая доставка"</b></span> <span class="hl-text">добавляет <span class="number"><b>7%</b></span> от стоимости корзины клиента к сумме оплаты</span>, медленная - <span class="number"><b>5%</b></span>, доставка через <span class="number"><b>24</b></span> часа - <span class="number"><b>3%</b></span>.</p>
+        <p>Если выбрана <span class="hl-text">оплата картой</span>, программа должна <span class="hl-text">проверить, выбран ли вид доставки</span> <code><span class="string"><b>"Курьер"</b></span></code>, и, если да, то должна <span class="hl-text">запрашивать с консоли расстояние (в километрах)</span>, а <span class="hl-text">скорость доставки должна выставляться как</span> <code><span class="string"><b>"Быстрая доставка"</b></span></code>. Каждая <span class="hl-text">единица расстояния</span>, которая больше <code><span class="number"><b>15</b></span></code>, <span class="hl-text">добавляет <code><span class="number"><b>0.1%</b></span></code> от стоимости корзины клиента к сумме оплаты</span>, а <code><span class="string"><b>"Быстрая доставка"</b></span></code> <span class="hl-text">добавляет <code><span class="number"><b>7%</b></span></code> от стоимости корзины клиента к сумме оплаты</span>. После проверки на вид доставки, программа должна <span class="hl-text">проверить</span>, достаточно ли денег на карте, и если да, то <span class="hl-text">сумма оплаты списывается с карты</span> (создайте переменную, которая хранит <code><span class="number"><b>1000</b></span></code> денег), затем <span class="hl-text">выводится в консоль данные</span>. В противном случае программа должна <span class="hl-text">вывести в консоль</span> <code><span class="string"><b>"Недостаточно средств на карте! Требуется ... денег."</b></span></code>, где указывается требуемая сумма денег.</p>
+        <p>Данные, которые нужно выводить следующие:
+          <br>— В случае вида доставки <code><span class="string"><b>"Курьер"</b></span></code>: <span class="hl-text">уникальный идентификатор заказа</span>, <span class="hl-text">тип доставки</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">отдельно стоимость корзины + сумма доставки</span>, <span class="hl-text">сумму остатка на карте</span>.
+          <br>— В случае вида доставки <code><span class="string"><b>"Самовывоз"</b></span></code>: <span class="hl-text">четырёхзначный номер</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">сумма оплаты</span>, <span class="hl-text">сумму остатка на карте</span>.
+        </p>
+
+        <p>Если выбрана <span class="hl-text">оплата наличными</span>, программа должна <span class="hl-text">проверить, выбран ли вид доставки</span> <code><span class="string"><b>"Курьер"</b></span></code>, и, если да, то программа <span class="hl-text">запрашивает с консоли расстояние (в километрах)</span>, затем <span class="hl-text">скорость доставки</span> (быстрая, медленная, доставка через <code><span class="number"><b>24</b></span></code> часа). Каждая <span class="hl-text">единица расстояния</span>, которая больше 15, <span class="hl-text">добавляет <code><span class="number"><b>0.1%</b></span></code> от стоимости корзины клиента к сумме оплаты</span>, а <code><span class="string"><b>"Быстрая доставка"</b></span></code> <span class="hl-text">добавляет <code><span class="number"><b>7%</b></span></code> от стоимости корзины клиента к сумме оплаты</span>, медленная - <code><span class="number"><b>5%</b></span></code>, доставка через <code><span class="number"><b>24</b></span></code> часа - <code><span class="number"><b>3%</b></span></code>.</p>
         <p>После проверки на вид доставки, в консоль выводятся следующие данные:
-          <br>— В случае вида доставки <span class="string"><b>"Курьер"</b></span>: <span class="hl-text">уникальный идентификатор заказа</span>, <span class="hl-text">тип доставки</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">отдельно стоимость корзины + сумма доставки</span>.
-          <br>— В случае вида доставки <span class="string"><b>"Самовывоз"</b></span>: <span class="hl-text">четырёхзначный номер</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">сумма оплаты</span>.</p>
+          <br>— В случае вида доставки <code><span class="string"><b>"Курьер"</b></span></code>: <span class="hl-text">уникальный идентификатор заказа</span>, <span class="hl-text">тип доставки</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">отдельно стоимость корзины + сумма доставки</span>.
+          <br>— В случае вида доставки <code><span class="string"><b>"Самовывоз"</b></span></code>: <span class="hl-text">четырёхзначный номер</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">сумма оплаты</span>.
+        </p>
         <h3>Подсказки:</h3>
         <ol>
           <li>Чтобы получить уникальный идентификатор, используйте следующий код:<div class="console">
+              <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                  <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+                </svg>
+                Copy code</button>
               <pre><code class="python">from uuid import uuid4  # Подключение модуля uuid и импорт функции uuid4
 
 random_uuid = uuid4()  # Генерация случайного уникального идентификатора</code></pre>
             </div>
           </li>
           <li class="no-padding-bottom">Чтобы получить четырёхзначный номер, используйте следующий код:<div class="console">
+              <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                  <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+                </svg>
+                Copy code</button>
               <pre><code class="python">from random import randint  # Подключение модуля random и импорт функции randint
 
 number = randint(1000, 9999)  # Генерация случайного четырёхзначного числа</code></pre>
@@ -309,7 +319,7 @@ number = randint(1000, 9999)  # Генерация случайного четы
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 14.3</h2>
-        <p><span class="hl-text">Teston Lebra</span> попросили написать программу, которая поможет HR-менеджерам определить уровень кандидата и давать некоторые комментарии по навыкам, если они низкие. Проверять нужно опыт работы (от <span class="number"><b>1</b></span> до <span class="number"><b>10</b></span> лет - баллы соответственно), образование (специальное - <span class="number"><b>2</b></span> балла, базовое - <span class="number"><b>1</b></span> балл, отсутствует - <span class="number"><b>0</b></span> баллов), навыки (от <span class="number"><b>1</b></span> до <span class="number"><b>8</b></span> баллов включительно). Полученные баллы нужно суммировать и проверять на уровень кандидата. <span class="hl-text">Teston Lebra</span> написал программу и отдал HR-менеджерам на пользование. Менеджеры провели несколько десятков собеседований, но заметили, что им очень часто попадаются средний и низкий уровни кандидатов, а также показывается только одна подсказка. <span class="hl-text">Исправьте программу, чтобы она работала корректно, и рядом напишите комментарии о том, почему изменённый вариант должен работать верно</span>.</p>
+        <p><span class="hl-text">Teston Lebra</span> попросили написать программу, которая поможет HR-менеджерам определить уровень кандидата и давать некоторые комментарии по навыкам, если они низкие. Проверять нужно опыт работы (от <code><span class="number"><b>1</b></span></code> до <code><span class="number"><b>10</b></span></code> лет - баллы соответственно), образование (специальное - <code><span class="number"><b>2</b></span></code> балла, базовое - <code><span class="number"><b>1</b></span></code> балл, отсутствует - <code><span class="number"><b>0</b></span></code> баллов), навыки (от <code><span class="number"><b>1</b></span></code> до <code><span class="number"><b>8</b></span></code> баллов включительно). Полученные баллы нужно суммировать и проверять на уровень кандидата. <span class="hl-text">Teston Lebra</span> написал программу и отдал HR-менеджерам на пользование. Менеджеры провели несколько десятков собеседований, но заметили, что им очень часто попадаются средний и низкий уровни кандидатов, а также показывается только одна подсказка. <span class="hl-text">Исправьте программу, чтобы она работала корректно, и рядом напишите комментарии о том, почему изменённый вариант должен работать верно</span>.</p>
         <h3>Код:</h3>
         <div class="console">
           <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
@@ -382,10 +392,11 @@ if 17 <= rating and rating <= 20:
         <h2>Домашнее Задание 14.4</h2>
         <p><span class="hl-text">Teston Lebra</span> написал программу, которая запрашивает с консоли уровень кислотности почвы (pH) и выводит в консоль тип почвы.</p>
         <p>Типы почв:
-          <br>— <span class="hl-text"><b>Кислая почва:</b></span> pH <span class="number"><b>6</b></span> и меньше.
-          <br>— <span class="hl-text"><b>Нейтральная почва:</b></span> pH выше <span class="number"><b>6</b></span> и до <span class="number"><b>7</b></span>.
-          <br>— <span class="hl-text"><b>Щелочная почва:</b></span> pH <span class="number"><b>7</b></span> и выше.</p>
-<p>Программа хоть и работает, но не совсем корректно. <span class="hl-text">Исправьте программу так, чтобы она работала верно, и рядом напишите комментарии о том, почему изменённый вариант должен работать верно</span>.</p>
+          <br>— <span class="hl-text"><b>Кислая почва:</b></span> pH <code><span class="number"><b>6</b></span></code> и меньше.
+          <br>— <span class="hl-text"><b>Нейтральная почва:</b></span> pH выше <code><span class="number"><b>6</b></span></code> и до <code><span class="number"><b>7</b></span></code>.
+          <br>— <span class="hl-text"><b>Щелочная почва:</b></span> pH <code><span class="number"><b>7</b></span></code> и выше.
+        </p>
+        <p>Программа хоть и работает, но не совсем корректно. <span class="hl-text">Исправьте программу так, чтобы она работала верно, и рядом напишите комментарии о том, почему изменённый вариант должен работать верно</span>.</p>
         <h3>Код:</h3>
         <div class="console">
           <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
