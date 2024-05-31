@@ -91,10 +91,6 @@
       padding: 20px 10px;
     }
 
-    .console code {
-      color: #BCBEC4;
-    }
-
     .console .input {
       color: #6AAB73;
       font-style: italic;
@@ -102,6 +98,7 @@
 
     code {
       font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
     }
 
     .copy-button {
@@ -187,8 +184,8 @@
     .grey {
       color: #BCBEC4;
     }
-    
-        .right-rect img {
+
+    .right-rect img {
       margin-top: 15px;
       margin-bottom: 15px;
     }
@@ -283,7 +280,7 @@ to be</code></pre>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 8.7</h2>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли количество секунд</span> и <span class="hl-text">выводит в консоль количество полных лет</span>, <span class="hl-text">дней</span>, <span class="hl-text">часов</span>, <span class="hl-text">минут</span> и <span class="hl-text">секунд</span>. Считайте, что в году <span class="number"><b>365</b></span> дней.</p>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли количество секунд</span> и <span class="hl-text">выводит в консоль количество полных лет</span>, <span class="hl-text">дней</span>, <span class="hl-text">часов</span>, <span class="hl-text">минут</span> и <span class="hl-text">секунд</span>. Считайте, что в году <code><span class="number"><b>365</b></span></code> дней.</p>
         <h3>Консоль:</h3>
         <div class="console">
           <pre><code>Введите количество секунд: <span class="input">31719845</span>
@@ -313,17 +310,17 @@ to be</code></pre>
 
         <h3>Подсказки к первому способу:</h3>
         <ol>
-          <li>Любое число можно представить в виде <span class="grey"><b><span class="number">1</span> * <span class="number">1000</span> + <span class="number">2</span> * <span class="number">100</span> + <span class="number">3</span> * <span class="number">10</span> + <span class="number">4</span> * <span class="number">1</span> = <span class="number">1234</span></b>.</li>
-          <li><span class="grey"><b><span class="number">&ltчисло&gt</span> % <span class="number">10</span> = <span class="number">&ltпоследняя_цифра_числа&gt</span></b></span>.</li>
-          <li><span class="grey"><b><span class="number">&ltчисло&gt</span> // <span class="number">10</span> = <span class="number">&ltчисло_без_последней_цифры&gt</span></b></span>.</li>
+          <li>Любое число можно представить в виде <code><b><span class="number">1</span> * <span class="number">1000</span> + <span class="number">2</span> * <span class="number">100</span> + <span class="number">3</span> * <span class="number">10</span> + <span class="number">4</span> * <span class="number">1</span> = <span class="number">1234</span></b></code>.</li>
+          <li><code><b><span class="number">&ltчисло&gt</span> % <span class="number">10</span> = <span class="number">&ltпоследняя_цифра_числа&gt</span></b></code>.</li>
+          <li><code><b><span class="number">&ltчисло&gt</span> // <span class="number">10</span> = <span class="number">&ltчисло_без_последней_цифры&gt</span></b></code>.</li>
           <li>Используйте смешанные деления, чтобы выделять конкретные цифры в числе.</li>
         </ol>
         <h3>Подсказки ко второму способу:</h3>
         <ol>
-          <li>Любое число можно представить в виде <span class="grey"><b><span class="number">123</span> * <span class="number">10</span> + <span class="number">4</span> = <span class="number">1234</span></b></span>.</li>
-          <li><span class="grey"><b><span class="number">&ltчисло&gt</span> % <span class="number">10</span> = <span class="number">&ltпоследняя_цифра_числа&gt</span></b></span>.</li>
-          <li><span class="grey"><b><span class="number">&ltчисло&gt</span> // <span class="number">10</span> = <span class="number">&ltчисло_без_последней_цифры&gt</span></b></span>.</li>
-          <li>Выделите последнюю цифру, избавьтесь от последней цифры в исходном числе. Повторите это ещё <span class="number"><b>3</b></span> раза.</li>
+          <li>Любое число можно представить в виде <code><b><span class="number">123</span> * <span class="number">10</span> + <span class="number">4</span> = <span class="number">1234</span></b></code>.</li>
+          <li><code><b><span class="number">&ltчисло&gt</span> % <span class="number">10</span> = <span class="number">&ltпоследняя_цифра_числа&gt</span></b></code>.</li>
+          <li><code><b><span class="number">&ltчисло&gt</span> // <span class="number">10</span> = <span class="number">&ltчисло_без_последней_цифры&gt</span></b></code>.</li>
+          <li>Выделите последнюю цифру, избавьтесь от последней цифры в исходном числе. Повторите это ещё <code><span class="number"><b>3</b></span></code> раза.</li>
         </ol>
         <h3>Консоль:</h3>
         <div class="console">
@@ -341,16 +338,16 @@ to be</code></pre>
 
         <h3>Подсказки к первому способу:</h3>
         <ol>
-          <li>Выделите каждую цифру в отдельные переменные при помощи операций <span class="grey"><b>%</b></span> и <span class="grey"><b>//</b></span>.</li>
-          <li>Умножьте каждую полученную цифру на соответствующие десятки и найдите их сумму: <span class="grey"><b><span class="number">4</span> * <span class="number">1000</span> + <span class="number">3</span> * <span class="number">100</span> + <span class="number">2</span> * <span class="number">10</span> + <span class="number">1</span> * <span class="number">1</span> = <span class="number">4321</span></b></span>.</li>
+          <li>Выделите каждую цифру в отдельные переменные при помощи операций <code><b>%</b></code> и <code><b>//</b></code>.</li>
+          <li>Умножьте каждую полученную цифру на соответствующие десятки и найдите их сумму: <code><b><span class="number">4</span> * <span class="number">1000</span> + <span class="number">3</span> * <span class="number">100</span> + <span class="number">2</span> * <span class="number">10</span> + <span class="number">1</span> * <span class="number">1</span> = <span class="number">4321</span></b></code>.</li>
         </ol>
         <h3>Подсказки ко второму способу:</h3>
         <ol>
           <li>Выделите последнюю цифру исходного числа при помощи операции <span class="grey"><b>%</b></span>.</li>
-          <li>Умножьте перевёрнутое число на <span class="number"><b>10</b></span>.</li>
+          <li>Умножьте перевёрнутое число на <code><span class="number"><b>10</b></span></code>.</li>
           <li>Прибавьте к нему выделенную цифру.</li>
-          <li>Избавьтесь от последней цифры исходного числа при помощи опеарции <span class="grey"><b>//</b></span>.</li>
-          <li>Повторите шаги <span class="number">1</span>-<span class="number">4</span> ещё три раза.</li>
+          <li>Избавьтесь от последней цифры исходного числа при помощи опеарции <code><b>//</b></code>.</li>
+          <li>Повторите шаги <code><span class="number"><b>1</b></span></code>-<code><span class="number"><b>4</b></span></code> ещё три раза.</li>
         </ol>
         <h3>Консоль:</h3>
         <div class="console">
@@ -361,7 +358,7 @@ to be</code></pre>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 8.11</h2>
-        <p><span class="hl-text">Teston Lebra</span> решил попробовать себя в качестве программиста и написал программу, которая запрашивает с консоли количество зарплаты в месяц и выводит в консоль итоговую зарплату за <span class="number">12</span> месяцев. Но программа почему-то работает некорректно. <span class="hl-text">Исправьте программу, чтобы она работала верно</span>, и <span class="hl-text">рядом напишите комментарии о том, почему изменённый вариант должен работать верно</span>.</p>
+        <p><span class="hl-text">Teston Lebra</span> решил попробовать себя в качестве программиста и написал программу, которая запрашивает с консоли количество зарплаты в месяц и выводит в консоль итоговую зарплату за <code><span class="number">12</span></code> месяцев. Но программа почему-то работает некорректно. <span class="hl-text">Исправьте программу, чтобы она работала верно</span>, и <span class="hl-text">рядом напишите комментарии о том, почему изменённый вариант должен работать верно</span>.</p>
         <h3>Код:</h3>
         <div class="console">
           <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">

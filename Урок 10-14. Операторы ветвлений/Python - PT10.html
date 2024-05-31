@@ -90,10 +90,6 @@
       padding: 20px 10px;
     }
 
-    .console code {
-      color: #BCBEC4;
-    }
-
     .console .input {
       color: #6AAB73;
       font-style: italic;
@@ -101,6 +97,7 @@
 
     code {
       font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
     }
 
     .copy-button {
@@ -116,51 +113,52 @@
       font-family: "JetBrains mono", monospace;
       font-weight: bold;
     }
+
     .string {
-          color: #6AAB73;
-      }
+      color: #6AAB73;
+    }
 
-      .string-bracket,
-      .string-esc,
-      .keyword {
-        color: #CF8E6D;
-      }
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+    }
 
-      .self {
-          color: #94558D;
-      }
+    .self {
+      color: #94558D;
+    }
 
-      .string-bracket-inner {
-        color: #BCBEC4;
-      }
+    .string-bracket-inner {
+      color: #BCBEC4;
+    }
 
-      .number {
-        color: #2AACB8;
-      }
+    .number {
+      color: #2AACB8;
+    }
 
-      .comments {
-        color: #7A7E85;
-      }
+    .comments {
+      color: #7A7E85;
+    }
 
-      .metadata {
-        color: #B3AE60;
-      }
+    .metadata {
+      color: #B3AE60;
+    }
 
-      .built-in {
-        color: #8888C6;
-      }
+    .built-in {
+      color: #8888C6;
+    }
 
-      .function {
-        color: #56A8F5;
-      }
+    .function {
+      color: #56A8F5;
+    }
 
-      .special-names {
-        color: #B200B2;
-      }
+    .special-names {
+      color: #B200B2;
+    }
 
-      .keyword-argument {
-        color: #AA4926;
-      }
+    .keyword-argument {
+      color: #AA4926;
+    }
   </style>
 </head>
 
@@ -274,7 +272,7 @@ print(num_1 % num_2 == 0)</code></pre>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 10.9</h2>
-        <p>В магазине <span class="hl-text">"Всё Не Дорого"</span> при покупке на сумму <span class="number"><b>1000</b></span> клиенту выдают скидку на <span class="number"><b>5%</b></span>. Если же клиент ещё является постоянным, то дополнительно выдаётся скидка на <span class="number"><b>10%</b></span>. Напишите программу, которая <span class="hl-text">запрашивает с консоли <span class="number"><b>3</b></span> стоимости</span>, затем <span class="hl-text">запрашивает с консоли подтверждение того, что клиент является постоянным</span>, и <span class="hl-text">выводит в консоль итоговую стоимость с учётом скидки</span>.</p>
+        <p>В магазине <span class="hl-text">"Всё Не Дорого"</span> при покупке на сумму <code><span class="number"><b>1000</b></span></code> клиенту выдают скидку на <code><span class="number"><b>5%</b></span></code>. Если же клиент ещё является постоянным, то дополнительно выдаётся скидка на <code><span class="number"><b>10%</b></span></code>. Напишите программу, которая <span class="hl-text">запрашивает с консоли <code><span class="number"><b>3</b></span></code> стоимости</span>, затем <span class="hl-text">запрашивает с консоли подтверждение того, что клиент является постоянным</span>, и <span class="hl-text">выводит в консоль итоговую стоимость с учётом скидки</span>.</p>
         <h3>Консоль:</h3>
         <div class="console">
           <pre><code>Введите цену первого товара: <span class="input">200</span>
@@ -298,7 +296,7 @@ print(num_1 % num_2 == 0)</code></pre>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 10.11</h2>
-        <p>В магазине <span class="hl-text">"Всё Не Дорого"</span> стала доступна доставка по адресу. Сама доставка стоит <span class="number"><b>10%</b></span> от стоимости суммы корзины. Если же сумма корзины больше <span class="number"><b>700</b></span>, то доставка бесплатная. Если же сумма корзины больше <span class="number"><b>1000</b></span>, то клиенту дополнительно выдают скидку на <span class="number"><b>5%</b></span>. Напишите программу, которая <span class="hl-text">запрашивает с консоли сумму корзины</span> и <span class="hl-text">выводит в консоль сколько клиент должен оплатить за корзину</span> и <span class="hl-text">за доставку</span>. </p>
+        <p>В магазине <span class="hl-text">"Всё Не Дорого"</span> стала доступна доставка по адресу. Сама доставка стоит <code><span class="number"><b>10%</b></span></code> от стоимости суммы корзины. Если же сумма корзины больше <code><span class="number"><b>700</b></span></code>, то доставка бесплатная. Если же сумма корзины больше <code><span class="number"><b>1000</b></span></code>, то клиенту дополнительно выдают скидку на <code><span class="number"><b>5%</b></span></code>. Напишите программу, которая <span class="hl-text">запрашивает с консоли сумму корзины</span> и <span class="hl-text">выводит в консоль сколько клиент должен оплатить за корзину</span> и <span class="hl-text">за доставку</span>. </p>
         <h3>Консоль:</h3>
         <div class="console">
           <pre><code>Введите сумму корзины: <span class="input">1200</span>
@@ -330,102 +328,76 @@ print(num_1 % num_2 == 0)</code></pre>
         button.innerHTML = originalHTML;
       }, 2000);
     }
-   
-    document.addEventListener('DOMContentLoaded', function () {
-          const codeBlocks = document.querySelectorAll('code.python');
-          codeBlocks.forEach(function (codeBlock, index) {
-              let innerHTML = codeBlock.innerHTML;
-              console.log(index, innerHTML);
-
-              // STRING
-              let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
-              innerHTML = innerHTML.replace(regex, (match) => {
-                  return `<span class="string">${match}</span>`;
-              });
-
-              regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
-              innerHTML = innerHTML.replace(regex, (match) => {
-                  return `<span class="string">${match}</span>`;
-              });
-
-            
-              // KEYWORD CLASS
-              regex = /(class)(?!=)/g;
-              innerHTML = innerHTML.replace(regex, (match) => {
-                  return `<span class="keyword">${match}</span>`;
-              });
-
-              // KEYWORDS
-              const keywords = [
-                  'def', 'for', 'in', 'while', 'and', 'or', 'not', 
-                  'if', 'elif', 'else', 'continue', 'break', 'try', 'with', 
-                  'as', 'except', 'finally', 'return', 'True', 'False'
-              ];
-
-              regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
-              innerHTML = innerHTML.replace(regex, (match) => {
-                  return `<span class="keyword">${match}</span>`;
-              });
-
-
-              // KEYWORD NUMBER
-              regex = /\b\d+(\.\d+)?/g;
-              innerHTML = innerHTML.replace(regex, (match) => {
-                  return `<span class="number">${match}</span>`;
-              });
-
-
-              // STRING-ESC
-              regex = /\\./g;
-              innerHTML = innerHTML.replace(regex, (match) => {
-                  return `<span class="string-esc">${match}</span>`;
-              });
-
-
-              // COMMENTS
-              regex = /(#.*$)/gm;
-              innerHTML = innerHTML.replace(regex, (match) => {
-                  return `<span class="comments">${match}</span>`;
-              });
-
-            
-            // METADATA
-            regex = /^(\s*@\w+)/gm;
-            innerHTML = innerHTML.replace(regex, (match) => {
-                return `<span class="metadata">${match}</span>`;
-            });
-
-
-            // SELF
-            regex = /\bself\b/g;
-            innerHTML = innerHTML.replace(regex, (match) => {
-                return `<span class="self">${match}</span>`;
-            });
-
-
-            // BUILT-IN
-            regex = /\b(open|print|input|int|float|str|list|set|dict|range|len)\b/g;
-            innerHTML = innerHTML.replace(regex, (match) => {
-                return `<span class="built-in">${match}</span>`;
-            });
-
-
-            // FUNCTION
-            regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
-            innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
-
-
-            // SPECIAL-NAMES
-            regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
-            innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
-
-
-            // KEYWORD-ARGUMENT
-            regex = /, (end|sep)=/g;
-            innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
-            
-              codeBlock.innerHTML = innerHTML
-          });
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
       });
+    });
   </script>
 </body>

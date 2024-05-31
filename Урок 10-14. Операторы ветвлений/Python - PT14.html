@@ -90,10 +90,6 @@
       padding: 20px 10px;
     }
 
-    .console code {
-      color: #BCBEC4;
-    }
-
     .console .input {
       color: #6AAB73;
       font-style: italic;
@@ -101,6 +97,7 @@
 
     code {
       font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
     }
 
     .string {
@@ -149,9 +146,9 @@
           <br>2. Снять деньги со счёта
         </p>
         <p>Затем программа <span class="hl-text">запрашивает ввод выбора с консоли</span>.</p>
-        <p>Если выбран <span class="hl-text">первый пункт</span>, то программа <span class="hl-text">запрашивает ввод суммы с консоли</span>. Если сумма отрицательная, то программа должна <span class="hl-text">вывести в консоль</span> <span class="string"><b>"Невозможно положить на счёт отрицательную сумму."</b></span>. Если же сумма положительная, то <span class="hl-text">деньги кладутся на счёт</span> и <span class="hl-text">выводится сумма счёта</span>.</p>
-        <p>Если выбран <span class="hl-text">второй пункт</span>, то программа <span class="hl-text">запрашивает ввод суммы с консоли</span>. Если сумма отрицательная, то программа должна <span class="hl-text">вывести в консоль</span> <span class="string"><b>"Невозможно снять со счёта отрицательную сумму."</b></span>. Если сумма превышает количество денег на счету, то программа <span class="hl-text">сообщает</span> <span class="string"><b>"На счету недостаточно денег."</b></span>. В противном случае, программа <span class="hl-text">снимает со счёта деньги</span> и <span class="hl-text">выводит в консоль текущий счёт</span>.</p>
-        <p>Считайте, что изначально на счету находится <span class="number"><b>250</b></span> денег.</p>
+        <p>Если выбран <span class="hl-text">первый пункт</span>, то программа <span class="hl-text">запрашивает ввод суммы с консоли</span>. Если сумма отрицательная, то программа должна <span class="hl-text">вывести в консоль</span> <code><span class="string"><b>"Невозможно положить на счёт отрицательную сумму."</b></span></code>. Если же сумма положительная, то <span class="hl-text">деньги кладутся на счёт</span> и <span class="hl-text">выводится сумма счёта</span>.</p>
+        <p>Если выбран <span class="hl-text">второй пункт</span>, то программа <span class="hl-text">запрашивает ввод суммы с консоли</span>. Если сумма отрицательная, то программа должна <span class="hl-text">вывести в консоль</span> <code><span class="string"><b>"Невозможно снять со счёта отрицательную сумму."</b></span></code>. Если сумма превышает количество денег на счету, то программа <span class="hl-text">сообщает</span> <code><span class="string"><b>"На счету недостаточно денег."</b></span></code>. В противном случае, программа <span class="hl-text">снимает со счёта деньги</span> и <span class="hl-text">выводит в консоль текущий счёт</span>.</p>
+        <p>Считайте, что изначально на счету находится <code><span class="number"><b>250</b></span></code> денег.</p>
         <h3>Консоль:</h3>
         <div class="console">
           <pre><code>1. Положить деньги на счёт
