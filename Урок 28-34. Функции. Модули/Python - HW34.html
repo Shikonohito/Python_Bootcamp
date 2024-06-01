@@ -1,0 +1,422 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - HW34</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #343434 0%, #363636 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .string {
+      color: #6AAB73;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .self {
+      color: #94558D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .number {
+      color: #2AACB8;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .comments {
+      color: #7A7E85;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .metadata {
+      color: #B3AE60;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .built-in {
+      color: #8888C6;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .function {
+      color: #56A8F5;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .special-names {
+      color: #B200B2;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+      font-family: "JetBrains mono", monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2><strong>Примечание</strong></h2>
+        <p>Оформляйте ввод и вывод данных. Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>. Не используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методов. Можно использовать <code><b>append()</b></code>, <code><b>split()</b></code>, <code class="python"><b>len()</b></code>. Не используйте срезы.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 34.1</h2>
+        <p>Реализуйте следующее меню:
+        <div class="console">
+          <pre><code>1. Показать список студентов
+2. Показать студента по идентификатору
+3. Добавить студента в список
+4. Удалить студента из списка по идентификатору
+5. Изменить студента по идентификатору
+6. Найти студентов по Фамилии и Имени
+7. Определить среднюю оценку по идентификатору студента
+8. Завершить программу</code></pre>
+        </div>
+        </p>
+
+        <p>Студент это список следующего вида:
+        <div class="console">
+          <pre><code>[<span class="string">"Идентификатор"</span>, <span class="string">"Фамилия"</span>, <span class="string">"Имя"</span>, [<span class="number">&ltоценка&gt</span>, <span class="number">&ltоценка&gt</span>, <span class="number">&ltоценка&gt</span>, <span class="number">...</span>]]</code></pre>
+        </div>
+        По индексам <code class="python"><b>0</b></code>, <code class="python"><b>1</b></code>, <code class="python"><b>2</b></code> находятся <code class="python"><b>"Идентификатор"</b></code>, <code class="python"><b>"Фамилия"</b></code>, <code class="python"><b>"Имя"</b></code>. По индексу <code class="python"><b>3</b></code> находится список оценок студента.</p>
+
+        <p>Список студентов это список следующего вида:
+        <div class="console">
+          <pre><code>[[<span class="string">"Идентификатор"</span>, <span class="string">"Фамилия"</span>, <span class="string">"Имя"</span>, [<span class="number">&ltоценка&gt</span>, <span class="number">&ltоценка&gt</span>, <span class="number">&ltоценка&gt</span>, <span class="number">...</span>],
+ [<span class="string">"Идентификатор"</span>, <span class="string">"Фамилия"</span>, <span class="string">"Имя"</span>, [<span class="number">&ltоценка&gt</span>, <span class="number">&ltоценка&gt</span>, <span class="number">&ltоценка&gt</span>, <span class="number">...</span>],
+ [<span class="string">"Идентификатор"</span>, <span class="string">"Фамилия"</span>, <span class="string">"Имя"</span>, [<span class="number">&ltоценка&gt</span>, <span class="number">&ltоценка&gt</span>, <span class="number">&ltоценка&gt</span>, <span class="number">...</span>],
+ ...]</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> (Показать список студентов) программа должна <span class="hl-text">выводить список студентов в следующем формате</span>:
+        <div class="console">
+          <pre><code>Идентификатор Фамилия Имя - <оценка> <оценка> <оценка> ...
+Идентификатор Фамилия Имя - <оценка> <оценка> <оценка> ...
+...</code></pre>
+        </div>
+        </p>
+
+        <p>Реализовать через следующие функции:
+          <br>1. <code><b><span class="function">show_students</span>(student_list)</b></code>
+          <br>— принимает <span class="hl-text">список студентов</span>
+          <br>— использует <code><b><span class="function">student_to_str</span>(student)</b></code> для получение строки (смотрите ниже)
+          <br>— <span class="hl-text">выводит в консоль</span> информацию о студентах
+          <br>— ничего <span class="hl-text">не возвращает</span>
+          <br>
+          <br>2. <code><b><span class="function">student_to_str</span>(student)</b></code>
+          <br>— принимает <span class="hl-text">студента</span>
+          <br>— <span class="hl-text">возвращает строку в виде</span> <code><b><span class="string">"Идентификатор Фамилия Имя - <span class="number">&ltоценка&gt &ltоценка&gt &ltоценка&gt ...</span>"</span></b></code>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> (Показать студента по идентификатору) программа <span class="hl-text">запрашивает идентификатор студента из консоли</span> и <span class="hl-text">показывает данные студента по указанному идентификатору</span>. Если же идентификатор не найден, то <span class="hl-text">выводит в консоль, что студент не найден</span>.</p>
+
+        <p>Реализовать, используя следующие функции:
+          <br>1. <code><b><span class="function">get_student</span>(student_list, student_id)</b></code>
+          <br>— принимает <span class="hl-text">список студентов</span> и <span class="hl-text">идентификатор студента</span>
+          <br>— внутри себя вызывает функцию <code><span class="function"><b>get_student_index</b></span></code> (смотрите ниже)
+          <br>— если студент не найден, то <span class="hl-text">возвращает</span> <code class="python"><b>None</b></code>
+          <br>— если студент найден, то <span class="hl-text">возвращает студента как список</span>
+          <br>
+          <br>2. <code><b><span class="function">get_student_index</span>(student_list, student_id)</b></code>
+          <br>— принимает <span class="hl-text">список студентов</span> и <span class="hl-text">идентификатор студента</span>
+          <br>— если студент найден, <span class="hl-text">возвращает его индекс из списка</span>
+          <br>— если студент не найден, то <span class="hl-text">возвращает</span> <code class="python"><b>-1</b></code>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 3</span> (Добавить студента в список) программа <span class="hl-text">запрашивает Идентификатор</span>, <span class="hl-text">Фамилию</span>, <span class="hl-text">Отчество</span>, <span class="hl-text">строку оценок через пробел</span>. Строку оценок программа <span class="hl-text">превращает в список чисел</span> при помощи <code><b>split()</b></code>, а затем <span class="hl-text">приводит каждый элемент списка к числу</span>. После этого <span class="hl-text">из полученных данных программа формирует список</span> <code><b>[<span class="string">"Идентификатор"</span>, <span class="string">"Фамилия"</span>, <span class="string">"Имя"</span>, [<span class="number">&ltоценка&gt</span>, <span class="number">&ltоценка&gt</span>, <span class="number">&ltоценка&gt</span>, <span class="number">...</span>]]</b></code>, <span class="hl-text">добавляет его в список студентов</span> и <span class="hl-text">выводит в консоль, что студент успешно добавлен в список</span>.</p>
+
+        <p>Реализовать, используя следующую функцию:
+          <br><code><b><span class="function">add_student</span>(student_list, new_student)</b></code>
+          <br>— принимает <span class="hl-text">список студентов</span> и <span class="hl-text">студента</span>
+          <br>— проверяет на идентификатор с помощью <code><span class="function"><b>get_student_index</b></span></code>
+          <br>—— если идентификатор нового студента уже есть среди других студентов, то <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>
+          <br>—— если идентификатор нового студента не найден среди других студентов, то <span class="hl-text">добавляет студента в конец списка</span>, <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 4</span> (Удалить студента из списка по идентификатору) программа <span class="hl-text">запрашивает идентификатор студента из консоли</span>, <span class="hl-text">удаляет студента с указанным идентификатором</span> и <span class="hl-text">выводит в консоль, что студент успешно удалён из списка</span>. Если же идентификатор не найден, то <span class="hl-text">выводит в консоль, что студент не найден</span>.</p>
+
+        <p>Реализовать, используя следующую функцию:
+          <br><code><b><span class="function">remove_student</span>(student_list, student_id)</b></code>
+          <br>— принимает <span class="hl-text">список студентов</span> и <span class="hl-text">идентификатор</span>
+          <br>— проверяет на идентификатор с помощью <code><b><span class="hl-text">get_student_index</span></b></code>
+          <br>—— если поиск идентификатора вернул индекс, то <span class="hl-text">удаляет по индексу</span> и <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>
+          <br>—— если поиск идентификатора вернул <code class="python"><b>-1</b></code>, то <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 5</span> (Изменить студента по идентификатору) программа <span class="hl-text">сперва запрашивает идентификатор студента из консоли</span>. Если студент по указанному идентификатору не найден, то программа <span class="hl-text">выводит в консоль, что студента с таким идентификатором отсутствует</span>. В противном случае программа <span class="hl-text">делает копию студента</span> (смотрите ниже <code><b><span class="function">get_copy</span></b></code>) и <span class="hl-text">выводит исходные данные студента и изменённые данные в консоль в виде</span>:
+        <div class="console">
+          <pre><code>Исходные данные: Идентификатор Фамилия Имя - оценка оценка оценка ...
+Изменённые данные: Идентификатор Фамилия Имя - оценка оценка оценка ...</code></pre>
+        </div>
+        </p>
+
+        <p><code><b><span class="function">get_copy</span>(student)</b></code>
+          <br>— принимает <span class="hl-text">студента</span>
+          <br>— делает <span class="hl-text">копию студента</span>
+          <br>— <span class="hl-text">возвращает копию студента</span>
+        </p>
+
+        <p>Затем в консоль выводится следующее меню:
+        <div class="console">
+          <pre><code>1. Изменить идентификатор
+2. Изменить фамилию
+3. Изменить имя
+4. Добавить оценку студенту
+5. Удалить оценку студенту по порядковому номеру
+6. Изменить оценку студенту по порядковому номеру
+7. Подтвердить изменения и вернуться в главное меню
+8. Отменить изменения и вернуться в главное меню</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пунктов 1</span>, <span class="hl-text">2</span> или <span class="hl-text">3</span> программа <span class="hl-text">запрашивает новые соответствующие данные</span> и <span class="hl-text">устанавливает их копии студента</span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 4</span> (Добавить оценку студенту) программа <span class="hl-text">запрашивает новую оценку из консоли</span> и <span class="hl-text">добавляет её студенту</span>. Если оценка не от <code class="python"><b>1</b></code> до <code class="python"><b>12</b></code> включительно, то <span class="hl-text">выводится сообщение о неверной оценке</span>.</p>
+
+        <p>Реализовать, используя следующую функцию:
+          <br><code><b><span class="function">add_grade</span>(student, new_grade)</b></code>
+          <br>— принимает <span class="hl-text">студента</span> и <span class="hl-text">новую оценку</span>
+          <br>— если оценка от <code class="python"><b>1</b></code> до <code class="python"><b>12</b></code> включительно, то <span class="hl-text">добавляет оценку</span> и <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>
+          <br>— в противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 5</span> (Удалить оценку студенту по порядковому номеру) программа <span class="hl-text">запрашивает порядковый номер оценки</span> (не индекс) <span class="hl-text">из консоли</span>. Если номер в границах списка оценки, то <span class="hl-text">удаляет её</span>. В противном случае <span class="hl-text">выводится сообщение о неверном номере</span>.</p>
+
+        <p>Реализовать, используя следующую функцию:
+          <br><code><b><span class="function">remove_grade</span>(student, grade_index)</b></code>
+          <br>— принимает <span class="hl-text">студента</span> и <span class="hl-text">индекс оценки</span>
+          <br>— если всё в пределах границ, то <span class="hl-text">удаляет оценку у студента</span> и <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>
+          <br>— в противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 6</span> (Изменить оценку студенту по порядковому номеру) программа <span class="hl-text">запрашивает порядковый номер оценки</span> (не индекс) и <span class="hl-text">новую оценку из консоли</span>. Если номер номер в границах списка оценки и новая оценка в границах от <code class="python"><b>1</b></code> до <code class="python"><b>12</b></code> включительно, то <span class="hl-text">изменяет её</span>. В противном случае <span class="hl-text">выводится сообщение о неверном номере</span> или <span class="hl-text">неверной оценке</span>.</p>
+
+        <p>Реализовать, используя следующую функцию:
+          <br><code><b><span class="function">change_grade</span>(student, grade_index, new_grade)</b></code>
+          <br>— принимает <span class="hl-text">студента</span>, <span class="hl-text">индекс оценки</span> и <span class="hl-text">новую оценку</span>
+          <br>— если всё в пределах границ, то <span class="hl-text">меняет у студента оценку на новую оценку</span> и <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>
+          <br>— в противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 7</span> (Подтвердить изменения и вернуться в главное меню) программа <span class="hl-text">пытается внести изменения для студента</span>. Если идентификатор изменённого студента не найден среди идентификаторов других студентов или же он совпадает с идентификатором исходного студента, то <span class="hl-text">вносятся изменения</span>. В противном случае <span class="hl-text">сообщается, что идентификатор совпадает с одним из идентификаторов других студентов</span>.</p>
+
+        <p>Реализовать, используя следующую функцию:
+          <br><code><b><span class="function">change_student</span>(student_list, student_id, new_student)</b></code>
+          <br>— принимает <span class="hl-text">список студентов</span>, <span class="hl-text">идентификатор изменяемого студента</span>, <span class="hl-text">нового студента</span>
+          <br>— если идентификатор нового студента не совпадает ни с одним из идентификаторов других студентов или же он совпадает с идентификатором исходного студента, то <span class="hl-text">вносит изменения</span> и <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>
+          <br>— в противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 8</span> (Отменить изменения и вернуться в главное меню) программа просто <span class="hl-text">возвращается в предыдущее меню</span>.</p>
+
+        <p><span class="hl-text">В главном меню</span> при выборе <span class="hl-text">пункта 6</span> (Найти студентов по Фамилии и Имени) программа <span class="hl-text">запрашивает отдельно на каждой строке Фамилию</span> и<span class="hl-text"> Имя из консоли</span>. Затем программа <span class="hl-text">выводит в консоль всех найденных студентов в виде</span>:
+        <div class="console">
+          <pre><code>Идентификатор Фамилия Имя - оценка оценка оценка ...
+Идентификатор Фамилия Имя - оценка оценка оценка ...
+...</code></pre>
+        </div>
+        </p>
+
+        <p>Если программа никого не нашла, то она <span class="hl-text">сообщает об этом в консоли</span>.</p>
+
+        <p>Реализовать, используя для вывода <code><span class="function"><b>show_students</b></span></code> и для фильтра следующую функцию:
+          <br><code><b><span class="function">filter_students</span>(student_list, l_name, f_name)</b></code>
+          <br>— принимает <span class="hl-text">список студентов</span>, <span class="hl-text">фамилию</span> и <span class="hl-text">имя</span>
+          <br>— проходится по <span class="hl-text">списку студентов</span> и ищет совпадения <span class="hl-text">имени</span> и <span class="hl-text">фамилии</span>
+          <br>— если совпадение есть, то <span class="hl-text">добавляет студента в отфильтрованный список</span>
+          <br>— <span class="hl-text">возвращает отфильтрованный список</span>
+        </p>
+
+        <p>В главном меню при выборе <span class="hl-text">пункта 7</span> (Определить среднюю оценку по идентификатору студента) программа <span class="hl-text">запрашивает идентификатор студента из консоли</span>. Если индекс вне границ, то программа <span class="hl-text">выводит в консоль, что неверно введён индекс</span>. Если же индекс в границах, то программа <span class="hl-text">вычисляет среднюю оценку студента</span> и <span class="hl-text">выводит в консоль</span>.</p>
+
+        <p>Реализовать, используя следующую функцию:
+          <br><code><b><span class="function">calculate_avg</span>(student_list, student_id)</b></code>
+          <br>— принимает <span class="hl-text">список студентов</span> и <span class="hl-text">идентификатор</span>
+          <br>— если список оценок не пустой, то <span class="hl-text">вычисляет среднюю оценку студента</span>
+          <br>— в противном случае <span class="hl-text">результат равен нулю</span>
+          <br>— <span class="hl-text">возвращает полученный результат</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'None'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>
