@@ -70,9 +70,34 @@
       color: #FFC000;
     }
 
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
     p {
       margin-top: 15px;
       margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
     }
   </style>
 </head>
@@ -87,14 +112,16 @@
       <div class="right-rect">
         <h2>Практическое Задание 26.1</h2>
         <p>Реализуйте следующее меню:
-          <br>1. Показать список
-          <br>2. Ввести новый список оценок
-          <br>3. Добавить оценки
-          <br>4. Удалить оценку по индексу
-          <br>5. Изменить оценку по индексу
-          <br>6. Определить количество оценок
-          <br>7. Определить среднюю оценку
-          <br>8. Определить медианную оценку
+        <div class="console">
+          <pre><code>1. Показать список
+2. Ввести новый список оценок
+3. Добавить оценки
+4. Удалить оценку по индексу
+5. Изменить оценку по индексу
+6. Определить количество оценок
+7. Определить среднюю оценку
+8. Определить медианную оценку</code></pre>
+        </div>
         </p>
 
         <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает в консоли все оценки</span>.</p>

@@ -1,0 +1,453 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - HW38</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #343434 0%, #363636 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+
+    .string {
+      color: #6AAB73;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .self {
+      color: #94558D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .number {
+      color: #2AACB8;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .comments {
+      color: #7A7E85;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .metadata {
+      color: #B3AE60;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .built-in {
+      color: #8888C6;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .function {
+      color: #56A8F5;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .special-names {
+      color: #B200B2;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    ol {
+      counter-reset: list;
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    ol li {
+      counter-increment: list;
+      position: relative;
+      padding-left: 1.2em;
+      padding-bottom: 1.2em;
+    }
+
+    ol li::before {
+      content: counter(list) ". ";
+      position: absolute;
+      left: 0;
+      color: #FFC000;
+      font-weight: bold;
+    }
+
+    .grey {
+      color: #BCBEC4;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .no-padding-bottom {
+      padding-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2><strong>Примечание</strong></h2>
+        <p>Оформляйте ввод и вывод данных. Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>. Не используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методов. Можно использовать <code><b>append()</b></code>, <code><b>split()</b></code>, <code class="python"><b>len()</b></code>, методы множества. Не используйте срезы.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 38.1</h2>
+        <p>Напишите функцию <code><b><span class="function">find_occurrences</span></b></code>, которая <span class="hl-text">принимает кортеж строк</span> и <span class="hl-text">последовательность символов</span>. Затем функция <span class="hl-text">добавляет в список строку, в которую входит последовательность символов</span>. В конце функция <span class="hl-text">превращает список в кортеж</span> и <span class="hl-text">возвращает его</span>.</p>
+
+        <p>Например:
+          <br>Кортеж: <code class="python"><b>("banana", "apple", "bananamango", "mango", "strawberry-banana")</b></code>
+          <br>Последовательность символов: <code class="python"><b>"ban"</b></code>
+          <br>Результат работы функции: <code class="python"><b>("banana", "bananamango", "strawberry-banana")</b></code>
+        </p>
+        <h3>Подсказка:</h3>
+        <p>Код и алгоритм поиска последовательности символов мы рассматривали на <code class="python"><b>24</b></code>-м уроке.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 38.2</h2>
+        <p>В магазине <span class="hl-text">"Всё Не Дорого"</span> запустили акцию по розыгрышу дорогой электроники. Для этого пользователи должны были вписать свою почту на сайте и нажать кнопку <code class="python"><b>"Участвовать"</b></code>. В итоге собрался список почт, однако, если пользователь несколько раз вписывал одну и ту же почту и снова нажимал кнопку <code class="python"><b>"Участвовать"</b></code>, то данные снова добавлялись в список. Более того, программа принимала любые строки, поэтому в списке есть мусорные данные. Напишите функцию <code><b><span class="function">check_mails</span></b></code>, которая <span class="hl-text">принимает список строк</span>, <span class="hl-text">удаляет дубликаты</span>, <span class="hl-text">проверяет правильность почты</span> и <span class="hl-text">возвращает кортеж из строк, которые прошли проверку</span>. Почта считается правильной, если <span class="hl-text">строка содержит символ <code class="python"><b>"@"</b></code>, после которого идёт символ <code class="python"><b>"."</b></code>, но не сразу</span>.</p>
+        <p>Пример правильной почты: <span class="string"><b>&ltхотя_бы_один_символ&gt@&ltхотя_бы_один_символ&gt.&ltхотя_бы_один_символ&gt</b></span></p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 38.3</h2>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли имена пользователей первого приложения через пробел</span>, затем <span class="hl-text">на следующей строке запрашивает с консоли имена пользователей второго приложения через пробел</span>. Программа должна <span class="hl-text">вывести в консоль следующие данные</span>:
+          <br>— Имена пользователей <span class="hl-text">обоих приложений</span>
+          <br>— Имена пользователей <span class="hl-text">только первого приложения</span>
+          <br>— Имена пользователей <span class="hl-text">только второго приложения</span>
+          <br>— Имена <span class="hl-text">всех пользователей</span>
+        </p>
+        <h3>Консоль:</h3>
+        <div class="console">
+          <pre><code>Введите имена пользователей первого приложения через пробел: <span class="input">Teston Bob Tom Jack</span>
+Введите имена пользователей второго приложения через пробел: <span class="input">Bob Kate Jack Astrid</span>
+
+Пользователи обоих приложений: Bob Jack
+Пользователи только первого приложения: Teston Tom
+Пользователи только второго приложения: Kate Astrid
+Все пользователи: Teston Bob Tom Jack Kate Astrid</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 38.4</h2>
+        <p>Реализуйте следующее меню:
+        <div class="console">
+          <pre><code>1. Показать данные всех баскетболистов
+2. Показать только имена всех баскетболистов
+3. Найти рост по имени баскетболиста
+4. Добавить нового баскетболиста
+5. Удалить баскетболиста по имени
+6. Изменить рост по имени
+7. Завершить программу</code></pre>
+        </div>
+        </p>
+
+        <p>Данные баскетболистов хранятся в виде <span class="hl-text">одного словаря</span>, в котором ключи являются <span class="hl-text">именами</span>, а значения - <span class="hl-text">ростом</span>:
+        <div class="console">
+          <pre><code class="python">{"Jack": 153, "Tom": 223, ...}</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит в консоль имя</span> и <span class="hl-text">рост в следующем виде</span>:
+        <div class="console">
+          <pre><code>"Имя" - <рост>
+"Имя" - <рост>
+...</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">выводит в консоль имена в одну строку</span>:
+        <div class="console">
+          <pre><code>"Имя", "Имя", ...</code></pre>
+        </div>
+        </p>
+        <p>Учтите, что при выводе в консоль имён, в конце <span class="hl-text">не должно быть пробела</span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли имя</span> и <span class="hl-text">выводит рост</span>. Если такого имени нет, то программа должна <span class="hl-text">об этом сообщить</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли новое имя</span> и <span class="hl-text">рост</span>, затем <span class="hl-text">добавляет пару в словарь</span>. Если такое имя уже существует, то программа должна <span class="hl-text">об этом сообщить</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает с консоли имя</span> и <span class="hl-text">удаляет баскетболиста</span>. Если такого имени нет, то программа должна <span class="hl-text">об этом сообщить</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 6</span> программа <span class="hl-text">запрашивает с консоли имя</span>. Если такое имя есть, то программа <span class="hl-text">запрашивает с консоли рост</span> и <span class="hl-text">меняет её у баскетболиста</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 38.5</h2>
+        <p>Реализуйте следующее меню:
+        <div class="console">
+          <pre><code>1. Показать все книги
+2. Добавить новую книгу
+3. Найти книгу по идентификатору книги
+4. Изменить информацию по идентификатору книги
+5. Удалить книгу по идентификатору книги 
+6. Завершить программу</code></pre>
+        </div>
+        </p>
+
+        <p>Данные о книге хранятся в виде словаря с ключами <code class="python"><b>"book_id"</b></code>, <code class="python"><b>"title"</b></code>, <code class="python"><b>"author"</b></code>, <code class="python"><b>"genre"</b></code>, <code class="python"><b>"release_year"</b></code>.</p>
+        <p>Все книги хранятся в <span class="hl-text">списке</span>. Изначально список книг пустой.</p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит в консоль книги в следующем виде</span>:
+        <div class="console">
+          <pre><code>"Идентификатор" "Название" "Автор" "Жанр" <год>
+"Идентификатор" "Название" "Автор" "Жанр" <год>
+...</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>, <span class="hl-text">название книги</span>, <span class="hl-text">имя автора</span>, <span class="hl-text">жанр</span> и <span class="hl-text">год выпуска</span>, затем <span class="hl-text">формирует из него словарь</span>. После этого <span class="hl-text">книга добавляется в список</span>, если идентификатор новой книги не совпадает ни с одним идентификатором других книг. В противном случае программа должна <span class="hl-text">сообщить об этом</span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли идентификатор книги</span>, затем <span class="hl-text">выводит в консоль данные книги</span>, если они найдены. Данные выводятся в следующем виде:
+        <div class="console">
+          <pre><code>"Идентификатор" "Название" "Автор" "Жанр" <год></code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли идентификатор книги</span>. Если книга с таким идентификатором найдена, то программа <span class="hl-text">выводит в консоль следующее</span>:
+        <div class="console">
+          <pre><code>Старые данные: "Идентификатор" "Название" "Автор" "Жанр" <год>
+Новые данные: "Идентификатор" "Название" "Автор" "Жанр" <год>
+1. Изменить идентификатор
+2. Изменить название книги
+3. Изменить имя автора
+4. Изменить жанр
+5. Изменить год выпуска
+6. Подтвердить изменения и вернуться
+7. Отменить изменения и вернуться</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">5</span> программа <span class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится в словарь только в том случае, если был выбран <span class="hl-text">пункт 6</span>. Поэтому <span class="hl-text">пункты 1</span>-<span class="hl-text">5</span> должны <span class="hl-text">изменять копию данных</span>, а при выборе <span class="hl-text">пункта 6 заменять оригинал</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 6</span> программа должна <span class="hl-text">проверить идентификатор изменённых данных</span>. Если идентификатор не изменился или же совпадений с идентификаторами других книг нет, то <span class="hl-text">старые данные заменяются на новые</span>. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
+
+        <p><span class="hl-text">В главном меню</span> при выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>. Если идентификатор найден, то программа <span class="hl-text">удаляет книгу</span>. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
+
+        <h3>Дополнительно:</h3>
+        <ol>
+          <li>Попытайтесь разделить программу на <span class="hl-text">фронтенд</span> и <span class="hl-text">бэкенд</span>. Для этого создайте разные функции. Помните, что во фронтенд помещается <span class="hl-text">логика ввода</span>, <span class="hl-text">проверки ввода</span> и <span class="hl-text">его преобразование</span>, а также <span class="hl-text">вывод</span>. В бэкенд помещается вся остальная логика - <span class="hl-text">поиск</span>, <span class="hl-text">добавление</span>, <span class="hl-text">удаление</span>, <span class="hl-text">изменение</span>, <span class="hl-text">формирование данных для вывода</span> и <span class="hl-text">подобные операции</span>.</li>
+          <li class="no-padding-bottom">Переделайте программу так, чтобы <span class="hl-text">книги хранились не в списке, а в словаре</span>, где ключём является <span class="hl-text">идентификатор книги</span>, а значением - <span class="hl-text">книга как словарь</span>. При этом в самой книге уберите ключ <code class="python"><b>"book_id"</b></code>. Итоге должна получиться следующая структура:
+            <div class="console">
+              <pre><code>{<span class="string">"Идентификатор"</span>: {<span class="string">"title"</span>: <span class="string">"Название"</span>, <span class="string">"author"</span>: <span class="string">"Имя"</span>, <span class="string">"genre"</span>: <span class="string">"Жанр"</span>, <span class="string">"release_year"</span>: <span class="number"><год></span>},
+ <span class="string">"Идентификатор"</span>: {<span class="string">"title"</span>: <span class="string">"Название"</span>, <span class="string">"author"</span>: <span class="string">"Имя"</span>, <span class="string">"genre"</span>: <span class="string">"Жанр"</span>, <span class="string">"release_year"</span>: <span class="number"><год></span>},
+ ...}</code></pre>
+            </div>
+            Вместе с этим переделайте операции <span class="hl-text">вывода книг</span>, <span class="hl-text">поиска</span>, <span class="hl-text">добавления</span>, <span class="hl-text">изменения></span> и <span class="hl-text">удаления книг</span>.
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function() {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>
