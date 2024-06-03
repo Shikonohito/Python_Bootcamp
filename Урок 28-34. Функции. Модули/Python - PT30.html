@@ -70,9 +70,38 @@
       color: #FFC000;
     }
 
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
     p {
       margin-top: 15px;
       margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
     }
 
     .string {
@@ -112,11 +141,13 @@
       <div class="right-rect">
         <h2>Практическое Задание 30.1</h2>
         <p>Напишите программу, которая <span class="hl-text">ведёт учёт расходов</span> и <span class="hl-text">доходов</span>. Реализуйте следующее меню:
-          <br>1. Показать историю расходов и доходов
-          <br>2. Показать текущий баланс
-          <br>3. Добавить доход
-          <br>4. Добавить расход
-          <br>5. Завершить программу
+        <div class="console">
+          <pre><code>1. Показать историю расходов и доходов
+2. Показать текущий баланс
+3. Добавить доход
+4. Добавить расход
+5. Завершить программу</code></pre>
+        </div>
         </p>
 
         <p>При выборе <span class="hl-text">пункта 1</span> программа должна <span class="hl-text">выводить в консоль все данные из глобального списка</span> <span class="grey"><b>log_balance</b></span>.</p>

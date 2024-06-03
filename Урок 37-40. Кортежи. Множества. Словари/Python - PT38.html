@@ -1,0 +1,364 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT38</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+
+    .string {
+      color: #6AAB73;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .self {
+      color: #94558D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .number {
+      color: #2AACB8;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .comments {
+      color: #7A7E85;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .metadata {
+      color: #B3AE60;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .built-in {
+      color: #8888C6;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .function {
+      color: #56A8F5;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .special-names {
+      color: #B200B2;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+      font-family: "JetBrains mono", monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Практическое Задание 38.1</h2>
+        <p>Реализуйте следующее меню:
+        <div class="console">
+          <pre><code>1. Показать логины и пароли пользователей
+2. Зарегистрировать пользователя
+3. Удалить пользователя
+4. Изменить пароль пользователя
+5. Завершить программу</code></pre>
+        </div>
+        </p>
+
+        <p>Данные пользователей хранятся в виде одного словаря:
+        <div class="console">
+          <pre><code class="python">{"login_1": "password_1", "login_2": "password_2", ...}</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит в консоль данные в следующем виде</span>:
+        <div class="console">
+          <pre><code>Логин - Пароль
+Логин - Пароль
+...</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли новые логин</span> и <span class="hl-text">пароль</span>. Если логин уже существует, то программа должна <span class="hl-text">сообщить об этом</span>. В противном случае <span class="hl-text">в словарь добавлятся пара логин</span> и <span class="hl-text">пароль</span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли существующий логин</span>. Если логин не существует, то программа должна <span class="hl-text">сообщить об этом</span>. В противном случае <span class="hl-text">из словаря удаляется пара логин</span> и <span class="hl-text">пароль</span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли существующий логин</span> и <span class="hl-text">новый пароль</span>. Если логин не существует, то программа должна <span class="hl-text">сообщить об этом</span>. В противном случае <span class="hl-text">меняется пароль у введённого логина</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 38.2</h2>
+        <p>Реализуйте следюущее меню:
+        <div class="console">
+          <pre><code>1. Показать данные студента
+2. Изменить Фамилию и Имя
+3. Изменить дату рождения
+4. Добавить оценку
+5. Удалить оценку по порядковому номеру
+6. Изменить оценку по порядковому номеру
+7. Завершить программу</code></pre>
+        </div>
+        </p>
+
+        <p>Студент хранится в виде одного словаря:
+        <div class="console">
+          <pre><code class="python">{"f_name": "Teston", "l_name": "Lebra", "birth_date": 10/02/2000, "grades": [12, 12, 12]}</code></pre>
+        </div>
+        </p>
+        <p>Дата рождения хранится как объект <code><b>datetime.date()</b></code>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит в консоль данные в следующем виде</span>:
+        <div class="console">
+          <pre><code>"Имя" "Фамилия"
+Возраст: <число>
+Оценки: <число> <число> <число> ...</code></pre>
+        </div>
+        </p>
+
+        <p>Для вычисления возраста напишите функцию <code><b><span class="function">сalculate_age</span></b></code>, которая <span class="hl-text">принимает день рождения</span> и <span class="hl-text">возвращает возраст</span>. Используйте <code><b>datetime.now()</b></code>, чтобы получить текущую дату, и свойства <code><b>day</b></code>, <code><b>month</b></code> и <code><b>year</b></code>, чтобы получить <span class="hl-text">день</span>, <span class="hl-text">месяц</span> и <span class="hl-text">год</span> соответственно из даты.</p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли новые фамилию</span> и <span class="hl-text">имя</span>, затем <span class="hl-text">меняет значения у студента</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли дату рождения в формате</span> <code class="python"><b>"%d/%m/%Y"</b></code>, затем <span class="hl-text">меняет значение у студента</span>. Используйте следующий код для сохранения объекта <code><b>datetime</b></code>:
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">from datetime import datetime  # Подключение модуля datetime и импорт класса datetime
+
+# Метод strptime принимает дату и формат в виде строк, возвращает дату и время как объект datetime
+# Метод date возвращает только дату
+birth_date = datetime.strptime("10/02/2000", "%d/%m/%Y").date()</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли новую оценку от <code class="python"><b>1</b></code> до <code class="python"><b>12</b></code> включительно</span>, затем <span class="hl-text">добавляет её студенту</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает с консоли порядковый номер оценки</span>, затем <span class="hl-text">удаляет у студента оценку по номеру</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 6</span> программа <span class="hl-text">запрашивает с консоли порядковый номер оценки</span> и <span class="hl-text">новую оценку</span>, затем <span class="hl-text">заменяет у студента оценку по номеру</span>.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function() {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>

@@ -1,0 +1,409 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - HW40</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #343434 0%, #363636 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .string {
+      color: #6AAB73;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .self {
+      color: #94558D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .number {
+      color: #2AACB8;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .comments {
+      color: #7A7E85;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .metadata {
+      color: #B3AE60;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .built-in {
+      color: #8888C6;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .function {
+      color: #56A8F5;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .special-names {
+      color: #B200B2;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+      font-family: "JetBrains mono", monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2><strong>Примечание</strong></h2>
+        <p>Оформляйте ввод и вывод данных. Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>. Не используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методов. Можно использовать <code><b>append()</b></code>, <code><b>split()</b></code>, <code class="python"><b>len()</b></code>. Не используйте срезы.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 40.1</h2>
+        <p>Реализуйте следующее меню:
+        <div class="console">
+          <pre><code>1. Показать всех пользователей
+2. Показать пользователя по его идентификатору
+3. Добавить нового пользователя
+4. Изменить данные пользователя по его идентификатору
+5. Удалить пользователя по его идентификатору
+6. Завершить программу</code></pre>
+        </div>
+        </p>
+
+        <p>Пользователь это <span class="hl-text">словарь</span> следующего вида:
+        <div class="console">
+          <pre><code>{<span class="string">"user_id"</span>: <span class="string">"ИДЕНТИФИКАТОР"</span>, <span class="string">"f_name"</span>: <span class="string">"ИМЯ"</span>, <span class="string">"l_name"</span>: <span class="string">"ФАМИЛИЯ"</span>,
+ <span class="string">"cards"</span>: [
+                {<span class="string">"card_id"</span>: <span class="string">"ИДЕНТИФИКАТОР"</span>, <span class="string">"f_name"</span>: <span class="string">"ИМЯ"</span>, <span class="string">"l_name"</span>: <span class="string">"ФАМИЛИЯ"</span>, <span class="string">"month"</span>: <span class="number"><месяц></span>, <span class="string">"year"</span>: <span class="number"><год></span>, <span class="string">"balance"</span>: <span class="number"><баланс></span>},
+                {<span class="string">"card_id"</span>: <span class="string">"ИДЕНТИФИКАТОР"</span>, <span class="string">"f_name"</span>: <span class="string">"ИМЯ"</span>, <span class="string">"l_name"</span>: <span class="string">"ФАМИЛИЯ"</span>, <span class="string">"month"</span>: <span class="number"><месяц></span>, <span class="string">"year"</span>: <span class="number"><год></span>, <span class="string">"balance"</span>: <span class="number"><баланс></span>},
+                ...
+          ]
+  }</code></pre>
+        </div>
+        </p>
+
+        <p>Все пользователи хранятся в <span class="hl-text">словаре</span> вида:
+        <div class="console">
+          <pre><code class="python">["ИДЕНТИФИКАТОР": {пользователь}, "ИДЕНТИФИКАТОР": {пользователь}, ...]</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> (Показать всех пользователей) программа <span class="hl-text">выводит в консоль данные всех пользователей в следующем формате</span>:
+        <div class="console">
+          <pre><code>"Идентификатор пользователя"
+"Имя" "Фамилия"
+"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+...
+=======================================================================================
+"Идентификатор пользователя"
+"Имя" "Фамилия"
+"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+...
+=======================================================================================
+...</code></pre>
+        </div>
+        </p>
+
+        <p>Сперва можно реализовать <span class="hl-text">пункт 2</span>, чтобы потом использовать реализацию в <span class="hl-text">пункте 1</span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> (Показать пользователя по его идентификатору) программа <span class="hl-text">запрашивает с консоли идентификатор</span>. Если идентификатор не найден, то программа <span class="hl-text">сообщает об этом</span>. В противном случае <span class="hl-text">она выводит в консоль найденные данные пользователя в следующем формате</span>:
+        <div class="console">
+          <pre><code>"Идентификатор пользователя"
+"Имя" "Фамилия"
+"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+...</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 3</span> (Добавить нового пользователя) программа <span class="hl-text">запрашивает с консоли новый идентификатор пользователя</span>, <span class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, затем <span class="hl-text">создаёт словарь из введённых данных</span>. Список карт изначально пуст. После этого <span class="hl-text">пользователь добавляется в список</span>, если идентификатор нового пользователя не совпадает ни с одним идентификатором других пользователей. В противном случае программа должна <span class="hl-text">сообщить об этом</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 5</span> (Удалить пользователя по его идентификатору) программа <span class="hl-text">запрашивает с консоли идентификатор пользователя</span> и <span class="hl-text">удаляет пользователя</span>, если он была найден. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 4</span> (Изменить данные пользователя по его идентификатору) программа <span class="hl-text">запрашивает с консоли идентификатор пользователя</span>. Если идентификатор не найден, то программа <span class="hl-text">сообщает об этом</span>. В противном случае программа <span class="hl-text">выводит в консоль следующее</span>:
+        <div class="console">
+          <pre><code>СТАРЫЕ ДАННЫЕ
+"Идентификатор пользователя"
+"Имя" "Фамилия"
+"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+...
+=======================================================================================
+НОВЫЕ ДАННЫЕ
+"Идентификатор пользователя"
+"Имя" "Фамилия"
+"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+...
+=======================================================================================
+1. Изменить идентификатор пользователя
+2. Изменить фамилию
+3. Изменить имя
+4. Добавить карту
+5. Изменить карту по идентификатору
+6. Удалить карту по идентификатору
+7. Подтвердить изменения и вернуться
+8. Отменить изменения и вернуться</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">3</span> программа <span class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится только в том случае, если был <span class="hl-text">выбран пункт 7</span>. Поэтому <span class="hl-text">пункты 1</span>-<span class="hl-text">6</span> должны изменять <span class="hl-text">копию данных</span>, а при выборе <span class="hl-text">пункта 7 заменять оригинал</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 7</span> программа должна <span class="hl-text">проверить идентификатор изменённых данных</span>. Если идентификатор не изменился или же совпадений с идентификаторами других пользователей нет, то <span class="hl-text">старые данные заменяются на новые</span>. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 4</span> (Добавить карту) программа <span class="hl-text">запрашивает с консоли идентификатор карты</span>, <span class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">месяц</span>, <span class="hl-text">год</span>, <span class="hl-text">баланс</span>, затем <span class="hl-text">создаёт словарь из введённых данных</span>. После этого <span class="hl-text">карта добавляется в список</span>, если идентификатор новой карты не совпадает ни с одним идентификатором других карт в списке. В противном случае программа должна <span class="hl-text">сообщить об этом</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 6</span> (Удалить карту по идентификатору) программа <span class="hl-text">запрашивает с консоли идентификатор карты</span> и <span class="hl-text">удаляет карту</span>, если она была найдена. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 5</span> (Изменить карту по идентификатору) программа <span class="hl-text">запрашивает с консоли идентификатор карты</span>. Если идентификатор не найден, то программа <span class="hl-text">сообщает об этом</span>. В противном случае программа <span class="hl-text">выводит в консоль следующее</span>:
+        <div class="console">
+          <pre><code>СТАРЫЕ ДАННЫЕ: "Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+НОВЫЕ ДАННЫЕ: "Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+=======================================================================================
+1. Изменить идентификатор карте
+2. Изменить имя на карте
+3. Изменить фамилию на карте
+4. Изменить месяц
+5. Изменить год
+6. Изменить баланс
+7. Подтвердить изменения и вернуться
+8. Отменить изменения и вернуться</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">6</span> программа <span class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится только в том случае, если был <span class="hl-text">выбран пункт 7</span>. Поэтому <span class="hl-text">пункты 1</span>-<span class="hl-text">6</span> должны изменять <span class="hl-text">копию данных</span>, а при выборе <span class="hl-text">пункта 7 заменять оригинал</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 7</span> программа должна <span class="hl-text">проверить идентификатор изменённых данных</span>. Если идентификатор не изменился или же совпадений с идентификаторами других карт нет, то <span class="hl-text">старые данные заменяются на новые</span>. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 40.2 (Необязательное)</h2>
+        <p>На основе выполненного <span class="hl-text">Домашнего Задания 40.1</span> реализуйте <span class="hl-text">в главном меню</span> <span class="string">"Поиск по имени"</span>, который <span class="hl-text">запрашивает с консоли имя</span>, а затем <span class="hl-text">ищет всех пользователей с указанным именем</span> (поиск ТОЛЬКО по имени) и <span class="hl-text">выводит в консоль</span> в том же виде, как делает <span class="hl-text">пункт 1</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 40.3 (Необязательное)</h2>
+        <p>На основе выполненного <span class="hl-text">Домашнего Задания 40.1</span> измените функционал <span class="hl-text">добавления пользователей</span>. При составлении словаря пользователя добавьте ещё одну пару <code class="python"><b>"subscription": datetime.now().date()</b></code>. Эта пара будет хранить <span class="hl-text">дату истечения срока подписки</span>. Затем <span class="hl-text">добавьте</span> и <span class="hl-text">реализуйте в главном меню</span> <code class="python"><b>"Оформить подписку пользователю"</b></code>. При выборе этого пункта программа сперва <span class="hl-text">запрашивает идентификатор пользователя</span>. Если он найден, то <span class="hl-text">выводится следующее</span>:
+        <div class="console">
+          <pre><code>Текущая дата: <значение_datetime.now().date()>
+Дата окончания подписки: <значение_по_ключу_subscription>
+1. Оформить подписку на 1 месяц
+2. Оформить подписку на 3 месяца
+3. Оформить подписку на 1 год
+4. Вернуться в главное меню</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">3</span> программа <span class="hl-text">выводит в консоль курс подписки</span> и <span class="hl-text">список карт пользователя в виде</span>:
+        <div class="console">
+          <pre><code>Подписка на 1 месяц - 5 единиц
+Подписка на 3 месяца - 13 единиц
+Подписка на 1 год - 49 единиц
+=======================================================================================
+"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+...</code></pre>
+        </div>
+        </p>
+
+        <p>Затем программа <span class="hl-text">запрашивает ввод с консоли идентификатора карточки для оплаты</span>. Если идентификатор карты найден и достаточно денег, то <span class="hl-text">деньги снимаются с баланса карты</span>. Затем проверяется, что если <code><b>datetime.now()</b></code> больше <code><b>&ltзначение_по_ключу_subscription&gt</b></code>, то по ключу <code class="python"><b>"subscription"</b></code> <span class="hl-text">выставляются следующие данные</span>:
+          <br>— Для <code class="python"><b>1</b></code> месяца: <code class="python"><b>datetime.now() + timedelta(days=30)</b></code>
+          <br>— Для <code class="python"><b>3</b></code> месяцев: <code class="python"><b>datetime.now() + timedelta(days=90)</b></code>
+          <br>— Для <code class="python"><b>1</b></code> года: <code class="python"><b>datetime.now() + timedelta(days=365)</b></code>
+        </p>
+
+        <p>Если же <code><b>datetime.now()</b></code> меньше-равно <code><b>&ltзначение_по_ключу_subscription&gt</b></code>, то по ключу <code class="python"><b>"subscription"</b></code> <span class="hl-text">выставляются следующие данные</span>:
+          <br>— Для <code class="python"><b>1</b></code> месяца: <code class="python"><b>&ltзначение_по_ключу_subscription&gt + timedelta(days=30)</b></code>
+          <br>— Для <code class="python"><b>3</b></code> месяцев: <code class="python"><b>&ltзначение_по_ключу_subscription&gt + timedelta(days=90)</b></code>
+          <br>— Для <code class="python"><b>1</b></code> года: <code class="python"><b>&ltзначение_по_ключу_subscription&gt + timedelta(days=365)</b></code>
+        </p>
+
+        <p>Не забудьте в самом начале программы прописать строку <code class="python"><b>from datetime import datetime, timedelta</b></code>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 40.4 (Необязательное)</h2>
+        <p>Попробуйте переделать <span class="hl-text">Домашнее Задание 40.1</span> так, чтобы работала следующая схема.</p>
+        <p>Пусть есть <code class="python"><b>2</b></code> <span class="hl-text">разных пользователя</span>. У <span class="hl-text">первого пользователя</span> привязана карта <code class="python"><b>"5869586958695869"</b></code> с балансом <code class="python"><b>1000</b></code>. У <span class="hl-text">второго пользователя</span> привязана <span class="hl-text">точно такая же карта</span>. Если изменить баланс у первого пользователя, то мы <span class="hl-text">сможем увидеть, что у второго пользователя баланс карты тоже изменился</span>. Чтобы работало так, <span class="hl-text">измените добавление</span> и <span class="hl-text">изменение</span>. С технической точки зрения у этих пользователей должен быть привязан <span class="hl-text">один и тот же объект карты</span>.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /(end|sep|days)=/g;
+        innerHTML = innerHTML.replace(regex, '<span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>
