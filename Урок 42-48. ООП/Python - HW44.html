@@ -1,0 +1,766 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - HW44</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #343434 0%, #363636 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+
+    .string {
+      color: #6AAB73;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .self {
+      color: #94558D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .number {
+      color: #2AACB8;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .comments {
+      color: #7A7E85;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .metadata {
+      color: #B3AE60;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .built-in {
+      color: #8888C6;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .function {
+      color: #56A8F5;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .special-names {
+      color: #B200B2;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    ol {
+      counter-reset: list;
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    ol li {
+      counter-increment: list;
+      position: relative;
+      padding-left: 1.2em;
+      padding-bottom: 1.2em;
+    }
+
+    ol li::before {
+      content: counter(list) ". ";
+      position: absolute;
+      left: 0;
+      color: #FFC000;
+      font-weight: bold;
+    }
+
+    .no-padding-bottom {
+      padding-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Домашнее Задание 44.1</h2>
+        <p>Создайте класс <span class="hl-text">"Продукт"</span>. Этот класс должен <span class="hl-text">хранить поля для идентификатора</span>, <span class="hl-text">названия</span>, <span class="hl-text">цены</span> и <span class="hl-text">количества</span>.
+          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+          <br>Для класса определите <span class="hl-text">метод пополнения</span> и <span class="hl-text">понижения количества</span>. Метод должен <span class="hl-text">принимать положительное целое число</span>, затем <span class="hl-text">увеличивать</span> и <span class="hl-text">уменьшать количество соответственно</span>.
+          <br>Для класса определите <span class="hl-text">метод продажи</span>. Метод должен <span class="hl-text">принимать положительное целое число</span>, <span class="hl-text">отнимать из количества</span> и <span class="hl-text">возвращать итоговую сумму продажи</span>. Если указанное количество больше количества продукта, то <span class="hl-text">возвращает</span> <code class="python"><b>-1</b></code>.
+          <br>Для класса определите <span class="hl-text">метод копии</span>. Метод должен <span class="hl-text">возвращать объект класса "Продукт" с теми же данными, что и оригинал</span>.
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 44.2</h2>
+        <p>Используя класс из <span class="hl-text">Домашнего Задания 44.1</span>, реализуйте следующее меню:
+        <div class="console">
+          <pre><code>Магазин: 0
+1. Показать все продукты
+2. Добавить продукт
+3. Изменить продукт
+4. Удалить продукт
+5. Продать продукт
+6. Завершить программу</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит в консоль продукты в следующем виде</span>:
+        <div class="console">
+          <pre><code>"Идентификатор" "Название" <цена> <количество>
+"Идентификатор" "Название" <цена> <количество>
+...</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>, <span class="hl-text">название</span>, <span class="hl-text">цену</span> и <span class="hl-text">количество</span>. Если идентификатор не присутствует среди продуктов, то программа <span class="hl-text">создаёт объект "Продукт"</span> и <span class="hl-text">добавляет его в список</span>.
+          <br><span class="hl-text"><b>Дополнительно:</b></span> сделайте так, чтобы при добавлении продукта с <span class="hl-text">тем же идентификатором, что у продукта из списка</span>, просто <span class="hl-text">увеличивалось количество</span>.
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span> и <span class="hl-text">количество</span>. Если идентификатор найден, то программа <span class="hl-text">понижает количество у найденного продукта</span>.
+          <br><span class="hl-text"><b>Дополнительно:</b></span> сделайте так, чтобы при опускании <span class="hl-text">количества продукта до</span> <code class="python"><b>0</b></code>, <span class="hl-text">он удалялся из списка</span>.
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span> и <span class="hl-text">количество</span>. Если идентификатор найден, то программа <span class="hl-text">продаёт указанное количество продукта</span> и <span class="hl-text">увеличивает счётчик магазина на проданную сумму денег</span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>. Если идентификатор найден, то программа <span class="hl-text">выводит в консоль следующее</span>:
+        <div class="console">
+          <pre><code>Старые данные: "Идентификатор" "Название" <цена> <количество>
+Новые данные: "Идентификатор" "Название" <цена> <количество>
+1. Изменить идентификатор
+2. Изменить название
+3. Изменить цену
+4. Изменить количество
+5. Подтвердить изменения и вернуться
+6. Отменить изменения и вернуться</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">4</span> программа <span class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится только в том случае, если был выбран <span class="hl-text">пункт 5</span>. Поэтому <span class="hl-text">пункты 1</span>-<span class="hl-text">4</span> должны <span class="hl-text">изменять копию данных</span>, а при выборе <span class="hl-text">пункта 5 заменять оригинал</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 5</span> программа должна <span class="hl-text">проверить идентификатор изменённых данных</span>. Если идентификатор не изменился или же совпадений с идентификаторами других продуктов нет, то <span class="hl-text">проверка пройдена успешно</span>. Если цена и количество положительны, то <span class="hl-text">проверки пройдены</span>. Если все проверки пройдены, то <span class="hl-text">старые данные заменяются на новые</span>. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 44.3</h2>
+        <p>Создайте класс <span class="hl-text">"Сотрудник"</span>. Этот класс должен <span class="hl-text">хранить поля для идентификатора сотрудника</span>, <span class="hl-text">должности</span>, <span class="hl-text">имени</span>, <span class="hl-text">возраста</span> и <span class="hl-text">зарплаты</span>.
+          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+        </p>
+
+        <p>Создайте класс <span class="hl-text">"Руководитель"</span>. Этот класс должен <span class="hl-text">наследоваться от класса "Сотрудник"</span> и <span class="hl-text">хранить поля для количества подчинённых</span> и <span class="hl-text">список подчинённых</span>.
+          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+          <br>Для класса определите <span class="hl-text">методы поиска</span>, <span class="hl-text">добавления</span> и <span class="hl-text">удаления подчинённых</span>.
+        </p>
+
+        <p>Создайте класс <span class="hl-text">"Тестер"</span>. Этот класс должен <span class="hl-text">наследоваться от класса "Сотрудник"</span> и <span class="hl-text">хранить поля для идентификатора руководителя</span>, <span class="hl-text">словаря не выполненных заявок вида</span> <code class="python"><b>{"идентификатор_заявки": "Описание"}</b></code> и <span class="hl-text">словаря выполненных заявок вида</span> <code class="python"><b>{"идентификатор_заявки": "Описание"}</b></code>.
+          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+          <br>Для класса определите <span class="hl-text">методы поиска</span>, <span class="hl-text">добавления</span>, <span class="hl-text">изменения</span> и <span class="hl-text">удаления не выполненных</span> и <span class="hl-text">выполненных заявок</span>. При добавлении заявки <span class="hl-text">проверка на дубликаты</span> должна происходить как среди <span class="hl-text">не выполненных</span>, так и среди <span class="hl-text">выполненных заявок</span>, <span class="hl-text">независимо от типа добавления заявки</span>.
+          <br>Для класса определите <span class="hl-text">метод выполнения заявки</span>. Метод должен <span class="hl-text">принимать идентификатор заявки</span>, <span class="hl-text">добавлять её в выполненные заявки</span> и <span class="hl-text">удалять из не выполненных заявок</span>.
+          <br>Для класса определите <span class="hl-text">метод отмены выполнения заявки</span>. Метод должен <span class="hl-text">принимать идентификатор заявки</span>, <span class="hl-text">добавлять её в не выполненные заявки</span> и <span class="hl-text">удалять из выполненных заявок</span>.
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 44.4</h2>
+        <p>Используя классы из <span class="hl-text">Домашнего Задания 44.3</span>, реализуйте следующее меню:
+        <div class="console">
+          <pre><code>1. Показать всех сотрудников
+2. Добавить сотрудника
+3. Удалить сотрудника
+4. Показать подчинённых
+5. Операции для тестера
+6. Завершить программу</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе пункта 1 программа выводит в консоль данные в следующем виде:
+        <div class="console">
+          <pre><code>"Идентификатор" - "Имя", <возраст>, "Должность", <зарплата>
+"Идентификатор" - "Имя", <возраст>, "Должность", <зарплата>
+...</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли должность</span>, а затем <span class="hl-text">идентификатор</span>, <span class="hl-text">имя</span>, <span class="hl-text">возраст</span>, <span class="hl-text">зарплату</span>, затем <span class="hl-text">формирует из него объект "Руководитель"</span> или <span class="hl-text">"Тестер"</span> в зависимости от должности и <span class="hl-text">добавляет в список</span>. Также <span class="hl-text">отдельно для тестера запрашивает идентификатор руководителя</span>. Если созданный сотрудник это тестер, то <span class="hl-text">руководителю в список добавляется созданный тестер</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>. Если идентификатор найден и должность руководитель, то <span class="hl-text">просто удаляет сотрудника из списка</span>. Если должность тестер, то <span class="hl-text">сперва удаляет сотрудника у руководителя</span>, а затем <span class="hl-text">из общего списка</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает идентификатор руководителя</span>. Если идентификатор найден, то программа <span class="hl-text">выводит в консоль данные в следующем виде</span>:
+        <div class="console">
+          <pre><code>"Идентификатор" - "Имя", <возраст>, "Должность", <зарплата>
+"Идентификатор" - "Имя", <возраст>, "Должность", <зарплата>
+...</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает идентификатор тестера</span>. Если идентификатор найден, то программа <span class="hl-text">выводит следующее меню</span>:
+        <div class="console">
+          <pre><code>1. Показать выполненные заявки
+2. Показать не выполненные заявки
+3. Добавить заявку
+4. Изменить описание заявки
+5. Удалить заявку
+6. Засчитать заявку как выполненную
+7. Отменить выполненную заявку
+8. Вернуться
+
+При выборе пунктов 1-2 программа выводит в консоль заявки в следующем виде:
+"идентификатор_заявки"
+"Описание"
+========================================================================
+"идентификатор_заявки"
+"Описание"
+========================================================================
+...</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли новый идентификатор</span> и <span class="hl-text">описание</span>, затем <span class="hl-text">добавляет тестеру заявку как не выполненную</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли идентификатор не выполненной заявки</span> и <span class="hl-text">новое описание</span>, затем <span class="hl-text">меняет описание найденной заявки</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 5</span> пррограмма <span class="hl-text">запрашивает с консоли идентификатор не выполненной заявки</span> и <span class="hl-text">удаляет её из не выполненных</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 6</span> программа <span class="hl-text">запрашивает с консоли идентификатор не выполненной заявки</span> и <span class="hl-text">переносит её из не выполненных в выполненные заявки</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 7</span> программа <span class="hl-text">запрашивает с консоли идентификатор выполненной заявки</span> и <span class="hl-text">переносит её из выполненных в не выполненные заявки</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 44.5</h2>
+        <p>Создайте класс и определите в нём поля и методы, чтобы работал следующий код:
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">car_1 = Car("Bugatti", "Divo", 380)
+print(car_1)  # Bugatti Divo
+
+print(car_1.get_brand())  # Bugatti
+print(car_1.get_model())  # Divo
+print(car_1.get_speed())  # 0
+print(car_1.get_max_speed())  # 380
+
+car_1.accelerate(100)
+print(car_1.get_speed())  # 0
+
+car_1.decelerate(25)
+print(car_1.get_speed())  # 0
+
+
+if not car_1.is_engine_started():
+    car_1.engine_start()
+
+car_1.accelerate(100)
+print(car_1.get_speed())  # 100
+
+car_1.accelerate(-100)
+print(car_1.get_speed())  # 100
+
+car_1.decelerate(25)
+print(car_1.get_speed())  # 75
+
+car_1.decelerate(-25)
+print(car_1.get_speed())  # 75
+
+print(car_1.is_engine_started())  # True
+car_1.engine_stop()
+print(car_1.is_engine_started())  # True
+print(car_1.get_speed())  # 75
+
+print(f"Braking distance {car_1.brake()} meters")  # 29.525699168556304
+print(car_1.get_speed())  # 0
+car_1.engine_stop()
+print(car_1.is_engine_started())  # False</code></pre>
+        </div>
+        </p>
+        <h3>Подсказки:</h3>
+        <ol>
+          <li>Машина должна хранить скорость в км/ч.</li>
+          <li>Для <code class="python"><b>brake</b></code> создайте следующий метод: <code class="python"><b>brake(self, mu=0.75, g=9.8)</b></code>.</li>
+          <li class="no-padding-bottom">Тормозной путь вычисляйте по формуле:
+            <br><code class="python"><b>braking_distance = speed_ms * speed_ms / (2 * mu * g)</b></code>
+            <br>где <code class="python"><b>speed_ms</b></code> - скорость в м/с, <code class="python"><b>mu</b></code> - коэффициент силы трения, <code class="python"><b>g</b></code> - ускорение свободного падения.
+          </li>
+        </ol>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 44.6</h2>
+        <p><span class="hl-text">Teston Lebra</span> описал класс и его использование, но нарушил инкапсуляцию как с классом, так и с некоторыми функциями. <span class="hl-text">Переделайте весь его код так, чтобы инкапсуляция не нарушалась</span>. <span class="hl-text">Оставьте комментарии там, где Вы изменили код</span>.
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">class ITStepStudent:
+    login = ""
+    f_name = ""
+    l_name = ""
+    coins = 0
+    crystals = 0
+    rating = 0
+    grades = list()
+
+    def __init__(self, login: str, f_name: str, l_name: str, coins=0, crystals=0, grades=None):
+        self.login = login
+        self.f_name = f_name
+        self.l_name = l_name
+        self.coins = coins
+        self.crystals = crystals
+        self.update_rating()
+        if grades:
+            self.grades = grades
+            for grade in grades:
+                self.coins += self.grade_to_coins(grade)
+        else:
+            self.grades = list()
+
+    def update_rating(self):
+        self.rating = self.coins + self.crystals
+
+    def grade_to_coins(self, grade: int):
+        coins = 0
+        if grade <= 8:
+            coins = 1
+        elif grade == 9:
+            coins = 2
+        elif grade == 10:
+            coins = 3
+        elif grade == 11:
+            coins = 4
+        elif grade == 12:
+            coins = 5
+        return coins
+
+    def check_grade(self, grade: int):
+        return 1 <= grade and grade <= 12
+
+    def add_grade(self, grade: int):
+        is_success = False
+        if self.check_grade(grade):
+            self.grades.append(grade)
+            coins = self.grade_to_coins(grade)
+            self.coins += coins
+            self.update_rating()
+            is_success = True
+        return is_success
+
+    def change_grade(self, index: int, grade: int):
+        is_success = False
+        if self.check_grade(grade) and index < len(self.grades):
+            coins = self.grade_to_coins(self.grades[index])
+            self.coins -= coins
+            self.update_rating()
+            self.grades[index] = grade
+            coins = self.grade_to_coins(grade)
+            self.coins += coins
+            self.update_rating()
+            is_success = True
+        return is_success
+
+    def remove_grade(self, index: int):
+        is_success = False
+        if index < len(self.grades):
+            coins = self.grade_to_coins(self.grades[index])
+            self.coins -= coins
+            self.update_rating()
+            del self.grades[index]
+            is_success = True
+        return is_success
+
+# ===================================================================
+
+
+def print_all_students(students: list[ITStepStudent]):
+    for student in students:
+        print_student(student)
+        print("================================")
+
+
+def print_student(student: ITStepStudent):
+    print(f"Username: {student.login}\t\tName: {student.f_name}\t\tSurname: {student.l_name}")
+    print(f"{student.coins} coins, {student.crystals} crystals. Rating: {student.rating}")
+    print(student.grades)
+
+
+def show_main_menu():
+    print("1. Показать всех студентов")
+    print("2. Выбрать студента по логину")
+    print("3. Добавить студента")
+    print("4. Удалить студента")
+    print("5. Завершить программу")
+
+
+def show_student_menu():
+    print("1. Добавить оценку")
+    print("2. Изменить оценку")
+    print("3. Удалить оценку")
+    print("4. Изменить логин")
+    print("5. Изменить имя")
+    print("6. Изменить фамилию")
+    print("7. Добавить кристалл")
+    print("8. Вернуться")
+
+
+student_list = [ITStepStudent("Teston_xyz", "Teston", "Lebra", grades=[12, 7, 9]),
+                ITStepStudent("Abc_5869", "Tom", "Jackson", grades=[9, 8, 8]),
+                ITStepStudent("AT_red", "Astrid", "Hofferson", grades=[12, 12, 12])]
+
+
+def find_student_by_login(student_login: str):
+    index = -1
+    for i in range(len(student_list)):
+        if student_list[i].login == student_login:
+            index = i
+            break
+    return index
+
+
+def select_student(student_login: str):
+    i = find_student_by_login(student_login)
+    while i != -1:
+        student = student_list[i]
+        print_student(student)
+        print("=================================")
+        show_student_menu()
+        choice = input("Выберите действие: ")
+        if choice == "1":
+            print("=================================")
+            input_grade = int(input("Введите оценку от 1 до 12 включительно: "))
+            is_success = False
+            if student.check_grade(input_grade):
+                student.grades.append(input_grade)
+                coins = student.grade_to_coins(input_grade)
+                student.coins += coins
+                is_success = True
+            if is_success:
+                print("Оценка добавлена")
+            else:
+                print("Оценка должна быть от 1 до 12 включительно.")
+            print("=================================")
+        elif choice == "2":
+            print("=================================")
+            index = int(input("Введите номер оценки: ")) - 1
+            input_grade = int(input("Введите оценку от 1 до 12 включительно: "))
+            is_success = False
+            if student.check_grade(input_grade) and index < len(student.grades):
+                coins = student.grade_to_coins(student.grades[index])
+                student.coins -= coins
+                student.grades[index] = input_grade
+                coins = student.grade_to_coins(input_grade)
+                student.coins += coins
+                is_success = True
+            if is_success:
+                print("Оценка изменена.")
+            else:
+                print("Оценка или номер оценки указаны неверно.")
+            print("=================================")
+        elif choice == "3":
+            print("=================================")
+            index = int(input("Введите номер оценки: ")) - 1
+            is_success = False
+            if index < len(student.grades):
+                del student.grades[index]
+                is_success = True
+            if is_success:
+                print("Оценка удалена.")
+            else:
+                print("Номер оценки указан неверно.")
+            print("=================================")
+        elif choice == "4":
+            print("=================================")
+            input_login = input("Введите логин: ")
+            if find_student_by_login(input_login) == -1:
+                student.login = input_login
+                print("Логин изменён.")
+            else:
+                print("Введённый логин уже занят. Введите другой.")
+            print("=================================")
+        elif choice == "5":
+            print("=================================")
+            input_f_name = input("Введите имя: ")
+            student.f_name = input_f_name
+            print("Имя изменено.")
+            print("=================================")
+        elif choice == "6":
+            print("=================================")
+            input_l_name = input("Введите фамилию: ")
+            student.l_name = input_l_name
+            print("Фамилия изменена.")
+            print("=================================")
+        elif choice == "7":
+            print("=================================")
+            input_crystal = int(input("Введите количество кристаллов: "))
+            student.crystals += input_crystal
+            student.update_rating()
+            print("Кристаллы добавлены.")
+            print("=================================")
+        elif choice == "8":
+            break
+
+
+def add_student(student: ITStepStudent):
+    is_success = False
+    if find_student_by_login(student.login) == -1:
+        student_list.append(student)
+        is_success = True
+    return is_success
+
+
+def remove_student(student_login):
+    is_success = False
+    index = find_student_by_login(student_login)
+    if index != -1:
+        del student_list[index]
+        is_success = True
+    return is_success
+
+
+while True:
+    show_main_menu()
+    choice = input("Выберите действие: ")
+    if choice == "1":
+        print("=================================")
+        print_all_students(student_list)
+    elif choice == "2":
+        print("=================================")
+        input_login = input("Введите логин: ")
+        select_student(input_login)
+        print("=================================")
+    elif choice == "3":
+        print("=================================")
+        input_login = input("Введите логин: ")
+        input_f_name = input("Введите имя: ")
+        input_l_name = input("Введите фамилию: ")
+        new_student = ITStepStudent(input_login, input_f_name, input_l_name)
+        if add_student(new_student):
+            print("Студент добавлен")
+        else:
+            print("Ошибка добавления. Указанный логин уже есть у другого студента.")
+        print("=================================")
+    elif choice == "4":
+        print("=================================")
+        input_login = input("Введите логин: ")
+        if remove_student(input_login):
+            print("Студент успешно удалён.")
+        else:
+            print("Студента с указанным логином не найден.")
+        print("=================================")
+    elif choice == "5":
+        print("=================================")
+        print("Завершение программы.")
+        break</code></pre>
+        </div>
+        </p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function() {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'del'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max|sort)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>

@@ -1,0 +1,157 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - FP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #343434 0%, #363636 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    ol {
+      counter-reset: list;
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    ol li {
+      counter-increment: list;
+      position: relative;
+      padding-left: 1.8em;
+      padding-bottom: 0.7em;
+    }
+
+    ol li::before {
+      content: counter(list) ". ";
+      position: absolute;
+      left: 0;
+      color: #FFC000;
+      font-weight: bold;
+    }
+
+    .no-padding-bottom {
+      padding-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Финальный проект</h2>
+        <p>Выберите финальный проект из списка ниже. Реализуйте бэкенд выбранного проекта и отправьте его на это домашнее задание. В проекте <span class="hl-text">в самом верху</span> укажите название Вашего финального проекта и <span class="hl-text">закомментируйте его</span>. Отправляйте финальный проект даже в том случае, если он не был закончен. Также Вы можете пересдавать это домашнее задание сколько угодно.</p>
+        <h3>Требования:</h3>
+        <ol>
+          <li>Определиться с финальным проектом. Выбрать из предложенного, либо свой вариант. <span class="hl-text">Не игра, а сервисное приложение</span>.</li>
+          <li>Должен быть рабочий бэкенд. Это значит должно быть <span class="hl-text">ООП</span> (классы, поля и методы), и используя его, можно составить приложение даже в консоли.</li>
+          <li>Реализованы <span class="hl-text">добавление</span>, <span class="hl-text">поиск</span>, <span class="hl-text">изменение</span> и <span class="hl-text">удаление данных</span> из базы данных.</li>
+          <li>В проекте происходит манипуляция с <span class="hl-text">клиентами</span> и <span class="hl-text">товарами</span>/<span class="hl-text">услугами</span>.</li>
+          <li>Должна быть возможность <span class="hl-text">сохранить</span> и <span class="hl-text">загрузить</span> базу данных в файлы.</li>
+          <li>Графическое приложение, а не консольное. <span class="hl-text">Использовать Tkinter</span>.</li>
+          <li>В Tkinter использовать <span class="hl-text">несколько Frame</span>, а не окна. Программа должна быть <span class="hl-text">мультифреймовой</span>, а не мультиоконной.</li>
+          <li>Реализация программы для <span class="hl-text">сотрудника</span>, но можно сделать <span class="hl-text">дополнительно для клиента</span>.</li>
+          <li class="no-padding-bottom">Tkinter <span class="hl-text">не оформлять в виде ООП</span>.</li>
+        </ol>
+        <h3>Темы для финального проекта по категории "Обслуживание на месте":</h3>
+        <ol>
+          <li>Касса в маркете</li>
+          <li>Касса заправки</li>
+          <li>Касса общепита</li>
+          <li>Касса сборки ПК</li>
+          <li>Касса кинотеатра</li>
+          <li>Касса вооружения</li>
+          <li>Касса авиабилетов</li>
+          <li>Касса частного образовательного учреждения</li>
+          <li>Касса экскурсий</li>
+          <li class="no-padding-bottom">Касса автомастерской</li>
+        </ol>
+        <h3>Темы для финального проекта по категории "Аренда":</h3>
+        <ol>
+          <li>Бронирование столика в ресторане</li>
+          <li>Бронирование номера в отеле</li>
+          <li>Аренда книги в библиотеке</li>
+          <li>Аренда машины</li>
+          <li>Аренда строительных инструментов</li>
+          <li>Аренда места на складе</li>
+          <li>Абонемент в спортзал</li>
+          <li>Аренда недвижимости</li>
+          <li>Аренда спецтехники</li>
+          <li class="no-padding-bottom">Оформление аренды спортивного инвентаря (например, лыж, сноубордов) на горнолыжном курорте</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</body>
