@@ -1,0 +1,306 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT44</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .string {
+      color: #6AAB73;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .self {
+      color: #94558D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .number {
+      color: #2AACB8;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .comments {
+      color: #7A7E85;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .metadata {
+      color: #B3AE60;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .built-in {
+      color: #8888C6;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .function {
+      color: #56A8F5;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .special-names {
+      color: #B200B2;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+      font-family: "JetBrains mono", monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Практическое Задание 44.1</h2>
+        <p>Создайте класс <span class="hl-text">"Транспорт"</span>. Этот класс должен <span class="hl-text">хранить поля для идентификатора</span>, <span class="hl-text">бренда</span>, <span class="hl-text">марки</span>, <span class="hl-text">максимальной скорости</span> и <span class="hl-text">количества пассажиров</span>.
+          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+        </p>
+
+        <p>Создайте класс <span class="hl-text">"Автомобиль"</span>. Этот класс должен <span class="hl-text">наследоваться от класса "Транспорт"</span> и <span class="hl-text">хранить поля для цены за км</span> и <span class="hl-text">рейтинг</span>.
+          <br>Для класса определите строковое представление, конструктор и свойства.
+          <br>Для класса определите <span class="hl-text">метод получения общей стоимости за указанные км</span>.
+        </p>
+
+        <p>Создайте класс <span class="hl-text">"Автобус"</span>. Этот класс должен <span class="hl-text">наследоваться от класса "Транспорт"</span> и <span class="hl-text">хранить поля для электронной оплаты</span> (<code class="python"><b>True</b></code>/<code class="python"><b>False</b></code>), <span class="hl-text">списка остановок</span> и <span class="hl-text">цены за остановку</span>.
+          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+          <br>Для класса определите <span class="hl-text">метод добавления</span>, <span class="hl-text">изменения</span> и <span class="hl-text">удаления остановки</span>.
+          <br>Для класса определите <span class="hl-text">метод получения общей стоимости за указанные начальную</span> и <span class="hl-text">конечную остановку</span>.
+        </p>
+
+        <p>Создайте класс <span class="hl-text">"Самолёт"</span>. Этот класс должен <span class="hl-text">наследоваться от класса "Транспорт"</span> и <span class="hl-text">хранить поля для максимального объёма груза</span> (куб. м), <span class="hl-text">максимального веса груза</span> (кг) и <span class="hl-text">цены за кг груза</span>.
+          <br>Для класса <span class="hl-text">определите строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+          <br>Для класса определите <span class="hl-text">метод получения общей стоимости за указанные объём</span> и <span class="hl-text">вес груза</span>.
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 44.2</h2>
+        <p>Использовав классы из <span class="hl-text">Практического Задания 44.1</span>, <span class="hl-text">создайте по <code class="python"><b>2</b></code> автомобиля</span> и <span class="hl-text">добавьте их в список автомобилей</span>. Проделайте то же самое для <span class="hl-text">автобусов</span> и <span class="hl-text">самолётов</span>.</p>
+        <p>
+        <div class="console">
+          <pre><code>Реализуйте следующее меню:
+1. Показать весь имеющийся транспорт
+2. Заказать перевозку пассажиров автомобилем
+3. Заказать перевозку груза самолётом
+4. Определить стоимость поездки на автобусе
+5. Завершить программу</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает весь транспорт в виде</span>:
+        <div class="console">
+          <pre><code>АВТОМОБИЛИ
+...
+...
+=============================================
+АВТОБУСЫ
+...
+...
+=============================================
+САМОЛЁТЫ
+...
+...</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли количество пассажиров</span> и <span class="hl-text">количество км</span>. Затем программа <span class="hl-text">выводит в консоль список автомобилей, которые могут перевозить указанное количество пассажиров,</span> и <span class="hl-text">общую стоимость поездки каждого доступного автомобиля</span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли количество объёма</span> и <span class="hl-text">веса груза</span>. Затем программа <span class="hl-text">выводит в консоль список самолётов, которые могут перевозить указанное количество объёма</span> и <span class="hl-text">веса груза</span>, а также <span class="hl-text">выводит общую стоимость каждого доступного самолёта</span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли начальную остановку</span> и <span class="hl-text">конечную остановку</span>. Затем программа <span class="hl-text">выводит в консоль список автобусов, которые содержат указанные остановки</span>, и <span class="hl-text">общую стоимость поездки</span>.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(__\w+__)/g;
+        innerHTML = innerHTML.replace(regex, '<span class="special-names">$1</span>');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>

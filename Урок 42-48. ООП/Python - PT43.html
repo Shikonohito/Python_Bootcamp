@@ -1,0 +1,333 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT43</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .string {
+      color: #6AAB73;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .self {
+      color: #94558D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .number {
+      color: #2AACB8;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .comments {
+      color: #7A7E85;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .metadata {
+      color: #B3AE60;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .built-in {
+      color: #8888C6;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .function {
+      color: #56A8F5;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .special-names {
+      color: #B200B2;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+      font-family: "JetBrains mono", monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Практическое Задание 43.1</h2>
+        <p>Создайте класс <span class="hl-text">"Task"</span>. Этот класс должен <span class="hl-text">хранить поля для названия</span>, <span class="hl-text">описания</span>, <span class="hl-text">статуса</span> (<code class="python"><b>"выполнена"</b></code>/<code class="python"><b>"не выполнена"</b></code>) и <span class="hl-text">приоритета</span> (<code class="python"><b>1</b></code>-<code class="python"><b>9</b></code>).
+          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+          <br>Для класса определите <span class="hl-text">методы повышения</span> и <span class="hl-text">понижения приоритета</span>.
+          <br>Для класса определите <span class="hl-text">методы смены статуса на выполнена</span> и <span class="hl-text">не выполнена</span>.
+        </p>
+
+        <p>Создайте класс <span class="hl-text">"TaskManager"</span>. Этот класс должен <span class="hl-text">хранить поле для списка задач</span>.
+          <br>Для класса определите <span class="hl-text">конструктор</span>.
+          <br>Для класса определите <span class="hl-text">методы добавления</span>, <span class="hl-text">поиска</span> (получить список с фильтром по выполненным/не выполненным, приоритету), <span class="hl-text">изменения</span> и <span class="hl-text">удаления задач</span>.
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 43.2</h2>
+        <p>Используя классы из <span class="hl-text">Практического Задания 43.1</span>, реализуйте следующее меню:
+        <div class="console">
+          <pre><code>1. Показать все задачи
+2. Показать задачу по номеру в списке
+3. Показать задачи по критерию
+4. Добавить задачу
+5. Изменить задачу
+6. Удалить задачу
+7. Завершить программу</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает в консоли все задачи в виде</span>:
+        <div class="console">
+          <pre><code><номер_задачи_из_списка> "Название" "(выполнена/не выполнена)" - <приоритет>
+"Описание"
+============================================================================
+<номер_задачи_из_списка> "Название" "(выполнена/не выполнена)" - <приоритет>
+"Описание"
+============================================================================
+...</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли номер задачи</span> и <span class="hl-text">показывает в консоли задачу по номеру в виде</span>:
+        <div class="console">
+          <pre><code><номер_задачи_из_списка> "Название" "(выполнена/не выполнена)" - <приоритет>
+"Описание"</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли статус</span> (<code class="python"><b>0</b></code> - любой, <code class="python"><b>1</b></code> - выполнена, <code class="python"><b>2</b></code> - не выполнена) и <span class="hl-text">приоритет</span> (<code class="python"><b>0</b></code> - любой, <code class="python"><b>1</b></code>-<code class="python"><b>9</b></code> приоритеты). Затем <span class="hl-text">выводит в консоль в виде</span>:
+        <div class="console">
+          <pre><code><номер_задачи_из_списка> "Название" "(выполнена/не выполнена)" - <приоритет>
+"Описание"
+============================================================================
+<номер_задачи_из_списка> "Название" "(выполнена/не выполнена)" - <приоритет>
+"Описание"
+============================================================================
+...</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли название</span>, <span class="hl-text">описание</span> и <span class="hl-text">приоритет</span>. Затем <span class="hl-text">формирует объект "Task"</span> и <span class="hl-text">добавляет в объект "TaskManager"</span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 6</span> программа <span class="hl-text">запрашивает с консоли номер задачи</span>. Если задача найдена, то <span class="hl-text">удаляет её</span>.</p>
+
+        <p>При выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает номер задачи</span>. Если задача найдена, то <span class="hl-text">выводит следующее</span>:
+        <div class="console">
+          <pre><code>СТАРЫЕ ДАННЫЕ:
+<номер_задачи_из_списка> "Название" "(выполнена/не выполнена)" - <приоритет>
+"Описание"
+
+НОВЫЕ ДАННЫЕ:
+<номер_задачи_из_списка> "Название" "(выполнена/не выполнена)" - <приоритет>
+"Описание"
+============================================================================
+1. Изменить название
+2. Изменить описание
+3. Изменить приоритет
+4. Сменить статус
+5. Подтвердить изменения и вернуться
+6. Отменить изменения и вернуться</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">3</span> программа <span class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится только в том случае, если был выбран <span class="hl-text">пункт 5</span>. Поэтому <span class="hl-text">пункты 1</span>-<span class="hl-text">3</span> должны <span class="hl-text">изменять копию данных</span>, а при выборе <span class="hl-text">пункта 5 заменять оригинал</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 5</span> программа должна <span class="hl-text">заменить старые данные на новые</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">сменяет статус с <code class="python"><b>"выполнена"</b></code> на</span> <code class="python"><b>"не выполнена"</b></code> и <span class="hl-text">наоборот в другом случае</span>.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(__\w+__)/g;
+        innerHTML = innerHTML.replace(regex, '<span class="special-names">$1</span>');
+        // KEYWORD-ARGUMENT
+        regex = /, (end|sep)=/g;
+        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>
