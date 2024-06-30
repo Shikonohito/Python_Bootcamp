@@ -1,1 +1,3 @@
-Python Bootcamp - Урок 71-72. Экзамен. Cisco.
+Урок 71. Экзамен. Cisco - часть 1
+Урок 72. Экзамен. Cisco - часть 2
+Python Bootcamp - Урок 71-72. Экзамен. Cisco
