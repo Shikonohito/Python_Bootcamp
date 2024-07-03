@@ -1,4 +1,3 @@
-# ПЕРЕСМОТРЕТЬ!!!
 # ==============================================LESSON64==============================================
 # Создать класс Customer. Поля:
 # age - принимает тип данных int от 0 до 123 включительно.
@@ -40,28 +39,36 @@
 #     def get_age(self):
 #         return self.__age
 #
-#     def set_age(self, age):
+#     @staticmethod
+#     def __check_age(age):
 #         if isinstance(age, int):
 #             if age > 123:
-#                 self.__age = 123
+#                 age = 123
 #             elif age < 0:
-#                 self.__age = 0
-#             else:
-#                 self.__age = age
+#                 age = 0
 #         else:
-#             self.__age = 0
+#             age = 0
+#         return age
+#
+#     def set_age(self, age):
+#         self.__age = self.__check_age(age)
 #
 #     def get_name(self):
 #         return self.__name
 #
-#     def set_name(self, name):
+#     @staticmethod
+#     def __check_name(name):
 #         if isinstance(name, str):
 #             if name.isalpha():
-#                 self.__name = name.capitalize()
+#                 name = name.capitalize()
 #             else:
-#                 self.__name = "Unknown"
+#                 name = "Unknown"
 #         else:
-#             self.__name = "Unknown"
+#             name = "Unknown"
+#         return name
+#
+#     def set_name(self, name):
+#         self.__name = self.__check_name(name)
 #
 #     def get_married(self):
 #         return self.__married
@@ -200,30 +207,27 @@
 # ====================================================================================================
 
 # class Student:
-#     def __init__(self, name: str, age: int, group: str, grades: list):
+#     def __init__(self, name: str, age: int, grades: list):
 #         self.__name = name
 #         self.__age = age
-#         self.__group = group
 #         self.__grades = grades
 #         self.__avg_grade = sum(self.__grades) / len(self.__grades)
 #
 #     def get_name(self) -> str:
 #         return self.__name
+#
 #     def set_name(self, name: str) -> None:
 #         self.__name = name
 #
 #     def get_age(self) -> int:
 #         return self.__age
+#
 #     def set_age(self, age: int) -> None:
 #         self.__age = age
 #
-#     def get_group(self) -> str:
-#         return self.__group
-#     def set_group(self, group: str) -> None:
-#         self.__group = group
-#
 #     def get_grades(self) -> list:
 #         return self.__grades
+#
 #     def set_grades(self, grades: list) -> None:
 #         self.__grades = grades
 #
@@ -236,7 +240,6 @@
 
 # name - 6 tests
 # age - 5 tests
-# group - 4 tests
 # grades - 6 tests
 # avg_grade - 2 tests
 
