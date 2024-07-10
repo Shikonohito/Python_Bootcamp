@@ -240,7 +240,7 @@
           <br>— В случае вида доставки <code><span class="string"><b>"Самовывоз"</b></span></code>: <span class="hl-text">четырёхзначный номер</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">сумма оплаты</span>, <span class="hl-text">сумму остатка на карте</span>.
         </p>
 
-        <p>Если выбрана <span class="hl-text">оплата наличными</span>, программа должна <span class="hl-text">проверить, выбран ли вид доставки</span> <code><span class="string"><b>"Курьер"</b></span></code>, и, если да, то программа <span class="hl-text">запрашивает с консоли расстояние (в километрах)</span>, затем <span class="hl-text">скорость доставки</span> (быстрая, медленная, доставка через <code><span class="number"><b>24</b></span></code> часа). Каждая <span class="hl-text">единица расстояния</span>, которая больше 15, <span class="hl-text">добавляет <code><span class="number"><b>0.1%</b></span></code> от стоимости корзины клиента к сумме оплаты</span>, а <code><span class="string"><b>"Быстрая доставка"</b></span></code> <span class="hl-text">добавляет <code><span class="number"><b>7%</b></span></code> от стоимости корзины клиента к сумме оплаты</span>, медленная - <code><span class="number"><b>5%</b></span></code>, доставка через <code><span class="number"><b>24</b></span></code> часа - <code><span class="number"><b>3%</b></span></code>.</p>
+        <p>Если выбрана <span class="hl-text">оплата наличными</span>, программа должна <span class="hl-text">проверить, выбран ли вид доставки</span> <code><span class="string"><b>"Курьер"</b></span></code>, и, если да, то программа <span class="hl-text">запрашивает с консоли расстояние (в километрах)</span>, затем <span class="hl-text">скорость доставки</span> (быстрая, медленная, доставка через <code><span class="number"><b>24</b></span></code> часа). Каждая <span class="hl-text">единица расстояния</span>, которая больше <code><span class="number"><b>15</b></span></code>, <span class="hl-text">добавляет <code><span class="number"><b>0.1%</b></span></code> от стоимости корзины клиента к сумме оплаты</span>, а <code><span class="string"><b>"Быстрая доставка"</b></span></code> <span class="hl-text">добавляет <code><span class="number"><b>7%</b></span></code> от стоимости корзины клиента к сумме оплаты</span>, медленная - <code><span class="number"><b>5%</b></span></code>, доставка через <code><span class="number"><b>24</b></span></code> часа - <code><span class="number"><b>3%</b></span></code>.</p>
         <p>После проверки на вид доставки, в консоль выводятся следующие данные:
           <br>— В случае вида доставки <code><span class="string"><b>"Курьер"</b></span></code>: <span class="hl-text">уникальный идентификатор заказа</span>, <span class="hl-text">тип доставки</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">отдельно стоимость корзины + сумма доставки</span>.
           <br>— В случае вида доставки <code><span class="string"><b>"Самовывоз"</b></span></code>: <span class="hl-text">четырёхзначный номер</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">сумма оплаты</span>.
@@ -314,7 +314,7 @@ number = randint(1000, 9999)  # Генерация случайного четы
 ==================================================
 Номер заказа: 5869
 Вид оплаты: Наличные
-Стоимость оплаты: 800</code></pre>
+Стоимость оплаты: 470</code></pre>
         </div>
       </div>
       <div class="right-rect">
