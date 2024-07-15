@@ -233,17 +233,39 @@
       <div class="right-rect">
         <h2>Домашнее Задание 14.2</h2>
         <p>Магазин <span class="hl-text">"Всё Не Дорого"</span> имеет сайт, в котором клиент может положить товары в корзину, указать вид оплаты и доставку. Напишите программу, которая <span class="hl-text">запрашивает с консоли стоимость корзины клиента</span>, <span class="hl-text">вид оплаты (наличными или картой)</span> и <span class="hl-text">вид доставки (самовывоз или курьер)</span>.</p>
-
-        <p>Если выбрана <span class="hl-text">оплата картой</span>, программа должна <span class="hl-text">проверить, выбран ли вид доставки</span> <code><span class="string"><b>"Курьер"</b></span></code>, и, если да, то должна <span class="hl-text">запрашивать с консоли расстояние (в километрах)</span>, а <span class="hl-text">скорость доставки должна выставляться как</span> <code><span class="string"><b>"Быстрая доставка"</b></span></code>. Каждая <span class="hl-text">единица расстояния</span>, которая больше <code><span class="number"><b>15</b></span></code>, <span class="hl-text">добавляет <code><span class="number"><b>0.1%</b></span></code> от стоимости корзины клиента к сумме оплаты</span>, а <code><span class="string"><b>"Быстрая доставка"</b></span></code> <span class="hl-text">добавляет <code><span class="number"><b>7%</b></span></code> от стоимости корзины клиента к сумме оплаты</span>. После проверки на вид доставки, программа должна <span class="hl-text">проверить</span>, достаточно ли денег на карте, и если да, то <span class="hl-text">сумма оплаты списывается с карты</span> (создайте переменную, которая хранит <code><span class="number"><b>1000</b></span></code> денег), затем <span class="hl-text">выводится в консоль данные</span>. В противном случае программа должна <span class="hl-text">вывести в консоль</span> <code><span class="string"><b>"Недостаточно средств на карте! Требуется ... денег."</b></span></code>, где указывается требуемая сумма денег.</p>
-        <p>Данные, которые нужно выводить следующие:
-          <br>— В случае вида доставки <code><span class="string"><b>"Курьер"</b></span></code>: <span class="hl-text">уникальный идентификатор заказа</span>, <span class="hl-text">тип доставки</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">отдельно стоимость корзины + сумма доставки</span>, <span class="hl-text">сумму остатка на карте</span>.
-          <br>— В случае вида доставки <code><span class="string"><b>"Самовывоз"</b></span></code>: <span class="hl-text">четырёхзначный номер</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">сумма оплаты</span>, <span class="hl-text">сумму остатка на карте</span>.
+        <p>Выбран вид доставки <span class="hl-text">курьером</span>:
+          <br>— Программа <span class="hl-text">запрашивает с консоли расстояние в км</span>.
+          <br>— Каждая <span class="hl-text">единица расстояния</span>, которая больше <span class="number"><b>15</b></span>, <span class="hl-text">добавляет <span class="number"><b>0.1%</b></span> от стоимости корзины клиента к сумме оплаты</span>.
+          <br>— Выбрана оплата <span class="hl-text">картой</span> (на карте по умолчанию <span class="number"><b>1000</b></span> денег):
+          <br>—— <span class="hl-text">Скорость доставки</span> выставляется как <span class="string"><b>"Быстрая доставка"</b></span>, что <span class="hl-text">добавляет сверху ещё <span class="number"><b>7%</b></span> от стоимости корзины клиента к сумме оплаты</span>.
+          <br>—— Если на карте недостаточно денег, то в консоль <span class="hl-text">выводится</span> <span class="string"><b>"Недостаточно средств на карте! Требуется <span class="number">&ltчисло&gt</span> денег."</b></span>.
+          <br>—— В противном случае <span class="hl-text">с карты списывается сумма оплаты</span>. Затем в консоль <span class="hl-text">выводятся следующие данные</span>:
+          <br>——— Уникальный идентификатор заказа
+          <br>——— Тип доставки: Курьер
+          <br>——— Вид оплаты: Карта
+          <br>——— Стоимость оплаты корзины + сумма доставки
+          <br>——— Сумма остатка на карте
+          <br>— Выбрана оплата <span class="hl-text">наличными</span>:
+          <br>—— Программа <span class="hl-text">запрашивает с консоли скорость доставки</span> (<span class="number"><b>1</b></span> - Быстрая, <span class="number"><b>2</b></span> - Медленная, <span class="number"><b>3</b></span> - Через <span class="number"><b>24</b></span> часа). Быстрая <span class="hl-text">добавляет сверху ещё <span class="number"><b>7%</b></span> от стоимости корзины клиента к сумме оплаты</span>, <span class="hl-text">медленная</span> - <span class="number"><b>5%</b></span>, а <span class="hl-text">через <span class="number"><b>24</b></span> часа</span> - <span class="number"><b>3%</b></span>.
+          <br>—— В консоль <span class="hl-text">выводятся следующие данные</span>:
+          <br>——— Уникальный идентификатор заказа
+          <br>——— Тип доставки: Курьер
+          <br>——— Вид оплаты: Наличные
+          <br>——— Стоимость оплаты корзины + сумма доставки
         </p>
-
-        <p>Если выбрана <span class="hl-text">оплата наличными</span>, программа должна <span class="hl-text">проверить, выбран ли вид доставки</span> <code><span class="string"><b>"Курьер"</b></span></code>, и, если да, то программа <span class="hl-text">запрашивает с консоли расстояние (в километрах)</span>, затем <span class="hl-text">скорость доставки</span> (быстрая, медленная, доставка через <code><span class="number"><b>24</b></span></code> часа). Каждая <span class="hl-text">единица расстояния</span>, которая больше <code><span class="number"><b>15</b></span></code>, <span class="hl-text">добавляет <code><span class="number"><b>0.1%</b></span></code> от стоимости корзины клиента к сумме оплаты</span>, а <code><span class="string"><b>"Быстрая доставка"</b></span></code> <span class="hl-text">добавляет <code><span class="number"><b>7%</b></span></code> от стоимости корзины клиента к сумме оплаты</span>, медленная - <code><span class="number"><b>5%</b></span></code>, доставка через <code><span class="number"><b>24</b></span></code> часа - <code><span class="number"><b>3%</b></span></code>.</p>
-        <p>После проверки на вид доставки, в консоль выводятся следующие данные:
-          <br>— В случае вида доставки <code><span class="string"><b>"Курьер"</b></span></code>: <span class="hl-text">уникальный идентификатор заказа</span>, <span class="hl-text">тип доставки</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">отдельно стоимость корзины + сумма доставки</span>.
-          <br>— В случае вида доставки <code><span class="string"><b>"Самовывоз"</b></span></code>: <span class="hl-text">четырёхзначный номер</span>, <span class="hl-text">вид оплаты</span>, <span class="hl-text">сумма оплаты</span>.
+        <p>Выбран вид доставки <span class="hl-text">самовывозом</span>:
+          <br>— Выбрана оплата <span class="hl-text">картой</span>:
+          <br>—— Если на карте недостаточно денег, то в консоль <span class="hl-text">выводится</span> <span class="string"><b>"Недостаточно средств на карте! Требуется <span class="number">&ltчисло&gt</span> денег."</b></span>.
+          <br>—— В противном случае <span class="hl-text">с карты списывается сумма оплаты</span>. Затем в консоль <span class="hl-text">выводятся следующие данные</span>:
+          <br>——— Четырёхзначный номер
+          <br>——— Вид оплаты: Карта
+          <br>——— Сумма оплаты
+          <br>——— Сумма остатка на карте
+          <br>— Выбрана оплата <span class="hl-text">наличными</span>:
+          <br>—— В консоль <span class="hl-text">выводятся следующие данные</span>:
+          <br>——— Четырёхзначный номер
+          <br>——— Вид оплаты: Наличные
+          <br>——— Сумма оплаты
         </p>
         <h3>Подсказки:</h3>
         <ol>
@@ -417,6 +439,54 @@ if acidity >= 7:
           <pre><code>Введите уровень кислотности почвы (pH): <span class="input">6.5</span>
 
 Нейтральная почва.</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 14.5</h2>
+        <p><span class="hl-text">Teston Lebra</span> написал программу, которая <span class="hl-text">запрашивает с консоли зарплату</span> и <span class="hl-text">выводит в консоль сколько останется денег после выплат налогов</span>, а также <span class="hl-text">информацию о страховании</span>.</p>
+        <p>Условия по зарплате:
+          <br>— <span class="hl-text"><b>Зарплата от <span class="number">400</span>:</b></span> вычитается <span class="number"><b>5%</b></span> из зарплаты, медицинское и социальное страхование оплачивает компания.
+          <br>— <span class="hl-text"><b>Зарплата от <span class="number">1200</span>:</b></span> вычитается <span class="number"><b>10%</b></span> из зарплаты, медицинское страхование оплачивает компания, а социальное сам работник.
+          <br>— <span class="hl-text"><b>Зарплата от <span class="number">2000</span>:</b></span> вычитается <span class="number"><b>15%</b></span> из зарплаты, медицинское и социальное страхование оплачивает сам работник.
+        </p>
+        <p>Программа хоть и работает, но не совсем корректно. <span class="hl-text">Исправьте программу на более правильный вариант, чтобы она работала верно, и рядом напишите комментарии о том, почему изменённый вариант должен работать верно</span>.</p>
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">salary = int(input("Введите зарплату: "))
+
+SALARY_MIN = 400
+SALARY_MID = 1200
+SALARY_MAX = 2000
+
+if salary >= SALARY_MIN:
+    tax_percent = 5
+    tax_coef = 1 - tax_percent / 100
+    total_salary = salary * tax_coef
+    has_covered_med_tax = True
+    has_covered_soc_tax = True
+if salary >= SALARY_MID:
+    tax_percent = 10
+    tax_coef = 1 - tax_percent / 100
+    total_salary = salary * tax_coef
+    has_covered_med_tax = True
+    has_covered_soc_tax = False
+if salary >= SALARY_MAX:
+    tax_percent = 15
+    tax_coef = 1 - tax_percent / 100
+    total_salary = salary * tax_coef
+    has_covered_med_tax = False
+    has_covered_soc_tax = False
+
+print("Чистая прибыль:", total_salary)
+
+if has_covered_med_tax == True:
+    print("Компания покрывает медицинское страхование.")
+if has_covered_soc_tax == True:
+    print("Компания покрывает социальное страхование.")</code></pre>
         </div>
       </div>
     </div>
