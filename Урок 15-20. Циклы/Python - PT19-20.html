@@ -128,9 +128,15 @@
         </div>
 
         <p>В программе есть две роли - <span class="hl-text">клиент</span> и <span class="hl-text">администратор</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает логин</span> и <span class="hl-text">пароль нового клиента</span>. Затем <span class="hl-text">возвращается в меню входа</span>.</p>
+        <p>Выбор <span class="hl-text">пункта 1</span>:
+          <br>— Программа <span class="hl-text">запрашивает с консоли логин</span> и <span class="hl-text">пароль</span> нового клиента.
+          <br>— Возвращается в <span class="hl-text">меню входа</span>.
+        </p>
 
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает логин</span> и <span class="hl-text">пароль</span>. Если вводятся данные клиента, то <span class="hl-text">показывается меню клиента</span>. Если вводятся данные администратора, то <span class="hl-text">показывается меню администратора</span>.</p>
+        <p>Выбор <span class="hl-text">пункта 2</span>:
+          <br>— Программа <span class="hl-text">запрашивает с консоли логин</span> и <span class="hl-text">пароль</span>.
+          <br>— Если вводятся данные клиента, то <span class="hl-text">показывается меню клиента</span>.
+          <br>— Если вводятся данные администратора, то <span class="hl-text">показывается меню администратора</span>.</p>
 
         <h3>Меню клиента:</h3>
         <div class="console">
@@ -141,7 +147,10 @@
 4. Завершить программу
 </code></pre>
         </div>
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает идентификатор клиента</span>, <span class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">текущий баланс аккаунта</span>, а также <span class="hl-text">показывает меню</span>:</p>
+        <p>В <span class="hl-text">меню клиента</span> выбор <span class="hl-text">пункта 1</span>:
+          <br>— Программа <span class="hl-text">выводит в консоль идентификатор клиента</span>, <span class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">текущий баланс аккаунта</span>.
+          <br>— Программа <span class="hl-text">выводит в консоль меню</span>:
+        </p>
         <div class="console">
           <pre><code>Идентификатор: &ltстрока&gt
 Имя: &ltстрока&gt
@@ -155,11 +164,16 @@
 5. Завершить программу
 </code></pre>
         </div>
-        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает <code><span class="number"><b>16</b></span></code>-значный номер карты</span>, <span class="hl-text">месяц</span> и <span class="hl-text">год окончания</span>, <span class="hl-text">CVV/CVC код</span>. Если они совпадают с определёнными данными, то программа <span class="hl-text">запрашивает сумму</span>. В противном случае программа <span class="hl-text">возвращает в меню</span> <code><span class="string"><b>"Мой кабинет"</b></span></code>.</p>
-
-        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">возвращается в меню клиента</span>.</p>
-
-        <p><span class="hl-text">В меню клиента</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">показывает следующие данные</span> и <span class="hl-text">меню</span>:</p>
+        <p>В <span class="hl-text">меню кабинета</span> выбор <span class="hl-text">пункта 3</span>:
+          <br>— Программа <span class="hl-text">запрашивает с консоли <span class="number"><b>16</b></span>-значный номер карты</span>, и <span class="hl-text">CVV/CVC код</span>.
+          <br>— Если они совпадают с определёнными данными, то программа <span class="hl-text">запрашивает с консоли сумму</span> и <span class="hl-text">добавляет на баланс карты</span>. В противном случае программа <span class="hl-text">возвращает в меню кабинета</span>.
+        </p>
+        <p>Выбор <span class="hl-text">пункта 4</span>:
+          <br>— Программа <span class="hl-text">возвращается в меню клиента</span>.
+        </p>
+        <p>В <span class="hl-text">меню клиента</span> выбор <span class="hl-text">пункта 2</span>:
+          <br>— Программа <span class="hl-text">выводит в консоль следующие данные</span> и <span class="hl-text">меню магазина</span>:
+        </p>
         <div class="console">
           <pre><code>Ваш текущий баланс: &ltчисло&gt
 ====================================================
@@ -178,11 +192,19 @@
 - &ltтовар&gt - &ltколичество&gt
 </code></pre>
         </div>
-
-        <p>При выборе товара программа <span class="hl-text">запрашивает количество</span>.</p>
-
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает итоговую сумму</span> и <span class="hl-text">корзину клиента</span>, затем <span class="hl-text">просит подтверждение</span>. Если пользователь подтвердил и на балансе достаточное количество денег, то программа <span class="hl-text">снимает деньги с баланса</span>, а также <span class="hl-text">отнимает количество товаров</span>, <span class="hl-text">добавляет историю покупок</span>, затем <span class="hl-text">очищает корзину клиента</span>.</p>
-
+        <p>Выбор <span class="hl-text">товара</span>:
+          <br>— Программа <span class="hl-text">запрашивает с консоли количество</span>.
+          <br>— Введённое количество <span class="hl-text">добавляется в переменную товара клиента</span>.
+        </p>
+        <p>Выбор <span class="hl-text">пункта 1</span>:
+          <br>— Программа <span class="hl-text">выводит в консоль итоговую сумму</span> и <span class="hl-text">корзину клиента</span>.
+          <br>— Просит <span class="hl-text">подтверждение</span> оплаты с консоли.
+          <br>— Если пользователь подтвердил и на балансе достаточное количество денег, то:
+          <br>—— Программа <span class="hl-text">снимает деньги с баланса пользователя</span>.
+          <br>—— <span class="hl-text">Отнимает количество товаров</span>, которые были куплены.
+          <br>—— <span class="hl-text">Добавляет историю покупок в виде строки</span>.
+          <br>—— <span class="hl-text">Очищает корзину клиента</span>.
+        </p>
         <h3>Меню администратора:</h3>
         <div class="console">
           <pre><code>Пользователь: &ltлогин&gt    Роль: Администратор
@@ -192,10 +214,13 @@
 4. Завершить программу
 </code></pre>
         </div>
-
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает идентификатор клиента</span>. Если он верный, то программа <span class="hl-text">показывает имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">текущий баланс</span>, <span class="hl-text">историю покупок выбранного клиента</span>.</p>
-
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">показывает следующие данные</span> и <span class="hl-text">меню</span>:</p>
+        <p>Выбор <span class="hl-text">пункта 1</span>:
+          <br>— Программа <span class="hl-text">запрашивает с консоли идентификатор клиента</span>.
+          <br>— Если введённый идентификатор верный, то программа <span class="hl-text">выводит в консоль имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">текущий баланс</span>, <span class="hl-text">историю покупок</span>.
+        </p>
+        <p>Выбор <span class="hl-text">пункта 2</span>:
+          <br>— Программа <span class="hl-text">выводит в консоль следующие данные</span> и <span class="hl-text">меню</span>:
+        </p>
         <div class="console">
           <pre><code>1. Вернуться
 2. Завершить программу
@@ -206,7 +231,12 @@
 5. Яйца (10шт) - количество: 30, цена: 2.49
 </code></pre>
         </div>
-        <p><span class="hl-text">При выборе товара</span> программа <span class="hl-text">запрашивает новое название</span>, <span class="hl-text">количество</span> и <span class="hl-text">цену</span>. Если вводятся пустые данные, то <span class="hl-text">соответствующая информация не меняется</span>. После этого программа <span class="hl-text">показывает старые данные</span> и <span class="hl-text">новые данные</span>, затем <span class="hl-text">запрашивает подтверждение на изменение</span>.</p>
+        <p>Выбор <span class="hl-text">товара</span>:
+          <br>— Программа <span class="hl-text">запрашивает с консоли новое название</span>, <span class="hl-text">количество</span> и <span class="hl-text">цену</span>.
+          <br>— Если вводятся пустые данные, то <span class="hl-text">соответствующая информация не меняется</span>.
+          <br>— Программа <span class="hl-text">показывает старые данные</span> и <span class="hl-text">новые данные</span>.
+          <br>— <span class="hl-text">Запрашивает с консоли подтверждение на изменение</span>.
+        </p>
       </div>
     </div>
   </div>
