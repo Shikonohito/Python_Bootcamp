@@ -171,7 +171,7 @@
     <div class="right-block">
       <div class="right-rect">
         <h2>Практическое Задание 18.1</h2>
-        <p>Что произойдёт в коде ниже при запуске программы? Как сделать так, чтобы <span class="hl-text">программа полностью завершила все циклы</span>?</p>
+        <p>Что произойдёт в коде ниже при запуске программы? При каких значениях <code class="python"><b>i</b></code>, <code class="python"><b>j</b></code>, <code class="python"><b>k</b></code> завершатся все циклы? Как сделать так, чтобы <span class="hl-text">программа полностью завершила все циклы</span>?</p>
         <h3>Код:</h3>
         <div class="console">
           <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
@@ -182,6 +182,7 @@
     for j in range(6):
         for k in range(7):
             if i * j * k == 27:
+                print(i, j, k)
                 break</code></pre>
         </div>
       </div>
