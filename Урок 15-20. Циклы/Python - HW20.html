@@ -224,12 +224,14 @@
 3. Завершить программу
 Выберите действие: <span class="input">...</span></code></pre>
         </div>
-
         <p>В программе есть две роли - <span class="hl-text">клиент</span> и <span class="hl-text">администратор</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает логин</span> и <span class="hl-text">пароль нового клиента</span>. Затем <span class="hl-text">возвращается в меню входа</span>.</p>
-
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает логин</span> и <span class="hl-text">пароль</span>. Если вводятся данные клиента, то <span class="hl-text">показывается меню клиента</span>. Если вводятся данные администратора, то <span class="hl-text">показывается меню администратора</span>.</p>
-
+        <p>Выбор <span class="hl-text">пункта 1</span>:
+          <br>— Программа <span class="hl-text">запрашивает с консоли логин</span> и <span class="hl-text">пароль нового клиента</span>.
+          <br>— <span class="hl-text">Возвращается в меню входа</span>.</p>
+        <p>Выбор <span class="hl-text">пункта 2</span>:
+          <br>— Программа <span class="hl-text">запрашивает с консоли логин</span> и <span class="hl-text">пароль</span>.
+        <br>— Если вводятся данные клиента, то <span class="hl-text">показывается меню клиента</span>.
+        <br>— Если вводятся данные администратора, то <span class="hl-text">показывается меню администратора</span>.</p>
         <h3>Меню клиента:</h3>
         <div class="console">
           <pre><code>Пользователь: &ltлогин&gt    Роль: Клиент
@@ -239,8 +241,9 @@
 4. Завершить программу
 Выберите действие: <span class="input">...</span></code></pre>
         </div>
-
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает идентификатор клиента</span>, <span class="hl-text">арендованный товар</span>, <span class="hl-text">текущий баланс аккаунта</span>, а также <span class="hl-text">показывает меню</span>:</p>
+        <p>В <span class="hl-text">меню клиента</span> выбор <span class="hl-text">пункта 1</span>:
+          <br>— Программа <span class="hl-text">выводит в консоль идентификатор клиента</span>, <span class="hl-text">арендованный товар</span>, <span class="hl-text">текущий баланс аккаунта</span>.
+          <br>— <span class="hl-text">Выводит в консоль следующее меню</span>:</p>
         <div class="console">
           <pre><code>Идентификатор: &ltчисло&gt
 Текущий баланс: &ltчисло&gt
@@ -251,13 +254,13 @@
 3. Завершить программу
 Выберите действие: <span class="input">...</span></code></pre>
         </div>
-
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает <span class="number"><b>16</b></span>-значный номер карты</span>, <span class="hl-text">месяц</span> и <span class="hl-text">год окончания</span>, <span class="hl-text">CVV/CVC код</span>. Если они совпадают с определёнными данными, то программа <span class="hl-text">запрашивает сумму</span>. В противном случае программа <span class="hl-text">возвращается в меню</span> <span class="string"><b>"Мой кабинет"</b></span>.</p>
-
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">возвращается в меню клиента</span>.</p>
-
-        <p><span class="hl-text">В меню клиента</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">показывает следующие данные</span> и <span class="hl-text">меню</span>:
-        <p>
+        <p>В <span class="hl-text">кабинете</span> выбор <span class="hl-text">пункта 1</span>:
+          <br>— Программа <span class="hl-text">запрашивает с консоли <span class="number"><b>16</b></span>-значный номер карты</span> и <span class="hl-text">CVV/CVC код</span>.
+        <br>— Если они совпадают с определёнными данными, то программа <span class="hl-text">запрашивает с консоли сумму</span>. В противном случае программа <span class="hl-text">возвращается в меню кабинета</span>.</p>
+        <p>В <span class="hl-text">кабинете</span> выбор <span class="hl-text">пункта 2</span>:
+          <br>— Программа <span class="hl-text">возвращается в меню клиента</span>.</p>
+        <p>В <span class="hl-text">меню клиента</span> выбор <span class="hl-text">пункта 2</span>:
+          <br>— Программа <span class="hl-text">выводит в консоль следующие данные</span> и <span class="hl-text">меню аренды</span>:</p>
         <div class="console">
           <pre><code>Ваш текущий баланс: &ltчисло&gt
 ==========================================================
@@ -270,10 +273,11 @@
 5. Бизнес класс - доступно: 30, цена аренды на 1 день: 42
 Выберите действие: <span class="input">...</span></code></pre>
         </div>
-
-        <p><span class="hl-text">При выборе товара</span> программа <span class="hl-text">запрашивает количество целых дней для выбранного товара</span>.</p>
-
-        <p>После этого программа <span class="hl-text">показывает товар</span> и <span class="hl-text">количество дней аренды</span>, а также <span class="hl-text">итоговую сумму</span> и <span class="hl-text">просит подтверждение</span>. Если пользователь подтвердил и на балансе достаточное количество денег, то программа <span class="hl-text">снимает деньги с баланса</span>, а также <span class="hl-text">отнимает количество доступного товара</span> и <span class="hl-text">меняет у клиента арендованный товар</span>.</p>
+        <p>Выбор <span class="hl-text">товара</span>:
+        <br>— Программа <span class="hl-text">запрашивает количество целых дней для выбранного товара</span>.
+          <br>— <span class="hl-text">Выводит в консоль товар</span> и <span class="hl-text">количество дней аренды</span>, а также <span class="hl-text">итоговую сумму</span>.
+          <br>— <span class="hl-text">Запрашивает с консоли подтверждение</span>.
+        <br>— Если пользователь подтвердил, не имеет арендованный товар и на балансе достаточное количество денег, то программа <span class="hl-text">снимает деньги с баланса</span>, а также <span class="hl-text">отнимает количество доступного товара</span> и <span class="hl-text">меняет у клиента арендованный товар</span> и <span class="hl-text">количество дней аренды</span>.</p>
 
         <h3>Меню администратора:</h3>
         <div class="console">
@@ -285,10 +289,14 @@
 5. Завершить программу
 Выберите действие: <span class="input">...</span></code></pre>
         </div>
-
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает идентификатор клиента</span>. Если он верный, то программа <span class="hl-text">показывает текущий баланс</span> и <span class="hl-text">арендованный товар выбранного клиента</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает идентификатор клиента</span>. Если он верный, то программа <span class="hl-text">увеличивает на <span class="number"><b>1</b></span> товар</span>, который указан у клиента, и <span class="hl-text">меняет арендованный товар клиента на</span> <span class="string"><b>"Отсутствует"</b></span>.</p>
-        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">показвает следующие данные</span> и <span class="hl-text">меню</span>:</p>
+        <p>Выбор <span class="hl-text">пункта 1</span>:
+          <br>— Программа <span class="hl-text">запрашивает с консоли идентификатор клиента</span>.
+          <br>— Если он верный, то программа <span class="hl-text">показывает текущий баланс</span> и <span class="hl-text">арендованный товар выбранного клиента</span>.</p>
+        <p>Выбор <span class="hl-text">пункта 2</span>:
+          <br>— Программа <span class="hl-text">запрашивает с консоли идентификатор клиента</span>.
+          <br>— Если он верный, то программа <span class="hl-text">увеличивает на <span class="number"><b>1</b></span> товар</span>, который указан у клиента, и <span class="hl-text">меняет арендованный товар клиента на</span> <span class="string"><b>"Отсутствует"</b></span>.</p>
+        <p>Выбор <span class="hl-text">пункта 3</span>:
+          <br>— Программа <span class="hl-text">выводит в консоль следующие данные</span> и <span class="hl-text">меню</span>:</p>
         <div class="console">
           <pre><code>1. Вернуться
 2. Завершить программу
@@ -299,8 +307,11 @@
 5. Бизнес класс - доступно: 30, цена аренды на 1 день: 42
 Выберите действие: <span class="input">...</span></code></pre>
         </div>
-
-        <p><span class="hl-text">При выборе товара</span> программа <span class="hl-text">запрашивает новое название</span>, <span class="hl-text">количество доступных</span> и <span class="hl-text">цену</span>. Если вводятся пустые данные, то <span class="hl-text">соответствующая информация не меняется</span>. После этого программа <span class="hl-text">показывает старые данные</span> и <span class="hl-text">новые данные</span>, затем <span class="hl-text">запрашивает подтверждение на изменение</span>.</p>
+        <p>Выбор <span class="hl-text">товара</span>:
+          <br>— Программа <span class="hl-text">запрашивает новое название</span>, <span class="hl-text">количество доступных</span> и <span class="hl-text">цену</span>.
+        <br>— Если вводятся пустые данные, то <span class="hl-text">соответствующая информация не меняется</span>.
+          <br>— <span class="hl-text">Выводит в консоль старые данные</span> и <span class="hl-text">новые данные</span>.
+          <br>— <span class="hl-text">Запрашивает подтверждение на изменение</span>.</p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 20.2 (Необязательное)</h2>
