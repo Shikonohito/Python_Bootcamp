@@ -197,26 +197,32 @@
         <h2>Практическое Задание 16.3</h2>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли число, состоящее из цифр от <code><span class="number"><b>0</b></span></code> до <code><span class="number"><b>3</b></span></code> включительно</span>, и <span class="hl-text">выводит в консоль данные в зависимости от условий</span>.
         <p>Условия следующие:
-          <br>— Цифра <code><span class="number"><b>0</b></span></code> считается началом новой команды. Если встречается цифра <code><span class="number"><b>0</b></span></code>, то счётчик команд увеличивается на <code><span class="number"><b>1</b></span></code>. Выводится в конце.
-          <br>— Все другие цифры увеличиваются в <code><span class="number"><b>2</b></span></code> раза и выводятся в консоль.
+          <br>— Цифра <code><span class="number"><b>0</b></span></code> считается <span class="hl-text">началом новой команды</span>. Если встречается цифра <code><span class="number"><b>0</b></span></code>, то <span class="hl-text">счётчик команд увеличивается на</span> <code><span class="number"><b>1</b></span></code>. Счётчик <span class="hl-text">выводится в конце</span>.
+          <br>— Цифры <code><span class="number"><b>2</b></span></code>, <code><span class="number"><b>3</b></span></code> просто <span class="hl-text">выводятся в консоль на каждой новой строке</span>.
+          <br>— Цифра <code><span class="number"><b>1</b></span></code> даёт команду на <span class="hl-text">пропуск вывода всех последующих цифр до следующей цифры</span> <code><span class="number"><b>0</b></span></code>. После вывода цифры <code><span class="number"><b>1</b></span></code>, <span class="hl-text">выводится</span> <code><span class="string"><b>"Пропуск"</b></span></code>.
+          <br>— Цифра <code><span class="number"><b>0</b></span></code> даёт команду на <span class="hl-text">выполнение всех последующих цифр до следующей цифры</span> <code><span class="number"><b>1</b></span></code>. <span class="hl-text">Выводится</span> <code><span class="string"><b>"Выполнение"</b></span></code>.
           <br>— Проход должен быть с конца числа.
         </p>
         <h3>Консоль:</h3>
         <div class="console">
-          <pre><code>Введите число: <span class="input">13203020</span>
+          <pre><code>Введите число: <span class="input">203231202320</span>
 
 Данные следующие:
-4
-6
-4
-6
+Выполнение
 2
-Количество команд: 2</code></pre>
+3
+2
+Выполнение
+2
+Пропуск
+Выполнение
+2
+Количество команд: 3</code></pre>
         </div>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 16.4</h2>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает числа с консоли до тех пор, пока не введут</span> <code><span class="number"><b>0</b></span></code>. После этого программа <span class="hl-text">выводит в консоль</span> <code><span class="string"><b>"True"</b></span></code>, если каждое следующее введённое число больше-равно предыдущего, и <span class="hl-text">ничего</span> в противном случае.</p>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает числа с консоли до тех пор, пока не введут</span> <code><span class="number"><b>0</b></span></code>. После этого программа <span class="hl-text">выводит в консоль</span> <code><span class="string"><b>"Последовательность неубывающая."</b></span></code>, если каждое следующее введённое число больше-равно предыдущего, и <span class="hl-text">ничего</span> в противном случае.</p>
         <h3>Консоль:</h3>
         <div class="console">
           <pre><code>Введите число: <span class="input">2</span>
@@ -224,7 +230,7 @@
 Введите число: <span class="input">3</span>
 Введите число: <span class="input">0</span>
 
-True</code></pre>
+Последовательность неубывающая.</code></pre>
         </div>
       </div>
       <div class="right-rect">
@@ -283,7 +289,7 @@ randint(1, 100)  # Использование функции для генера
       <div class="right-rect">
         <h2>Практическое Задание 16.8</h2>
         <p>На работе у <span class="hl-text">Teston Lebra</span> используются транзакции для передачи денег. Транзакции имеют список пронумерованных команд от <code><span class="number"><b>1</b></span></code> до <code><span class="number"><b>9</b></span></code> включительно. Вместе эти числа составляют идентификатор транзакции.</p>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли цифры от <code><span class="number"><b>1</b></span></code> до <code><span class="number"><b>9</b></span></code> включительно до тех пор, пока не встретит два нуля подряд</span>. Эти цифры программа <span class="hl-text">соединяет в одно число - идентификатор</span>. Если проблем никаких нет, то программа <span class="hl-text">выводит в консоль</span> <code><span class="string"><b>"Транзакция &ltидентификатор&gt успешно выполнена."</b></span></code>. В противном случае программа должна <span class="hl-text">писать</span> <code><span class="string"><b>"Ошибка транзакции."</b></span></code>, а затем <code><span class="string"><b>"Откат команды &ltпоследняя_цифра_идентификатора&gt."</b></span></code> <span class="hl-text">до тех пор, пока не останутся цифры в транзакции</span>.</p>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли цифры от <code><span class="number"><b>1</b></span></code> до <code><span class="number"><b>9</b></span></code> включительно до тех пор, пока не встретит два нуля подряд</span>. Эти цифры программа <span class="hl-text">соединяет в одно число - идентификатор</span>. Если проблем никаких нет, то программа <span class="hl-text">выводит в консоль</span> <code><span class="string"><b>"Транзакция <span class="number">&ltидентификатор&gt</span> успешно выполнена."</b></span></code>. В противном случае программа должна <span class="hl-text">писать</span> <code><span class="string"><b>"Ошибка транзакции."</b></span></code>, а затем <code><span class="string"><b>"Откат команды <span class="number">&ltпоследняя_цифра_идентификатора&gt</span>."</b></span></code> <span class="hl-text">до тех пор, пока не останутся цифры в транзакции</span>.</p>
         <p>Условия прерывания транзакции:
           <br>— После цифры <span class="number"><b>0</b></span> идёт не цифра <span class="number"><b>0</b></span>.
           <br>— Транзакция не начинается с цифры <span class="number"><b>1</b></span>.
