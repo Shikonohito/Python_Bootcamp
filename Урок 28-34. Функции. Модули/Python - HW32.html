@@ -466,7 +466,7 @@ while True:
     print("5. Изменить данные книги")
     print("6. Завершить программу")
     choice = input("Выберите действие: ")
-
+    print("==================================")
     if choice == "1":
         library_str = library_to_str(library)
         print(library_str)
@@ -516,6 +516,7 @@ while True:
                 print("5. Отменить изменения и вернуться")
 
                 choice = input("Выберите действие: ")
+                print("==================================")
                 if choice == "1":
                     new_id_input = input("Введите идентификатор: ")
                     if change_book_id(library, found_book_copy, new_id_input):
@@ -545,13 +546,15 @@ while True:
                     break
                 else:
                     print("Недопустимая команда.")
+                print("==================================")
         else:
             print("Книга не найдена.")
     elif choice == "6":
         print("Завершение программы.")
         break
     else:
-        print("Выбранное действие отсутствует.")</code></pre>
+        print("Выбранное действие отсутствует.")
+    print("==================================")</code></pre>
         </div>
       </div>
     </div>
