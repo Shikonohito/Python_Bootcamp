@@ -306,6 +306,242 @@ encrypted_str = encrypt_str(input_str, key_int)
 print(encrypted_str)</code></pre>
         </div>
       </div>
+            <div class="right-rect">
+        <h2>Домашнее Задание 32.4</h2>
+        <p><span class="hl-text">Teston Lebra</span> написал фронтенд программы. Но другой программист не смог составить бэкенд. <span class="hl-text">Опишите только функции, соблюдая их сигнатуру</span>. Фронтенд трогать <span class="hl-text">нельзя</span>. После описания всех функций, программа должна работать <span class="hl-text">корректно</span>.</p>
+
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">def book_to_str(some_book: list) -> str:
+    """
+    Функция переводит данные из списка в строку в формате 'Идентификатор - Название книги - Имя автора'.
+    :param some_book: Список, в котором по индексу 0 находится идентификатор, по индексу 1 - название книги,
+    по индексу 2 - имя автора.
+    :return: Строку в виде 'Идентификатор - Название книги - Имя автора'.
+    """
+    pass
+
+
+def library_to_str(some_library: list) -> str:
+    """
+    Функция переводит данные из списка книг в строку. Использует функцию book_to_str.
+    :param some_library: Список книг.
+    :return: Строку в виде
+    'Идентификатор - Название книги - Имя автора\n
+    Идентификатор - Название книги - Имя автора\n
+    Идентификатор - Название книги - Имя автора...'.
+    """
+    pass
+
+
+def get_book_by_id(some_library: list, some_book_id: str) -> list | None:
+    """
+    Функция проходится по каждой книге из some_library и сравнивает some_book_id с идентификатором
+    каждой книги.
+    :param some_library: Список книг.
+    :param some_book_id: Идентификатор книги для поиска.
+    :return: Если книга была найдена, то книгу в виде списка. Если книга не была найдена, то пустоту.
+    """
+    pass
+
+
+def is_book_in_library(some_library: list, some_book: list) -> bool:
+    """
+    Функция вызывает get_book_by_id, передаёт ей some_library и идентификатор от some_book.
+    :param some_library: Список книг.
+    :param some_book: Идентификатор книги для поиска.
+    :return: Если книга найдена - True. В противном случае - False.
+    """
+    pass
+
+
+def add_book(some_library: list, some_new_book: list) -> bool:
+    """
+    Функция помещает some_new_book в some_library.
+    :param some_library: Список книг.
+    :param some_new_book: Идентификатор книги для поиска.
+    :return: True.
+    """
+    pass
+
+
+def get_book_index_by_id(some_library: list, some_book_id: str) -> int:
+    """
+    Функция проходится по каждой книге из some_library и сравнивает some_book_id с идентификатором
+    каждой книги.
+    :param some_library: Список книг.
+    :param some_book_id: Идентификатор книги для поиска.
+    :return: Если идентификатор был найден, то индекс найденной книги в some_library. В противном случае -1.
+    """
+    pass
+
+
+def remove_book(some_library: list, some_book_id: str) -> bool:
+    """
+    Функция вызывает get_book_index_by_id, передаёт ей some_library и some_book_id. Если книга найдена,
+    то удаляет её из some_library.
+    :param some_library: Список книг.
+    :param some_book_id: Идентификатор книги для поиска.
+    :return: Если книга удалена - True. В противном случае - False.
+    """
+    pass
+
+
+def change_book_id(some_library: list, some_book_copy: list, some_new_id: str) -> bool:
+    """
+    Функция вызывает get_book_index_by_id, передаёт ей some_library и some_new_id. Если книга не найдена,
+    то изменяет идентификатор у some_book_copy на some_new_id.
+    :param some_library: Список книг.
+    :param some_book_copy: Копия оригинальной книги. Копии не должно быть в some_library.
+    :param some_new_id: Новый идентификатор, на который будет изменяться старый идентификатор.
+    :return: Если идентификатор изменён - True. В противном случае - False.
+    """
+    pass
+
+
+def change_book_title(some_book: list, new_title: str) -> bool:
+    """
+    Функция изменяет у some_book название книги на new_title.
+    :param some_book: Книга в виде списка.
+    :param new_title: Новое название книги.
+    :return: True.
+    """
+    pass
+
+
+def change_book_author(some_book: list, new_author: str) -> bool:
+    """
+    Функция изменяет у some_book имя автора книги на new_author.
+    :param some_book: Книга в виде списка.
+    :param new_author: Новое имя автора книги.
+    :return: True.
+    """
+    pass
+
+
+def change_book(some_library: list, original_book: list, changed_book: list) -> bool:
+    """
+    Функция вызывает is_book_in_library и передаёт ей some_library и original_book.
+    Если original_book присутствует, то заменяет все данные из original_book на данные из changed_book.
+    :param some_library: Список книг.
+    :param original_book: Книга, которую нужно изменить.
+    :param changed_book: Книга, на которую меняется original_book.
+    :return: Если книга изменена - True. В противном случае - False.
+    """
+    pass
+
+
+book_1 = ["B001", "1984", "George Orwell"]
+book_2 = ["B002", "To Kill a Mockingbird", "Harper Lee"]
+book_3 = ["B008", "The Great Gatsby", "F. Scott Fitzgerald"]
+book_4 = ["B014", "The Catcher in the Rye", "J.D. Salinger"]
+book_5 = ["B205", "Pride and Prejudice", "Jane Austen"]
+book_6 = ["B116", "Brave New World", "Aldous Huxley"]
+book_7 = ["B024", "Moby-Dick", "Herman Melville"]
+book_8 = ["B058", "War and Peace", "Leo Tolstoy"]
+book_9 = ["B586", "The Lord of the Rings", "J.R.R. Tolkien"]
+library = [book_1, book_2, book_3, book_4, book_5, book_6, book_7, book_8, book_9]
+
+while True:
+    print("1. Показать все книги библиотеки")
+    print("2. Показать книгу по идентификатору")
+    print("3. Добавить новую книгу")
+    print("4. Удалить книгу")
+    print("5. Изменить данные книги")
+    print("6. Завершить программу")
+    choice = input("Выберите действие: ")
+
+    if choice == "1":
+        library_str = library_to_str(library)
+        print(library_str)
+    elif choice == "2":
+        id_book_to_find = input("Введите идентификатор книги: ")
+        found_book = get_book_by_id(library, id_book_to_find)
+        if found_book:
+            found_book_str = book_to_str(found_book)
+            print(found_book_str)
+        else:
+            print("Книга не найдена.")
+    elif choice == "3":
+        new_id_input = input("Введите новый идентификатор: ")
+        new_title_input = input("Введите название книги: ")
+        new_author_input = input("Введите автора книги: ")
+        new_book = [new_id_input, new_title_input, new_author_input]
+        if not is_book_in_library(library, new_book):
+            if add_book(library, new_book):
+                print("Книга добавлена в библиотеку.")
+            else:
+                print("При добавлении книги возникла ошибка.")
+        else:
+            print("Книга с указанным идентификатором уже есть в библиотеке.")
+    elif choice == "4":
+        id_book_to_delete = input("Введите идентификатор книги для удаления: ")
+        if remove_book(library, id_book_to_delete):
+            print("Книга была удалена")
+        else:
+            print("Не найдена книга с указанным идентификатором.")
+    elif choice == "5":
+        id_book_to_change = input("Введите идентификатор книги для изменения: ")
+        found_book = get_book_by_id(library, id_book_to_change)
+        if found_book:
+            found_book_str = book_to_str(found_book)
+            found_book_copy = found_book.copy()
+            while True:
+                found_book_copy_str = book_to_str(found_book_copy)
+                print("СТАРЫЕ ДАННЫЕ:")
+                print(found_book_str)
+                print("НОВЫЕ ДАННЫЕ:")
+                print(found_book_copy_str)
+                print("===================================")
+                print("1. Изменить идентификатор")
+                print("2. Изменить название книги")
+                print("3. Изменить автора книги")
+                print("4. Подтвердить изменения и вернуться")
+                print("5. Отменить изменения и вернуться")
+
+                choice = input("Выберите действие: ")
+                if choice == "1":
+                    new_id_input = input("Введите идентификатор: ")
+                    if change_book_id(library, found_book_copy, new_id_input):
+                        print("Идентификатор успешно изменён.")
+                    else:
+                        print("Введённый идентификатор уже используется в библиотеке.")
+                elif choice == "2":
+                    new_title_input = input("Введите название книги: ")
+                    if change_book_title(found_book_copy, new_title_input):
+                        print("Название книги успешно изменено.")
+                    else:
+                        print("Недопустимое название книги.")
+                elif choice == "3":
+                    new_author_input = input("Введите имя автора: ")
+                    if change_book_author(found_book_copy, new_author_input):
+                        print("Автор книги успешно изменён.")
+                    else:
+                        print("Недопустимое имя автора.")
+                elif choice == "4":
+                    if change_book(library, found_book, found_book_copy):
+                        print("Книга изменена успешно.")
+                    else:
+                        print("Возникли ошибки при изменении книги.")
+                    break
+                elif choice == "5":
+                    print("Все изменения отменены.")
+                    break
+                else:
+                    print("Недопустимая команда.")
+        else:
+            print("Книга не найдена.")
+    elif choice == "6":
+        print("Завершение программы.")
+        break
+    else:
+        print("Выбранное действие отсутствует.")</code></pre>
+        </div>
+      </div>
     </div>
   </div>
   <script>
@@ -352,7 +588,7 @@ print(encrypted_str)</code></pre>
         const keywords = [
           'def', 'for', 'in', 'while', 'and', 'or', 'not',
           'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
-          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'pass', 'None'
         ];
         regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
         innerHTML = innerHTML.replace(regex, (match) => {
@@ -384,7 +620,7 @@ print(encrypted_str)</code></pre>
           return `<span class="self">${match}</span>`;
         });
         // BUILT-IN
-        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max)\b/g;
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max|bool)\b/g;
         innerHTML = innerHTML.replace(regex, (match) => {
           return `<span class="built-in">${match}</span>`;
         });
