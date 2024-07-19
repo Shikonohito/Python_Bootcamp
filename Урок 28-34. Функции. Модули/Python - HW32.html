@@ -349,6 +349,18 @@ def get_book_by_id(some_library: list, some_book_id: str) -> list | None:
     pass
 
 
+def create_book(some_id: str, some_title: str, some_author: str) -> list:
+    """
+    Функция формирует книгу в виде списка.
+    :param some_id: Идентификатор книги.
+    :param some_title: Название книги.
+    :param some_author: Полное имя автора книги.
+    :return: Сформированную книгу в виде списка, где по индексу 0 находится some_id,
+    по индексу 1 - some_title, по индексу 2 - some_author.
+    """
+    pass
+
+
 def is_book_in_library(some_library: list, some_book: list) -> bool:
     """
     Функция вызывает get_book_by_id, передаёт ей some_library и идентификатор от some_book.
@@ -470,7 +482,7 @@ while True:
         new_id_input = input("Введите новый идентификатор: ")
         new_title_input = input("Введите название книги: ")
         new_author_input = input("Введите автора книги: ")
-        new_book = [new_id_input, new_title_input, new_author_input]
+        new_book = create_book(new_id_input, new_title_input, new_author_input)
         if not is_book_in_library(library, new_book):
             if add_book(library, new_book):
                 print("Книга добавлена в библиотеку.")
