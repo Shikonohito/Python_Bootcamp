@@ -224,8 +224,290 @@
               <br>]</b></span>
         </p>
       </div>
-      <div class="right-rect">
+            <div class="right-rect">
         <h2>Домашнее Задание 30.5</h2>
+        <p><span class="hl-text">Teston Lebra</span> написал фронтенд программы. Но другой программист не смог составить бэкенд. <span class="hl-text">Опишите только функции, соблюдая их сигнатуру</span>. Фронтенд трогать <span class="hl-text">нельзя</span>. После описания всех функций, программа должна работать <span class="hl-text">корректно</span>.</p>
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">def create_account(login: str, password: str, balance: int) -> list:
+    """
+    Функция формирует аккаунт в виде списка.
+    :param login: Логин аккаунта.
+    :param password: Пароль аккаунта.
+    :param balance: Баланс аккаунта.
+    :return: Сформированный аккаунт в виде списка, где по индексу 0 находится login,
+    по индексу 1 - password, по индексу 2 - balance, по индексу 3 - False.
+    """
+    pass
+
+
+def get_account_by_login(accounts_list: list, some_login: str) -> list | None:
+    """
+    Функция проходится по accounts_list и сравнивает логин у каждого аккаунта с some_login.
+    :param accounts_list: Список аккаунтов.
+    :param some_login: Логин аккаунта в виде строки.
+    :return: Если аккаунт найден - аккаунт в виде списка. В противном случае - None.
+    """
+    pass
+
+
+def is_account_registered(accounts_list: list, account: list) -> bool:
+    """
+    Функция проверяет наличие account в accounts_list.
+    Вызывает get_account_by_login, передаёт в неё accounts_list и логин от account.
+    :param accounts_list: Список аккаунтов.
+    :param account: Аккаунт в виде списка.
+    :return: Если аккаунт найден - True. В противном случае - False.
+    """
+    pass
+
+
+def register(accounts_list: list, account: list) -> bool:
+    """
+    Функция формирует аккаунт в виде списка.
+    Вызывает is_account_registered для проверки, передаёт ей accounts_list и account.
+    Если is_account_registered вернул None, то добавляет account в accounts_list.
+    :param accounts_list: Список аккаунтов.
+    :param account: Аккаунт в виде списка.
+    :return: Если аккаунт зарегистрирован - True. В противном случае - False.
+    """
+    pass
+
+
+def try_enter_account(accounts_list: list, login: str, password: str) -> bool:
+    """
+    Функция проверяет наличие логина и пароля к нему.
+    Вызывает get_account_by_login, передаёт ей accounts_list и login.
+    У полученного аккаунта сверяет password.
+    :param accounts_list: Список аккаунтов.
+    :param login: Логин в виде строки.
+    :param password: Пароль в виде строки.
+    :return: Если логин и пароль совпадают с данными одного из аккаунтов - True.
+    В противном случае - False.
+    """
+    pass
+
+
+def get_user_login(account: list) -> str:
+    """
+    Функция возвращает логин из полученного аккаунта.
+    :param account: Аккаунт в виде списка.
+    :return: Логин в виде строки.
+    """
+    pass
+
+
+def get_user_balance(account: list) -> int:
+    """
+    Функция возвращает баланс из полученного аккаунта.
+    :param account: Аккаунт в виде списка.
+    :return: Баланс в виде целого числа.
+    """
+    pass
+
+
+def get_user_subscribe(account: list) -> bool:
+    """
+    Функция возвращает статус подписки из полученного аккаунта.
+    :param account: Аккаунт в виде списка.
+    :return: Статус подписки в виде булевого значения.
+    """
+    pass
+
+
+def check_balance(balance: int) -> bool:
+    """
+    Функция проверяет баланс на положительность.
+    :param balance: Баланс в виде целого числа.
+    :return: Если все проверки пройдены - True. В противном случае - False.
+    """
+    pass
+
+
+def top_up_balance(account: list, balance: int) -> bool:
+    """
+    Функция пополняет баланс аккаунта. Для проверки баланса использует check_balance.
+    :param account: Аккаунт в виде списка.
+    :param balance: Баланс пополнения в виде целого числа.
+    :return: Если удалось пополнить - True. В противном случае - False.
+    """
+    pass
+
+
+def get_subscribe(account: list) -> bool:
+    """
+    Функция проверяет наличие подписки.
+    :param account: Аккаунт в виде списка.
+    :return: Значение по индексу 3 у account.
+    """
+    pass
+
+
+def can_subscribe(account: list, subscribe_price: int) -> bool:
+    """
+    Функция проверяет, достаточно ли на балансе денег для оформления подписки.
+    :param account: Аккаунт в виде списка.
+    :param subscribe_price: Стоимость подписки в виде целого числа.
+    :return: Если денег на балансе достаточно для оформления подписки - True. В противном случае - False.
+    """
+    pass
+
+
+def subscribe_account(account: list, subscribe_price: int) -> bool:
+    """
+    Функция оформляет подписку для account.
+    Вызывает get_subscribe, передаёт ей account, и вызывает can_subscribe,
+    передаёт ей account и subscribe_price для проверки. Если проверки пройдены, то оформляет подписку.
+    :param account: Аккаунт в виде списка.
+    :param subscribe_price: Стоимость подписки в виде целого числа.
+    :return: Если удалось оформить подписку - True. В противном случае - False.
+    """
+    pass
+
+
+def unsubscribe_account(account: list) -> bool:
+    """
+    Функция отменяет подписку. По сути меняет у account по индексу 3 статус на False.
+    Вызывает get_subscribe, передаёт ей account. Если подписка имеется, то отменяет подписку.
+    :param account: Аккаунт в виде списка.
+    :return: Если удалось отменить подписку - True. В противном случае - False.
+    """
+    pass
+
+
+def games_to_str(games_list: list) -> str:
+    """
+    Функция переводит список игр в одну строку.
+    :param games_list: Список игр.
+    :return: Строку вида
+    'Название игры\n
+    Название игры\n
+    Название игры...'.
+    """
+    pass
+
+
+user_01 = ["guest", "1234", 0, False]
+user_02 = ["tes_ton", "5869", 1000, False]
+user_03 = ["alex_smith", "a1b2c3", 1500, True]
+user_04 = ["maria_lee", "m4r1aL33", 1200, True]
+user_05 = ["john_doe", "jD!9@2", 1100, False]
+user_06 = ["lisa_brown", "lb12345", 1300, True]
+user_07 = ["mark_jones", "M@rkJ987", 1400, False]
+user_08 = ["susan_clark", "susanC*1", 1600, False]
+
+accounts = [user_01, user_02, user_03, user_04, user_05, user_06, user_07, user_08]
+
+games = ["God of War: Ragnarök", "Deus Ex: Mankind Divided", "Mass Effect: Legendary Edition",
+         "The Witcher 3: Wild Hunt", "Arma 3", "Baldur’s Gate III"]
+
+BASE_ACC_BALANCE = 0
+SUBSCRIBE_PRICE = 50
+
+is_exit = False
+while not is_exit:
+    print("1. Регистрация")
+    print("2. Вход")
+    print("3. Завершить программу")
+    choice = input("Выберите действие: ")
+    print("========================================")
+    if choice == "1":
+        new_login = input("Введите новый логин: ")
+        new_password = input("Придумайте пароль: ")
+        new_account = create_account(new_login, new_password, BASE_ACC_BALANCE)
+        if register(accounts, new_account):
+            print("Аккаунт успешно зарегистрирован.")
+        else:
+            print("Указанный логин уже зарегистрирован. Придумайте другой логин.")
+    elif choice == "2":
+        input_login = input("Введите логин: ")
+        input_password = input("Введите пароль: ")
+        print("========================================")
+        if try_enter_account(accounts, input_login, input_password):
+            user = get_account_by_login(accounts, input_login)
+            while not is_exit:
+                user_login = get_user_login(user)
+                user_balance = get_user_balance(user)
+                user_subscribe = get_user_subscribe(user)
+                user_str = f"Пользователь: {user_login}\t\t\tБаланс: {user_balance}\t\t\tПодписка: "
+                if user_subscribe:
+                    user_str += "Имеется"
+                else:
+                    user_str += "Отсутствует"
+                print(user_str)
+                print("========================================")
+                print("1. Пополнить баланс")
+                print("2. Оформить подписку")
+                print("3. Отказаться от подписки")
+                print("4. Показать игры по подписке")
+                print("5. Выйти из аккаунта")
+                print("6. Завершить программу")
+                choice = input("Выберите действие: ")
+                print("========================================")
+                if choice == "1":
+                    input_balance = int(input("Введите сумму пополнения: "))
+                    if top_up_balance(user, input_balance):
+                        print("Баланс успешно пополнен.")
+                    else:
+                        print("Не удалось пополнить баланс.")
+                elif choice == "2":
+                    while not is_exit:
+                        user_answer = input(f"Цена подписки: {SUBSCRIBE_PRICE}. Хотите подписаться? (Y/N):")
+                        if user_answer == "Y":
+                            if subscribe_account(user, SUBSCRIBE_PRICE):
+                                print("Подписка оформлена.")
+                            else:
+                                print("На Вашем балансе недостаточно денег или Вы уже подписаны.")
+                            is_exit = True
+                        elif user_answer == "N":
+                            is_exit = True
+                        else:
+                            print("Введите Y для подтверждения или N для отказа.")
+                    is_exit = False
+                elif choice == "3":
+                    while not is_exit:
+                        user_answer = input("Вы действительно хотите отписаться? (Y/N): ")
+                        if user_answer == "Y":
+                            if unsubscribe_account(user):
+                                print("Подписка отменена.")
+                            else:
+                                print("На Вашем аккаунте уже отсутствует подписка.")
+                            is_exit = True
+                        elif user_answer == "N":
+                            is_exit = True
+                        else:
+                            print("Введите Y для подтверждения или N для отказа.")
+                    is_exit = False
+                elif choice == "4":
+                    if get_subscribe(user):
+                        games_str = games_to_str(games)
+                        print("Игры, доступные по подписке:")
+                        print(games_str)
+                    else:
+                        print("На Вашем аккаунте отсутствует подписка.")
+                elif choice == "5":
+                    break
+                elif choice == "6":
+                    is_exit = True
+                    break
+                print("========================================")
+        else:
+            print("Неверный логин или пароль.")
+
+    elif choice == "3":
+        print("Завершение программы.")
+        break
+    else:
+        print("Отсутствует выбранное действие.")
+    print("========================================")</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 30.6</h2>
         <p>Измените указанный ниже код так, чтобы <span class="hl-text">функции перестали использовать глобальную переменную</span>.</p>
         <h3>Код:</h3>
         <div class="console">
@@ -299,9 +581,9 @@ while True:
     print("7. Завершить программу")
 
     choice = input("Выберите действие: ")
+    print("==================================")
     if choice == "1":
         show_students()
-        print("==================================")
     elif choice == "2":
         name = input("Введите имя: ")
         found_index = get_student_index(name)
@@ -309,7 +591,6 @@ while True:
             print(f"Студента с именем {name} не существует.")
         else:
             print(f"Студент {name} найден по индексу {found_index}.")
-        print("==================================")
     elif choice == "3":
         name = input("Введите имя: ")
         found_student = get_student(name)
@@ -317,7 +598,6 @@ while True:
             print(f"Имя: {found_student[0]}\t\tВозраст: {found_student[1]}")
         else:
             print(f"Студент с именем {name} не найден.")
-        print("==================================")
     elif choice == "4":
         new_student_name = input("Введите имя нового студента: ")
         new_student_age = int(input("Введите возраст нового студента: "))
@@ -326,7 +606,6 @@ while True:
             print(f"{new_student_name} был добавлен в список.")
         else:
             print("Такое имя уже присутствует.")
-        print("==================================")
     elif choice == "5":
         index = int(input("Введите индекс: "))
         new_student_name = input("Введите имя нового студента: ")
@@ -338,24 +617,22 @@ while True:
             print("Данные студента были изменены.")
         else:
             print("Изменения отклонены. Возможно Вы указали неверный индекс или имя студента уже есть в списке.")
-        print("==================================")
     elif choice == "6":
         index = int(input("Введите индекс: "))
         if remove_student(index):
             print("Студент был удалён.")
         else:
             print("Студент не был найден.")
-        print("==================================")
     elif choice == "7":
-        print("==================================")
         print("Программа завершается.")
     else:
-        print("Неверный ввод. Пожалуйста, выберите пункт из меню.")</code></pre>
+        print("Неверный ввод. Пожалуйста, выберите пункт из меню.")
+    print("==================================")</code></pre>
         </div>
       </div>
       <div class="right-rect">
-        <h2>Домашнее Задание 30.6 (Необязательное)</h2>
-        <p>Измените исходный код из <span class="hl-text">Домашнего Задания 30.5</span> таким образом, чтобы <span class="grey"><b>student_list</b></span> перестал быть глобальной переменной, используя <span class="hl-text">замыкание</span>.</p>
+        <h2>Домашнее Задание 30.7 (Необязательное)</h2>
+        <p>Измените исходный код из <span class="hl-text">Домашнего Задания 30.6</span> таким образом, чтобы <span class="grey"><b>student_list</b></span> перестал быть глобальной переменной, используя <span class="hl-text">замыкание</span>.</p>
       </div>
     </div>
   </div>
@@ -403,7 +680,7 @@ while True:
         const keywords = [
           'def', 'for', 'in', 'while', 'and', 'or', 'not',
           'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
-          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'pass', 'None'
         ];
         regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
         innerHTML = innerHTML.replace(regex, (match) => {
@@ -435,7 +712,7 @@ while True:
           return `<span class="self">${match}</span>`;
         });
         // BUILT-IN
-        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max)\b/g;
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max|bool)\b/g;
         innerHTML = innerHTML.replace(regex, (match) => {
           return `<span class="built-in">${match}</span>`;
         });
