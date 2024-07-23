@@ -29,7 +29,7 @@ def convert_seconds(seconds: float):
 
 
 def get_time_const(n, frequency):
-    time = Decimal(100) / Decimal(frequency)
+    time = Decimal(n) / Decimal(frequency)
     return float(time)
 
 
