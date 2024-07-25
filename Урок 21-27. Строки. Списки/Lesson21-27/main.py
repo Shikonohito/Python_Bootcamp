@@ -607,11 +607,12 @@
 # Где лучше применять
 
 
-# start = 0
-# end = start
-# start = 10
+# num_1 = 0
+# num_2 = num_1
+# print(num_1, num_2)
 #
-# print(start, end)
+# num_1 = 10
+# print(num_1, num_2)
 
 
 # my_list_1 = ["a", "b", "c"]
