@@ -268,9 +268,9 @@ def is_account_registered(accounts_list: list, account: list) -> bool:
 
 def register(accounts_list: list, account: list) -> bool:
     """
-    Функция формирует аккаунт в виде списка.
+    Функция регистрирует аккаунт.
     Вызывает is_account_registered для проверки, передаёт ей accounts_list и account.
-    Если is_account_registered вернул None, то добавляет account в accounts_list.
+    Если is_account_registered вернул False, то добавляет account в accounts_list.
     :param accounts_list: Список аккаунтов.
     :param account: Аккаунт в виде списка.
     :return: Если аккаунт зарегистрирован - True. В противном случае - False.
