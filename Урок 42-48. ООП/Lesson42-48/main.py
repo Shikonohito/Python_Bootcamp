@@ -530,10 +530,13 @@
 #                 break
 #         return is_found
 #
-#
+#     def __add__(self, other):
+#         self.__grades.append(other)
+
+
 # student_1 = Student("Tom", 25, [11, 12, 10, 12])
 # student_2 = Student("Tom", 25, [10, 9, 10, 12])
-#
+
 # print(student_1)
 # print(student_2)
 # print(student_1.student_gt(student_2))
@@ -542,6 +545,9 @@
 # print(student_1[0])
 # print(student_1 == student_2)
 # print(12 in student_2)
+
+# student_1 + 20
+# print(student_1)
 
 # ====================================================================================================
 # ПЗ 46.1 - 46.2
