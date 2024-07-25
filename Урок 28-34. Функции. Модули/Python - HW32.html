@@ -365,7 +365,7 @@ def is_book_in_library(some_library: list, some_book: list) -> bool:
     """
     Функция вызывает get_book_by_id, передаёт ей some_library и идентификатор от some_book.
     :param some_library: Список книг.
-    :param some_book: Идентификатор книги для поиска.
+    :param some_book: Книга в виде списка.
     :return: Если книга найдена - True. В противном случае - False.
     """
     pass
@@ -373,10 +373,11 @@ def is_book_in_library(some_library: list, some_book: list) -> bool:
 
 def add_book(some_library: list, some_new_book: list) -> bool:
     """
-    Функция помещает some_new_book в some_library.
+    Функция вызывает is_book_in_library, передаёт ей some_library и some_new_book.
+    Если some_new_book нет в some_library, то помещает some_new_book в some_library.
     :param some_library: Список книг.
-    :param some_new_book: Идентификатор книги для поиска.
-    :return: True.
+    :param some_new_book: Книга в виде списка.
+    :return: Если удалось добавить книгу - True. В противном случае - False.
     """
     pass
 
@@ -483,11 +484,8 @@ while True:
         new_title_input = input("Введите название книги: ")
         new_author_input = input("Введите автора книги: ")
         new_book = create_book(new_id_input, new_title_input, new_author_input)
-        if not is_book_in_library(library, new_book):
-            if add_book(library, new_book):
-                print("Книга добавлена в библиотеку.")
-            else:
-                print("При добавлении книги возникла ошибка.")
+        if add_book(library, new_book):
+            print("Книга добавлена в библиотеку.")
         else:
             print("Книга с указанным идентификатором уже есть в библиотеке.")
     elif choice == "4":
