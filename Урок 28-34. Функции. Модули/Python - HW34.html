@@ -230,7 +230,7 @@
           <br>— если студент не найден, то <span class="hl-text">возвращает</span> <code class="python"><b>-1</b></code>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 3</span> (Добавить студента в список) программа <span class="hl-text">запрашивает Идентификатор</span>, <span class="hl-text">Фамилию</span>, <span class="hl-text">Отчество</span>, <span class="hl-text">строку оценок через пробел</span>. Строку оценок программа <span class="hl-text">превращает в список чисел</span> при помощи <code><b>split()</b></code>, а затем <span class="hl-text">приводит каждый элемент списка к числу</span>. После этого <span class="hl-text">из полученных данных программа формирует список</span> <code><b>[<span class="string">"Идентификатор"</span>, <span class="string">"Фамилия"</span>, <span class="string">"Имя"</span>, [<span class="number">&ltоценка&gt</span>, <span class="number">&ltоценка&gt</span>, <span class="number">&ltоценка&gt</span>, <span class="number">...</span>]]</b></code>, <span class="hl-text">добавляет его в список студентов</span> и <span class="hl-text">выводит в консоль, что студент успешно добавлен в список</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 3</span> (Добавить студента в список) программа <span class="hl-text">запрашивает Идентификатор</span>, <span class="hl-text">Фамилию</span>, <span class="hl-text">Имя</span>, <span class="hl-text">строку оценок через пробел</span>. Строку оценок программа <span class="hl-text">превращает в список чисел</span> при помощи <code><b>split()</b></code>, а затем <span class="hl-text">приводит каждый элемент списка к числу</span>. После этого <span class="hl-text">из полученных данных программа формирует список</span> <code><b>[<span class="string">"Идентификатор"</span>, <span class="string">"Фамилия"</span>, <span class="string">"Имя"</span>, [ <span class="number">&ltоценка&gt</span>, <span class="number">&ltоценка&gt</span>, <span class="number">&ltоценка&gt</span>, <span class="number">...</span>]]</b></code>, <span class="hl-text">добавляет его в список студентов</span> и <span class="hl-text">выводит в консоль, что студент успешно добавлен в список</span>.</p>
 
         <p>Реализовать, используя следующую функцию:
           <br><code><b><span class="function">add_student</span>(student_list, new_student)</b></code>
@@ -245,7 +245,7 @@
         <p>Реализовать, используя следующую функцию:
           <br><code><b><span class="function">remove_student</span>(student_list, student_id)</b></code>
           <br>— принимает <span class="hl-text">список студентов</span> и <span class="hl-text">идентификатор</span>
-          <br>— проверяет на идентификатор с помощью <code><b><span class="hl-text">get_student_index</span></b></code>
+          <br>— проверяет на идентификатор с помощью <code><b><span class="function">get_student_index</span></b></code>
           <br>—— если поиск идентификатора вернул индекс, то <span class="hl-text">удаляет по индексу</span> и <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>
           <br>—— если поиск идентификатора вернул <code class="python"><b>-1</b></code>, то <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>
         </p>
@@ -278,7 +278,7 @@
 
         <p>При выборе <span class="hl-text">пунктов 1</span>, <span class="hl-text">2</span> или <span class="hl-text">3</span> программа <span class="hl-text">запрашивает новые соответствующие данные</span> и <span class="hl-text">устанавливает их копии студента</span>.</p>
 
-        <p>При выборе <span class="hl-text">пункта 4</span> (Добавить оценку студенту) программа <span class="hl-text">запрашивает новую оценку из консоли</span> и <span class="hl-text">добавляет её студенту</span>. Если оценка не от <code class="python"><b>1</b></code> до <code class="python"><b>12</b></code> включительно, то <span class="hl-text">выводится сообщение о неверной оценке</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 4</span> (Добавить оценку студенту) программа <span class="hl-text">запрашивает новую оценку из консоли</span> и <span class="hl-text">добавляет её студенту копии студента</span>. Если оценка не от <code class="python"><b>1</b></code> до <code class="python"><b>12</b></code> включительно, то <span class="hl-text">выводится сообщение о неверной оценке</span>.</p>
 
         <p>Реализовать, используя следующую функцию:
           <br><code><b><span class="function">add_grade</span>(student, new_grade)</b></code>
@@ -287,7 +287,7 @@
           <br>— в противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 5</span> (Удалить оценку студенту по порядковому номеру) программа <span class="hl-text">запрашивает порядковый номер оценки</span> (не индекс) <span class="hl-text">из консоли</span>. Если номер в границах списка оценки, то <span class="hl-text">удаляет её</span>. В противном случае <span class="hl-text">выводится сообщение о неверном номере</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 5</span> (Удалить оценку студенту по порядковому номеру) программа <span class="hl-text">запрашивает порядковый номер оценки</span> (не индекс) <span class="hl-text">из консоли</span>. Если номер в границах списка оценки, то <span class="hl-text">удаляет её у копии студента</span>. В противном случае <span class="hl-text">выводится сообщение о неверном номере</span>.</p>
 
         <p>Реализовать, используя следующую функцию:
           <br><code><b><span class="function">remove_grade</span>(student, grade_index)</b></code>
@@ -296,7 +296,7 @@
           <br>— в противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 6</span> (Изменить оценку студенту по порядковому номеру) программа <span class="hl-text">запрашивает порядковый номер оценки</span> (не индекс) и <span class="hl-text">новую оценку из консоли</span>. Если номер номер в границах списка оценки и новая оценка в границах от <code class="python"><b>1</b></code> до <code class="python"><b>12</b></code> включительно, то <span class="hl-text">изменяет её</span>. В противном случае <span class="hl-text">выводится сообщение о неверном номере</span> или <span class="hl-text">неверной оценке</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 6</span> (Изменить оценку студенту по порядковому номеру) программа <span class="hl-text">запрашивает порядковый номер оценки</span> (не индекс) и <span class="hl-text">новую оценку из консоли</span>. Если номер номер в границах списка оценки и новая оценка в границах от <code class="python"><b>1</b></code> до <code class="python"><b>12</b></code> включительно, то <span class="hl-text">изменяет её у копии студента</span>. В противном случае <span class="hl-text">выводится сообщение о неверном номере</span> или <span class="hl-text">неверной оценке</span>.</p>
 
         <p>Реализовать, используя следующую функцию:
           <br><code><b><span class="function">change_grade</span>(student, grade_index, new_grade)</b></code>
