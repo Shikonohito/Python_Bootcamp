@@ -425,14 +425,20 @@
 # def send_msg(msg_type, user_to, msg_txt):
 #     print(f"Message type: {msg_type}\nDear {user_to}, {msg_txt}")
 #
+# # def type_of_send_msg(msg_type):  # Каррированный
+# #     def send_msg(user_to, msg_txt):
+# #         print(f"Message type: {msg_type}\nDear {user_to}, {msg_txt}")
+# #     return send_msg
+#
 #
 # users = ["Teston", "Jim", "Kate"]
 # msgs = ["Nice to see you.", "Hope to see you soon.", "The deadline has been extended by 30 days."]
-# msg_type = "Information"
+# msg_selected_type = "Information"
 # funcs = [send_hi, send_goodbye, send_msg]
 #
 # for i in range(len(funcs)):
 #     funcs[i](users[i], msgs[i])
+#     print()
 
 # ====================================================================================================
 
@@ -462,7 +468,7 @@
 #     return simple_wrapper
 #
 #
-# @simple_decorator
+# @simple_decorator  # Применение декоратора
 # def print_message():
 #     print("print_message: Hello")
 #
@@ -553,12 +559,13 @@
 # print(nums)
 
 
-# def num_prod_two(x):
-#     return x * 2
+# def str_num_to_int(x):
+#     return int(x)
 #
 #
-# nums = [10, 15, 20, 25, 30]
-# nums = list(map(lambda x: x * 2, nums))
+# nums = ["10", "15", "20", "25", "30"]
+# print(nums)
+# nums = list(map(lambda x: int(x), nums))
 # print(nums)
 
 
