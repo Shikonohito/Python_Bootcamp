@@ -58,6 +58,62 @@
 # Деструктор __del__()
 
 
+# class Positive_Num:
+#     num = 0
+#
+#     def __init__(self, num: int):
+#         self.num = num
+#
+#     def __str__(self):
+#         return str(self.num)
+#
+#
+# some_positive_num = Positive_Num(100)
+# print(some_positive_num)
+#
+# some_positive_num = Positive_Num("Some text")
+# print(some_positive_num)
+#
+# some_positive_num.num = "NOT NUM"
+# print(some_positive_num)
+
+
+# class Positive_Num:
+#     __num = 0
+#
+#     def __init__(self, num: int):
+#         self.set_num(num)
+#
+#     def __str__(self):
+#         return str(self.__num)
+#
+#     def __validate_num(self, num: int):
+#         if not isinstance(num, int) or num <= 0:
+#             raise ValueError("Value must be a positive integer")
+#
+#     def set_num(self, num: int):
+#         self.__validate_num(num)
+#         self.__num = num
+
+
+# some_positive_num = Positive_Num(100)
+# print(some_positive_num)
+#
+# some_positive_num = Positive_Num("Some text")
+# print(some_positive_num)
+#
+# print(some_positive_num.__num)
+# some_positive_num.__num = "Some text"
+# print(some_positive_num, some_positive_num.__num, sep="\t\t")
+
+
+# some_positive_num = Positive_Num(100)
+# some_positive_num.set_num(50)
+# print(some_positive_num)
+# some_positive_num.set_num("Some text")
+# print(some_positive_num)
+
+
 # class Student:
 #     f_name = "Unknown"  # Public field
 #     age = 18  # Public field
