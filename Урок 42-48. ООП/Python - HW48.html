@@ -170,32 +170,6 @@
       color: #AA4926;
       font-family: "JetBrains mono", monospace;
     }
-
-    ol {
-      counter-reset: list;
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 0;
-    }
-
-    ol li {
-      counter-increment: list;
-      position: relative;
-      padding-left: 1.2em;
-      padding-bottom: 1.2em;
-    }
-
-    ol li::before {
-      content: counter(list) ". ";
-      position: absolute;
-      left: 0;
-      color: #FFC000;
-      font-weight: bold;
-    }
-
-    .no-padding-bottom {
-      padding-bottom: 0;
-    }
   </style>
 </head>
 
@@ -208,12 +182,31 @@
     <div class="right-block">
       <div class="right-rect">
         <h2>Домашнее Задание 48.1</h2>
-        <p>Создайте <span class="hl-text">базу данных клиентов</span> и <span class="hl-text">реализуйте CRUD</span>. Сделайте так, чтобы <span class="hl-text">клиенты могли иметь несколько электронных карточек для оплат услуг</span>. Электронные карты <span class="hl-text">имеют срок годности</span>.</p>
+        <p>Создайте <span class="hl-text">базу данных клиентов</span> и <span class="hl-text">реализуйте CRUD</span>. Сделайте так, чтобы <span class="hl-text">клиенты могли иметь несколько электронных карточек для оплат услуг</span>.</p>
+        <p>Клиентов нужно как-то <span class="hl-text">идентифицировать</span>. У них есть <span class="hl-text">имя</span>, <span class="hl-text">фамилия</span> и <span class="hl-text">список электронных карт</span>.</p>
+        <p>Электронные карты также нужно как-то <span class="hl-text">идентифицировать</span>. У них есть <span class="hl-text">баланс</span> и <span class="hl-text">срок годности</span>.</p>
         <p><span class="hl-text"><b>Дополнительно:</b></span> реализуйте <span class="hl-text">подписки для клиентов</span>. У клиента должна храниться <span class="hl-text">дата окончания подписки</span>. Подписка на <code class="python"><b>1</b></code> месяц стоит <code class="python"><b>5</b></code> единиц, на <code class="python"><b>3</b></code> месяца - <code class="python"><b>13</b></code> единиц, на <code class="python"><b>1</b></code> год - <code class="python"><b>49</b></code> единиц. Выдавать подписку должна <span class="hl-text">база данных</span>.</p>
+        <h3>Подсказка:</h3>
+        <p>Используйте следующий код для реализации срока годности электронных карт:
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">from datetime import datetime, timedelta
+
+now_date = datetime.now().date()  # Формирование текущей даты
+after_5_days_from_now = now_date + timedelta(days=5)  # Добавление дней к дате
+print(after_5_days_from_now)
+
+card_date = datetime(2025, 12, 31).date()  # Формирование даты по данным
+print(card_date >= now_date)  # Проверка, наступила ли дата сard_date. Будет False, если наступило</code></pre>
+        </div>
+        </p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 48.2</h2>
-        <p>Используя классы из <span class="hl-text">Домашнего Задания 48.1</span>, создайте <span class="hl-text">фронтенд</span>, через который можно <span class="hl-text">видеть</span>, <span class="hl-text">добавлять</span>, <span class="hl-text">искать</span>, <span class="hl-text">изменять</span>, <span class="hl-text">удалять клиентов</span> и <span class="hl-text">их карточки</span>.</p>
+        <p>Используя классы из <span class="hl-text">Домашнего Задания 48.1</span>, создайте <span class="hl-text">фронтенд</span>, через который можно <span class="hl-text">видеть</span>, <span class="hl-text">добавлять</span>, <span class="hl-text">искать</span>, <span class="hl-text">изменять</span>, <span class="hl-text">удалять клиентов</span> и <span class="hl-text">их карточки</span>. Также реализуйте тестовую возможность <span class="hl-text">снять деньги с электронной карты</span> и <span class="hl-text">пополнить баланс электронной карты</span>.</p>
         <p><span class="hl-text"><b>Дополнительно:</b></span> реализуйте через фронтенд <span class="hl-text">возможность оформлять подписки клиентам</span>.</p>
       </div>
     </div>
@@ -305,8 +298,8 @@
         regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
         innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
         // KEYWORD-ARGUMENT
-        regex = /, (end|sep)=/g;
-        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+        regex = /(end|sep|days)=/g;
+        innerHTML = innerHTML.replace(regex, '<span class="keyword-argument">$1</span>=');
         codeBlock.innerHTML = innerHTML
       });
     });
