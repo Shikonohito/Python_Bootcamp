@@ -183,16 +183,61 @@
       <div class="right-rect">
         <h2>Домашнее Задание 46.1</h2>
         <p>Создайте класс <span class="hl-text">"Payment"</span>. Этот класс должен <span class="hl-text">хранить поля для названия сервиса</span> и <span class="hl-text">процента комиссии</span>.
-          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+          <br>Для класса определите <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
           <br>Для класса определите <span class="hl-text">метод "Сделать оплату", который принимает сумму</span> и <span class="hl-text">возвращает сумму с процентом</span>.
         </p>
-
-        <p>Создайте ещё <code class="python"><b>3</b></code> класса, которые наследуются от класса <span class="hl-text">"Payment"</span> - <span class="hl-text">"PaypalPayment"</span>, <span class="hl-text">"CreditCardPayment"</span> и <span class="hl-text">"BonusCardPayment"</span>.
-          <br>Переопределите для них <span class="hl-text">конструктор</span> и <span class="hl-text">строковое представление</span>. Для <span class="hl-text">"PaypalPayment"</span> выставите комиссию <code class="python"><b>5%</b></code>, для <span class="hl-text">"CreditCardPayment"</span> - <code class="python"><b>1.5%</b></code> и создайте <span class="hl-text">поле "Баланс"</span>, для <span class="hl-text">"BonusCardPayment"</span> - <code class="python"><b>0%</b></code> и тоже создайте <span class="hl-text">поле "Баланс"</span>.
-          <br>Переопределите для них <span class="hl-text">метод "Сделать оплату"</span>. Для <span class="hl-text">"PaypalPayment"</span> проверяется максимальная сумма оплаты. Если она не превышает <code class="python"><b>5000</b></code>, то <span class="hl-text">производится оплата от родителя</span>. В противном случае <span class="hl-text">возвращается</span> <code class="python"><b>0</b></code>. Для <span class="hl-text">"CreditCard"</span> проверяется баланс. Если баланс больше, чем сумма оплаты, то <span class="hl-text">снимается сумма с баланса</span> и <span class="hl-text">производится оплата от родителя</span>. В противном случае <span class="hl-text">возвращается</span> <code class="python"><b>0</b></code>. Для <span class="hl-text">"BonusCardPayment"</span> проверяется баланс. Если баланс не отрицательный, то <span class="hl-text">снимается сумма с баланса</span> и <span class="hl-text">производится оплата от родителя</span>.
+        <p>Создайте класс <span class="hl-text">"PaypalPayment"</span>, который наследуется от <span class="hl-text">"Payment"</span>. Переопределите для него <span class="hl-text">конструктор</span> и <span class="hl-text">метод оплаты</span>.
+          <br>Конструктор <span class="hl-text">ничего не должен принимать</span>, а должен вызывать <span class="hl-text">конструктор родителя</span> и <span class="hl-text">передавать ему</span> строку <span class="string"><b>"Paypal"</b></span> и число <span class="number"><b>5</b></span>.
+          <br>Метод оплаты переопределите так, чтобы сперва <span class="hl-text">проверял принимаемую сумму</span>. Если сумма меньше <span class="number"><b>5000</b></span>, то <span class="hl-text">вызывается родительский метод оплаты</span> и <span class="hl-text">возвращается то, что вернёт родительский метод</span>. В противном случае <span class="hl-text">возвращается</span> <span class="number"><b>0</b></span>.
+        </p>
+        <p>Создайте класс <span class="hl-text">"CreditCardPayment"</span>, который наследуется от <span class="hl-text">"Payment"</span>. Дополните его полем баланса. Переопределите для него <span class="hl-text">конструктор</span> и <span class="hl-text">метод оплаты</span>.
+          <br>Конструктор <span class="hl-text">должен принимать баланс</span>, вызывать <span class="hl-text">конструктор родителя</span> и <span class="hl-text">передавать ему</span> строку <span class="string"><b>"Credit Card"</b></span> и число <span class="number"><b>1.5</b></span>. После этого он должен выставлять в своё поле <span class="hl-text">баланс</span>.
+          <br>Метод оплаты переопределите так, чтобы сперва <span class="hl-text">вызывался родительский метод оплаты</span>. Если вернувшаяся сумма меньше-равна баланса, то <span class="hl-text">из баланса отнимается эта сумма</span> и <span class="hl-text">возвращается отнимаемая сумма</span>. В противном случае <span class="hl-text">возвращается</span> <span class="number"><b>0</b></span>.
+          <br>Дополните класс <span class="hl-text">геттером баланса</span>.
+        </p>
+        <p>Создайте класс <span class="hl-text">"BonusCardPayment"</span>, который наследуется от <span class="hl-text">"Payment"</span>. Дополните его полем баланса. Переопределите для него <span class="hl-text">конструктор</span> и <span class="hl-text">метод оплаты</span>.
+          <br>Конструктор <span class="hl-text">должен принимать баланс</span>, вызывать <span class="hl-text">конструктор родителя</span> и <span class="hl-text">передавать ему</span> строку <span class="string"><b>"Bonus Card"</b></span> и число <span class="number"><b>0</b></span>. После этого он должен выставлять в своё поле <span class="hl-text">баланс</span>.
+          <br>Метод оплаты переопределите так, чтобы сперва <span class="hl-text">вызывался родительский метод оплаты</span>. Если вернувшаяся сумма меньше-равна баланса, то <span class="hl-text">из баланса отнимается эта сумма</span> и <span class="hl-text">возвращается отнимаемая сумма</span>. В противном случае <span class="hl-text">возвращается</span> <span class="number"><b>0</b></span>.
+          <br>Дополните класс <span class="hl-text">геттером баланса</span>.
         </p>
 
-        <p>Затем напишите программу, которая <span class="hl-text">запрашивает с консоли сумму оплаты</span>, затем <span class="hl-text">запрашивает способ оплаты</span> - <span class="hl-text">Paypal</span>, <span class="hl-text">кредитная карта</span> или <span class="hl-text">бонусная карта</span>. После успешной оплаты программа <span class="hl-text">выводит в консоль</span>. На кредитной и бонусной картах по умолчанию выставите баланс <code class="python"><b>500</b></code>.</p>
+        <p>После описания классов для самопроверки используйте код ниже. Если всё в порядке, то при запуске кода, в консоли Вы увидете, что все тесты пройдены.
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">payments_amount = (4000, 6500, 500, 995, 600, 700, 25)
+payments_balance = (None, None, 1000, 1000, 1000, 200, -500)
+payments = (PaypalPayment(), PaypalPayment(),
+            CreditCardPayment(payments_balance[2]), CreditCardPayment(payments_balance[2]),
+            BonusCardPayment(payments_balance[4]), BonusCardPayment(payments_balance[5]),
+            BonusCardPayment(payments_balance[6]))
+payments_correct_returns = (4200, 0, 507.5, 0, 600, 700, 0)
+
+for i in range(len(payments_amount)):
+    payment = payments[i]
+    payment_amount = payments_amount[i]
+    payment_correct_return = payments_correct_returns[i]
+
+    payment_return = payment.make_payment(payment_amount)
+
+    if payment_return == payment_correct_return:
+        print(f"===== TEST {i} - Success =====")
+    else:
+        print(f"===== TEST {i} - Fail =====")
+
+    payment_name = payment.get_name()
+    print(f"Payment type: {payment_name}")
+    print(f"Payment amount: {payment_amount}")
+    print(f"Payment correct return: {payment_correct_return}")
+    print(f"Payment actual return: {payment_return}")
+    if isinstance(payment, CreditCardPayment) or isinstance(payment, BonusCardPayment):
+        print(f"Payment balance BEFORE payment: {payments_balance[i]}")
+        print(f"Payment balance AFTER payment: {payment.get_balance()}")
+    print()</code></pre>
+        </div>
+        </p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 46.2</h2>
@@ -305,7 +350,7 @@ for student in db.get_students():
         const keywords = [
           'def', 'for', 'in', 'while', 'and', 'or', 'not',
           'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
-          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'del'
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'del', 'None'
         ];
         regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
         innerHTML = innerHTML.replace(regex, (match) => {
@@ -337,7 +382,7 @@ for student in db.get_students():
           return `<span class="self">${match}</span>`;
         });
         // BUILT-IN
-        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max|sort)\b/g;
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max|sort|isinstance)\b/g;
         innerHTML = innerHTML.replace(regex, (match) => {
           return `<span class="built-in">${match}</span>`;
         });
