@@ -476,67 +476,20 @@
 # print_message()
 
 
-# def simple_decorator(func):
-#     def simple_wrapper(*args):
-#         print("simple_wrapper: BEFORE MAIN FUNC")
-#         func(*args)
-#         print("simple_wrapper: AFTER MAIN FUNC")
+# import math
 #
-#     return simple_wrapper
+# print(math.sin(1.6))
 #
 #
-# def print_message(name, age=0):
-#     print(f"print_message: Hello {name}, {age}")
-#
-# def print_sum(num_1, num_2, num_3):
-#     print(f"print_sum: {num_1} + {num_2} + {num_3} = {num_1 + num_2 + num_3}")
-#
-#
-# show_message = simple_decorator(print_message)
-# show_message("Tom")
-# print()
-# show_sum = simple_decorator(print_sum)
-# show_sum(2, 5, 10)
-
-
-# def simple_decorator(func):
-#     def simple_wrapper(*args):
-#         print("simple_wrapper: BEFORE MAIN FUNC")
-#         func(*args)
-#         print("simple_wrapper: AFTER MAIN FUNC")
-#
-#     return simple_wrapper
+# def sin_decorator(func):  # Декоратор
+#     def sin_degrees(x_degrees):  # Обёртка
+#         x_radians = math.radians(x_degrees)
+#         return func(x_radians)
+#     return sin_degrees
 #
 #
-# @simple_decorator
-# def print_message(name, age=0):
-#     print(f"print_message: Hello {name}, {age}")
-#
-#
-# @simple_decorator
-# def print_sum(num_1, num_2, num_3):
-#     print(f"print_sum: {num_1} + {num_2} + {num_3} = {num_1 + num_2 + num_3}")
-#
-#
-# print_message("Tom")
-# print()
-# print_sum(2, 5, 10)
-
-
-# def simple_decorator(func):
-#     def simple_wrapper(num_1, num_2):
-#         print("simple_wrapper: BEFORE MAIN FUNC")
-#         func(num_1, num_2)
-#         print("simple_wrapper: AFTER MAIN FUNC")
-#     return simple_wrapper
-#
-#
-# def num_sum(num_1, num_2):
-#     print(f"num_sum: {num_1} + {num_2} = {num_1 + num_2}")
-#
-#
-# operation = simple_decorator(num_sum)
-# operation(2, 5)
+# sinus = sin_decorator(math.sin)
+# print(sinus(90))
 
 # ====================================================================================================
 
