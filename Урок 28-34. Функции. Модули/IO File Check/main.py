@@ -57,13 +57,17 @@ def init_tbl(func_names: tuple, file_path="time.txt"):
 def start_check_func_time(funcs: dict, files: tuple, result_out: dict):
     for file_name in files:
         result_dict[file_name] = []
-        for func_read in funcs.values():
+        print(f"File: {file_name}")
+        for func_name, func_read in funcs.items():
+            print(f"Func name: {str(func_name).ljust(25)}Time: ", end="")
             input_fp = f"Text files\\{file_name}"
             output_fp = f"Text files\\Output {file_name}"
             result_time = func_read(input_fp, output_fp)
             result_out[file_name].append(result_time)
+            print(f"{str(result_time).ljust(18)} sec.")
             if exists(output_fp):
                 remove(output_fp)
+        print()
 
 
 def write_to_txt(some_str: str, file_path="time.txt"):
