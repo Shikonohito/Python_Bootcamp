@@ -209,7 +209,7 @@
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 30.4</h2>
-        <p>Напишите функцию <span class="function"><b>users_expiration_check</b></span>, которая <span class="hl-text">принимает список пользователей</span> и <span class="hl-text">необязательные количество дней как число</span> (по умолчанию <span class="number"><b>30</b></span>) и <span class="hl-text">режим как строку</span> (по умолчанию <span class="string"><b>"safe"</b></span>). Функция должна <span class="hl-text">найти всех пользователей, у которых число дней с последнего захода больше, чем указано</span>, и <span class="hl-text">действовать в зависимости от режима</span>:
+        <p>Напишите функцию <span class="function"><b>users_expiration_check</b></span>, которая <span class="hl-text">принимает список пользователей</span>, <span class="hl-text">необязательные количество дней как число</span> (по умолчанию <span class="number"><b>30</b></span>) и <span class="hl-text">режим как строку</span> (по умолчанию <span class="string"><b>"safe"</b></span>). Функция должна <span class="hl-text">найти всех пользователей, у которых число дней с последнего захода больше, чем указано во втором параметре функции</span>, и <span class="hl-text">действовать в зависимости от режима</span>:
           <br>— <span class="hl-text"><b>safe:</b></span> не изменяет список пользователей, возвращает список из найденных индексов пользователей
           <br>— <span class="hl-text"><b>pop:</b></span> добавляет найденного пользователя в новый список, удаляет из списка пользователей, возвращает новый список
           <br>— <span class="hl-text"><b>remove:</b></span> удаляет из списка пользователей найденных пользователей, возвращает пустой список
@@ -217,9 +217,9 @@
 
         <p>Структура списка пользователей:
           <br><span class="grey"><b>[
-              <br>&nbsp[<span class="string">"Login"</span>, <span class="string">"Password"</span>, <span class="number">&ltчисло_дней_с_последнего_захода&gt</span>],
-              <br>&nbsp[<span class="string">"Login"</span>, <span class="string">"Password"</span>, <span class="number">&ltчисло_дней_с_последнего_захода&gt</span>],
-              <br>&nbsp[<span class="string">"Login"</span>, <span class="string">"Password"</span>, <span class="number">&ltчисло_дней_с_последнего_захода&gt</span>],
+              <br>&nbsp[<span class="string">"Login"</span>, <span class="string">"Password"</span>, <span class="number">&ltчисло_дней_с_последнего_захода&gt</span> ],
+              <br>&nbsp[<span class="string">"Login"</span>, <span class="string">"Password"</span>, <span class="number">&ltчисло_дней_с_последнего_захода&gt</span> ],
+              <br>&nbsp[<span class="string">"Login"</span>, <span class="string">"Password"</span>, <span class="number">&ltчисло_дней_с_последнего_захода&gt</span> ],
               <br>&nbsp. . . . . . . . . . . . .
               <br>]</b></span>
         </p>
