@@ -406,8 +406,9 @@ def remove_book(some_library: list, some_book_id: str) -> bool:
 
 def change_book_id(some_library: list, some_book_copy: list, some_new_id: str) -> bool:
     """
-    Функция вызывает get_book_index_by_id, передаёт ей some_library и some_new_id. Если книга не найдена,
-    то изменяет идентификатор у some_book_copy на some_new_id.
+    Функция вызывает get_book_index_by_id, передаёт ей some_library и some_new_id. Если книга не найдена
+    или some_new_id совпадает с идентификатором от some_book_copy, то изменяет идентификатор
+    у some_book_copy на some_new_id.
     :param some_library: Список книг.
     :param some_book_copy: Копия оригинальной книги. Копии не должно быть в some_library.
     :param some_new_id: Новый идентификатор, на который будет изменяться старый идентификатор.
