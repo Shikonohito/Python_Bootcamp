@@ -681,7 +681,7 @@ while True:
         const keywords = [
           'def', 'for', 'in', 'while', 'and', 'or', 'not',
           'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
-          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'pass', 'None'
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'pass', 'None', 'del'
         ];
         regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
         innerHTML = innerHTML.replace(regex, (match) => {
