@@ -338,15 +338,6 @@ def top_up_balance(account: list, balance: int) -> bool:
     pass
 
 
-def get_subscribe(account: list) -> bool:
-    """
-    Функция проверяет наличие подписки.
-    :param account: Аккаунт в виде списка.
-    :return: Значение по индексу 3 у account.
-    """
-    pass
-
-
 def can_subscribe(account: list, subscribe_price: int) -> bool:
     """
     Функция проверяет, достаточно ли на балансе денег для оформления подписки.
@@ -360,7 +351,7 @@ def can_subscribe(account: list, subscribe_price: int) -> bool:
 def subscribe_account(account: list, subscribe_price: int) -> bool:
     """
     Функция оформляет подписку для account.
-    Вызывает get_subscribe, передаёт ей account, и вызывает can_subscribe,
+    Вызывает get_user_subscribe, передаёт ей account, и вызывает can_subscribe,
     передаёт ей account и subscribe_price для проверки. Если проверки пройдены, то оформляет подписку.
     :param account: Аккаунт в виде списка.
     :param subscribe_price: Стоимость подписки в виде целого числа.
@@ -372,7 +363,7 @@ def subscribe_account(account: list, subscribe_price: int) -> bool:
 def unsubscribe_account(account: list) -> bool:
     """
     Функция отменяет подписку. По сути меняет у account по индексу 3 статус на False.
-    Вызывает get_subscribe, передаёт ей account. Если подписка имеется, то отменяет подписку.
+    Вызывает get_user_subscribe, передаёт ей account. Если подписка имеется, то отменяет подписку.
     :param account: Аккаунт в виде списка.
     :return: Если удалось отменить подписку - True. В противном случае - False.
     """
