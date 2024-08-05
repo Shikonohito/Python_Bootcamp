@@ -139,7 +139,6 @@ class ITStepStudent:
 def print_all_students(students: list[ITStepStudent]):
     for student in students:
         print_student(student)
-        print("================================")
 
 
 def print_student(student: ITStepStudent):
@@ -189,60 +188,48 @@ def select_student(student_login: str):
         print("=================================")
         show_student_menu()
         choice = input("Выберите действие: ")
+        print("=================================")
         if choice == "1":
-            print("=================================")
             input_grade = int(input("Введите оценку от 1 до 12 включительно: "))
             if student.add_grade(input_grade):
                 print("Оценка добавлена")
             else:
                 print("Оценка должна быть от 1 до 12 включительно.")
-            print("=================================")
         elif choice == "2":
-            print("=================================")
             index = int(input("Введите номер оценки: ")) - 1
             input_grade = int(input("Введите оценку от 1 до 12 включительно: "))
             if student.change_grade(index, input_grade):
                 print("Оценка изменена.")
             else:
                 print("Оценка или номер оценки указаны неверно.")
-            print("=================================")
         elif choice == "3":
-            print("=================================")
             index = int(input("Введите номер оценки: ")) - 1
             if student.remove_grade(index):
                 print("Оценка удалена.")
             else:
                 print("Номер оценки указан неверно.")
-            print("=================================")
         elif choice == "4":
-            print("=================================")
             input_login = input("Введите логин: ")
             if find_student_by_login(input_login) == -1:
                 student.set_login(input_login)
                 print("Логин изменён.")
             else:
                 print("Введённый логин уже занят. Введите другой.")
-            print("=================================")
         elif choice == "5":
-            print("=================================")
             input_f_name = input("Введите имя: ")
             student.set_f_name(input_f_name)
             print("Имя изменено.")
-            print("=================================")
         elif choice == "6":
-            print("=================================")
             input_l_name = input("Введите фамилию: ")
             student.set_l_name(input_l_name)
             print("Фамилия изменена.")
-            print("=================================")
         elif choice == "7":
-            print("=================================")
             input_crystal = int(input("Введите количество кристаллов: "))
             student.add_crystals(input_crystal)
             print("Кристаллы добавлены.")
-            print("=================================")
         elif choice == "8":
             break
+        print("=================================")
 
 
 def add_student(student: ITStepStudent):
@@ -265,16 +252,13 @@ def remove_student(student_login):
 while True:
     show_main_menu()
     choice = input("Выберите действие: ")
+    print("=================================")
     if choice == "1":
-        print("=================================")
         print_all_students(student_list)
     elif choice == "2":
-        print("=================================")
         input_login = input("Введите логин: ")
         select_student(input_login)
-        print("=================================")
     elif choice == "3":
-        print("=================================")
         input_login = input("Введите логин: ")
         input_f_name = input("Введите имя: ")
         input_l_name = input("Введите фамилию: ")
@@ -283,16 +267,13 @@ while True:
             print("Студент добавлен")
         else:
             print("Ошибка добавления. Указанный логин уже есть у другого студента.")
-        print("=================================")
     elif choice == "4":
-        print("=================================")
         input_login = input("Введите логин: ")
         if remove_student(input_login):
             print("Студент успешно удалён.")
         else:
             print("Студента с указанным логином не найден.")
-        print("=================================")
     elif choice == "5":
-        print("=================================")
         print("Завершение программы.")
         break
+    print("=================================")
