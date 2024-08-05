@@ -304,6 +304,167 @@ for student in db.get_students():
         </div>
         </p>
       </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 46.3</h2>
+        <p>Перед <span class="hl-text">Teston</span> и его напарником поставили задачу - реализовать <span class="hl-text">простой магазин компьютерных игр</span>. Teston реализовал <span class="hl-text">бэкенд</span>:
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python"></code></pre>
+        </div>
+        </p>
+        <p>Однако его напарник не смог реализовать фронтенд. <span class="hl-text">Реализуйте фронтенд по описанию ниже, используя код бэкенда</span>.</p>
+        <p>При запуске программы пользователя встречает следующее меню:
+        <div class="console">
+          <pre><code>1. Войти
+2. Зарегистрироваться
+3. Завершить программу</code></pre>
+        </div>
+        </p>
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли новый логин</span> и <span class="hl-text">пароль</span>, затем пытается <span class="hl-text">зарегистрировать нового пользователя</span>. После этого программа <span class="hl-text">сообщает о результате</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает с консоли логин</span> и <span class="hl-text">пароль</span>, затем пытается <span class="hl-text">провести вход пользователя</span>. Если не удалось войти, то программа <span class="hl-text">сообщает об этом</span>. В противном случае, если логин и пароль от клиента, программа <span class="hl-text">показывает в консоли главное меню клиента</span>. Если же логин и пароль от администратора, то программа <span class="hl-text">показывает в консоли главное меню администратора</span>.</p>
+        <h3>Главное меню клиента:</h3>
+        <div class="console">
+          <pre><code>1. Мой аккаунт
+2. Моя библиотека
+3. Магазин
+4. Выйти из аккаунта
+5. Завершить программу</code></pre>
+        </div>
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает меню аккаунта</span>.</p>
+        <h3>Меню аккаунта:</h3>
+        <div class="console">
+          <pre><code>Логин: <название_логина>        Баланс: <число>
+1. Пополнить баланс
+2. Изменить логин
+3. Изменить пароль
+4. Вернуться</code></pre>
+        </div>
+        <p>В <span class="hl-text">меню аккаунта</span> при выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает с консоли количество денег</span> и пытается <span class="hl-text">пополнить баланс аккаунта</span>. Затем программа <span class="hl-text">сообщает результат</span>.</p>
+        <p>В <span class="hl-text">меню аккаунта</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли новый логин</span> и пытается <span class="hl-text">изменить его у пользователя</span>. Затем программа <span class="hl-text">сообщает результат</span>.</p>
+        <p>В <span class="hl-text">меню аккаунта</span> при выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли новый пароль</span> и пытается <span class="hl-text">изменить его у пользователя</span>. Затем программа <span class="hl-text">сообщает результат</span>.</p>
+        <p>В <span class="hl-text">главном меню клиента</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">выводит в консоль все игры, которые есть на аккаунте</span>.</p>
+        <p>В <span class="hl-text">главном меню клиента</span> при выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">показывает меню магазина</span> в виде:
+        <div class="console">
+          <pre><code>1. Моя корзина
+2. Показать все игры магазина
+3. Показать игру по идентификатору
+4. Вернуться</code></pre>
+        </div>
+        </p>
+        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает меню корзины</span> в виде:
+        <div class="console">
+          <pre><code>Итоговая сумма: <сумма_цен_корзины>
+1. Оплатить корзину
+2. Удалить игру из корзины
+3. Вернуться
+======================== КОРЗИНА ========================
+<идентификатор> - <название> - <цена>
+<идентификатор> - <название> - <цена>
+<идентификатор> - <название> - <цена>
+...</code></pre>
+        </div>
+        </p>
+        <p>В <span class="hl-text">меню корзины</span> при выборе <span class="hl-text">пункта 1</span> программа пытается <span class="hl-text">выполнить оплату</span>. Затем программа <span class="hl-text">сообщает о результате</span>.</p>
+        <p>В <span class="hl-text">меню корзины</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли идентификатор игры</span> и пытается <span class="hl-text">удалить игру из корзины пользователя</span>. Затем программа <span class="hl-text">сообщает о результате</span>.</p>
+        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">показывает все игры магазина</span> в виде:
+        <div class="console">
+          <pre><code><идентификатор> - <название> - <цена>
+<идентификатор> - <название> - <цена>
+<идентификатор> - <название> - <цена>
+...</code></pre>
+        </div>
+        </p>
+        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли идентификатор игры</span>. Если игра не найдена, то <span class="hl-text">сообщает об этом</span>. В противном случае <span class="hl-text">выводит данные игры в консоль</span> в виде:
+        <div class="console">
+          <pre><code><идентификатор> - <название> - <цена></code></pre>
+        </div>
+        </p>
+        <h3>Главное меню администратора:</h3>
+        <div class="console">
+          <pre><code>1. Магазин
+2. Клиенты
+3. Администраторы
+4. Выйти из аккаунта
+5. Завершить программу</code></pre>
+        </div>
+        <p>В <span class="hl-text">главном меню администратора</span> при выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает меню магазина</span>:
+        <div class="console">
+          <pre><code>1. Показать все игры магазина
+2. Показать игру по идентификатору
+3. Добавить новую игру
+4. Удалить игру
+5. Изменить данные игры
+6. Вернуться</code></pre>
+        </div>
+        </p>
+        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит список игр магазина в консоль</span>.</p>
+        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>. Если игра найдена, то <span class="hl-text">выводит её данные</span>. В противном случае <span class="hl-text">сообщает о проблеме</span>.</p>
+        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>, <span class="hl-text">название</span> и <span class="hl-text">цену</span>, затем пытается <span class="hl-text">добавить игру в магазин</span>. После этого <span class="hl-text">сообщает о результате</span>.</p>
+        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>, затем пытается <span class="hl-text">удалить игру из магазина</span>. После этого <span class="hl-text">сообщает о результате</span>.</p>
+        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>. Если игра найдена то <span class="hl-text">показывает меню изменения игры</span>:
+        <div class="console">
+          <pre><code>СТАРЫЕ ДАННЫЕ: <идентификатор> - <название> - <цена>
+НОВЫЕ ДАННЫЕ: <идентификатор> - <название> - <цена>
+1. Изменить идентификатор
+2. Изменить название
+3. Изменить цену
+4. Подтвердить изменения и вернуться
+5. Отменить изменения и вернуться</code></pre>
+        </div>
+        </p>
+        <p>В <span class="hl-text">меню изменения игры</span> при выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">3</span> программа <span class="hl-text">запрашивает соответствующие данные</span> и <span class="hl-text">меняет их у копии</span>.</p>
+        <p>В <span class="hl-text">меню изменения игры</span> при выборе <span class="hl-text">пункта 4</span> программа пытается <span class="hl-text">подтвердить изменения</span>. Если всё хорошо, то <span class="hl-text">изменения фиксируются</span>, об этом <span class="hl-text">сообщается в консоли</span> и программа <span class="hl-text">возвращается в предыдущее меню</span>. В противном случае программа <span class="hl-text">сообщает о проблеме</span> и <span class="hl-text">остаётся в этом меню</span>.</p>
+        <p>В <span class="hl-text">главном меню администратора</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">показывает меню операций над клиентами</span>:
+        <div class="console">
+          <pre><code>1. Показать всех клиентов
+2. Показать клиента по идентификатору
+3. Заблокировать клиента по идентификатору
+4. Разблокировать клиента по идентификатору
+5. Вернуться</code></pre>
+        </div>
+        </p>
+        <p>В <span class="hl-text">меню операций над клиентами</span> при выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит всех клиентов магазина</span> в виде:
+        <div class="console">
+          <pre><code><логин> - <пароль> - <баланс> - <количество_игр> - <действующий_аккаунт/заблокированный_аккаунт>
+<логин> - <пароль> - <баланс> - <количество_игр> - <действующий_аккаунт/заблокированный_аккаунт>
+<логин> - <пароль> - <баланс> - <количество_игр> - <действующий_аккаунт/заблокированный_аккаунт>
+...</code></pre>
+        </div>
+        </p>
+        <p>В <span class="hl-text">меню операций над клиентами</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает идентификатор клиента</span>. Если клиент не найден, то <span class="hl-text">сообщает об этом</span>. В противном случае <span class="hl-text">выводит данные клиента в консоль</span> в виде:
+        <div class="console">
+          <pre><code><логин> - <пароль> - <баланс> - <количество_игр> - <действующий_аккаунт/заблокированный_аккаунт>
+
+Игры на аккаунте:
+<идентификатор> - <название>
+<идентификатор> - <название>
+<идентификатор> - <название>
+...</code></pre>
+        </div>
+        </p>
+        <p>В <span class="hl-text">меню операций над клиентами</span> при выборе <span class="hl-text">пунктов 3</span>-<span class="hl-text">4</span> программа <span class="hl-text">запрашивает идентификатор клиента</span>. Если клиент найден, то <span class="hl-text">выполняет соответствующее действие</span>. Затем <span class="hl-text">сообщает о результате</span>.</p>
+        <p>В <span class="hl-text">главном меню администратора</span> при выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">показывает меню операций над администраторами</span>:
+        <div class="console">
+          <pre><code>1. Показать всех администраторов
+2. Зарегистрировать нового администратора
+3. Удалить администратора
+4. Вернуться</code></pre>
+        </div>
+        </p>
+        <p>В <span class="hl-text">меню операций над администраторами</span> при выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит в консоль всех администраторов</span> в виде:
+        <div class="console">
+          <pre><code>Логин
+Логин
+Логин
+...</code></pre>
+        </div>
+        </p>
+        <p>В <span class="hl-text">меню операций над администраторами</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли новый логин</span> и <span class="hl-text">пароль</span>, затем пытается <span class="hl-text">зарегистрировать нового администратора</span>. После этого программа <span class="hl-text">сообщает о результате</span>.</p>
+        <p>В <span class="hl-text">меню операций над администраторами</span> при выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли логин</span>, затем пытается <span class="hl-text">удалить администратора</span>. После этого <span class="hl-text">сообщает о результате</span>.</p>
+      </div>
     </div>
   </div>
   <script>
