@@ -297,17 +297,37 @@
 #     print(f"{key}: {book[key]}", end="\t")
 #
 # book["language"] = "Russian"
+#
 # print()
 # for key in book:
 #     print(f"{key}: {book[key]}", end="\t")
 #
 # book["number of pages"] = 378
+#
 # print()
 # for key in book:
 #     print(f"{key}: {book[key]}", end="\t")
 #
 # del book["number of pages"]
+#
 # print()
+# for key in book:
+#     print(f"{key}: {book[key]}", end="\t")
+
+
+# book = {"author": "Eric Matthes",
+#         "title": "Python Crash Course",
+#         "price": 14.43,
+#         "reading age": "12 years and up",
+#         "language": "English"}
+#
+# some_key = "language"
+#
+# if some_key in book:
+#     del book[some_key]
+# else:
+#     print("Ключ отсутствует.")
+#
 # for key in book:
 #     print(f"{key}: {book[key]}", end="\t")
 
