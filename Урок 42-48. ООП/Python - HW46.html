@@ -213,7 +213,7 @@ payments = (PaypalPayment(), PaypalPayment(),
             CreditCardPayment(payments_balance[2]), CreditCardPayment(payments_balance[2]),
             BonusCardPayment(payments_balance[4]), BonusCardPayment(payments_balance[5]),
             BonusCardPayment(payments_balance[6]))
-payments_correct_returns = (4200, 0, 507.5, 0, 600, 700, 0)
+payments_correct_returns = (4200, 0, 507.5, 0, 600, 0, 0)
 
 for i in range(len(payments_amount)):
     payment = payments[i]
