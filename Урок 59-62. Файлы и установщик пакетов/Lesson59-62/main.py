@@ -856,7 +856,7 @@
 #                                     image=make_operation_btn_img, bd=2, bg="#000000")
 # make_operation_btn.place(x=400, y=20)
 # # END FRAME OPERATIONS
-# 
+#
 # root.mainloop()
 
 # ====================================================================================================

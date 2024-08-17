@@ -1613,6 +1613,7 @@
 #             person_listbox.delete(person_listbox_ind[0])
 #
 #             person_combobox["values"] = db.get_persons()
+#             person_combobox.set("")
 #
 #     # Для проверки соответствия наполнения бэкенда и фронтенда
 #     print()
@@ -1686,6 +1687,7 @@
 #                 person_listbox.insert(person_listbox_ind[0], new_person_listbox)
 #
 #                 person_combobox["values"] = db.get_persons()
+#                 person_combobox.set("")
 #
 #                 person_info.config(text="", fg="black")
 #             else:
@@ -1830,6 +1832,7 @@
 #             product_listbox.delete(product_listbox_ind[0])
 #
 #             product_combobox["values"] = db.get_products()
+#             product_combobox.set("")
 #
 #     # Для проверки соответствия наполнения бэкенда и фронтенда
 #     print()
@@ -1869,6 +1872,7 @@
 #             product_listbox.insert(product_listbox_ind[0], new_product_listbox)
 #
 #             product_combobox["values"] = db.get_products()
+#             product_combobox.set("")
 #
 #     # Для проверки соответствия наполнения бэкенда и фронтенда
 #     print()
