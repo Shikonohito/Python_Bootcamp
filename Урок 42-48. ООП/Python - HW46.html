@@ -709,9 +709,8 @@ class GameShop:
             is_success = True
         return is_success
 
-    def change_game(self, game_to_change: GameProduct, changed_game: GameProduct):
+    def change_game(self, game_to_change_id: str, changed_game: GameProduct):
         is_success = False
-        game_to_change_id = game_to_change.get_id()
         game_to_change = self.get_game(game_to_change_id)
         if game_to_change:
             changed_game_id = changed_game.get_id()
