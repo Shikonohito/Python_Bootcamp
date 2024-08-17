@@ -68,41 +68,26 @@
 #         with open(db_file_path, "wb") as data_file:
 #             pickle.dump(self, data_file)
 #
-#     def load_db(self, db_file_path: str):
+#     @staticmethod
+#     def load_db(db_file_path: str) -> 'CustomerDB':
 #         with open(db_file_path, "rb") as data_file:
-#             # Считываем временный объект базы данных
-#             temp_db: CustomerDB = pickle.load(data_file)
+#             loaded_db = pickle.load(data_file)
+#             return loaded_db
 #
-#             # Заполняем поля базы данных
-#             self.__customer_list = temp_db.get_customer_list()
 #
-#     # @staticmethod
-#     # def static_load_db(db_file_path):
-#     #     with open(db_file_path, "rb") as data_file:
-#     #         loaded_db: CustomerDB = pickle.load(data_file)
-#     #         return loaded_db
-
-
-# customer_1 = Customer("ABC1234", "Tom")
-# customer_2 = Customer("XYZ5869", "Bob")
-# customer_3 = Customer("QWE4221", "Arthur")
+# # customer_1 = Customer("ABC1234", "Tom")
+# # customer_2 = Customer("XYZ5869", "Bob")
+# # customer_3 = Customer("QWE4221", "Arthur")
+# #
+# # db = CustomerDB()
+# # db.add_customer(customer_1)
+# # db.add_customer(customer_2)
+# # db.add_customer(customer_3)
+# #
+# # db.save_db("db01.dat")
 #
-# db = CustomerDB()
-# db.add_customer(customer_1)
-# db.add_customer(customer_2)
-# db.add_customer(customer_3)
 #
-# db.save_db("db01.dat")
-
-
-# db = CustomerDB()
-# db.load_db("db01.dat")
-#
-# for customer in db.get_customer_list():
-#     print(customer)
-
-
-# db = CustomerDB.static_load_db("db01.dat")
+# db = CustomerDB.load_db("db01.dat")
 #
 # for customer in db.get_customer_list():
 #     print(customer)
@@ -114,6 +99,7 @@
 # import tkinter
 # import pickle
 # from tkinter import ttk, messagebox, filedialog
+#
 #
 # class Person:
 #     __id = "0000000"
@@ -186,8 +172,8 @@
 #
 #
 # class DB:
-#     __person_list = list()
-#     __product_list = list()
+#     __person_list: list[Person] = list()
+#     __product_list: list[Product] = list()
 #
 #     def __init__(self):
 #         self.__person_list = list()
@@ -205,7 +191,7 @@
 #     def get_products(self) -> list[Product]:
 #         return self.__product_list
 #
-#     def find_person_index_by_id(self, person_id):
+#     def get_person_index(self, person_id: str):
 #         found_index = -1
 #         for i in range(len(self.__person_list)):
 #             if person_id == self.__person_list[i].get_id():
@@ -213,42 +199,44 @@
 #                 break
 #         return found_index
 #
-#     def add_person(self, new_person: Person) -> bool:
-#         is_success = False
-#         index = self.find_person_index_by_id(new_person.get_id())
-#         if index == -1:
-#             self.__person_list.append(new_person)
-#             is_success = True
-#         return is_success
-#
-#     def remove_person_by_id(self, person_id) -> bool:
-#         is_success = False
-#         index = self.find_person_index_by_id(person_id)
-#         if index != -1:
-#             del self.__person_list[index]
-#             is_success = True
-#         return is_success
-#
-#     def change_person_by_id(self, person_id, new_person: Person) -> bool:
-#         is_success = False
-#         index = self.find_person_index_by_id(person_id)
-#         if index != -1:
-#             new_person_id = new_person.get_id()
-#             new_index = self.find_person_index_by_id(new_person_id)
-#             if person_id == new_person_id or new_index == -1:
-#                 self.__person_list[index] = new_person
-#                 is_success = True
-#         return is_success
-#
-#     def get_person_by_id(self, person_id) -> Person:
-#         index = self.find_person_index_by_id(person_id)
+#     def get_person(self, person_id) -> Person | None:
+#         index = self.get_person_index(person_id)
 #         if index != -1:
 #             person = self.__person_list[index]
 #         else:
 #             person = None
 #         return person
 #
-#     def find_product_index_by_id(self, product_id):
+#     def add_person(self, new_person: Person) -> bool:
+#         is_success = False
+#         index = self.get_person_index(new_person.get_id())
+#         if index == -1:
+#             self.__person_list.append(new_person)
+#             is_success = True
+#         return is_success
+#
+#     def remove_person(self, person_id: str) -> bool:
+#         is_success = False
+#         index = self.get_person_index(person_id)
+#         if index != -1:
+#             del self.__person_list[index]
+#             is_success = True
+#         return is_success
+#
+#     def change_person(self, person_id: str, changed_person: Person) -> bool:
+#         is_success = False
+#         person = self.get_person(person_id)
+#         if person:
+#             changed_person_id = changed_person.get_id()
+#             changed_person_index = self.get_person_index(changed_person_id)
+#             if person_id == changed_person_id or changed_person_index == -1:
+#                 person.set_id(changed_person.get_id())
+#                 person.set_name(changed_person.get_name())
+#                 person.set_age(changed_person.get_age())
+#                 is_success = True
+#         return is_success
+#
+#     def get_product_index(self, product_id: str):
 #         found_index = -1
 #         for i in range(len(self.__product_list)):
 #             if product_id == self.__product_list[i].get_id():
@@ -256,63 +244,55 @@
 #                 break
 #         return found_index
 #
-#     def add_product(self, new_product: Product) -> bool:
-#         is_success = False
-#         index = self.find_product_index_by_id(new_product.get_id())
-#         if index == -1:
-#             self.__product_list.append(new_product)
-#             is_success = True
-#         return is_success
-#
-#     def remove_product_by_id(self, product_id) -> bool:
-#         is_success = False
-#         index = self.find_product_index_by_id(product_id)
-#         if index != -1:
-#             del self.__product_list[index]
-#             is_success = True
-#         return is_success
-#
-#     def change_product_by_id(self, product_id, new_product: Product) -> bool:
-#         is_success = False
-#         index = self.find_product_index_by_id(product_id)
-#         if index != -1:
-#             new_product_id = new_product.get_id()
-#             new_index = self.find_product_index_by_id(new_product_id)
-#             if product_id == new_product_id or new_index == -1:
-#                 self.__product_list[index] = new_product
-#                 is_success = True
-#         return is_success
-#
-#     def get_product_by_id(self, product_id) -> Product:
-#         index = self.find_product_index_by_id(product_id)
+#     def get_product(self, product_id: str) -> Product:
+#         index = self.get_product_index(product_id)
 #         if index != -1:
 #             product = self.__product_list[index]
 #         else:
 #             product = None
 #         return product
 #
+#     def add_product(self, new_product: Product) -> bool:
+#         is_success = False
+#         index = self.get_product_index(new_product.get_id())
+#         if index == -1:
+#             self.__product_list.append(new_product)
+#             is_success = True
+#         return is_success
+#
+#     def remove_product(self, product_id: str) -> bool:
+#         is_success = False
+#         index = self.get_product_index(product_id)
+#         if index != -1:
+#             del self.__product_list[index]
+#             is_success = True
+#         return is_success
+#
+#     def change_product(self, product_id: str, changed_product: Product) -> bool:
+#         is_success = False
+#         product = self.get_product(product_id)
+#         if product:
+#             changed_product_id = changed_product.get_id()
+#             changed_product_index = self.get_product_index(changed_product_id)
+#             if product_id == changed_product_id or changed_product_index == -1:
+#                 product.set_id(changed_product.get_id())
+#                 product.set_name(changed_product.get_name())
+#                 product.set_price(changed_product.get_price())
+#                 is_success = True
+#         return is_success
+#
 #     def save_db(self, db_file_path):
 #         with open(db_file_path, "wb") as data_file:
 #             pickle.dump(self, data_file)
 #
-#     def load_db(self, db_file_path):
+#     @staticmethod
+#     def load_db(db_file_path) -> 'DB':
 #         with open(db_file_path, "rb") as data_file:
-#             # Считываем временный объект базы данных
-#             temp_db: DB = pickle.load(data_file)
-#
-#             # Заполняем поля базы данных
-#             self.__person_list = temp_db.get_persons()
-#             self.__product_list = temp_db.get_products()
-#
-#     # @staticmethod
-#     # def static_load_db(db_file_path) -> "DB":
-#     #     with open(db_file_path, "rb") as data_file:
-#     #         loaded_db = pickle.load(data_file)
-#     #         return loaded_db
-#
+#             loaded_db = pickle.load(data_file)
+#             return loaded_db
 #
 # db = DB()
-# # db = DB.static_load_db("database01.dat")
+# # db = DB.load_db("database01.dat")
 #
 # root = tkinter.Tk()
 # root.title("Listbox")
@@ -362,8 +342,10 @@
 # def save_data():
 #     # db.save_db("database01.dat")
 #
-#     filename = filedialog.asksaveasfilename(initialdir=".", title="Select File", filetypes=(("Data files", "*.dat"),
-#                                                                                           ("All files", "*.*")))
+#     filename = filedialog.asksaveasfilename(initialdir=".",
+#                                             title="Select File",
+#                                             filetypes=(("Data files", "*.dat"),
+#                                                        ("All files", "*.*")))
 #     if filename:
 #         db.save_db(filename)
 #
@@ -381,16 +363,20 @@
 #
 #
 # def load_data():
-#     # db.load_db("database01.dat")
+#     # global db
+#     # db = DB.load_db("database01.dat")
 #     # fill_person_listbox()
 #     # fill_product_listbox()
 #     # person_combobox["values"] = db.get_persons()
 #     # product_combobox["values"] = db.get_products()
 #
-#     filename = filedialog.askopenfilename(initialdir=".", title="Select File", filetypes=(("Data files", "*.dat"),
-#                                                                                           ("All files", "*.*")))
+#     filename = filedialog.askopenfilename(initialdir=".",
+#                                           title="Select File",
+#                                           filetypes=(("Data files", "*.dat"),
+#                                                      ("All files", "*.*")))
 #     if filename:
-#         db.load_db(filename)
+#         global db
+#         db = DB.load_db(filename)
 #         fill_person_listbox()
 #         fill_product_listbox()
 #
@@ -545,11 +531,12 @@
 #         customer_id = selected_person.split()[0]
 #
 #         # Пытаемся удалить из бэкенда
-#         if db.remove_person_by_id(customer_id):
+#         if db.remove_person(customer_id):
 #             # Удаляем из фронтенда
 #             person_listbox.delete(person_listbox_ind[0])
 #
 #             person_combobox["values"] = db.get_persons()
+#             person_combobox.set("")
 #
 #     # Для проверки соответствия наполнения бэкенда и фронтенда
 #     print()
@@ -614,7 +601,7 @@
 #             new_person = Person(new_id, new_name, new_age)
 #
 #             # Пытаемся изменить объект в бэкенде
-#             if db.change_person_by_id(selected_id, new_person):
+#             if db.change_person(selected_id, new_person):
 #                 # Формируем строковое представление объекта
 #                 new_person_listbox = str(new_person)
 #
@@ -623,6 +610,7 @@
 #                 person_listbox.insert(person_listbox_ind[0], new_person_listbox)
 #
 #                 person_combobox["values"] = db.get_persons()
+#                 person_combobox.set("")
 #
 #                 person_info.config(text="", fg="black")
 #             else:
@@ -649,7 +637,7 @@
 #         selected_id = selected_person.split()[0]
 #
 #         # Запрашиваем из бэкенда объект по идентификатору
-#         person = db.get_person_by_id(selected_id)
+#         person = db.get_person(selected_id)
 #         if person:
 #             person_data = f"ID: {person.get_id()}\nName: {person.get_name()}\nAge: {person.get_age()}"
 #             person_info.config(text=person_data, justify="left")
@@ -663,7 +651,7 @@
 #     if len(person_listbox_ind) > 0:
 #         selected_person = person_listbox.get(person_listbox_ind[0])
 #         selected_id = selected_person.split()[0]
-#         person = db.get_person_by_id(selected_id)
+#         person = db.get_person(selected_id)
 #         if person:
 #             person_id_entry.delete(0, tkinter.END)
 #             person_id_entry.insert(0, person.get_id())
@@ -755,11 +743,12 @@
 #         product_id = selected_product.split()[0]
 #
 #         # Пытаемся удалить из бэкенда
-#         if db.remove_product_by_id(product_id):
+#         if db.remove_product(product_id):
 #             # Удаляем из фронтенда
 #             product_listbox.delete(product_listbox_ind[0])
 #
 #             product_combobox["values"] = db.get_products()
+#             product_combobox.set("")
 #
 #     # Для проверки соответствия наполнения бэкенда и фронтенда
 #     print()
@@ -790,7 +779,7 @@
 #         new_product = Product(new_id, new_name, new_price)
 #
 #         # Пытаемся изменить объект в бэкенде
-#         if db.change_product_by_id(selected_id, new_product):
+#         if db.change_product(selected_id, new_product):
 #             # Формируем строковое представление объекта
 #             new_product_listbox = str(new_product)
 #
@@ -799,6 +788,7 @@
 #             product_listbox.insert(product_listbox_ind[0], new_product_listbox)
 #
 #             product_combobox["values"] = db.get_products()
+#             product_combobox.set("")
 #
 #     # Для проверки соответствия наполнения бэкенда и фронтенда
 #     print()
@@ -821,7 +811,7 @@
 #         selected_id = selected_product.split()[0]
 #
 #         # Запрашиваем из бэкенда объект по идентификатору
-#         product = db.get_product_by_id(selected_id)
+#         product = db.get_product(selected_id)
 #         if product:
 #             product_data = f"ID: {product.get_id()}\nName: {product.get_name()}\nPrice: {product.get_price()}₼"
 #             product_info.config(text=product_data, justify="left")
@@ -866,7 +856,7 @@
 #                                     image=make_operation_btn_img, bd=2, bg="#000000")
 # make_operation_btn.place(x=400, y=20)
 # # END FRAME OPERATIONS
-#
+# 
 # root.mainloop()
 
 # ====================================================================================================
