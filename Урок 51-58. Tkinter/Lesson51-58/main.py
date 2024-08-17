@@ -266,7 +266,7 @@
 # customer_list = [customer_1, customer_2, customer_3]
 #
 #
-# def backend_find_customer_by_id(customer_id):
+# def backend_find_customer_index(customer_id):
 #     found_index = -1
 #     for i in range(len(customer_list)):
 #         if customer_id == customer_list[i]["id"]:
@@ -275,43 +275,45 @@
 #     return found_index
 #
 #
+# def backend_get_customer(customer_id):
+#     index = backend_find_customer_index(customer_id)
+#     if index != -1:
+#         customer = customer_list[index]
+#     else:
+#         customer = None
+#     return customer
+#
+#
 # def backend_add_customer(new_customer):
 #     is_success = False
-#     index = backend_find_customer_by_id(new_customer["id"])
+#     index = backend_find_customer_index(new_customer["id"])
 #     if index == -1:
 #         customer_list.append(new_customer)
 #         is_success = True
 #     return is_success
 #
 #
-# def backend_change_customer_by_id(customer_id, new_customer):
+# def backend_change_customer(customer_to_change_id, changed_customer):
 #     is_success = False
-#     index = backend_find_customer_by_id(customer_id)
-#     if index != -1:
-#         new_person_id = new_customer["id"]
-#         new_index = backend_find_customer_by_id(new_person_id)
-#         if customer_id == new_person_id or new_index == -1:
-#             customer_list[index] = new_customer
+#     customer_to_change = backend_get_customer(customer_to_change_id)
+#     if customer_to_change:
+#         customer_to_change_id = customer_to_change["id"]
+#         changed_customer_id = changed_customer["id"]
+#         changed_customer_index = backend_find_customer_index(changed_customer_id)
+#         if customer_to_change_id == changed_customer_id or changed_customer_index == -1:
+#             customer_to_change["id"] = changed_customer["id"]
+#             customer_to_change["name"] = changed_customer["name"]
 #             is_success = True
 #     return is_success
 #
 #
-# def backend_remove_customer_by_id(customer_id):
+# def backend_remove_customer(customer_id):
 #     is_success = False
-#     index = backend_find_customer_by_id(customer_id)
+#     index = backend_find_customer_index(customer_id)
 #     if index != -1:
 #         del customer_list[index]
 #         is_success = True
 #     return is_success
-#
-#
-# def backend_get_customer_by_id(customer_id):
-#     index = backend_find_customer_by_id(customer_id)
-#     if index != -1:
-#         customer = customer_list[index]
-#     else:
-#         customer = None
-#     return customer
 #
 #
 # import tkinter
@@ -396,7 +398,7 @@
 #         print(customer_id)
 #
 #         # Пытаемся удалить из бэкенда
-#         if backend_remove_customer_by_id(customer_id):
+#         if backend_remove_customer(customer_id):
 #             # Удаляем из фронтенда
 #             customer_listbox.delete(customer_listbox_ind[0])
 #
@@ -428,7 +430,7 @@
 #         new_customer = {"id": new_id, "name": new_name}
 #
 #         # Пытаемся изменить объект в бэкенде
-#         if backend_change_customer_by_id(selected_id, new_customer):
+#         if backend_change_customer(selected_id, new_customer):
 #             # Формируем строковое представление объекта
 #             new_customer_listbox = f'{new_customer["id"]} {new_customer["name"]}'
 #
@@ -457,7 +459,7 @@
 #         selected_id = selected_customer.split()[0]
 #
 #         # Запрашиваем из бэкенда объект по идентификатору
-#         customer = backend_get_customer_by_id(selected_id)
+#         customer = backend_get_customer(selected_id)
 #         if customer:
 #             customer_data = f'{customer["id"]} {customer["name"]}'
 #             customer_info.config(text=customer_data)
@@ -515,18 +517,18 @@
 #
 #
 # class DB:
-#     __person_list = list()
+#     __person_list: list[Person] = list()
 #
 #     def __init__(self):
-#         self.__person_list = list()
+#         self.__person_list: list[Person] = list()
 #
 #     def set_persons(self, new_list: list[Person]):
 #         self.__person_list = new_list
 #
-#     def get_persons(self) -> list[Person]:
-#         return self.__person_list
+#     def get_persons(self) -> tuple[Person]:
+#         return tuple(self.__person_list)
 #
-#     def find_by_id(self, person_id):
+#     def __get_person_index(self, person_id: str) -> int:
 #         found_index = -1
 #         for i in range(len(self.__person_list)):
 #             if person_id == self.__person_list[i].get_id():
@@ -534,40 +536,42 @@
 #                 break
 #         return found_index
 #
-#     def add_person(self, new_person: Person):
-#         is_success = False
-#         index = self.find_by_id(new_person.get_id())
-#         if index == -1:
-#             self.__person_list.append(new_person)
-#             is_success = True
-#         return is_success
-#
-#     def remove_person_by_id(self, person_id):
-#         is_success = False
-#         index = self.find_by_id(person_id)
-#         if index != -1:
-#             del self.__person_list[index]
-#             is_success = True
-#         return is_success
-#
-#     def change_person_by_id(self, person_id, new_person: Person):
-#         is_success = False
-#         index = self.find_by_id(person_id)
-#         if index != -1:
-#             new_person_id = new_person.get_id()
-#             new_index = self.find_by_id(new_person_id)
-#             if person_id == new_person_id or new_index == -1:
-#                 self.__person_list[index] = new_person
-#                 is_success = True
-#         return is_success
-#
-#     def get_person_by_id(self, person_id):
-#         index = self.find_by_id(person_id)
+#     def get_person(self, person_id: str) -> Person | None:
+#         index = self.__get_person_index(person_id)
 #         if index != -1:
 #             person = self.__person_list[index]
 #         else:
 #             person = None
 #         return person
+#
+#     def add_person(self, new_person: Person) -> bool:
+#         is_success = False
+#         index = self.__get_person_index(new_person.get_id())
+#         if index == -1:
+#             self.__person_list.append(new_person)
+#             is_success = True
+#         return is_success
+#
+#     def remove_person_by_id(self, person_id: str) -> bool:
+#         is_success = False
+#         index = self.__get_person_index(person_id)
+#         if index != -1:
+#             del self.__person_list[index]
+#             is_success = True
+#         return is_success
+#
+#     def change_person_by_id(self, person_id: str, changed_person: Person):
+#         is_success = False
+#         person_to_change = self.get_person(person_id)
+#         if person_to_change:
+#             changed_person_id = changed_person.get_id()
+#             changed_person_index = self.__get_person_index(changed_person_id)
+#             if person_id == changed_person_id or changed_person_index == -1:
+#                 person_to_change.set_id(changed_person.get_id())
+#                 person_to_change.set_name(changed_person.get_name())
+#                 person_to_change.set_age(changed_person.get_age())
+#                 is_success = True
+#         return is_success
 #
 #
 # # db_person = DB()
@@ -765,7 +769,7 @@
 #         selected_id = selected_person.split()[0]
 #
 #         # Запрашиваем из бэкенда объект по идентификатору
-#         person = db_person.get_person_by_id(selected_id)
+#         person = db_person.get_person(selected_id)
 #         if person:
 #             person_data = f"ID: {person.get_id()}\nName: {person.get_name()}\nAge: {person.get_age()}"
 #             person_info.config(text=person_data, justify="left")
@@ -775,22 +779,22 @@
 # person_info_btn.place(x=235, y=400)
 #
 #
-# def fill_person_info(event):
-#     person_listbox_ind = person_listbox.curselection()
-#     if len(person_listbox_ind) > 0:
-#         selected_person = person_listbox.get(person_listbox_ind[0])
-#         selected_id = selected_person.split()[0]
-#         person = db_person.get_person_by_id(selected_id)
-#         if person:
-#             person_id_entry.delete(0, tkinter.END)
-#             person_id_entry.insert(0, person.get_id())
-#             person_name_entry.delete(0, tkinter.END)
-#             person_name_entry.insert(0, person.get_name())
-#             person_age_entry.delete(0, tkinter.END)
-#             person_age_entry.insert(0, person.get_age())
-#
-#
-# person_listbox.bind("<<ListboxSelect>>", fill_person_info)
+# # def fill_person_info(event):
+# #     person_listbox_ind = person_listbox.curselection()
+# #     if len(person_listbox_ind) > 0:
+# #         selected_person = person_listbox.get(person_listbox_ind[0])
+# #         selected_id = selected_person.split()[0]
+# #         person = db_person.get_person(selected_id)
+# #         if person:
+# #             person_id_entry.delete(0, tkinter.END)
+# #             person_id_entry.insert(0, person.get_id())
+# #             person_name_entry.delete(0, tkinter.END)
+# #             person_name_entry.insert(0, person.get_name())
+# #             person_age_entry.delete(0, tkinter.END)
+# #             person_age_entry.insert(0, person.get_age())
+# #
+# #
+# # person_listbox.bind("<<ListboxSelect>>", fill_person_info)
 #
 # root.mainloop()
 
@@ -808,9 +812,9 @@
 # class Student:
 #     __id = ""
 #     __name = ""
-#     __grades = list()
+#     __grades: list[int] = list()
 #
-#     def __init__(self, id: str, name: str, grades=None):
+#     def __init__(self, id: str, name: str, grades: list[int] = None):
 #         self.__id = id
 #         self.__name = name.title()
 #         if grades:
@@ -838,9 +842,9 @@
 #         self.__grades = grades
 #
 #     def get_grades(self):
-#         return self.__grades
+#         return tuple(self.__grades)
 #
-#     def add_grade(self, grade: int):
+#     def add_grade(self, grade: int) -> bool:
 #         is_success = False
 #         if 1 <= grade and grade <= 12:
 #             self.__grades.append(grade)
@@ -849,10 +853,10 @@
 #
 #
 # class DB:
-#     __student_list = list()
+#     __student_list: list[Student] = list()
 #
 #     def __init__(self):
-#         self.__student_list = list()
+#         self.__student_list: list[Student] = list()
 #
 #     def set_students(self, student_list: list[Student]):
 #         self.__student_list = student_list
@@ -860,7 +864,7 @@
 #     def get_students(self):
 #         return tuple(self.__student_list)
 #
-#     def find_by_id(self, student_id: str):
+#     def get_student_index(self, student_id: str):
 #         found_index = -1
 #         for i in range(len(self.__student_list)):
 #             if student_id == self.__student_list[i].get_id():
@@ -868,9 +872,17 @@
 #                 break
 #         return found_index
 #
+#     def get_student(self, student_id: str) -> None | Student:
+#         index = self.get_student_index(student_id)
+#         if index != -1:
+#             student = self.__student_list[index]
+#         else:
+#             student = None
+#         return student
+#
 #     def add_student(self, student: Student):
 #         is_success = False
-#         index = self.find_by_id(student.get_id())
+#         index = self.get_student_index(student.get_id())
 #         if index == -1:
 #             self.__student_list.append(student)
 #             is_success = True
@@ -878,40 +890,33 @@
 #
 #     def remove_student_by_id(self, student_id: str):
 #         is_success = False
-#         index = self.find_by_id(student_id)
+#         index = self.get_student_index(student_id)
 #         if index != -1:
 #             del self.__student_list[index]
 #             is_success = True
 #         return is_success
 #
-#     def change_student_by_id(self, student_id: str, student: Student):
+#     def change_student(self, student_id: str, changed_student: Student):
 #         is_success = False
-#         index = self.find_by_id(student_id)
-#         if index != -1:
-#             new_person_id = student.get_id()
-#             new_index = self.find_by_id(new_person_id)
-#             if student_id == new_person_id or new_index == -1:
-#                 self.__student_list[index] = student
+#         student = self.get_student(student_id)
+#         if student:
+#             changed_student_id = changed_student.get_id()
+#             changed_student_index = self.get_student_index(changed_student_id)
+#             if student_id == changed_student_id or changed_student_index == -1:
+#                 student.set_id(changed_student.get_id())
+#                 student.set_name(changed_student.get_name())
 #                 is_success = True
 #         return is_success
-#
-#     def get_student_by_id(self, student_id: str) -> None | Student:
-#         index = self.find_by_id(student_id)
-#         if index != -1:
-#             student = self.__student_list[index]
-#         else:
-#             student = None
-#         return student
 #
 #
 # import tkinter
 # from tkinter import ttk
 #
-# student_1 = Student("ABC1234", "Tom")
-# student_2 = Student("XYZ5869", "Bob")
-# student_3 = Student("CBE1324", "Tom")
-# student_4 = Student("XYZ1234", "Kate")
-# student_5 = Student("RTE2345", "Jim")
+# student_1 = Student("ABC1234", "Tom", [12, 10, 12])
+# student_2 = Student("XYZ5869", "Bob", [12, 12, 12])
+# student_3 = Student("CBE1324", "Tom", [11, 10, 12])
+# student_4 = Student("XYZ1234", "Kate", [10, 10, 11])
+# student_5 = Student("RTE2345", "Jim", [9, 11, 11])
 #
 #
 # db = DB()
@@ -1067,7 +1072,7 @@
 #         new_student = Student(new_id, new_name)
 #
 #         # Пытаемся изменить объект в бэкенде
-#         if db.change_student_by_id(selected_id, new_student):
+#         if db.change_student(selected_id, new_student):
 #             # Формируем строковое представление объекта
 #             new_student_listbox = str(new_student)
 #
@@ -1075,7 +1080,11 @@
 #             student_listbox.delete(student_listbox_ind[0])
 #             student_listbox.insert(student_listbox_ind[0], new_student_listbox)
 #
+#             # Обновляем фронтенд для корректного отображения
 #             student_combobox["values"] = db.get_students()
+#             student_combobox.set("")
+#             selected_student_info.config(text="", justify="left")
+#             grades_listbox.delete(0, tkinter.END)
 #
 #     # Для проверки соответствия наполнения бэкенда и фронтенда
 #     print()
@@ -1098,7 +1107,7 @@
 #         selected_id = selected_student.split()[0]
 #
 #         # Запрашиваем из бэкенда объект по идентификатору
-#         student = db.get_student_by_id(selected_id)
+#         student = db.get_student(selected_id)
 #         if student:
 #             student_data = f"ID: {student.get_id()}\nName: {student.get_name()}"
 #             student_info.config(text=student_data, justify="left")
@@ -1112,7 +1121,7 @@
 # #     if len(student_listbox_ind) > 0:
 # #         selected_student = student_listbox.get(student_listbox_ind[0])
 # #         selected_id = selected_student.split()[0]
-# #         student = db.get_student_by_id(selected_id)
+# #         student = db.get_student(selected_id)
 # #         if student:
 # #             student_id_entry.delete(0, tkinter.END)
 # #             student_id_entry.insert(0, student.get_id())
@@ -1158,7 +1167,7 @@
 # #     selected_student_info.config(text=f"{student_str}", justify="left")
 # #
 # #     student_str_id = student_str.split()[0]
-# #     student = db.get_student_by_id(student_str_id)
+# #     student = db.get_student(student_str_id)
 # #
 # #     if student:
 # #         fill_grades_listbox(student)
@@ -1172,7 +1181,7 @@
 #     selected_student_info.config(text=f"{student_str}", justify="left")
 #
 #     student_str_id = student_str.split()[0]
-#     student = db.get_student_by_id(student_str_id)
+#     student = db.get_student(student_str_id)
 #
 #     if student:
 #         fill_grades_listbox(student)
@@ -1186,7 +1195,7 @@
 #     grade = int(student_grade_entry.get())
 #     student_str = student_combobox.get()
 #     student_str_id = student_str.split()[0]
-#     student = db.get_student_by_id(student_str_id)
+#     student = db.get_student(student_str_id)
 #
 #     if student:
 #         student.add_grade(grade)
@@ -1282,26 +1291,26 @@
 #
 #
 # class DB:
-#     __person_list = list()
-#     __product_list = list()
+#     __person_list: list[Person] = list()
+#     __product_list: list[Product] = list()
 #
 #     def __init__(self):
-#         self.__person_list = list()
-#         self.__product_list = list()
+#         self.__person_list: list[Person] = list()
+#         self.__product_list: list[Product] = list()
 #
 #     def set_persons(self, new_list: list[Person]):
 #         self.__person_list = new_list
 #
-#     def get_persons(self) -> list[Person]:
-#         return self.__person_list
+#     def get_persons(self) -> tuple[Person]:
+#         return tuple(self.__person_list)
 #
 #     def set_products(self, new_list: list[Product]):
 #         self.__product_list = new_list
 #
-#     def get_products(self) -> list[Product]:
-#         return self.__product_list
+#     def get_products(self) -> tuple[Product]:
+#         return tuple(self.__product_list)
 #
-#     def find_person_index_by_id(self, person_id):
+#     def get_person_index(self, person_id: str) -> int:
 #         found_index = -1
 #         for i in range(len(self.__person_list)):
 #             if person_id == self.__person_list[i].get_id():
@@ -1309,42 +1318,44 @@
 #                 break
 #         return found_index
 #
-#     def add_person(self, new_person: Person) -> bool:
-#         is_success = False
-#         index = self.find_person_index_by_id(new_person.get_id())
-#         if index == -1:
-#             self.__person_list.append(new_person)
-#             is_success = True
-#         return is_success
-#
-#     def remove_person_by_id(self, person_id) -> bool:
-#         is_success = False
-#         index = self.find_person_index_by_id(person_id)
-#         if index != -1:
-#             del self.__person_list[index]
-#             is_success = True
-#         return is_success
-#
-#     def change_person_by_id(self, person_id, new_person: Person) -> bool:
-#         is_success = False
-#         index = self.find_person_index_by_id(person_id)
-#         if index != -1:
-#             new_person_id = new_person.get_id()
-#             new_index = self.find_person_index_by_id(new_person_id)
-#             if person_id == new_person_id or new_index == -1:
-#                 self.__person_list[index] = new_person
-#                 is_success = True
-#         return is_success
-#
-#     def get_person_by_id(self, person_id) -> Person:
-#         index = self.find_person_index_by_id(person_id)
+#     def get_person(self, person_id) -> Person | None:
+#         index = self.get_person_index(person_id)
 #         if index != -1:
 #             person = self.__person_list[index]
 #         else:
 #             person = None
 #         return person
 #
-#     def find_product_index_by_id(self, product_id):
+#     def add_person(self, new_person: Person) -> bool:
+#         is_success = False
+#         index = self.get_person_index(new_person.get_id())
+#         if index == -1:
+#             self.__person_list.append(new_person)
+#             is_success = True
+#         return is_success
+#
+#     def remove_person(self, person_id: str) -> bool:
+#         is_success = False
+#         index = self.get_person_index(person_id)
+#         if index != -1:
+#             del self.__person_list[index]
+#             is_success = True
+#         return is_success
+#
+#     def change_person(self, person_id: str, changed_person: Person) -> bool:
+#         is_success = False
+#         person = self.get_person(person_id)
+#         if person:
+#             changed_person_id = changed_person.get_id()
+#             changed_person_index = self.get_person_index(changed_person_id)
+#             if person_id == changed_person_id or changed_person_index == -1:
+#                 person.set_id(changed_person.get_id())
+#                 person.set_name(changed_person.get_name())
+#                 person.set_age(changed_person.get_age())
+#                 is_success = True
+#         return is_success
+#
+#     def get_product_index(self, product_id: str) -> int:
 #         found_index = -1
 #         for i in range(len(self.__product_list)):
 #             if product_id == self.__product_list[i].get_id():
@@ -1352,40 +1363,42 @@
 #                 break
 #         return found_index
 #
-#     def add_product(self, new_product: Product) -> bool:
-#         is_success = False
-#         index = self.find_product_index_by_id(new_product.get_id())
-#         if index == -1:
-#             self.__product_list.append(new_product)
-#             is_success = True
-#         return is_success
-#
-#     def remove_product_by_id(self, product_id) -> bool:
-#         is_success = False
-#         index = self.find_product_index_by_id(product_id)
-#         if index != -1:
-#             del self.__product_list[index]
-#             is_success = True
-#         return is_success
-#
-#     def change_product_by_id(self, product_id, new_product: Product) -> bool:
-#         is_success = False
-#         index = self.find_product_index_by_id(product_id)
-#         if index != -1:
-#             new_product_id = new_product.get_id()
-#             new_index = self.find_product_index_by_id(new_product_id)
-#             if product_id == new_product_id or new_index == -1:
-#                 self.__product_list[index] = new_product
-#                 is_success = True
-#         return is_success
-#
-#     def get_product_by_id(self, product_id) -> Product:
-#         index = self.find_product_index_by_id(product_id)
+#     def get_product(self, product_id: str) -> Product | None:
+#         index = self.get_product_index(product_id)
 #         if index != -1:
 #             product = self.__product_list[index]
 #         else:
 #             product = None
 #         return product
+#
+#     def add_product(self, new_product: Product) -> bool:
+#         is_success = False
+#         index = self.get_product_index(new_product.get_id())
+#         if index == -1:
+#             self.__product_list.append(new_product)
+#             is_success = True
+#         return is_success
+#
+#     def remove_product(self, product_id: str) -> bool:
+#         is_success = False
+#         index = self.get_product_index(product_id)
+#         if index != -1:
+#             del self.__product_list[index]
+#             is_success = True
+#         return is_success
+#
+#     def change_product(self, product_id: str, changed_product: Product) -> bool:
+#         is_success = False
+#         product = self.get_product(product_id)
+#         if product:
+#             changed_product_id = changed_product.get_id()
+#             changed_product_index = self.get_product_index(changed_product_id)
+#             if product_id == changed_product_id or changed_product_index == -1:
+#                 product.set_id(changed_product.get_id())
+#                 product.set_name(changed_product.get_name())
+#                 product.set_price(changed_product.get_price())
+#                 is_success = True
+#         return is_success
 #
 #
 # import tkinter
@@ -1595,7 +1608,7 @@
 #         customer_id = selected_person.split()[0]
 #
 #         # Пытаемся удалить из бэкенда
-#         if db.remove_person_by_id(customer_id):
+#         if db.remove_person(customer_id):
 #             # Удаляем из фронтенда
 #             person_listbox.delete(person_listbox_ind[0])
 #
@@ -1664,7 +1677,7 @@
 #             new_person = Person(new_id, new_name, new_age)
 #
 #             # Пытаемся изменить объект в бэкенде
-#             if db.change_person_by_id(selected_id, new_person):
+#             if db.change_person(selected_id, new_person):
 #                 # Формируем строковое представление объекта
 #                 new_person_listbox = str(new_person)
 #
@@ -1699,7 +1712,7 @@
 #         selected_id = selected_person.split()[0]
 #
 #         # Запрашиваем из бэкенда объект по идентификатору
-#         person = db.get_person_by_id(selected_id)
+#         person = db.get_person(selected_id)
 #         if person:
 #             person_data = f"ID: {person.get_id()}\nName: {person.get_name()}\nAge: {person.get_age()}"
 #             person_info.config(text=person_data, justify="left")
@@ -1713,7 +1726,7 @@
 #     if len(person_listbox_ind) > 0:
 #         selected_person = person_listbox.get(person_listbox_ind[0])
 #         selected_id = selected_person.split()[0]
-#         person = db.get_person_by_id(selected_id)
+#         person = db.get_person(selected_id)
 #         if person:
 #             person_id_entry.delete(0, tkinter.END)
 #             person_id_entry.insert(0, person.get_id())
@@ -1812,7 +1825,7 @@
 #         product_id = selected_product.split()[0]
 #
 #         # Пытаемся удалить из бэкенда
-#         if db.remove_product_by_id(product_id):
+#         if db.remove_product(product_id):
 #             # Удаляем из фронтенда
 #             product_listbox.delete(product_listbox_ind[0])
 #
@@ -1847,7 +1860,7 @@
 #         new_product = Product(new_id, new_name, new_price)
 #
 #         # Пытаемся изменить объект в бэкенде
-#         if db.change_product_by_id(selected_id, new_product):
+#         if db.change_product(selected_id, new_product):
 #             # Формируем строковое представление объекта
 #             new_product_listbox = str(new_product)
 #
@@ -1878,7 +1891,7 @@
 #         selected_id = selected_product.split()[0]
 #
 #         # Запрашиваем из бэкенда объект по идентификатору
-#         product = db.get_product_by_id(selected_id)
+#         product = db.get_product(selected_id)
 #         if product:
 #             product_data = f"ID: {product.get_id()}\nName: {product.get_name()}\nPrice: {product.get_price()}₼"
 #             product_info.config(text=product_data, justify="left")
@@ -1912,8 +1925,8 @@
 #
 #     # person_id = person_str.split()[0]
 #     # product_id = product_str.split()[0]
-#     # selected_person = db.get_person_by_id(person_id)
-#     # selected_product = db.get_product_by_id(product_id)
+#     # selected_person = db.get_person(person_id)
+#     # selected_product = db.get_product(product_id)
 #
 #     operations_info.config(text=f"Person: {person_str}\nProduct: {product_str}", justify="left")
 #
