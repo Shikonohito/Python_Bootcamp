@@ -1,0 +1,399 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT53-54</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+
+    .string {
+      color: #6AAB73;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .self {
+      color: #94558D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .number {
+      color: #2AACB8;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .comments {
+      color: #7A7E85;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .metadata {
+      color: #B3AE60;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .built-in {
+      color: #8888C6;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .function {
+      color: #56A8F5;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .special-names {
+      color: #B200B2;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+      font-family: "JetBrains mono", monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Практическое Задание 54.1</h2>
+        <p>Используя описанный ниже код бэкенда, создайте <span class="hl-text">графическое приложение</span>, в котором есть возможность <span class="hl-text">добавить</span>, <span class="hl-text">показать</span>, <span class="hl-text">изменить</span>, <span class="hl-text">удалить сотрудника</span>. Используйте виджеты <span class="hl-text">Label</span>, <span class="hl-text">Entry</span>, <span class="hl-text">Button</span>, <span class="hl-text">Listbox</span>.</p>
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">class Employee:
+    __id = str()
+    __name = str()
+    __age = str()
+
+    def __init__(self, id: str, name: str, age: int):
+        self.__id = id
+        self.__name = name
+        self.set_age(age)
+
+    def __str__(self):
+        return f"{self.__id} {self.__name}"
+
+    def set_id(self, id: str):
+        self.__id = id
+
+    def get_id(self):
+        return self.__id
+
+    def set_name(self, name: str):
+        self.__name = name
+
+    def get_name(self):
+        return self.__name
+
+    def set_age(self, age: int):
+        if age >= 0:
+            self.__age = age
+        else:
+            self.__age = 0
+
+    def get_age(self):
+        return self.__age
+
+
+class DB:
+    __employee_list: list[Employee] = list()
+
+    def __init__(self, employee_list: list[Employee] = None):
+        if employee_list:
+            self.__employee_list = employee_list
+        else:
+            self.__employee_list: list[Employee] = list()
+
+    def get_employees(self):
+        return tuple(self.__employee_list)
+
+    def __get_employee_index(self, employee_id: str) -> int:
+        found_index = -1
+        for i in range(len(self.__employee_list)):
+            if employee_id == self.__employee_list[i].get_id():
+                found_index = i
+                break
+        return found_index
+
+    def get_employee(self, employee_id: str) -> Employee | None:
+        found_index = self.__get_employee_index(employee_id)
+        found_employee = None
+        if found_index != -1:
+            found_employee = self.__employee_list[found_index]
+        return found_employee
+
+    def add_employee(self, new_employee: Employee) -> bool:
+        is_success = False
+        found_index = self.__get_employee_index(new_employee.get_id())
+        if found_index == -1:
+            self.__employee_list.append(new_employee)
+            is_success = True
+        return is_success
+
+    def remove_employee(self, employee_id: str) -> bool:
+        is_success = False
+        found_index = self.__get_employee_index(employee_id)
+        if found_index != -1:
+            del self.__employee_list[found_index]
+            is_success = True
+        return is_success
+
+    def change_employee(self, employee_id: str, changed_employee: Employee) -> bool:
+        is_success = False
+        employee = self.get_employee(employee_id)
+        if employee:
+            changed_employee_id = changed_employee.get_id()
+            changed_employee_index = self.__get_employee_index(changed_employee_id)
+            if employee_id == changed_employee_id or changed_employee_index == -1:
+                employee.set_id(changed_employee_id)
+                employee.set_name(changed_employee.get_name())
+                employee.set_age(changed_employee.get_age())
+                is_success = True
+        return is_success
+
+
+# ТЕСТОВЫЕ ДАННЫЕ
+employee_1 = Employee("E-001", "Teston", 25)
+employee_2 = Employee("E-055", "Tom", 28)
+employee_3 = Employee("E-029", "Kate", 27)
+employee_4 = Employee("E-014", "Bob", 29)
+employee_5 = Employee("E-059", "Jack", 35)
+
+data_base = DB()
+data_base.add_employee(employee_1)
+data_base.add_employee(employee_2)
+data_base.add_employee(employee_3)
+data_base.add_employee(employee_4)
+data_base.add_employee(employee_5)</code></pre>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function() {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'None'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|bool)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /(end|sep|expand|fill|font|height|x|y|text|command)=/g;
+        innerHTML = innerHTML.replace(regex, '<span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>
