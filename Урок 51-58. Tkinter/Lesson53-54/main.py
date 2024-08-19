@@ -102,12 +102,12 @@ person_3 = Person("CBE1324", "Tom", 28)
 person_4 = Person("XYZ1234", "Kate", 24)
 person_5 = Person("RTE2345", "Jim", 16)
 
-db_person = DB()
-db_person.add_person(person_1)
-db_person.add_person(person_2)
-db_person.add_person(person_3)
-db_person.add_person(person_4)
-db_person.add_person(person_5)
+data_base = DB()
+data_base.add_person(person_1)
+data_base.add_person(person_2)
+data_base.add_person(person_3)
+data_base.add_person(person_4)
+data_base.add_person(person_5)
 
 root = tkinter.Tk()
 root.title("Listbox")
@@ -123,7 +123,7 @@ person_listbox.place(x=20, y=20)
 
 def fill_person_listbox():
     person_listbox.delete(0, tkinter.END)
-    for person in db_person.get_persons():
+    for person in data_base.get_persons():
         person_listbox.insert(tkinter.END, str(person))
 
 
@@ -164,7 +164,7 @@ def add_person():
     new_person = Person(new_id, new_name, new_age)
 
     # Добавляем объект в бэкенд
-    if db_person.add_person(new_person):
+    if data_base.add_person(new_person):
         # Формируем строковое представление объекта
         new_person_listbox = str(new_person)
 
@@ -173,7 +173,7 @@ def add_person():
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
-    for person in db_person.get_persons():
+    for person in data_base.get_persons():
         print(f"{person.get_id()} {person.get_name()} {person.get_age()}")
 
 
@@ -190,16 +190,16 @@ def delete_person():
         selected_person = person_listbox.get(person_listbox_ind[0])
 
         # Отдельно выделяем идентификатор
-        customer_id = selected_person.split()[0]
+        person_id = selected_person.split()[0]
 
         # Пытаемся удалить из бэкенда
-        if db_person.remove_person_by_id(customer_id):
+        if data_base.remove_person_by_id(person_id):
             # Удаляем из фронтенда
             person_listbox.delete(person_listbox_ind[0])
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
-    for person in db_person.get_persons():
+    for person in data_base.get_persons():
         print(f"{person.get_id()} {person.get_name()} {person.get_age()}")
 
 
@@ -226,7 +226,7 @@ def change_person():
         new_person = Person(new_id, new_name, new_age)
 
         # Пытаемся изменить объект в бэкенде
-        if db_person.change_person_by_id(selected_id, new_person):
+        if data_base.change_person_by_id(selected_id, new_person):
             # Формируем строковое представление объекта
             new_person_listbox = str(new_person)
 
@@ -236,7 +236,7 @@ def change_person():
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
-    for person in db_person.get_persons():
+    for person in data_base.get_persons():
         print(f"{person.get_id()} {person.get_name()} {person.get_age()}")
 
 
@@ -255,7 +255,7 @@ def show_person_data():
         selected_id = selected_person.split()[0]
 
         # Запрашиваем из бэкенда объект по идентификатору
-        person = db_person.get_person(selected_id)
+        person = data_base.get_person(selected_id)
         if person:
             person_data = f"ID: {person.get_id()}\nName: {person.get_name()}\nAge: {person.get_age()}"
             person_info.config(text=person_data, justify="left")
@@ -270,7 +270,7 @@ person_info_btn.place(x=235, y=400)
 #     if len(person_listbox_ind) > 0:
 #         selected_person = person_listbox.get(person_listbox_ind[0])
 #         selected_id = selected_person.split()[0]
-#         person = db_person.get_person(selected_id)
+#         person = data_base.get_person(selected_id)
 #         if person:
 #             person_id_entry.delete(0, tkinter.END)
 #             person_id_entry.insert(0, person.get_id())
