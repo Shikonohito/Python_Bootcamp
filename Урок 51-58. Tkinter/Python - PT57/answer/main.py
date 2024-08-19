@@ -131,14 +131,14 @@ root.iconbitmap(default="img/python.ico")
 frame_student = tkinter.Frame(root)
 frame_student.pack(expand=True, fill="both")
 
-frame_student_bg_img = tkinter.PhotoImage(file="img/edited_lesson57_frame_student_bg.gif")
+frame_student_bg_img = tkinter.PhotoImage(file="img/students_resized.gif")
 frame_student_bg = tkinter.Label(frame_student, image=frame_student_bg_img)
 frame_student_bg.place(x=0, y=0)
 
 frame_grades = tkinter.Frame(root)
 frame_grades.pack_forget()
 
-frame_grades_bg_img = tkinter.PhotoImage(file="img/edited_lesson57_frame_grades_bg.gif")
+frame_grades_bg_img = tkinter.PhotoImage(file="img/grades_resized.gif")
 frame_grades_bg = tkinter.Label(frame_grades, image=frame_grades_bg_img)
 frame_grades_bg.place(x=0, y=0)
 
@@ -195,11 +195,17 @@ fill_student_listbox()
 fs_student_id_lbl = tkinter.Label(frame_student, text="ID:", font=("Arial", 18))
 fs_student_id_lbl.place(x=340, y=20)
 
+fs_student_id_notify = tkinter.Label(frame_student, text="", font=("Arial", 18), fg="red")
+fs_student_id_notify.place(x=400, y=20)
+
 fs_student_id_entry = tkinter.Entry(frame_student, font=("Arial", 18))
 fs_student_id_entry.place(x=340, y=60)
 
 fs_student_name_lbl = tkinter.Label(frame_student, text="Name:", font=("Arial", 18))
 fs_student_name_lbl.place(x=340, y=100)
+
+fs_student_name_notify = tkinter.Label(frame_student, text="", font=("Arial", 18), fg="red")
+fs_student_name_notify.place(x=440, y=100)
 
 fs_student_name_entry = tkinter.Entry(frame_student, font=("Arial", 18))
 fs_student_name_entry.place(x=340, y=140)
@@ -216,18 +222,35 @@ def fs_add_student():
     new_id = fs_student_id_entry.get()
     new_name = fs_student_name_entry.get()
 
-    # Формируем из данных объект
-    new_student = Student(new_id, new_name)
+    is_all_checked = True
 
-    # Добавляем объект в бэкенд
-    if data_base.add_student(new_student):
-        # Формируем строковое представление объекта
-        new_student_listbox = str(new_student)
+    if new_id == "":
+        fs_student_id_notify.config(text="Enter id!")
+        is_all_checked = False
+    else:
+        fs_student_id_notify.config(text="")
 
-        # Добавляем строковое представление объекта во фронтенд
-        fs_student_listbox.insert(tkinter.END, new_student_listbox)
+    if new_name == "":
+        fs_student_name_notify.config(text="Enter name!")
+        is_all_checked = False
+    else:
+        fs_student_name_notify.config(text="")
 
-        fg_student_combobox["values"] = data_base.get_students()
+    if is_all_checked:
+        # Формируем из данных объект
+        new_student = Student(new_id, new_name)
+
+        # Добавляем объект в бэкенд
+        if data_base.add_student(new_student):
+            # Формируем строковое представление объекта
+            new_student_listbox = str(new_student)
+
+            # Добавляем строковое представление объекта во фронтенд
+            fs_student_listbox.insert(tkinter.END, new_student_listbox)
+
+            fg_student_combobox["values"] = data_base.get_students()
+
+            fs_student_info.config(text="Student added.", fg="green")
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
@@ -256,6 +279,10 @@ def fs_delete_student():
 
             fg_student_combobox["values"] = data_base.get_students()
 
+            fs_student_info.config(text="Student deleted.", fg="green")
+    else:
+        fs_student_info.config(text="Select student to delete!", fg="red")
+
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
     for student in data_base.get_students():
@@ -280,23 +307,40 @@ def change_student():
         new_id = fs_student_id_entry.get()
         new_name = fs_student_name_entry.get()
 
-        # Формируем из данных объект
-        new_student = Student(new_id, new_name)
+        is_all_checked = True
 
-        # Пытаемся изменить объект в бэкенде
-        if data_base.change_student(selected_id, new_student):
-            # Формируем строковое представление объекта
-            new_student_listbox = str(new_student)
+        if new_id == "":
+            fs_student_id_notify.config(text="Enter id!")
+            is_all_checked = False
+        else:
+            fs_student_id_notify.config(text="")
 
-            # Изменяем данные во фронтенде
-            fs_student_listbox.delete(student_listbox_ind[0])
-            fs_student_listbox.insert(student_listbox_ind[0], new_student_listbox)
+        if new_name == "":
+            fs_student_name_notify.config(text="Enter name!")
+            is_all_checked = False
+        else:
+            fs_student_name_notify.config(text="")
 
-            # Обновляем фронтенд для корректного отображения
-            fg_student_combobox["values"] = data_base.get_students()
-            fg_student_combobox.set("")
-            fg_selected_student_info.config(text="", justify="left")
-            fg_grades_listbox.delete(0, tkinter.END)
+        if is_all_checked:
+            # Формируем из данных объект
+            new_student = Student(new_id, new_name)
+
+            # Пытаемся изменить объект в бэкенде
+            if data_base.change_student(selected_id, new_student):
+                # Формируем строковое представление объекта
+                new_student_listbox = str(new_student)
+
+                # Изменяем данные во фронтенде
+                fs_student_listbox.delete(student_listbox_ind[0])
+                fs_student_listbox.insert(student_listbox_ind[0], new_student_listbox)
+
+                # Обновляем фронтенд для корректного отображения
+                fg_student_combobox["values"] = data_base.get_students()
+                fg_student_combobox.set("")
+                fg_selected_student_info.config(text="", justify="left")
+                fg_grades_listbox.delete(0, tkinter.END)
+
+                fs_student_info.config(text="Student data changed.", fg="green")
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
@@ -322,7 +366,7 @@ def show_student_data():
         student = data_base.get_student(selected_id)
         if student:
             student_data = f"ID: {student.get_id()}\nName: {student.get_name()}"
-            fs_student_info.config(text=student_data, justify="left")
+            fs_student_info.config(text=student_data, justify="left", fg="black")
 
 
 fs_student_info_btn = tkinter.Button(frame_student, text="Info", font=("Arial", 14), command=show_student_data)
@@ -364,6 +408,9 @@ fg_student_grade_lbl.place(x=20, y=100)
 fg_student_grade_entry = tkinter.Entry(frame_grades, width=3, font=("Arial", 16))
 fg_student_grade_entry.place(x=100, y=100)
 
+fg_student_grade_notify = tkinter.Label(frame_grades, text="", font=("Arial", 16), fg="red")
+fg_student_grade_notify.place(x=150, y=100)
+
 
 def fill_grades_listbox(student: Student):
     fg_grades_listbox.delete(0, tkinter.END)
@@ -401,14 +448,30 @@ fg_show_grades_btn.place(x=400, y=430)
 
 
 def fg_add_grade():
-    grade = int(fg_student_grade_entry.get())
-    student_str = fg_student_combobox.get()
-    student_str_id = student_str.split()[0]
-    student = data_base.get_student(student_str_id)
+    grade = fg_student_grade_entry.get()
+    is_all_correct = True
+    if not grade.isnumeric():
+        fg_student_grade_notify.config(text="Grade must be num!", fg="red")
+        is_all_correct = False
+    else:
+        grade = int(grade)
+        if grade < 0 or grade > 12:
+            fg_student_grade_notify.config(text="Grade must be [1, 12]!", fg="red")
+            is_all_correct = False
 
-    if student:
-        student.add_grade(grade)
-        show_grades()
+    student_str = fg_student_combobox.get()
+    if not student_str:
+        fg_student_grade_notify.config(text="Select student!", fg="red")
+        is_all_correct = False
+
+    if is_all_correct:
+        student_str_id = student_str.split()[0]
+        student = data_base.get_student(student_str_id)
+
+        if student:
+            student.add_grade(grade)
+            show_grades()
+            fg_student_grade_notify.config(text="Grade added.", fg="green")
 
 
 fg_add_grades_btn = tkinter.Button(frame_grades, text="Add grade", font=("Arial", 16), command=fg_add_grade)
