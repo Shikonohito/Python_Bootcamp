@@ -217,7 +217,6 @@ root.iconbitmap(default="img/python.ico")
 # icon = tkinter.PhotoImage(file="img/python.gif")
 # root.iconphoto(False, icon)  # Первый аргумент отвечает за установку иконки на все окна
 
-
 frame_person = tkinter.Frame(root)
 frame_person.pack(expand=True, fill="both")
 
@@ -724,7 +723,7 @@ def make_operation():
     operations_info.config(text=f"Person: {person_str}\nProduct: {product_str}", justify="left")
 
 
-make_operation_btn_img = tkinter.PhotoImage(file="img/edited_lesson57_button_make_operation.gif")
+make_operation_btn_img = tkinter.PhotoImage(file="img/button_make_operation.gif")
 make_operation_btn = tkinter.Button(frame_operations,font=("Arial", 16), command=make_operation,
                                     image=make_operation_btn_img, bd=2, bg="#000000")
 make_operation_btn.place(x=400, y=20)

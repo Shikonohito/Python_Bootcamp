@@ -520,7 +520,7 @@ fs_student_info_btn.place(x=235, y=400)
 #             fs_student_name_entry.insert(0, student.get_name())
 #
 #
-# fs_student_listbox.bind("<<ListboxSelect>>", fill_student_info)
+# fs_student_listbox.bind("<&ltListboxSelect>>", fill_student_info)
 
 # END FRAME STUDENT
 
@@ -561,7 +561,7 @@ def fill_grades_listbox(student: Student):
 #         fill_grades_listbox(student)
 #
 #
-# fg_student_combobox.bind("<<ComboboxSelected>>", show_grades_event)
+# fg_student_combobox.bind("<&ltComboboxSelected>>", show_grades_event)
 
 
 def show_grades():
