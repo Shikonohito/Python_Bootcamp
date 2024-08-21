@@ -258,7 +258,7 @@ class DB:
 data_base = DB()
 
 root = tkinter.Tk()
-root.title("Combobox and radiobutton")
+root.title("Save and load")
 root.geometry("720x480")
 root.resizable(False, False)
 
