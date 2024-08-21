@@ -20,8 +20,9 @@ test_frame.pack(expand=True, fill="both")
 #
 #
 # def test_combobox():
+#     index = day_combobox.current()
 #     result = day_combobox.get()
-#     print(result)
+#     print(index, result)
 #
 #
 # combobox_test_btn = tkinter.Button(test_frame, text="Get combobox", font=("Arial", 16), command=test_combobox)

@@ -665,7 +665,7 @@ def fgd_remove_student_from_group():
                 # Удаляем из фронтенда
                 fgd_student_listbox.delete(student_listbox_ind[0])
 
-                fgd_student_combobox["values"] = data_base.get_groups()
+                fgd_student_combobox["values"] = data_base.get_students()
                 fgd_student_combobox.set("")
 
         # Для проверки соответствия наполнения бэкенда и фронтенда
