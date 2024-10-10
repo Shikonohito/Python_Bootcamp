@@ -688,7 +688,7 @@ class GameShop:
         is_success = False
         found_customer = self.get_customer(customer.get_login())
         if found_customer:
-            game = self.get_game(game_id)
+            found_game = self.get_game(game_id)
             if found_game:
                 is_success = found_customer.add_game_to_cart(game)
         return is_success
