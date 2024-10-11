@@ -568,7 +568,7 @@
 #     def __lt__(self, other):
 #         return self.__average_grade < other.__average_grade
 #
-#     def __getitem__(self, item):
+#     def __getitem__(self, item):  # если __contains__ отсутствует, in использует его
 #         if item < len(self.__grades):
 #             result = self.__grades[item]
 #         else:
@@ -578,7 +578,7 @@
 #     def __eq__(self, other):
 #         return self.__name == other.__name and self.__age == other.__age
 #
-#     def __contains__(self, item):
+#     def __contains__(self, item):  # in использует его
 #         is_found = False
 #         for grade in self.__grades:
 #             if grade == item:
@@ -588,11 +588,11 @@
 #
 #     def __add__(self, other):
 #         self.__grades.append(other)
-
-
+#
+#
 # student_1 = Student("Tom", 25, [11, 12, 10, 12])
 # student_2 = Student("Tom", 25, [10, 9, 10, 12])
-
+#
 # print(student_1)
 # print(student_2)
 # print(student_1.student_gt(student_2))
@@ -601,7 +601,7 @@
 # print(student_1[0])
 # print(student_1 == student_2)
 # print(12 in student_2)
-
+#
 # student_1 + 20
 # print(student_1)
 
