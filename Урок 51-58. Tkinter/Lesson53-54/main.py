@@ -72,7 +72,7 @@ class DB:
             is_success = True
         return is_success
 
-    def remove_person_by_id(self, person_id: str) -> bool:
+    def remove_person(self, person_id: str) -> bool:
         is_success = False
         index = self.__get_person_index(person_id)
         if index != -1:
@@ -80,7 +80,7 @@ class DB:
             is_success = True
         return is_success
 
-    def change_person_by_id(self, person_id: str, changed_person: Person) -> bool:
+    def change_person(self, person_id: str, changed_person: Person) -> bool:
         is_success = False
         person_to_change = self.get_person(person_id)
         if person_to_change:
@@ -193,7 +193,7 @@ def delete_person():
         person_id = selected_person.split()[0]
 
         # Пытаемся удалить из бэкенда
-        if data_base.remove_person_by_id(person_id):
+        if data_base.remove_person(person_id):
             # Удаляем из фронтенда
             person_listbox.delete(person_listbox_ind[0])
 
@@ -226,7 +226,7 @@ def change_person():
         new_person = Person(new_id, new_name, new_age)
 
         # Пытаемся изменить объект в бэкенде
-        if data_base.change_person_by_id(selected_id, new_person):
+        if data_base.change_person(selected_id, new_person):
             # Формируем строковое представление объекта
             new_person_listbox = str(new_person)
 
