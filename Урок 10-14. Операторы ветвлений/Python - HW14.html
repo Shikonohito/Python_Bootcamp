@@ -465,23 +465,23 @@ SALARY_MAX = 2000
 if salary >= SALARY_MIN:
     tax_percent = 5
     tax_coef = 1 - tax_percent / 100
-    total_salary = salary * tax_coef
+    salary = salary * tax_coef
     has_covered_med_tax = True
     has_covered_soc_tax = True
 if salary >= SALARY_MID:
     tax_percent = 10
     tax_coef = 1 - tax_percent / 100
-    total_salary = salary * tax_coef
+    salary = salary * tax_coef
     has_covered_med_tax = True
     has_covered_soc_tax = False
 if salary >= SALARY_MAX:
     tax_percent = 15
     tax_coef = 1 - tax_percent / 100
-    total_salary = salary * tax_coef
+    salary = salary * tax_coef
     has_covered_med_tax = False
     has_covered_soc_tax = False
 
-print("Чистая прибыль:", total_salary)
+print("Чистая прибыль:", salary)
 
 if has_covered_med_tax == True:
     print("Компания покрывает медицинское страхование.")
