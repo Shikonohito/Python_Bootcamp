@@ -70,13 +70,47 @@
       color: #FFC000;
     }
 
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
     p {
       margin-top: 15px;
       margin-bottom: 0px;
     }
 
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
     .string {
       color: #6AAB73;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .keyword {
+      color: #CF8E6D;
       font-family: "JetBrains mono", monospace;
     }
 
@@ -132,6 +166,107 @@
     <div class="right-block">
       <div class="right-rect">
         <h2>Практическое Задание 31.1</h2>
+        <p>Реализуйте следующее меню:
+        <div class="console">
+          <pre><code>1. Показать список температур
+2. Создать новый список
+3. Добавить температуру
+4. Показать максимальную температуру из списка
+5. Показать минимальную температуру из списка
+6. Показать среднюю температуру из списка
+7. Завершить программу</code></pre>
+        </div>
+        </p>
+        <p>При выборе <span class="hl-text">пункта 1</span> программа должна <span class="hl-text">выводить в консоль все температуры из списка в одну строчку</span>.<br>Реализуйте через функцию <span class="function"><b>show_list</b></span>:
+          <br>— Функция принимает <span class="hl-text">список температур</span>.
+          <br>— Выводит в консоль <span class="hl-text">в одну строку через пробел температуры</span>.
+          <br>— Ничего <span class="hl-text">не возвращает</span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 2</span> программа должна <span class="hl-text">запросить с консоли в одну строчку температуры через пробел</span> и <span class="hl-text">поместить в список</span>.<br>Реализуйте через функцию <span class="function"><b>input_temperature_list</b></span>:
+          <br>— Функция ничего <span class="hl-text">не принимает</span>.
+          <br>— Запрашивает с консоли <span class="hl-text">в одну строчку температуры через пробел</span>.
+          <br>— Конвертирует данные <span class="hl-text">в числа</span> и помещает <span class="hl-text">в список</span>.
+          <br>— Возвращает <span class="hl-text">полученный список</span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 3</span> программа должна <span class="hl-text">запросить с консоли температуру</span> и <span class="hl-text">поместить в список</span>.<br>Реализуйте через функцию <span class="function"><b>input_temperature</b></span>:
+          <br>— Функция принимает <span class="hl-text">список температур</span>.
+          <br>— Запрашивает с консоли <span class="hl-text">температуру</span>.
+          <br>— Добавляет <span class="hl-text">температуру в список</span>.
+          <br>— Ничего <span class="hl-text">не возвращает</span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 4</span> программа должна <span class="hl-text">показать в консоли максимальную температуру из списка</span>.<br>Реализуйте через функцию <span class="function"><b>get_max_temperature</b></span>:
+          <br>— Функция принимает <span class="hl-text">список температур</span>.
+          <br>— Если список пустой, то <span class="hl-text">возвращает</span> <span class="keyword"><b>None</b></span>. В противном случае находит <span class="hl-text">максимальную температуру</span> и <span class="hl-text">возвращает её</span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 5</span> программа должна <span class="hl-text">показать в консоли минимальную температуру из списка</span>.<br>Реализуйте через функцию <span class="function"><b>get_min_temperature</b></span>:
+          <br>— Функция принимает <span class="hl-text">список температур</span>.
+          <br>— Если список пустой, то возвращает <span class="keyword"><b>None</b></span>. В противном случае находит <span class="hl-text">минимальную температуру</span> и <span class="hl-text">возвращает её</span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 6</span> программа должна <span class="hl-text">показать в консоли среднюю температуру из списка</span>.<br>Реализуйте через функцию <span class="function"><b>get_avg_temperature</b></span>:
+          <br>— Функция принимает <span class="hl-text">список температур</span>.
+          <br>— Если список пустой, то возвращает <span class="keyword"><b>None</b></span>. В противном случае находит <span class="hl-text">среднюю температуру</span> и <span class="hl-text">возвращает её</span>.
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 31.2</h2>
+        <p>Реализуйте следующее меню:
+        <div class="console">
+          <pre><code>1. Показать список оценок
+2. Создать новый список
+3. Добавить оценку
+4. Удалить оценку по порядковому номеру
+5. Изменить оценку по порядковому номеру
+6. Показать среднюю оценку из списка
+7. Завершить программу</code></pre>
+        </div>
+        </p>
+        <p>При выборе <span class="hl-text">пункта 1</span> программа должна <span class="hl-text">выводить в консоль все оценки из списка в одну строчку</span>.<br>Реализуйте через функцию <span class="function"><b>show_list</b></span>:
+          <br>— Функция принимает <span class="hl-text">список оценок</span>.
+          <br>— Выводит в консоль <span class="hl-text">в одну строку через пробел оценки</span>.
+          <br>— Ничего <span class="hl-text">не возвращает</span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 2</span> программа должна <span class="hl-text">запросить с консоли в одну строчку оценки через пробел</span> и <span class="hl-text">поместить в список</span>.<br>Реализуйте через функцию <span class="function"><b>input_grade_list</b></span>:
+          <br>— Функция ничего <span class="hl-text">не принимает</span>.
+          <br>— Запрашивает с консоли <span class="hl-text">в одну строчку температуры через пробел</span>.
+          <br>— Конвертирует данные <span class="hl-text">в числа</span>.
+          <br>— Проверяет каждую оценку с помощью функции <span class="function"><b>is_correct_grade</b></span> (см. ниже). Если оценка проходит проверку, то помещает её <span class="hl-text">в список</span>.
+          <br>— Возвращает <span class="hl-text">полученный список</span>.
+        </p>
+        <p>Функция <span class="function"><b>is_correct_grade</b></span>:
+          <br>— Принимает <span class="hl-text">оценку</span>.
+          <br>— Если оценка в промежутке от <span class="number"><b>1</b></span> до <span class="number"><b>12</b></span> включительно, то <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>. В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 3</span> программа должна <span class="hl-text">запросить с консоли оценку</span> и <span class="hl-text">поместить в список</span>.<br>Реализуйте через функцию <span class="function"><b>add_grade</b></span>:
+          <br>— Функция принимает <span class="hl-text">список оценок</span> и <span class="hl-text">оценку</span>.
+          <br>— Проверяет оценку с помощью функции <span class="function"><b>is_correct_grade</b></span>. Если оценка проходит проверку, то помещает её <span class="hl-text">в список</span> и <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>. В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 4</span> программа должна <span class="hl-text">запросить с консоли порядковый номер оценки</span> и <span class="hl-text">удалить оценку</span>.<br>Реализуйте через функцию <span class="function"><b>remove_grade</b></span>:
+          <br>— Функция принимает <span class="hl-text">список оценок</span> и <span class="hl-text">индекс</span>.
+          <br>— Проверяет индекс с помощью функции <span class="function"><b>is_correct_index</b></span> (см. ниже). Если индекс проходит проверку, то <span class="hl-text">удаляет оценку по индексу из списка</span> и <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>. В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+        </p>
+        <p>Функция <span class="function"><b>is_correct_index</b></span>:
+          <br>— Принимает <span class="hl-text">список оценок</span> и <span class="hl-text">индекс</span>.
+          <br>— Если индекс в промежутке от <span class="number"><b>0</b></span> до <span class="number"><b>размера списка</b></span>, то <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>. В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 5</span> программа должна <span class="hl-text">запросить с консоли порядковый номер оценки</span> и <span class="hl-text">оценку</span>. Затем программа должна <span class="hl-text">изменить оценку по порядковому номеру на другую оценку</span>.<br>Реализуйте через функцию <span class="function"><b>change_grade</b></span>:
+          <br>— Функция принимает <span class="hl-text">список оценок</span>, <span class="hl-text">индекс</span> и <span class="hl-text">новую оценку</span>.
+          <br>— Проверяет оценку с помощью <span class="function"><b>is_correct_grade</b></span> и индекс с помощью <span class="function"><b>is_correct_index</b></span>. Если всё в порядке, то <span class="hl-text">изменяет оценку по индексу на новую оценку</span> и <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>. В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 6</span> программа должна <span class="hl-text">показать в консоли среднюю оценку из списка</span>.<br>Реализуйте через функцию <span class="function"><b>get_avg_grade</b></span>:
+          <br>— Функция принимает <span class="hl-text">список оценок</span>.
+          <br>— Если список пустой, то возвращает <span class="keyword"><b>None</b></span>. В противном случае находит <span class="hl-text">среднюю оценку</span> и <span class="hl-text">возвращает её</span>.
+        </p>
+      </div>
+
+      <div class="right-rect">
+        <h2>Практическое Задание 31.3</h2>
+        <p>Напишите программу, которая <span class="hl-text">по-разному приветствует пользователей</span>. Создайте <span class="hl-text">список</span> <span class="grey"><b>users</b></span>, который будет содержать имена <span class="string"><b>"Teston"</b></span>, <span class="string"><b>"Иван"</b></span>, <span class="string"><b>"Kate"</b></span>. Создайте <span class="hl-text">три функции</span>, которые <span class="hl-text">принимают строку имени</span> и <span class="hl-text">возвращают строки приветствия</span>. Первая функция <span class="hl-text">возвращает</span> <span class="string"><b>"Доброго времени суток, магистр &ltИмя&gt."</b></span>, вторая функция <span class="hl-text">возвращает</span> <span class="string"><b>"Здравствуйте, лорд &ltИмя&gt."</b></span>, третья функция - <span class="string"><b>"Добро пожаловать, &ltИмя&gt."</b></span>.</p>
+
+        <p>Напишите ещё одну функцию, которая <span class="hl-text">принимает список имён</span> и <span class="hl-text">список функций приветствий</span>, затем функция <span class="hl-text">в цикле вызывает функции приветствий, передавая им имена</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 31.4</h2>
         <p>Напишите программу по приготовлению салата <span class="string"><b>"Мимоза"</b></span> с использованием <span class="hl-text">разных функций</span> и <span class="hl-text">вызове их через цикл</span>.</p>
         <h3>Рецепт:</h3>
         <ol>
@@ -188,12 +323,6 @@
             <br>Вызывает <span class="function"><b>cooking_steps</b></span> и проходится по ним. Затем выводит в консоль <span class="string"><b>"Готово"</b></span>.
           </li>
         </ol>
-      </div>
-      <div class="right-rect">
-        <h2>Практическое Задание 31.2</h2>
-        <p>Напишите программу, которая <span class="hl-text">по-разному приветствует пользователей</span>. Создайте <span class="hl-text">список</span> <span class="grey"><b>users</b></span>, который будет содержать имена <span class="string"><b>"Teston"</b></span>, <span class="string"><b>"Иван"</b></span>, <span class="string"><b>"Kate"</b></span>. Создайте <span class="hl-text">три функции</span>, которые <span class="hl-text">принимают строку имени</span> и <span class="hl-text">возвращают строки приветствия</span>. Первая функция <span class="hl-text">возвращает</span> <span class="string"><b>"Доброго времени суток, магистр &ltИмя&gt."</b></span>, вторая функция <span class="hl-text">возвращает</span> <span class="string"><b>"Здравствуйте, лорд &ltИмя&gt."</b></span>, третья функция - <span class="string"><b>"Добро пожаловать, &ltИмя&gt."</b></span>.</p>
-
-        <p>Напишите ещё одну функцию, которая <span class="hl-text">принимает список имён</span> и <span class="hl-text">список функций приветствий</span>, затем функция <span class="hl-text">в цикле вызывает функции приветствий, передавая им имена</span>.</p>
       </div>
     </div>
   </div>
