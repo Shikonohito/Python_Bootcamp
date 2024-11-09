@@ -222,8 +222,9 @@
           <pre><code>1. Показать список имён
 2. Добавить имя
 3. Удалить имя по порядковому номеру
-4. Изменить имя по порядковому номеру
-5. Завершить программу</code></pre>
+4. Изменить имя по порядковому 
+5. Показать порядковый номер по имени
+6. Завершить программу</code></pre>
         </div>
         </p>
         <p>При выборе <span class="hl-text">пункта 1</span> программа должна <span class="hl-text">выводить в консоль все имена из списка в одну строчку</span>.<br>Реализуйте через функцию <span class="function"><b>show_list</b></span>:
@@ -250,6 +251,10 @@
         <p>При выборе <span class="hl-text">пункта 4</span> программа должна <span class="hl-text">запросить с консоли порядковый номер имени</span> и <span class="hl-text">имя</span>. Затем программа должна <span class="hl-text">изменить имя по порядковому номеру на другое имя</span>, если нового имени нет в списке.<br>Реализуйте через функцию <span class="function"><b>change_name</b></span>:
           <br>— Функция принимает <span class="hl-text">список имён</span>, <span class="hl-text">индекс</span> и <span class="hl-text">новое имя</span>.
           <br>— Проверяет имя с помощью <span class="function"><b>is_duplicate</b></span> и индекс с помощью <span class="function"><b>is_correct_index</b></span>. Если всё в порядке, то <span class="hl-text">изменяет имя по индексу на новое имя</span> и <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>. В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 5</span> программа должна <span class="hl-text">запросить с консоли имя</span>. Затем программа должна <span class="hl-text">вывести порядковый номер имени</span>, если имя есть в списке. В противном случае, программа должна <span class="hl-text">вывести число</span> <span class="number"><b>-1</b></span>.<br>Реализуйте через функцию <span class="function"><b>get_index</b></span>:
+          <br>— Функция принимает <span class="hl-text">список имён</span> и <span class="hl-text">имя</span>.
+          <br>— Проходится <span class="hl-text">по списку</span> и <span class="hl-text">ищет имя</span>. Если имя найдено, то <span class="hl-text">возвращает индекс этого имени</span>. В противном случае <span class="hl-text">возвращает</span> <span class="number"><b>-1</b></span>.
         </p>
       </div>
       <div class="right-rect">
