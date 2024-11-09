@@ -171,6 +171,14 @@
 
 # ====================================================================================================
 
+# def show_data(name: str, age: int, group: str) -> None:
+#     print(f"Name: {name}\t\tAge: {age}\t\tGroup: {group}")
+#
+#
+# show_data("Tom", 18, "233BC_Python")
+# show_data("Jim", 25)
+
+
 # def show_data(name: str, age=0, group="Unknown") -> None:
 #     print(f"Name: {name}\t\tAge: {age}\t\tGroup: {group}")
 #
