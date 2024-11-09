@@ -213,63 +213,44 @@
     <div class="right-block">
       <div class="right-rect">
         <h2><strong>Примечание</strong></h2>
-        <p>Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>. Не используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методов. Не используйте срезы.</p>
+        <p>Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>. Не используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методов. Методы <code class="python"><b>format()</b></code>, <code class="python"><b>split()</b></code> и <code class="python"><b>append()</b></code> использовать можно. Не используйте срезы.</p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 32.1</h2>
-        <p>На работе у <span class="hl-text">Teston Lebra</span> произошёл наплыв ботов, из-за чего появилось много фейковых аккаунтов. В этой системе аккаунт это список следующего вида:</p>
-        <p><code><b>[<span class="string">"Логин"</span>, <span class="string">"Пароль"</span>, <span class="string">"Имя"</span>, <span class="string">"Фамилия"</span>, <span class="number">&ltбаланс_аккаунта_в_виде_числа&gt</span>, <span class="string">"Идентификатор"</span>, <span class="keyword">&ltстатус_True_или_False&gt</span>, <span class="string">"Дата"</span>]</b></code></p>
-        <p>Напишите следующие функции:</p>
-        <ol>
-          <li><code><b><span class="function">check_user</span>(account, deep_check)</b></code>
-            <br>Принимает аккаунт в виде <span class="hl-text">списка</span> и значение <code class="python"><b>True</b></code> или <code class="python"><b>False</b></code>. Вызывает функцию <code><b><span class="function">get_check_list</span></b></code>, передав ей <code><b>deep_check</b></code>, сохраняет её результат в <code><b>check_list</b></code>, проходится по функциям из полученного списка и вызывает их, передав <code><b>account</b></code>. Если хоть одна из функций вернёт <code class="python"><b>False</b></code>, то дальнейшие проверки прерываются. Если проверки были прерваны, то <code><b><span class="function">check_user</span></b></code> должен <span class="hl-text">вернуть</span> <code class="python"><b>False</b></code>. В противном случае должен <span class="hl-text">вернуть</span> <code class="python"><b>True</b></code>.
-          </li>
-          <li><code><b><span class="function">get_check_list</span>(deep_check)</b></code>
-            <br>Принимает значение <code class="python"><b>True</b></code> или <code class="python"><b>False</b></code>. Если принял <code class="python"><b>True</b></code>, то помещает в список все функции, указанные ниже. В противном случае помещает в список только функции <span class="function"><b>check_id</b></span>, <span class="function"><b>check_ban</b></span> и <span class="function"><b>check_balance</b></span>. Затем <span class="hl-text">возвращает полученный список</span>.
-          </li>
-          <li><code><b><span class="function">check_password</span>(account)</b></code>
-            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет пароль. Если он пустой, то <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>. В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.
-          </li>
-          <li><code><b><span class="function">check_name</span>(account)</b></code>
-            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет имя и фамилию. Если они состоят только из символов алфавита, то <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>. В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
-          </li>
-          <li><code><b><span class="function">сheck_balance</span>(account)</b></code>
-            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет баланс. Если он меньше нуля или больше <code class="python"><b>25000</b></code>, то <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>. В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.
-          </li>
-          <li><code><b><span class="function">check_id</span>(account)</b></code>
-            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет идентификатор. Если длина идентификатора не равна <code class="python"><b>8</b></code>-и символам, то <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>. В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.
-          </li>
-          <li class="no-padding-bottom"><code><b><span class="function">сheck_ban</span>(account)</b></code>
-            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет правильность бана. Если в статусе стоит <code class="python"><b>False</b></code>, а дата не пустая, то <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>. Также <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>, если в статусе <code class="python"><b>True</b></code>, а дата пустая. В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.
-          </li>
-        </ol>
-        <h3>Подсказки:</h3>
-        <ol>
-          <li>Для проверки имени и фамилии используйте метод <code><b>isalpha()</b></code>. Этот метод возвращает <code class="python"><b>True</b></code>, если строка состоит только из символов алфавита, и <code class="python"><b>False</b></code> в противном случае.</li>
-          <li class="no-padding-bottom">Для тестирования можете использовать следующий код:<div class="console">
-              <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-                  <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
-                </svg>
-                Copy code</button>
-              <pre><code class="python">account_list = [
-    ["root", "5869", "Teston", "Lebra", 15000, "LeTeston", False, ""],
-    ["jane_doe", "", "Jane", "Doe", 50.25, "78901283", False, ""],
-    ["admin", "admin", "admin", "admin", 999999, "admin999", True, "2024-04-25"],
-    ["not_imposter", "qwerty12345", "not_imposter", "Олег", 10.75, "13570092", False, ""],
-    ["hskfskt34i2", "amjq35hfg", "gkasbmdgae", "beeef45asd", 0.0, "90876504", False, ""],
-    ["superuser", "superpass123", "Super", "User", 500.75, "246810", False, ""],
-    ["guest", "guestpass", "Guest", "User", 0.0, "10101010", True, ""],
-    ["poweruser", "powerpass", "Power", "User", 100.0, "12121212", False, "2024-04-22"]
-]
-
-for account in account_list:
-    print(check_user(account, True))  # True, False, False, False, False, False, False, False
-print()
-for account in account_list:
-    print(check_user(account, False))  # True, True, False, True, True, False, False, False</code></pre>
-            </div>
-          </li>
-        </ol>
+        <p>Реализуйте следующее меню:
+        <div class="console">
+          <pre><code>1. Показать список имён
+2. Добавить имя
+3. Удалить имя по порядковому номеру
+4. Изменить имя по порядковому номеру
+5. Завершить программу</code></pre>
+        </div>
+        </p>
+        <p>При выборе <span class="hl-text">пункта 1</span> программа должна <span class="hl-text">выводить в консоль все имена из списка в одну строчку</span>.<br>Реализуйте через функцию <span class="function"><b>show_list</b></span>:
+          <br>— Функция принимает <span class="hl-text">список имён</span>.
+          <br>— Выводит в консоль <span class="hl-text">в одну строку через пробел имена</span>.
+          <br>— Ничего <span class="hl-text">не возвращает</span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 2</span> программа должна <span class="hl-text">запросить с консоли имя</span> и <span class="hl-text">поместить в список</span>, если такого имени нет в списке.<br>Реализуйте через функцию <span class="function"><b>add_name</b></span>:
+          <br>— Функция принимает <span class="hl-text">список имён</span> и <span class="hl-text">имя</span>.
+          <br>— Проверяет имя с помощью функции <span class="function"><b>is_duplicate</b></span> (см. ниже). Если имя проходит проверку, то помещает её <span class="hl-text">в список</span> и <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>. В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+        </p>
+        <p>Функция <span class="function"><b>is_duplicate</b></span>:
+          <br>— Функция принимает <span class="hl-text">список имён</span> и <span class="hl-text">имя</span>.
+          <br>— Если имя находится в списке (точное совпадение), то <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>. В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 3</span> программа должна <span class="hl-text">запросить с консоли порядковый номер имени</span> и <span class="hl-text">удалить имя</span>.<br>Реализуйте через функцию <span class="function"><b>remove_name</b></span>:
+          <br>— Функция принимает <span class="hl-text">список имён</span> и <span class="hl-text">индекс</span>.
+          <br>— Проверяет индекс с помощью функции <span class="function"><b>is_correct_index</b></span> (см. ниже). Если индекс проходит проверку, то <span class="hl-text">удаляет имя по индексу из списка</span> и <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>. В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+        </p>
+        <p>Функция <span class="function"><b>is_correct_index</b></span>:
+          <br>— Принимает <span class="hl-text">список имён</span> и <span class="hl-text">индекс</span>.
+          <br>— Если индекс в промежутке от <span class="number"><b>0</b></span> до <span class="number"><b>размера списка</b></span>, то <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>. В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 4</span> программа должна <span class="hl-text">запросить с консоли порядковый номер имени</span> и <span class="hl-text">имя</span>. Затем программа должна <span class="hl-text">изменить имя по порядковому номеру на другое имя</span>, если нового имени нет в списке.<br>Реализуйте через функцию <span class="function"><b>change_name</b></span>:
+          <br>— Функция принимает <span class="hl-text">список имён</span>, <span class="hl-text">индекс</span> и <span class="hl-text">новое имя</span>.
+          <br>— Проверяет имя с помощью <span class="function"><b>is_duplicate</b></span> и индекс с помощью <span class="function"><b>is_correct_index</b></span>. Если всё в порядке, то <span class="hl-text">изменяет имя по индексу на новое имя</span> и <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>. В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+        </p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 32.2</h2>
@@ -280,34 +261,6 @@ for account in account_list:
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 32.3</h2>
-        <p><span class="hl-text">Teston Lebra</span> написал код, который зашифровывает текст по ключу. Переделайте код так, чтобы <span class="hl-text">переменные</span> <code><b>input_str</b></code>, <code><b>key_str</b></code>, <code><b>key_digits_str</b></code>, <code><b>key_int</b></code>, <code><b>encrypted_str</b></code> <span class="hl-text">не использовались вообще</span>, а сама программа <span class="hl-text">занимала одну строчку</span>. Функции изменять <span class="hl-text">не нужно</span>. Также оставьте максимально подробные комментарии по работе функций - <span class="hl-text">что принимают</span>, <span class="hl-text">что используют для своей работы</span>, <span class="hl-text">как работают</span>, <span class="hl-text">что возвращают</span>.</p>
-
-        <h3>Код:</h3>
-        <div class="console">
-          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
-            </svg>
-            Copy code</button>
-          <pre><code class="python">from sys import maxunicode
-
-def alpha_to_num(obj_str: str):
-    return "".join(symb if symb.isdigit() else str(ord(symb)) for symb in obj_str)
-
-
-def encrypt_str(obj_str: str, key: int):
-    return "".join(chr((ord(symb) - ord('a') + key) % (maxunicode + 1) + ord('a')) for symb in obj_str)
-
-
-input_str = input("Введите строку для зашифрования: ")
-key_str = input("Введите ключ шифрования: ")
-key_digits_str = alpha_to_num(key_str)
-key_int = int(key_digits_str)
-encrypted_str = encrypt_str(input_str, key_int)
-print(encrypted_str)</code></pre>
-        </div>
-      </div>
-            <div class="right-rect">
-        <h2>Домашнее Задание 32.4</h2>
         <p><span class="hl-text">Teston Lebra</span> написал фронтенд программы. Но другой программист не смог составить бэкенд. <span class="hl-text">Опишите только функции, соблюдая их сигнатуру</span>. Фронтенд трогать <span class="hl-text">нельзя</span>. После описания всех функций, программа должна работать <span class="hl-text">корректно</span>.</p>
 
         <h3>Код:</h3>
@@ -554,6 +507,90 @@ while True:
     else:
         print("Выбранное действие отсутствует.")
     print("==================================")</code></pre>
+        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 32.4 (Необязательное)</h2>
+        <p>На работе у <span class="hl-text">Teston Lebra</span> произошёл наплыв ботов, из-за чего появилось много фейковых аккаунтов. В этой системе аккаунт это список следующего вида:</p>
+        <p><code><b>[<span class="string">"Логин"</span>, <span class="string">"Пароль"</span>, <span class="string">"Имя"</span>, <span class="string">"Фамилия"</span>, <span class="number">&ltбаланс_аккаунта_в_виде_числа&gt</span>, <span class="string">"Идентификатор"</span>, <span class="keyword">&ltстатус_True_или_False&gt</span>, <span class="string">"Дата"</span>]</b></code></p>
+        <p>Напишите следующие функции:</p>
+        <ol>
+          <li><code><b><span class="function">check_user</span>(account, deep_check)</b></code>
+            <br>Принимает аккаунт в виде <span class="hl-text">списка</span> и значение <code class="python"><b>True</b></code> или <code class="python"><b>False</b></code>. Вызывает функцию <code><b><span class="function">get_check_list</span></b></code>, передав ей <code><b>deep_check</b></code>, сохраняет её результат в <code><b>check_list</b></code>, проходится по функциям из полученного списка и вызывает их, передав <code><b>account</b></code>. Если хоть одна из функций вернёт <code class="python"><b>False</b></code>, то дальнейшие проверки прерываются. Если проверки были прерваны, то <code><b><span class="function">check_user</span></b></code> должен <span class="hl-text">вернуть</span> <code class="python"><b>False</b></code>. В противном случае должен <span class="hl-text">вернуть</span> <code class="python"><b>True</b></code>.
+          </li>
+          <li><code><b><span class="function">get_check_list</span>(deep_check)</b></code>
+            <br>Принимает значение <code class="python"><b>True</b></code> или <code class="python"><b>False</b></code>. Если принял <code class="python"><b>True</b></code>, то помещает в список все функции, указанные ниже. В противном случае помещает в список только функции <span class="function"><b>check_id</b></span>, <span class="function"><b>check_ban</b></span> и <span class="function"><b>check_balance</b></span>. Затем <span class="hl-text">возвращает полученный список</span>.
+          </li>
+          <li><code><b><span class="function">check_password</span>(account)</b></code>
+            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет пароль. Если он пустой, то <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>. В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.
+          </li>
+          <li><code><b><span class="function">check_name</span>(account)</b></code>
+            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет имя и фамилию. Если они состоят только из символов алфавита, то <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>. В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+          </li>
+          <li><code><b><span class="function">сheck_balance</span>(account)</b></code>
+            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет баланс. Если он меньше нуля или больше <code class="python"><b>25000</b></code>, то <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>. В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.
+          </li>
+          <li><code><b><span class="function">check_id</span>(account)</b></code>
+            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет идентификатор. Если длина идентификатора не равна <code class="python"><b>8</b></code>-и символам, то <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>. В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.
+          </li>
+          <li class="no-padding-bottom"><code><b><span class="function">сheck_ban</span>(account)</b></code>
+            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет правильность бана. Если в статусе стоит <code class="python"><b>False</b></code>, а дата не пустая, то <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>. Также <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>, если в статусе <code class="python"><b>True</b></code>, а дата пустая. В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.
+          </li>
+        </ol>
+        <h3>Подсказки:</h3>
+        <ol>
+          <li>Для проверки имени и фамилии используйте метод <code><b>isalpha()</b></code>. Этот метод возвращает <code class="python"><b>True</b></code>, если строка состоит только из символов алфавита, и <code class="python"><b>False</b></code> в противном случае.</li>
+          <li class="no-padding-bottom">Для тестирования можете использовать следующий код:<div class="console">
+              <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                  <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+                </svg>
+                Copy code</button>
+              <pre><code class="python">account_list = [
+    ["root", "5869", "Teston", "Lebra", 15000, "LeTeston", False, ""],
+    ["jane_doe", "", "Jane", "Doe", 50.25, "78901283", False, ""],
+    ["admin", "admin", "admin", "admin", 999999, "admin999", True, "2024-04-25"],
+    ["not_imposter", "qwerty12345", "not_imposter", "Олег", 10.75, "13570092", False, ""],
+    ["hskfskt34i2", "amjq35hfg", "gkasbmdgae", "beeef45asd", 0.0, "90876504", False, ""],
+    ["superuser", "superpass123", "Super", "User", 500.75, "246810", False, ""],
+    ["guest", "guestpass", "Guest", "User", 0.0, "10101010", True, ""],
+    ["poweruser", "powerpass", "Power", "User", 100.0, "12121212", False, "2024-04-22"]
+]
+
+for account in account_list:
+    print(check_user(account, True))  # True, False, False, False, False, False, False, False
+print()
+for account in account_list:
+    print(check_user(account, False))  # True, True, False, True, True, False, False, False</code></pre>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 32.5 (Необязательное)</h2>
+        <p><span class="hl-text">Teston Lebra</span> написал код, который зашифровывает текст по ключу. Переделайте код так, чтобы <span class="hl-text">переменные</span> <code><b>input_str</b></code>, <code><b>key_str</b></code>, <code><b>key_digits_str</b></code>, <code><b>key_int</b></code>, <code><b>encrypted_str</b></code> <span class="hl-text">не использовались вообще</span>, а сама программа <span class="hl-text">занимала одну строчку</span>. Функции изменять <span class="hl-text">не нужно</span>. Также оставьте максимально подробные комментарии по работе функций - <span class="hl-text">что принимают</span>, <span class="hl-text">что используют для своей работы</span>, <span class="hl-text">как работают</span>, <span class="hl-text">что возвращают</span>.</p>
+
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">from sys import maxunicode
+
+def alpha_to_num(obj_str: str):
+    return "".join(symb if symb.isdigit() else str(ord(symb)) for symb in obj_str)
+
+
+def encrypt_str(obj_str: str, key: int):
+    return "".join(chr((ord(symb) - ord('a') + key) % (maxunicode + 1) + ord('a')) for symb in obj_str)
+
+
+input_str = input("Введите строку для зашифрования: ")
+key_str = input("Введите ключ шифрования: ")
+key_digits_str = alpha_to_num(key_str)
+key_int = int(key_digits_str)
+encrypted_str = encrypt_str(input_str, key_int)
+print(encrypted_str)</code></pre>
         </div>
       </div>
     </div>
