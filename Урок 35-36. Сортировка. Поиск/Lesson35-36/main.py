@@ -81,7 +81,7 @@
 
 # def find_bin(num_list, to_find):
 #     left = 0
-#     right = len(num_list)
+#     right = len(num_list) - 1
 #     index_find = -1
 #     while left <= right:
 #         mid = (left + right) // 2
