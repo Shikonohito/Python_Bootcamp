@@ -79,32 +79,10 @@
 
 
 # ==============================================LESSON22==============================================
-# Срезы
 # Экранированные последовательности \
 # Raw strings - сырые строки
 # .format()
 # Где лучше применять
-
-
-# my_str = "HelloWorld"
-# my_str_1 = my_str[0:5]
-# my_str_2 = my_str[5:]
-# my_str_3 = my_str[0:5:2]
-# my_str_4 = my_str[::-1]
-#
-# print(my_str_1)
-# print(my_str_2)
-# print(my_str_3)
-# print(my_str_4)
-
-# my_str = "Monty Python"
-# result = my_str[6:10]
-# print(result)
-# print(my_str[-12:-7])
-
-# my_str = "HelloWorld"
-# my_str_1 = my_str[:5] + " " + my_str[5:]
-# print(my_str_1)
 
 # ====================================================================================================
 # ПЗ 22.1
