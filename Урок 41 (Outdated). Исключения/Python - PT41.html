@@ -4,7 +4,9 @@
   <title>Python - PT41</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
   <style>
     body {
       background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
@@ -172,7 +174,11 @@
     <div class="right-block">
       <div class="right-rect">
         <h2>Практическое Задание 41.1</h2>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли <code class="python"><b>16</b></code>-изначный номер</span> и <span class="hl-text">количество денег</span>. Затем с указанного номера <span class="hl-text">снимается указанное количество денег</span> и <span class="hl-text">выводится в консоль оставшеся количество</span>. Реализуйте <span class="hl-text">исключения</span>.</p>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли <code
+              class="python"><b>16</b></code>-значный номер</span> и <span class="hl-text">количество денег</span>.
+          Затем с указанного номера <span class="hl-text">снимается указанное количество денег</span> и <span
+            class="hl-text">выводится в консоль оставшееся количество</span>. Реализуйте <span
+            class="hl-text">исключения</span>.</p>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 41.2</h2>
@@ -184,12 +190,15 @@
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает с консоли <code class="python"><b>16</b></code>-изначный код</span>. Затем <span class="hl-text">происходит увеличение баланса пользователя на фиксированную сумму</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает с консоли <code
+              class="python"><b>16</b></code>-значный код</span>. Затем <span class="hl-text">происходит увеличение
+            баланса пользователя на фиксированную сумму</span>.</p>
 
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">выводит в консоль следующее</span>:
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">выводит в консоль
+            следующее</span>:
         <div class="console">
-          <pre><code>Старые данные: "Имя" <возраст>
-Новые данные: "Имя" <возраст>
+          <pre><code>Старые данные: {имя} {возраст}
+Новые данные: {имя} {возраст}
 ===================================
 1. Изменить имя
 2. Изменить возраст
@@ -204,9 +213,9 @@
     </div>
   </div>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function(codeBlock, index) {
+      codeBlocks.forEach(function (codeBlock, index) {
         let innerHTML = codeBlock.innerHTML;
         console.log(index, innerHTML);
         // STRING

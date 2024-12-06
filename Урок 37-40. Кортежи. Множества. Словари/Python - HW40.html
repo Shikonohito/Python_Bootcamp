@@ -4,7 +4,9 @@
   <title>Python - HW40</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
   <style>
     body {
       background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
@@ -100,6 +102,20 @@
       color: #BCBEC4;
     }
 
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+
     .string {
       color: #6AAB73;
       font-family: "JetBrains mono", monospace;
@@ -168,7 +184,11 @@
     <div class="right-block">
       <div class="right-rect">
         <h2><strong>Примечание</strong></h2>
-        <p>Оформляйте ввод и вывод данных. Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>, но можете использовать при проверке наличия ключа в словаре. Не используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методов. Можно использовать <code><b>append()</b></code>, <code><b>split()</b></code>, <code class="python"><b>len()</b></code>. Не используйте срезы.</p>
+        <p>Оформляйте ввод и вывод данных. Используйте только то, что было пройдено до этого урока включительно. Не
+          используйте в условии оператор <code class="python"><b>in</b></code>, но можете использовать при проверке
+          наличия ключа в словаре. Не используйте готовые методы, только если в заданиях не говорится об использовании
+          тех или иных методов. Можно использовать <code><b>append()</b></code>, <code><b>split()</b></code>, <code
+            class="python"><b>len()</b></code>. Не используйте срезы.</p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 40.1</h2>
@@ -185,64 +205,102 @@
 
         <p>Пользователь это <span class="hl-text">словарь</span> следующего вида:
         <div class="console">
-          <pre><code>{<span class="string">"user_id"</span>: <span class="string">"ИДЕНТИФИКАТОР"</span>, <span class="string">"f_name"</span>: <span class="string">"ИМЯ"</span>, <span class="string">"l_name"</span>: <span class="string">"ФАМИЛИЯ"</span>,
+          <pre><code>{<span class="string">"user_id"</span>: <span class="string">{идентификатор}</span>, <span class="string">"f_name"</span>: <span class="string">{имя}</span>, <span class="string">"l_name"</span>: <span class="string">{фамилия}</span>,
  <span class="string">"cards"</span>: [
-                {<span class="string">"card_id"</span>: <span class="string">"ИДЕНТИФИКАТОР"</span>, <span class="string">"f_name"</span>: <span class="string">"ИМЯ"</span>, <span class="string">"l_name"</span>: <span class="string">"ФАМИЛИЯ"</span>, <span class="string">"month"</span>: <span class="number"><месяц></span>, <span class="string">"year"</span>: <span class="number"><год></span>, <span class="string">"balance"</span>: <span class="number"><баланс></span>},
-                {<span class="string">"card_id"</span>: <span class="string">"ИДЕНТИФИКАТОР"</span>, <span class="string">"f_name"</span>: <span class="string">"ИМЯ"</span>, <span class="string">"l_name"</span>: <span class="string">"ФАМИЛИЯ"</span>, <span class="string">"month"</span>: <span class="number"><месяц></span>, <span class="string">"year"</span>: <span class="number"><год></span>, <span class="string">"balance"</span>: <span class="number"><баланс></span>},
+                {<span class="string">"card_id"</span>: <span class="string">{идентификатор}</span>, <span class="string">"f_name"</span>: <span class="string">{имя}</span>, <span class="string">"l_name"</span>: <span class="string">{фамилия}</span>, <span class="string">"month"</span>: <span class="number">{месяц}</span>, <span class="string">"year"</span>: <span class="number">{год}</span>, <span class="string">"balance"</span>: <span class="number">{баланс}</span>},
+                {<span class="string">"card_id"</span>: <span class="string">{идентификатор}</span>, <span class="string">"f_name"</span>: <span class="string">{имя}</span>, <span class="string">"l_name"</span>: <span class="string">{фамилия}</span>, <span class="string">"month"</span>: <span class="number">{месяц}</span>, <span class="string">"year"</span>: <span class="number">{год}</span>, <span class="string">"balance"</span>: <span class="number">{баланс}</span>},
                 ...
           ]
-  }</code></pre>
+}</code></pre>
         </div>
         </p>
 
-        <p>Все пользователи хранятся в <span class="hl-text">списке</span>.</p>
-
-        <p>При выборе <span class="hl-text">пункта 1</span> (Показать всех пользователей) программа <span class="hl-text">выводит в консоль данные всех пользователей в следующем формате</span>:
+        <p>Все пользователи хранятся в <span class="hl-text">списке</span>. Например:
         <div class="console">
-          <pre><code>"Идентификатор пользователя"
-"Имя" "Фамилия"
-"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
-"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+              height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd"
+                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">card_1 = {"card_id": "5869586958695869", "f_name": "Teston", "l_name": "Lebra", "month": 12, "year": 2030, "balance": 1250}
+card_2 = {"card_id": "1234123412341234", "f_name": "Teston", "l_name": "Lebra", "month": 5, "year": 2028, "balance": 750}
+user_1 = {"user_id": "U-025", "f_name": "Teston", "l_name": "Lebra", "cards": [card_1, card_2]}
+
+
+card_3 = {"card_id": "1111222233334444", "f_name": "Kate", "l_name": "Grid", "month": 9, "year": 2031, "balance": 2000}
+user_2 = {"user_id": "U-013", "f_name": "Kate", "l_name": "Grid", "cards": [card_3]}
+
+user_3 = {"user_id": "U-017", "f_name": "Arthur", "l_name": "Morgan", "cards": []}
+
+user_list = [user_1, user_2, user_3]</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> (Показать всех пользователей) программа <span
+            class="hl-text">выводит в консоль данные всех пользователей в следующем формате</span>:
+        <div class="console">
+          <pre><code>{идентификатор_пользователя}
+{имя} {фамилия}
+{идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
+{идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
 ...
 =======================================================================================
-"Идентификатор пользователя"
-"Имя" "Фамилия"
-"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
-"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+{идентификатор_пользователя}
+{имя} {фамилия}
+{идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
+{идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
 ...
 =======================================================================================
 ...</code></pre>
         </div>
         </p>
 
-        <p>Сперва можно реализовать <span class="hl-text">пункт 2</span>, чтобы потом использовать реализацию в <span class="hl-text">пункте 1</span>.</p>
+        <p>Сперва можно реализовать <span class="hl-text">пункт 2</span>, чтобы потом использовать реализацию в <span
+            class="hl-text">пункте 1</span>.</p>
 
-        <p>При выборе <span class="hl-text">пункта 2</span> (Показать пользователя по его идентификатору) программа <span class="hl-text">запрашивает с консоли идентификатор</span>. Если идентификатор не найден, то программа <span class="hl-text">сообщает об этом</span>. В противном случае <span class="hl-text">она выводит в консоль найденные данные пользователя в следующем формате</span>:
+        <p>При выборе <span class="hl-text">пункта 2</span> (Показать пользователя по его идентификатору) программа
+          <span class="hl-text">запрашивает с консоли идентификатор</span>. Если идентификатор не найден, то программа
+          <span class="hl-text">сообщает об этом</span>. В противном случае <span class="hl-text">она выводит в консоль
+            найденные данные пользователя в следующем формате</span>:
         <div class="console">
-          <pre><code>"Идентификатор пользователя"
-"Имя" "Фамилия"
-"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
-"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+          <pre><code>{идентификатор_пользователя}
+{имя} {фамилия}
+{идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
+{идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
 ...</code></pre>
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 3</span> (Добавить нового пользователя) программа <span class="hl-text">запрашивает с консоли новый идентификатор пользователя</span>, <span class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, затем <span class="hl-text">создаёт словарь из введённых данных</span>. Список карт изначально пуст. После этого <span class="hl-text">пользователь добавляется в список</span>, если идентификатор нового пользователя не совпадает ни с одним идентификатором других пользователей. В противном случае программа должна <span class="hl-text">сообщить об этом</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 5</span> (Удалить пользователя по его идентификатору) программа <span class="hl-text">запрашивает с консоли идентификатор пользователя</span> и <span class="hl-text">удаляет пользователя</span>, если он был найден. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 4</span> (Изменить данные пользователя по его идентификатору) программа <span class="hl-text">запрашивает с консоли идентификатор пользователя</span>. Если идентификатор не найден, то программа <span class="hl-text">сообщает об этом</span>. В противном случае программа <span class="hl-text">выводит в консоль следующее</span>:
+        <p>При выборе <span class="hl-text">пункта 3</span> (Добавить нового пользователя) программа <span
+            class="hl-text">запрашивает с консоли новый идентификатор пользователя</span>, <span
+            class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, затем <span class="hl-text">создаёт
+            словарь из введённых данных</span>. Список карт изначально пуст. После этого <span
+            class="hl-text">пользователь добавляется в список</span>, если идентификатор нового пользователя не
+          совпадает ни с одним идентификатором других пользователей. В противном случае программа должна <span
+            class="hl-text">сообщить об этом</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 5</span> (Удалить пользователя по его идентификатору) программа <span
+            class="hl-text">запрашивает с консоли идентификатор пользователя</span> и <span class="hl-text">удаляет
+            пользователя</span>, если он был найден. В противном случае программа должна <span class="hl-text">сообщить
+            о проблеме</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 4</span> (Изменить данные пользователя по его идентификатору)
+          программа <span class="hl-text">запрашивает с консоли идентификатор пользователя</span>. Если идентификатор не
+          найден, то программа <span class="hl-text">сообщает об этом</span>. В противном случае программа <span
+            class="hl-text">выводит в консоль следующее</span>:
         <div class="console">
           <pre><code>СТАРЫЕ ДАННЫЕ
-"Идентификатор пользователя"
-"Имя" "Фамилия"
-"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
-"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+{идентификатор_пользователя}
+{имя} {фамилия}
+{идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
+{идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
 ...
 =======================================================================================
 НОВЫЕ ДАННЫЕ
-"Идентификатор пользователя"
-"Имя" "Фамилия"
-"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
-"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+{идентификатор_пользователя}
+{имя} {фамилия}
+{идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
+{идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
 ...
 =======================================================================================
 1. Изменить идентификатор пользователя
@@ -256,14 +314,33 @@
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">3</span> программа <span class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится только в том случае, если был <span class="hl-text">выбран пункт 7</span>. Поэтому <span class="hl-text">пункты 1</span>-<span class="hl-text">6</span> должны изменять <span class="hl-text">копию данных</span>, а при выборе <span class="hl-text">пункта 7 заменять оригинал</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 7</span> программа должна <span class="hl-text">проверить идентификатор изменённых данных</span>. Если идентификатор не изменился или же совпадений с идентификаторами других пользователей нет, то <span class="hl-text">старые данные заменяются на новые</span>. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 4</span> (Добавить карту) программа <span class="hl-text">запрашивает с консоли идентификатор карты</span>, <span class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">месяц</span>, <span class="hl-text">год</span>, <span class="hl-text">баланс</span>, затем <span class="hl-text">создаёт словарь из введённых данных</span>. После этого <span class="hl-text">карта добавляется в список</span>, если идентификатор новой карты не совпадает ни с одним идентификатором других карт в списке. В противном случае программа должна <span class="hl-text">сообщить об этом</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 6</span> (Удалить карту по идентификатору) программа <span class="hl-text">запрашивает с консоли идентификатор карты</span> и <span class="hl-text">удаляет карту</span>, если она была найдена. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 5</span> (Изменить карту по идентификатору) программа <span class="hl-text">запрашивает с консоли идентификатор карты</span>. Если идентификатор не найден, то программа <span class="hl-text">сообщает об этом</span>. В противном случае программа <span class="hl-text">выводит в консоль следующее</span>:
+        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">3</span> программа <span
+            class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится только в том
+          случае, если был <span class="hl-text">выбран пункт 7</span>. Поэтому <span class="hl-text">пункты
+            1</span>-<span class="hl-text">6</span> должны изменять <span class="hl-text">копию данных</span>, а при
+          выборе <span class="hl-text">пункта 7 заменять оригинал</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 7</span> программа должна <span class="hl-text">проверить
+            идентификатор изменённых данных</span>. Если идентификатор не изменился или же совпадений с идентификаторами
+          других пользователей нет, то <span class="hl-text">старые данные заменяются на новые</span>. В противном
+          случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 4</span> (Добавить карту) программа <span class="hl-text">запрашивает
+            с консоли идентификатор карты</span>, <span class="hl-text">имя</span>, <span
+            class="hl-text">фамилию</span>, <span class="hl-text">месяц</span>, <span class="hl-text">год</span>, <span
+            class="hl-text">баланс</span>, затем <span class="hl-text">создаёт словарь из введённых данных</span>. После
+          этого <span class="hl-text">карта добавляется в список</span>, если идентификатор новой карты не совпадает ни
+          с одним идентификатором других карт в списке. В противном случае программа должна <span
+            class="hl-text">сообщить об этом</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 6</span> (Удалить карту по идентификатору) программа <span
+            class="hl-text">запрашивает с консоли идентификатор карты</span> и <span class="hl-text">удаляет
+            карту</span>, если она была найдена. В противном случае программа должна <span class="hl-text">сообщить о
+            проблеме</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 5</span> (Изменить карту по идентификатору) программа <span
+            class="hl-text">запрашивает с консоли идентификатор карты</span>. Если идентификатор не найден, то программа
+          <span class="hl-text">сообщает об этом</span>. В противном случае программа <span class="hl-text">выводит в
+            консоль следующее</span>:
         <div class="console">
-          <pre><code>СТАРЫЕ ДАННЫЕ: "Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
-НОВЫЕ ДАННЫЕ: "Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+          <pre><code>СТАРЫЕ ДАННЫЕ: {идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
+НОВЫЕ ДАННЫЕ: {идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
 =======================================================================================
 1. Изменить идентификатор карте
 2. Изменить имя на карте
@@ -276,19 +353,37 @@
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">6</span> программа <span class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится только в том случае, если был <span class="hl-text">выбран пункт 7</span>. Поэтому <span class="hl-text">пункты 1</span>-<span class="hl-text">6</span> должны изменять <span class="hl-text">копию данных</span>, а при выборе <span class="hl-text">пункта 7 заменять оригинал</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 7</span> программа должна <span class="hl-text">проверить идентификатор изменённых данных</span>. Если идентификатор не изменился или же совпадений с идентификаторами других карт нет, то <span class="hl-text">старые данные заменяются на новые</span>. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
+        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">6</span> программа <span
+            class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится только в том
+          случае, если был <span class="hl-text">выбран пункт 7</span>. Поэтому <span class="hl-text">пункты
+            1</span>-<span class="hl-text">6</span> должны изменять <span class="hl-text">копию данных</span>, а при
+          выборе <span class="hl-text">пункта 7 заменять оригинал</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 7</span> программа должна <span class="hl-text">проверить
+            идентификатор изменённых данных</span>. Если идентификатор не изменился или же совпадений с идентификаторами
+          других карт нет, то <span class="hl-text">старые данные заменяются на новые</span>. В противном случае
+          программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 40.2 (Необязательное)</h2>
-        <p>На основе выполненного <span class="hl-text">Домашнего Задания 40.1</span> реализуйте <span class="hl-text">в главном меню</span> <span class="string"><b>"Поиск по имени"</b></span>, который <span class="hl-text">запрашивает с консоли имя</span>, а затем <span class="hl-text">ищет всех пользователей с указанным именем</span> (поиск ТОЛЬКО по имени) и <span class="hl-text">выводит в консоль</span> в том же виде, как делает <span class="hl-text">пункт 1</span>.</p>
+        <p>На основе выполненного <span class="hl-text">Домашнего Задания 40.1</span> реализуйте <span class="hl-text">в
+            главном меню</span> <span class="string"><b>"Поиск по имени"</b></span>, который <span
+            class="hl-text">запрашивает с консоли имя</span>, а затем <span class="hl-text">ищет всех пользователей с
+            указанным именем</span> (точное совпадение) и <span class="hl-text">выводит в консоль</span> в том же виде,
+          как делает <span class="hl-text">пункт 1</span>.</p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 40.3 (Необязательное)</h2>
-        <p>На основе выполненного <span class="hl-text">Домашнего Задания 40.1</span> измените функционал <span class="hl-text">добавления пользователей</span>. При составлении словаря пользователя добавьте ещё одну пару <code class="python"><b>"subscription": datetime.now().date()</b></code>. Эта пара будет хранить <span class="hl-text">дату истечения срока подписки</span>. Затем <span class="hl-text">добавьте</span> и <span class="hl-text">реализуйте в главном меню</span> <code class="python"><b>"Оформить подписку пользователю"</b></code>. При выборе этого пункта программа сперва <span class="hl-text">запрашивает идентификатор пользователя</span>. Если он найден, то <span class="hl-text">выводится следующее</span>:
+        <p>На основе выполненного <span class="hl-text">Домашнего Задания 40.1</span> измените функционал <span
+            class="hl-text">добавления пользователей</span>. При составлении словаря пользователя добавьте ещё одну пару
+          <code class="python"><b>"subscription": datetime.now().date()</b></code>. Эта пара будет хранить <span
+            class="hl-text">дату истечения срока подписки</span>. Затем <span class="hl-text">добавьте</span> и <span
+            class="hl-text">реализуйте в главном меню</span> <code
+            class="python"><b>"Оформить подписку пользователю"</b></code>. При выборе этого пункта программа сперва
+          <span class="hl-text">запрашивает идентификатор пользователя</span>. Если он найден, то <span
+            class="hl-text">выводится следующее</span>:
         <div class="console">
-          <pre><code>Текущая дата: <значение_datetime.now().date()>
-Дата окончания подписки: <значение_по_ключу_subscription>
+          <pre><code>Текущая дата: {значение_datetime.now().date()}
+Дата окончания подписки: {значение_по_ключу_subscription}
 1. Оформить подписку на 1 месяц
 2. Оформить подписку на 3 месяца
 3. Оформить подписку на 1 год
@@ -296,43 +391,86 @@
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">3</span> программа <span class="hl-text">выводит в консоль курс подписки</span> и <span class="hl-text">список карт пользователя в виде</span>:
+        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">3</span> программа <span
+            class="hl-text">выводит в консоль курс подписки</span> и <span class="hl-text">список карт пользователя в
+            виде</span>:
         <div class="console">
           <pre><code>Подписка на 1 месяц - 5 единиц
 Подписка на 3 месяца - 13 единиц
 Подписка на 1 год - 49 единиц
 =======================================================================================
-"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
-"Идентификатор карточки" "Имя на карточке" "Фамилия на карточке" <месяц>/<год> <баланс>
+{идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
+{идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
 ...</code></pre>
         </div>
         </p>
 
-        <p>Затем программа <span class="hl-text">запрашивает ввод с консоли идентификатора карточки для оплаты</span>. Если идентификатор карты найден и достаточно денег, то <span class="hl-text">деньги снимаются с баланса карты</span>. Затем проверяется, что если <code><b>datetime.now()</b></code> больше <code><b>&ltзначение_по_ключу_subscription&gt</b></code>, то по ключу <code class="python"><b>"subscription"</b></code> <span class="hl-text">выставляются следующие данные</span>:
-          <br>— Для <code class="python"><b>1</b></code> месяца: <code class="python"><b>datetime.now() + timedelta(days=30)</b></code>
-          <br>— Для <code class="python"><b>3</b></code> месяцев: <code class="python"><b>datetime.now() + timedelta(days=90)</b></code>
-          <br>— Для <code class="python"><b>1</b></code> года: <code class="python"><b>datetime.now() + timedelta(days=365)</b></code>
+        <p>Затем программа <span class="hl-text">запрашивает ввод с консоли идентификатора карточки для оплаты</span>.
+          Если идентификатор карты найден и достаточно денег, то <span class="hl-text">деньги снимаются с баланса
+            карты</span>. Затем проверяется, что если <code><b>datetime.now()</b></code> больше
+          <code><b>{значение_по_ключу_subscription}</b></code>, то по ключу <code
+            class="python"><b>"subscription"</b></code> <span class="hl-text">выставляются следующие данные</span>:
+          <br>— Для <code class="python"><b>1</b></code> месяца: <code
+            class="python"><b>datetime.now() + timedelta(days=30)</b></code>
+          <br>— Для <code class="python"><b>3</b></code> месяцев: <code
+            class="python"><b>datetime.now() + timedelta(days=90)</b></code>
+          <br>— Для <code class="python"><b>1</b></code> года: <code
+            class="python"><b>datetime.now() + timedelta(days=365)</b></code>
         </p>
 
-        <p>Если же <code><b>datetime.now()</b></code> меньше-равно <code><b>&ltзначение_по_ключу_subscription&gt</b></code>, то по ключу <code class="python"><b>"subscription"</b></code> <span class="hl-text">выставляются следующие данные</span>:
-          <br>— Для <code class="python"><b>1</b></code> месяца: <code class="python"><b>&ltзначение_по_ключу_subscription&gt + timedelta(days=30)</b></code>
-          <br>— Для <code class="python"><b>3</b></code> месяцев: <code class="python"><b>&ltзначение_по_ключу_subscription&gt + timedelta(days=90)</b></code>
-          <br>— Для <code class="python"><b>1</b></code> года: <code class="python"><b>&ltзначение_по_ключу_subscription&gt + timedelta(days=365)</b></code>
+        <p>Если же <code><b>datetime.now()</b></code> меньше-равно
+          <code><b>{значение_по_ключу_subscription}</b></code>, то по ключу <code
+            class="python"><b>"subscription"</b></code> <span class="hl-text">выставляются следующие данные</span>:
+          <br>— Для <code class="python"><b>1</b></code> месяца: <code
+            class="python"><b>{значение_по_ключу_subscription} + timedelta(days=30)</b></code>
+          <br>— Для <code class="python"><b>3</b></code> месяцев: <code
+            class="python"><b>{значение_по_ключу_subscription} + timedelta(days=90)</b></code>
+          <br>— Для <code class="python"><b>1</b></code> года: <code
+            class="python"><b>{значение_по_ключу_subscription} + timedelta(days=365)</b></code>
         </p>
 
-        <p>Не забудьте в самом начале программы прописать строку <code class="python"><b>from datetime import datetime, timedelta</b></code>.</p>
+        <p>Не забудьте в самом начале программы прописать строку <code
+            class="python"><b>from datetime import datetime, timedelta</b></code>.</p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 40.4 (Необязательное)</h2>
-        <p>Попробуйте переделать <span class="hl-text">Домашнее Задание 40.1</span> так, чтобы работала следующая схема.</p>
-        <p>Пусть есть <code class="python"><b>2</b></code> <span class="hl-text">разных пользователя</span>. У <span class="hl-text">первого пользователя</span> привязана карта <code class="python"><b>"5869586958695869"</b></code> с балансом <code class="python"><b>1000</b></code>. У <span class="hl-text">второго пользователя</span> привязана <span class="hl-text">точно такая же карта</span>. Если изменить баланс у первого пользователя, то мы <span class="hl-text">сможем увидеть, что у второго пользователя баланс карты тоже изменился</span>. Чтобы работало так, <span class="hl-text">измените добавление</span> и <span class="hl-text">изменение</span>. С технической точки зрения у этих пользователей должен быть привязан <span class="hl-text">один и тот же объект карты</span>.</p>
+        <p>Попробуйте переделать <span class="hl-text">Домашнее Задание 40.1</span> так, чтобы работала следующая схема.
+        </p>
+        <p>Пусть есть <code class="python"><b>2</b></code> <span class="hl-text">разных пользователя</span>. У <span
+            class="hl-text">первого пользователя</span> привязана карта <code
+            class="python"><b>"5869586958695869"</b></code> с балансом <code class="python"><b>1000</b></code>. У <span
+            class="hl-text">второго пользователя</span> привязана <span class="hl-text">точно такая же карта</span>.
+          Если изменить баланс у первого пользователя, то мы <span class="hl-text">сможем увидеть, что у второго
+            пользователя баланс карты тоже изменился</span>. Чтобы работало так, <span class="hl-text">измените
+            добавление</span> и <span class="hl-text">изменение</span>. С технической точки зрения у этих пользователей
+          должен быть привязан <span class="hl-text">один и тот же объект карты</span>.</p>
       </div>
     </div>
   </div>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function () {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+    document.addEventListener('DOMContentLoaded', function () {
       const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function(codeBlock, index) {
+      codeBlocks.forEach(function (codeBlock, index) {
         let innerHTML = codeBlock.innerHTML;
         console.log(index, innerHTML);
         // STRING
