@@ -4,7 +4,9 @@
   <title>Python - HW20</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
   <style>
     body {
       background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
@@ -213,7 +215,8 @@
     <div class="right-block">
       <div class="right-rect">
         <h2><strong>Примечание</strong></h2>
-        <p>Оформляйте ввод и вывод данных в соответствии с примерами заданий. Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>.</p>
+        <p>Оформляйте ввод и вывод данных в соответствии с примерами заданий. Используйте только то, что было пройдено
+          до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>.</p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 20.1</h2>
@@ -224,13 +227,20 @@
 3. Завершить программу
 Выберите действие: <span class="input">...</span></code></pre>
         </div>
-        <p>В программе есть две роли - <span class="hl-text">клиент</span> и <span class="hl-text">администратор</span>. Условимся, что на всю программу у нас может быть только <span class="hl-text">один клиент</span> и только <span class="hl-text">один администратор</span>.</p>
+        <p>В программе есть две роли - <span class="hl-text">клиент</span> и <span class="hl-text">администратор</span>.
+          Условимся, что на всю программу у нас может быть только <span class="hl-text">один клиент</span> и только
+          <span class="hl-text">один администратор</span>.
+        </p>
         <p>Выбор <span class="hl-text">пункта 1</span>:
-          <br>— Программа <span class="hl-text">запрашивает с консоли логин</span>, <span class="hl-text">пароль</span>, <span class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, <code><span class="number"><b>16</b></span></code>-<span class="hl-text">значный номер карты</span> и <span class="hl-text">CVV/CVC код</span>.
+          <br>— Программа <span class="hl-text">запрашивает с консоли логин</span>, <span class="hl-text">пароль</span>,
+          <span class="hl-text">имя</span>, <span class="hl-text">фамилию</span>,
+          <code><span class="number"><b>16</b></span></code>-<span class="hl-text">значный номер карты</span> и <span
+            class="hl-text">CVV/CVC код</span>.
           <br>— <span class="hl-text">Возвращается в меню входа</span>.
         </p>
         <p>Выбор <span class="hl-text">пункта 2</span>:
-          <br>— Программа <span class="hl-text">запрашивает с консоли логин</span> и <span class="hl-text">пароль</span>.
+          <br>— Программа <span class="hl-text">запрашивает с консоли логин</span> и <span
+            class="hl-text">пароль</span>.
           <br>— Если вводятся данные клиента, то <span class="hl-text">показывается меню клиента</span>.
           <br>— Если вводятся данные администратора, то <span class="hl-text">показывается меню администратора</span>.
         </p>
@@ -244,15 +254,18 @@
 Выберите действие: <span class="input">...</span></code></pre>
         </div>
         <p>В <span class="hl-text">меню клиента</span> выбор <span class="hl-text">пункта 1</span>:
-          <br>— Программа <span class="hl-text">выводит в консоль идентификатор клиента</span>, <span class="hl-text">арендованный товар</span>, <span class="hl-text">текущий баланс аккаунта</span>.
+          <br>— Программа <span class="hl-text">выводит в консоль идентификатор клиента</span>, <span
+            class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">текущий баланс
+            аккаунта</span> и <span class="hl-text">арендованный товар</span>.
           <br>— <span class="hl-text">Выводит в консоль следующее меню</span>:
         </p>
         <div class="console">
-          <pre><code>Идентификатор: &ltстрока&gt
-Имя: &ltстрока&gt
-Фамилия: &ltстрока&gt
-Текущий баланс: &ltчисло&gt
-=============================
+          <pre><code>Идентификатор: {идентификатор}
+Имя: {имя}
+Фамилия: {фамилия}
+Текущий баланс: {баланс}
+Арендованный товар: {название_товара}
+===============================================
 1. Изменить имя
 2. Изменить фамилию
 3. Пополнить счёт
@@ -262,18 +275,25 @@
 </code></pre>
         </div>
         <p>В <span class="hl-text">меню кабинета</span> выбор <span class="hl-text">пункта 3</span>:
-          <br>— Программа <span class="hl-text">запрашивает с консоли <code><span class="number"><b>16</b></span></code>-значный номер карты</span> и <span class="hl-text">CVV/CVC код</span>.
-          <br>— Если они совпадают с данными клиента, то программа <span class="hl-text">запрашивает с консоли сумму</span> и <span class="hl-text">добавляет на баланс карты</span>. В противном случае программа <span class="hl-text">возвращает в меню кабинета</span>.
+          <br>— Программа <span class="hl-text">запрашивает с консоли
+            <code><span class="number"><b>16</b></span></code>-значный номер карты</span> и <span
+            class="hl-text">CVV/CVC код</span>.
+          <br>— Если они совпадают с данными клиента, то программа <span class="hl-text">запрашивает с консоли
+            сумму</span> и <span class="hl-text">добавляет на баланс карты</span>. В противном случае программа <span
+            class="hl-text">возвращает в меню кабинета</span>.
         </p>
         <p>В <span class="hl-text">меню кабинета</span> выбор <span class="hl-text">пункта 4</span>:
-          <br>— Программа <span class="hl-text">запрашивает с консоли <code><span class="number"><b>16</b></span></code>-значный номер карты</span> и <span class="hl-text">CVV/CVC код</span>.
+          <br>— Программа <span class="hl-text">запрашивает с консоли
+            <code><span class="number"><b>16</b></span></code>-значный номер карты</span> и <span
+            class="hl-text">CVV/CVC код</span>.
           <br>— Программа <span class="hl-text">заменяет данные карты на введённые</span>.
         </p>
         <p>В <span class="hl-text">меню кабинета</span> выбор <span class="hl-text">пункта 5</span>:
           <br>— Программа <span class="hl-text">возвращается в меню клиента</span>.
         </p>
         <p>В <span class="hl-text">меню клиента</span> выбор <span class="hl-text">пункта 2</span>:
-          <br>— Программа <span class="hl-text">выводит в консоль следующие данные</span> и <span class="hl-text">меню аренды</span>:
+          <br>— Программа <span class="hl-text">выводит в консоль следующие данные</span> и <span class="hl-text">меню
+            аренды</span>:
         </p>
         <div class="console">
           <pre><code>Ваш текущий баланс: &ltчисло&gt
@@ -289,9 +309,13 @@
         </div>
         <p>Выбор <span class="hl-text">товара</span>:
           <br>— Программа <span class="hl-text">запрашивает количество целых дней для выбранного товара</span>.
-          <br>— <span class="hl-text">Выводит в консоль товар</span> и <span class="hl-text">количество дней аренды</span>, а также <span class="hl-text">итоговую сумму</span>.
+          <br>— <span class="hl-text">Выводит в консоль товар</span> и <span class="hl-text">количество дней
+            аренды</span>, а также <span class="hl-text">итоговую сумму</span>.
           <br>— <span class="hl-text">Запрашивает с консоли подтверждение</span>.
-          <br>— Если пользователь подтвердил, не имеет арендованный товар и на балансе достаточное количество денег, то программа <span class="hl-text">снимает деньги с баланса</span>, а также <span class="hl-text">отнимает количество доступного товара</span> и <span class="hl-text">меняет у клиента арендованный товар</span> и <span class="hl-text">количество дней аренды</span>.
+          <br>— Если пользователь подтвердил, не имеет арендованный товар и на балансе достаточное количество денег, то
+          программа <span class="hl-text">снимает деньги с баланса</span>, а также <span class="hl-text">отнимает
+            количество доступного товара</span> и <span class="hl-text">меняет у клиента арендованный товар</span> и
+          <span class="hl-text">количество дней аренды</span>.
         </p>
 
         <h3>Меню администратора:</h3>
@@ -306,14 +330,19 @@
         </div>
         <p>Выбор <span class="hl-text">пункта 1</span>:
           <br>— Программа <span class="hl-text">запрашивает с консоли идентификатор клиента</span>.
-          <br>— Если он верный, то программа <span class="hl-text">показывает текущий баланс</span> и <span class="hl-text">арендованный товар выбранного клиента</span>.
+          <br>— Если он верный, то программа <span class="hl-text">показывает текущий баланс</span> и <span
+            class="hl-text">арендованный товар выбранного клиента</span>.
         </p>
         <p>Выбор <span class="hl-text">пункта 2</span>:
           <br>— Программа <span class="hl-text">запрашивает с консоли идентификатор клиента</span>.
-          <br>— Если он верный, то программа <span class="hl-text">увеличивает на <code><span class="number"><b>1</b></span></code> товар</span>, который указан у клиента, и <span class="hl-text">меняет арендованный товар клиента на</span> <code><span class="string"><b>"Отсутствует"</b></span></code>.
+          <br>— Если он верный, то программа <span class="hl-text">увеличивает на
+            <code><span class="number"><b>1</b></span></code> товар</span>, который указан у клиента, и <span
+            class="hl-text">меняет арендованный товар клиента на</span>
+          <code><span class="string"><b>"Отсутствует"</b></span></code>.
         </p>
         <p>Выбор <span class="hl-text">пункта 3</span>:
-          <br>— Программа <span class="hl-text">выводит в консоль следующие данные</span> и <span class="hl-text">меню</span>:
+          <br>— Программа <span class="hl-text">выводит в консоль следующие данные</span> и <span
+            class="hl-text">меню</span>:
         </p>
         <div class="console">
           <pre><code>1. Вернуться
@@ -327,7 +356,8 @@
         </div>
         <p>Выбор <span class="hl-text">товара</span>:
           <br>— Программа <span class="hl-text">делает копию данных выбранного товара</span>.
-          <br>— <span class="hl-text">Выводит в консоль данные выбранного товара</span> и <span class="hl-text">данные копии</span>.
+          <br>— <span class="hl-text">Выводит в консоль данные выбранного товара</span> и <span class="hl-text">данные
+            копии</span>.
           <br>— <span class="hl-text">Выводит в консоль меню изменения товара</span>:
         </p>
         <div class="console">
@@ -341,17 +371,37 @@
 5. Вернуться
 </code></pre>
         </div>
-        <p><span class="hl-text">Пункты 1</span>-<span class="hl-text">3</span> меняют данные только у <span class="hl-text">копии</span>. При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">проверяет</span>, в порядке ли данные у копии и, если да, то <span class="hl-text">меняет старые данные на изменённые</span>.</p>
+        <p><span class="hl-text">Пункты 1</span>-<span class="hl-text">3</span> меняют данные только у <span
+            class="hl-text">копии</span>. При выборе <span class="hl-text">пункта 4</span> программа <span
+            class="hl-text">проверяет</span>, в порядке ли данные у копии и, если да, то <span class="hl-text">меняет
+            старые данные на изменённые</span>.</p>
         </p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 20.2 (Необязательное)</h2>
-        <p>Напишите программу <span class="hl-text">"Казино"</span>. В игре <code><span class="number"><b>4</b></span></code> <span class="hl-text">игрока</span> - <code><span class="number"><b>1</b></span></code> <span class="hl-text">человек</span> и <code><span class="number"><b>3</b></span></code> <span class="hl-text">бота</span>. Изначально у <span class="hl-text">каждого игрока</span> <code><span class="number"><b>1000</b></span></code> очков. Программа сперва <span class="hl-text">предлагает каждому игроку сделать ставку, которая уходит в общий банк</span>. Затем <span class="hl-text">предлагает каждому игроку выбрать число от <code><span class="number"><b>1</b></span></code> до <code><span class="number"><b>6</b></span></code> включительно</span>. Если игрок угадывает число, то <span class="hl-text">банк уходит к победителю</span>. Если таких игроков несколько, то <span class="hl-text">банк делится между победителями</span>. После этого <span class="hl-text">банк обнуляется</span>. Если у игрока <code><span class="number"><b>0</b></span></code> очков, то <span class="hl-text">он выбывает из игры</span>. Побеждает тот, кто остаётся <span class="hl-text">последний с очками</span>. В случае проигрыша или выигрыша программа должна <span class="hl-text">предложить сыграть снова</span>.</p>
+        <p>Напишите программу <span class="hl-text">"Казино"</span>. В игре
+          <code><span class="number"><b>4</b></span></code> <span class="hl-text">игрока</span> -
+          <code><span class="number"><b>1</b></span></code> <span class="hl-text">человек</span> и
+          <code><span class="number"><b>3</b></span></code> <span class="hl-text">бота</span>. Изначально у <span
+            class="hl-text">каждого игрока</span> <code><span class="number"><b>1000</b></span></code> очков. Программа
+          сперва <span class="hl-text">предлагает каждому игроку сделать ставку, которая уходит в общий банк</span>.
+          Затем <span class="hl-text">предлагает каждому игроку выбрать число от
+            <code><span class="number"><b>1</b></span></code> до <code><span class="number"><b>6</b></span></code>
+            включительно</span>. Если игрок угадывает число, то <span class="hl-text">банк уходит к победителю</span>.
+          Если таких игроков несколько, то <span class="hl-text">банк делится между победителями</span>. После этого
+          <span class="hl-text">банк обнуляется</span>. Если у игрока <code><span class="number"><b>0</b></span></code>
+          очков, то <span class="hl-text">он выбывает из игры</span>. Побеждает тот, кто остаётся <span
+            class="hl-text">последний с очками</span>. В случае проигрыша или выигрыша программа должна <span
+            class="hl-text">предложить сыграть снова</span>.
+        </p>
         <h3>Подсказки:</h3>
         <ol>
           <li>Используйте следующий код, чтобы генерировать числа:<div class="console">
-              <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-                  <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+              <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+                  height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                    clip-rule="evenodd"></path>
                 </svg>
                 Copy code</button>
               <pre><code class="python">from random import randint  # Подключение модуля random и импорт функции randint
@@ -359,7 +409,8 @@
 number = randint(start, end)  # Генерация случайного числа от start до end включительно</code></pre>
             </div>
           </li>
-          <li>Перед тем, как программа будет запрашивать ставки, проверяйте их наличие. <span class="number"><b>0</b></span> очков означает, что игрок не может делать ставки.</li>
+          <li>Перед тем, как программа будет запрашивать ставки, проверяйте их наличие. <span
+              class="number"><b>0</b></span> очков означает, что игрок не может делать ставки.</li>
           <li class="no-padding-bottom">Когда игроки делают ставки не забудьте отнять эти ставки из очков игроков.</li>
         </ol>
         <h3>Консоль:</h3>
@@ -416,13 +467,13 @@ number = randint(start, end)  # Генерация случайного числ
       button.innerHTML = `
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
     `;
-      setTimeout(function() {
+      setTimeout(function () {
         button.innerHTML = originalHTML;
       }, 2000);
     }
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function(codeBlock, index) {
+      codeBlocks.forEach(function (codeBlock, index) {
         let innerHTML = codeBlock.innerHTML;
         console.log(index, innerHTML);
         // STRING
