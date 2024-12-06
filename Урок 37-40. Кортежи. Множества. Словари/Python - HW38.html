@@ -4,7 +4,9 @@
   <title>Python - HW38</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
   <style>
     body {
       background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
@@ -213,28 +215,56 @@
     <div class="right-block">
       <div class="right-rect">
         <h2><strong>Примечание</strong></h2>
-        <p>Оформляйте ввод и вывод данных. Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>, но можете использовать при проверке наличия ключа в словаре. Не используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методов. Можно использовать <code><b>append()</b></code>, <code><b>split()</b></code>, <code class="python"><b>len()</b></code>, методы множества. Не используйте срезы.</p>
+        <p>Оформляйте ввод и вывод данных. Используйте только то, что было пройдено до этого урока включительно. Не
+          используйте в условии оператор <code class="python"><b>in</b></code>, но можете использовать при проверке
+          наличия ключа в словаре. Не используйте готовые методы, только если в заданиях не говорится об использовании
+          тех или иных методов. Можно использовать <code><b>append()</b></code>, <code><b>split()</b></code>, <code
+            class="python"><b>len()</b></code>, методы множества. Не используйте срезы.</p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 38.1</h2>
-        <p>Напишите функцию <code><b><span class="function">find_occurrences</span></b></code>, которая <span class="hl-text">принимает кортеж строк</span> и <span class="hl-text">последовательность символов</span>. Затем функция <span class="hl-text">добавляет в список строку, в которую входит последовательность символов</span>. В конце функция <span class="hl-text">превращает список в кортеж</span> и <span class="hl-text">возвращает его</span>.</p>
+        <p>Напишите функцию <code><b><span class="function">find_occurrences</span></b></code>, которая <span
+            class="hl-text">принимает кортеж строк</span> и <span class="hl-text">последовательность символов</span>.
+          Затем функция <span class="hl-text">добавляет в список строку, в которую входит последовательность
+            символов</span>. В конце функция <span class="hl-text">превращает список в кортеж</span> и <span
+            class="hl-text">возвращает его</span>.</p>
 
         <p>Например:
-          <br>Кортеж: <code class="python"><b>("banana", "apple", "bananamango", "mango", "strawberry-banana")</b></code>
+          <br>Кортеж: <code
+            class="python"><b>("banana", "apple", "bananamango", "mango", "strawberry-banana")</b></code>
           <br>Последовательность символов: <code class="python"><b>"ban"</b></code>
-          <br>Результат работы функции: <code class="python"><b>("banana", "bananamango", "strawberry-banana")</b></code>
+          <br>Результат работы функции: <code
+            class="python"><b>("banana", "bananamango", "strawberry-banana")</b></code>
         </p>
         <h3>Подсказка:</h3>
-        <p>Код и алгоритм поиска последовательности символов мы рассматривали на <code class="python"><b>24</b></code>-м уроке.</p>
+        <p>Код и алгоритм поиска последовательности символов мы рассматривали на <code class="python"><b>24</b></code>-м
+          уроке.</p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 38.2</h2>
-        <p>В магазине <span class="hl-text">"Всё Не Дорого"</span> запустили акцию по розыгрышу дорогой электроники. Для этого пользователи должны были вписать свою почту на сайте и нажать кнопку <code class="python"><b>"Участвовать"</b></code>. В итоге собрался список почт, однако, если пользователь несколько раз вписывал одну и ту же почту и снова нажимал кнопку <code class="python"><b>"Участвовать"</b></code>, то данные снова добавлялись в список. Более того, программа принимала любые строки, поэтому в списке есть мусорные данные. Напишите функцию <code><b><span class="function">check_mails</span></b></code>, которая <span class="hl-text">принимает список строк</span>, <span class="hl-text">удаляет дубликаты</span>, <span class="hl-text">проверяет правильность почты</span> и <span class="hl-text">возвращает кортеж из строк, которые прошли проверку</span>. Почта считается правильной, если <span class="hl-text">строка содержит символ <code class="python"><b>"@"</b></code>, после которого идёт символ <code class="python"><b>"."</b></code>, но не сразу</span>.</p>
-        <p>Пример правильной почты: <span class="string"><b>&ltхотя_бы_один_символ&gt@&ltхотя_бы_один_символ&gt.&ltхотя_бы_один_символ&gt</b></span></p>
+        <p>В магазине <span class="hl-text">"Всё Не Дорого"</span> запустили акцию по розыгрышу дорогой электроники. Для
+          этого пользователи должны были вписать свою почту на сайте и нажать кнопку <code
+            class="python"><b>"Участвовать"</b></code>. В итоге собрался список почт, однако, если пользователь
+          несколько раз вписывал одну и ту же почту и снова нажимал кнопку <code
+            class="python"><b>"Участвовать"</b></code>, то данные снова добавлялись в список. Более того, программа
+          принимала любые строки, поэтому в списке есть мусорные данные. Напишите функцию
+          <code><b><span class="function">check_mails</span></b></code>, которая <span class="hl-text">принимает список
+            строк</span>, <span class="hl-text">удаляет дубликаты</span>, <span class="hl-text">проверяет правильность
+            почты</span> и <span class="hl-text">возвращает кортеж из строк, которые прошли проверку</span>. Почта
+          считается правильной, если <span class="hl-text">строка содержит символ <code
+              class="python"><b>"@"</b></code>, после которого идёт символ <code class="python"><b>"."</b></code>, но не
+            сразу</span>.
+        </p>
+        <p>Пример правильной почты: <span
+            class="string"><b>{хотя_бы_один_символ}@{хотя_бы_один_символ}.{хотя_бы_один_символ}</b></span>
+        </p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 38.3</h2>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли имена пользователей первого приложения через пробел</span>, затем <span class="hl-text">на следующей строке запрашивает с консоли имена пользователей второго приложения через пробел</span>. Программа должна <span class="hl-text">вывести в консоль следующие данные</span>:
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли имена пользователей первого
+            приложения через пробел</span>, затем <span class="hl-text">на следующей строке запрашивает с консоли имена
+            пользователей второго приложения через пробел</span>. Программа должна <span class="hl-text">вывести в
+            консоль следующие данные</span>:
           <br>— Имена пользователей <span class="hl-text">обоих приложений</span>
           <br>— Имена пользователей <span class="hl-text">только первого приложения</span>
           <br>— Имена пользователей <span class="hl-text">только второго приложения</span>
@@ -265,31 +295,44 @@
         </div>
         </p>
 
-        <p>Данные баскетболистов хранятся в виде <span class="hl-text">одного словаря</span>, в котором ключи являются <span class="hl-text">именами</span>, а значения - <span class="hl-text">ростом</span>:
+        <p>Данные баскетболистов хранятся в виде <span class="hl-text">одного словаря</span>, в котором ключи являются
+          <span class="hl-text">именами</span>, а значения - <span class="hl-text">ростом</span>:
         <div class="console">
           <pre><code class="python">{"Jack": 153, "Tom": 223, ...}</code></pre>
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит в консоль имя</span> и <span class="hl-text">рост в следующем виде</span>:
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит в консоль имя</span>
+          и <span class="hl-text">рост в следующем виде</span>:
         <div class="console">
-          <pre><code>"Имя" - <рост>
-"Имя" - <рост>
+          <pre><code>{имя} - {рост}
+{имя} - {рост}
 ...</code></pre>
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">выводит в консоль имена в одну строку</span>:
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">выводит в консоль имена в
+            одну строку</span>:
         <div class="console">
-          <pre><code>"Имя", "Имя", ...</code></pre>
+          <pre><code>{имя}, {имя}, ...</code></pre>
         </div>
         </p>
         <p>Учтите, что при выводе в консоль имён, в конце <span class="hl-text">не должно быть пробела</span>.</p>
 
-        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли имя</span> и <span class="hl-text">выводит рост</span>. Если такого имени нет, то программа должна <span class="hl-text">об этом сообщить</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли новое имя</span> и <span class="hl-text">рост</span>, затем <span class="hl-text">добавляет пару в словарь</span>. Если такое имя уже существует, то программа должна <span class="hl-text">об этом сообщить</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает с консоли имя</span> и <span class="hl-text">удаляет баскетболиста</span>. Если такого имени нет, то программа должна <span class="hl-text">об этом сообщить</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 6</span> программа <span class="hl-text">запрашивает с консоли имя</span>. Если такое имя есть, то программа <span class="hl-text">запрашивает с консоли рост</span> и <span class="hl-text">меняет её у баскетболиста</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли
+            имя</span> и <span class="hl-text">выводит рост</span>. Если такого имени нет, то программа должна <span
+            class="hl-text">об этом сообщить</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли новое
+            имя</span> и <span class="hl-text">рост</span>, затем <span class="hl-text">добавляет пару в словарь</span>.
+          Если такое имя уже существует, то программа должна <span class="hl-text">об этом сообщить</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает с консоли
+            имя</span> и <span class="hl-text">удаляет баскетболиста</span>. Если такого имени нет, то программа должна
+          <span class="hl-text">об этом сообщить</span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 6</span> программа <span class="hl-text">запрашивает с консоли
+            имя</span>. Если такое имя есть, то программа <span class="hl-text">запрашивает с консоли рост</span> и
+          <span class="hl-text">меняет её у баскетболиста</span>.
+        </p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 38.5</h2>
@@ -304,10 +347,15 @@
         </div>
         </p>
 
-        <p>Данные о книге хранятся в виде словаря с ключами <code class="python"><b>"book_id"</b></code>, <code class="python"><b>"title"</b></code>, <code class="python"><b>"author"</b></code>, <code class="python"><b>"genre"</b></code>, <code class="python"><b>"release_year"</b></code>. Например:</p>
+        <p>Данные о книге хранятся в виде словаря с ключами <code class="python"><b>"book_id"</b></code>, <code
+            class="python"><b>"title"</b></code>, <code class="python"><b>"author"</b></code>, <code
+            class="python"><b>"genre"</b></code>, <code class="python"><b>"release_year"</b></code>. Например:</p>
         <div class="console">
-          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+              height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd"
+                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                clip-rule="evenodd"></path>
             </svg>
             Copy code</button>
           <pre><code class="python">book_1 = {"book_id": "B-001", "title": "Python Tricks. The Book", "author": "Dan Bader", "genre": "Reference work", "release_year": 2017}
@@ -316,34 +364,48 @@ book_3 = {"book_id": "B-003", "title": "Structure and Interpretation of Computer
         </div>
         <p>Все книги хранятся в <span class="hl-text">списке</span>. Например:</p>
         <div class="console">
-          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+              height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd"
+                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                clip-rule="evenodd"></path>
             </svg>
             Copy code</button>
           <pre><code class="python">book_list = [book_1, book_2, book_3]</code></pre>
         </div>
         <p>Изначально список книг может быть пустым.</p>
 
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит в консоль книги в следующем виде</span>:
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит в консоль книги в
+            следующем виде</span>:
         <div class="console">
-          <pre><code>"Идентификатор" "Название" "Автор" "Жанр" <год>
-"Идентификатор" "Название" "Автор" "Жанр" <год>
+          <pre><code>{идентификатор} {название} {автор} {жанр} {год}
+{идентификатор} {название} {автор} {жанр} {год}
 ...</code></pre>
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>, <span class="hl-text">название книги</span>, <span class="hl-text">имя автора</span>, <span class="hl-text">жанр</span> и <span class="hl-text">год выпуска</span>, затем <span class="hl-text">формирует из него словарь</span>. После этого <span class="hl-text">книга добавляется в список</span>, если идентификатор новой книги не совпадает ни с одним идентификатором других книг. В противном случае программа должна <span class="hl-text">сообщить об этом</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли
+            идентификатор</span>, <span class="hl-text">название книги</span>, <span class="hl-text">имя автора</span>,
+          <span class="hl-text">жанр</span> и <span class="hl-text">год выпуска</span>, затем <span
+            class="hl-text">формирует из него словарь</span>. После этого <span class="hl-text">книга добавляется в
+            список</span>, если идентификатор новой книги не совпадает ни с одним идентификатором других книг. В
+          противном случае программа должна <span class="hl-text">сообщить об этом</span>.
+        </p>
 
-        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли идентификатор книги</span>, затем <span class="hl-text">выводит в консоль данные книги</span>, если они найдены. Данные выводятся в следующем виде:
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли
+            идентификатор книги</span>, затем <span class="hl-text">выводит в консоль данные книги</span>, если они
+          найдены. Данные выводятся в следующем виде:
         <div class="console">
-          <pre><code>"Идентификатор" "Название" "Автор" "Жанр" <год></code></pre>
+          <pre><code>{идентификатор} {название} {автор} {жанр} {год}</code></pre>
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли идентификатор книги</span>. Если книга с таким идентификатором найдена, то программа <span class="hl-text">выводит в консоль следующее</span>:
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли
+            идентификатор книги</span>. Если книга с таким идентификатором найдена, то программа <span
+            class="hl-text">выводит в консоль следующее</span>:
         <div class="console">
-          <pre><code>Старые данные: "Идентификатор" "Название" "Автор" "Жанр" <год>
-Новые данные: "Идентификатор" "Название" "Автор" "Жанр" <год>
+          <pre><code>Старые данные: {идентификатор} {название} {автор} {жанр} {год}
+Новые данные: {идентификатор} {название} {автор} {жанр} {год}
 1. Изменить идентификатор
 2. Изменить название книги
 3. Изменить имя автора
@@ -354,21 +416,43 @@ book_3 = {"book_id": "B-003", "title": "Structure and Interpretation of Computer
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">5</span> программа <span class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится в словарь только в том случае, если был выбран <span class="hl-text">пункт 6</span>. Поэтому <span class="hl-text">пункты 1</span>-<span class="hl-text">5</span> должны <span class="hl-text">изменять копию данных</span>, а при выборе <span class="hl-text">пункта 6 заменять оригинал</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 6</span> программа должна <span class="hl-text">проверить идентификатор изменённых данных</span>. Если идентификатор не изменился или же совпадений с идентификаторами других книг нет, то <span class="hl-text">старые данные заменяются на новые</span>. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
+        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">5</span> программа <span
+            class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится в словарь
+          только в том случае, если был выбран <span class="hl-text">пункт 6</span>. Поэтому <span
+            class="hl-text">пункты 1</span>-<span class="hl-text">5</span> должны <span class="hl-text">изменять копию
+            данных</span>, а при выборе <span class="hl-text">пункта 6 заменять оригинал</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 6</span> программа должна <span class="hl-text">проверить
+            идентификатор изменённых данных</span>. Если идентификатор не изменился или же совпадений с идентификаторами
+          других книг нет, то <span class="hl-text">старые данные заменяются на новые</span>. В противном случае
+          программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
 
-        <p><span class="hl-text">В главном меню</span> при выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>. Если идентификатор найден, то программа <span class="hl-text">удаляет книгу</span>. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
+        <p><span class="hl-text">В главном меню</span> при выборе <span class="hl-text">пункта 5</span> программа <span
+            class="hl-text">запрашивает с консоли идентификатор</span>. Если идентификатор найден, то программа <span
+            class="hl-text">удаляет книгу</span>. В противном случае программа должна <span class="hl-text">сообщить о
+            проблеме</span>.</p>
 
         <h3>Дополнительно:</h3>
         <ol>
-          <li>Попытайтесь разделить программу на <span class="hl-text">фронтенд</span> и <span class="hl-text">бэкенд</span>. Для этого создайте разные функции. Помните, что во фронтенд помещается <span class="hl-text">логика ввода</span>, <span class="hl-text">проверки ввода</span> и <span class="hl-text">его преобразование</span>, а также <span class="hl-text">вывод</span>. В бэкенд помещается вся остальная логика - <span class="hl-text">поиск</span>, <span class="hl-text">добавление</span>, <span class="hl-text">удаление</span>, <span class="hl-text">изменение</span>, <span class="hl-text">формирование данных для вывода</span> и <span class="hl-text">подобные операции</span>.</li>
-          <li class="no-padding-bottom">Переделайте программу так, чтобы <span class="hl-text">книги хранились не в списке, а в словаре</span>, где ключём является <span class="hl-text">идентификатор книги</span>, а значением - <span class="hl-text">книга как словарь</span>. При этом в самой книге уберите ключ <code class="python"><b>"book_id"</b></code>. В итоге должна получиться следующая структура:
+          <li>Попытайтесь разделить программу на <span class="hl-text">фронтенд</span> и <span
+              class="hl-text">бэкенд</span>. Для этого создайте разные функции. Помните, что во фронтенд помещается
+            <span class="hl-text">логика ввода</span>, <span class="hl-text">проверки ввода</span> и <span
+              class="hl-text">его преобразование</span>, а также <span class="hl-text">вывод</span>. В бэкенд помещается
+            вся остальная логика - <span class="hl-text">поиск</span>, <span class="hl-text">добавление</span>, <span
+              class="hl-text">удаление</span>, <span class="hl-text">изменение</span>, <span
+              class="hl-text">формирование данных для вывода</span> и <span class="hl-text">подобные операции</span>.
+          </li>
+          <li class="no-padding-bottom">Переделайте программу так, чтобы <span class="hl-text">книги хранились не в
+              списке, а в словаре</span>, где ключом является <span class="hl-text">идентификатор книги</span>, а
+            значением - <span class="hl-text">книга как словарь</span>. При этом в самой книге уберите ключ <code
+              class="python"><b>"book_id"</b></code>. В итоге должна получиться следующая структура:
             <div class="console">
-              <pre><code>{<span class="string">"Идентификатор"</span>: {<span class="string">"title"</span>: <span class="string">"Название"</span>, <span class="string">"author"</span>: <span class="string">"Имя"</span>, <span class="string">"genre"</span>: <span class="string">"Жанр"</span>, <span class="string">"release_year"</span>: <span class="number"><год></span>},
- <span class="string">"Идентификатор"</span>: {<span class="string">"title"</span>: <span class="string">"Название"</span>, <span class="string">"author"</span>: <span class="string">"Имя"</span>, <span class="string">"genre"</span>: <span class="string">"Жанр"</span>, <span class="string">"release_year"</span>: <span class="number"><год></span>},
+              <pre><code>{<span class="string">{идентификатор}</span>: {<span class="string">"title"</span>: <span class="string">{название}</span>, <span class="string">"author"</span>: <span class="string">{имя}</span>, <span class="string">"genre"</span>: <span class="string">{жанр}</span>, <span class="string">"release_year"</span>: <span class="number">{год}</span>},
+ <span class="string">{идентификатор}</span>: {<span class="string">"title"</span>: <span class="string">{название}</span>, <span class="string">"author"</span>: <span class="string">{имя}</span>, <span class="string">"genre"</span>: <span class="string">{жанр}</span>, <span class="string">"release_year"</span>: <span class="number">{год}</span>},
  ...}</code></pre>
             </div>
-            Вместе с этим переделайте операции <span class="hl-text">вывода книг</span>, <span class="hl-text">поиска</span>, <span class="hl-text">добавления</span>, <span class="hl-text">изменения</span> и <span class="hl-text">удаления книг</span>.
+            Вместе с этим переделайте операции <span class="hl-text">вывода книг</span>, <span
+              class="hl-text">поиска</span>, <span class="hl-text">добавления</span>, <span
+              class="hl-text">изменения</span> и <span class="hl-text">удаления книг</span>.
           </li>
         </ol>
       </div>
@@ -391,13 +475,13 @@ book_3 = {"book_id": "B-003", "title": "Structure and Interpretation of Computer
       button.innerHTML = `
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
     `;
-      setTimeout(function() {
+      setTimeout(function () {
         button.innerHTML = originalHTML;
       }, 2000);
     }
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function(codeBlock, index) {
+      codeBlocks.forEach(function (codeBlock, index) {
         let innerHTML = codeBlock.innerHTML;
         console.log(index, innerHTML);
         // STRING

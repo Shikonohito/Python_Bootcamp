@@ -4,7 +4,9 @@
   <title>Python - PT30</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
   <style>
     body {
       background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
@@ -140,7 +142,8 @@
     <div class="right-block">
       <div class="right-rect">
         <h2>Практическое Задание 30.1</h2>
-        <p>Напишите программу, которая <span class="hl-text">ведёт учёт расходов</span> и <span class="hl-text">доходов</span>. Реализуйте следующее меню:
+        <p>Напишите программу, которая <span class="hl-text">ведёт учёт расходов</span> и <span
+            class="hl-text">доходов</span>. Реализуйте следующее меню:
         <div class="console">
           <pre><code>1. Показать историю расходов и доходов
 2. Показать текущий баланс
@@ -150,19 +153,50 @@
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 1</span> программа должна <span class="hl-text">выводить в консоль все данные из глобального списка</span> <span class="grey"><b>log_balance</b></span>.</p>
-        <p>При выборе <span class="hl-text">пункта 2</span> программа должна <span class="hl-text">выводить в консоль текущий баланс</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 3</span> программа должна <span class="hl-text">запросить с консоли число</span> и <span class="hl-text">передать в функцию</span> <span class="function"><b>add_income</b></span>. Если число положительное, то эта функция <span class="hl-text">добавляет число в баланс</span>, <span class="hl-text">добавляет в <span class="grey"><b>log_balance</b></span> строку</span> <span class="string"><b>"Доход: <span class="number">&ltчисло&gt</span>"</b></span> и <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>, а в противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>. Если функция вернула <span class="keyword"><b>True</b></span>, то программа должна <span class="hl-text">вывести в консоль</span> <span class="string"><b>"Операция выполнена успешно."</b></span>. В противном случае <span class="string"><b>"Ошибка выполнения операции."</b></span>.</p>
-        <p>При выборе <span class="hl-text">пункта 4</span> программа должна <span class="hl-text">запросить с консоли число</span> и <span class="hl-text">передать в функцию</span> <span class="function"><b>add_expense</b></span>. Если число положительное, то эта функция <span class="hl-text">отнимает число из баланса</span>, <span class="hl-text">добавляет в <span class="grey"><b>log_balance</b></span> строку</span> <span class="string"><b>"Расход: <span class="number">&ltчисло&gt</span>"</b></span> и <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>, а в противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>. Если функция вернула <span class="keyword"><b>True</b></span>, то программа должна <span class="hl-text">вывести в консоль</span> <span class="string"><b>"Операция выполнена успешно."</b></span>. В противном случае <span class="string"><b>"Ошибка выполнения операции."</b></span>.</p>
-        <p><span class="hl-text">Список</span> и <span class="hl-text">баланс</span> должны быть <span class="hl-text">глобальными переменными</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 1</span> программа должна <span class="hl-text">выводить в консоль
+            все данные из глобального списка</span> <span class="grey"><b>log_balance</b></span>.</p>
+        <p>При выборе <span class="hl-text">пункта 2</span> программа должна <span class="hl-text">выводить в консоль
+            текущий баланс</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 3</span> программа должна <span class="hl-text">запросить с консоли
+            число</span> и <span class="hl-text">передать в функцию</span> <span
+            class="function"><b>add_income</b></span>. Если число положительное, то эта функция <span
+            class="hl-text">добавляет число в баланс</span>, <span class="hl-text">добавляет в <span
+              class="grey"><b>log_balance</b></span> строку</span> <span class="string"><b>"Доход: <span
+                class="number">{доход}</span>"</b></span> и <span class="hl-text">возвращает</span> <span
+            class="keyword"><b>True</b></span>, а в противном случае <span class="hl-text">возвращает</span> <span
+            class="keyword"><b>False</b></span>. Если функция вернула <span class="keyword"><b>True</b></span>, то
+          программа должна <span class="hl-text">вывести в консоль</span> <span class="string"><b>"Операция выполнена
+              успешно."</b></span>. В противном случае <span class="string"><b>"Ошибка выполнения операции."</b></span>.
+        </p>
+        <p>При выборе <span class="hl-text">пункта 4</span> программа должна <span class="hl-text">запросить с консоли
+            число</span> и <span class="hl-text">передать в функцию</span> <span
+            class="function"><b>add_expense</b></span>. Если число положительное, то эта функция <span
+            class="hl-text">отнимает число из баланса</span>, <span class="hl-text">добавляет в <span
+              class="grey"><b>log_balance</b></span> строку</span> <span class="string"><b>"Расход: <span
+                class="number">{расход}</span>"</b></span> и <span class="hl-text">возвращает</span> <span
+            class="keyword"><b>True</b></span>, а в противном случае <span class="hl-text">возвращает</span> <span
+            class="keyword"><b>False</b></span>. Если функция вернула <span class="keyword"><b>True</b></span>, то
+          программа должна <span class="hl-text">вывести в консоль</span> <span class="string"><b>"Операция выполнена
+              успешно."</b></span>. В противном случае <span class="string"><b>"Ошибка выполнения операции."</b></span>.
+        </p>
+        <p><span class="hl-text">Список</span> и <span class="hl-text">баланс</span> должны быть <span
+            class="hl-text">глобальными переменными</span>.</p>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 30.2</h2>
-        <p>Переделайте предыдущую программу так, чтобы функции <span class="hl-text">не использовали глобальные переменные</span>.</p>
+        <p>Переделайте предыдущую программу так, чтобы функции <span class="hl-text">не использовали глобальные
+            переменные</span>.</p>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 30.3</h2>
-        <p>Переделайте программу из <span class="hl-text">Практического Задания 30.1</span> так, чтобы <span class="hl-text">использовалось замыкание для того, чтобы переменные</span> <span class="grey"><b>log_balance</b></span> и <span class="hl-text">баланс перестали быть глобальными</span>. Также напишите <span class="hl-text">две функции</span>, которые позволят <span class="hl-text">прочитать данные из</span> <span class="grey"><b>log_balance</b></span> и <span class="hl-text">баланса</span>, и <span class="hl-text">две функции</span>, которые позволят <span class="hl-text">установить новые данные</span>.</p>
+        <p>Переделайте программу из <span class="hl-text">Практического Задания 30.1</span> так, чтобы <span
+            class="hl-text">использовалось замыкание для того, чтобы переменные</span> <span
+            class="grey"><b>log_balance</b></span> и <span class="hl-text">баланс перестали быть глобальными</span>.
+          Также напишите <span class="hl-text">две функции</span>, которые позволят <span class="hl-text">прочитать
+            данные из</span> <span class="grey"><b>log_balance</b></span> и <span class="hl-text">баланса</span>, и
+          <span class="hl-text">две функции</span>, которые позволят <span class="hl-text">установить новые
+            данные</span>.
+        </p>
       </div>
     </div>
   </div>

@@ -4,7 +4,9 @@
   <title>Python - HW22</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
   <style>
     body {
       background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
@@ -213,11 +215,18 @@
     <div class="right-block">
       <div class="right-rect">
         <h2><strong>Примечание</strong></h2>
-        <p>Оформляйте ввод и вывод данных в соответствии с примерами заданий. Используйте только то, что было пройденно до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>. Не используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методов. Не используйте срезы.</p>
+        <p>Оформляйте ввод и вывод данных в соответствии с примерами заданий. Используйте только то, что было пройдено
+          до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>. Не
+          используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методов. Не
+          используйте срезы.</p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 22.1</h2>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку с примером</span>, <span class="hl-text">проверяет правильность использования скобок</span> и затем <span class="hl-text">она выводит в консоль</span> <span class="string"><b>"Открывающих скобок больше, чем закрывающих."</b></span>, <span class="string"><b>"Закрывающих скобок больше, чем открывающих."</b></span> или <span class="string"><b>"Скобки расставлены верно."</b></span>.</p>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку с примером</span>, <span
+            class="hl-text">проверяет правильность использования скобок</span> и затем <span class="hl-text">она выводит
+            в консоль</span> <span class="string"><b>"Открывающих скобок больше, чем закрывающих."</b></span>, <span
+            class="string"><b>"Закрывающих скобок больше, чем открывающих."</b></span> или <span
+            class="string"><b>"Скобки расставлены верно."</b></span>.</p>
         <h3>Консоль:</h3>
         <div class="console">
           <pre><code>Введите строку примера: <span class="input">2 + (10 - 5 - (2 + 10)</span>
@@ -227,7 +236,8 @@
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 22.2</h2>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span> и <span class="hl-text">выводит в консоль на каждой новой строке предложение до точки включительно</span>.</p>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span> и <span
+            class="hl-text">выводит в консоль на каждой новой строке предложение до точки включительно</span>.</p>
         <h3>Консоль:</h3>
         <div class="console">
           <pre><code>Введите строку: <span class="input">abc. def. hij.</span>
@@ -239,10 +249,16 @@ hij.</code></pre>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 22.3</h2>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли арифметическое выражение вида</span> <span class="number"><b>&ltчисло&gt<span class="grey">&ltоперация&gt</span>&ltчисло&gt</b></span>, затем <span class="hl-text">выводит в консоль результат выражения</span>. В качестве операции может быть <span class="grey"><b>+</b></span>, <span class="grey"><b>-,</b></span> <span class="grey"><b>*</b></span>, <span class="grey"><b>/</b></span>.</p>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли арифметическое выражение вида</span>
+          <span class="number"><b>{число}<span class="grey">{операция}</span>{число}</b></span>, затем <span
+            class="hl-text">выводит в консоль результат выражения</span>. В качестве операции может быть <span
+            class="grey"><b>+</b></span>, <span class="grey"><b>-,</b></span> <span class="grey"><b>*</b></span>, <span
+            class="grey"><b>/</b></span>.
+        </p>
 
         <h3>Подсказка:</h3>
-        <p>Сперва выделите левое число в одну переменную, операцию в другую, правое число в третью. Затем числа приведите к типу <code class="python"><b>int</b></code>.</p>
+        <p>Сперва выделите левое число в одну переменную, операцию в другую, правое число в третью. Затем числа
+          приведите к типу <code class="python"><b>int</b></code>.</p>
         <h3>Консоль:</h3>
         <div class="console">
           <pre><code>Введите арифметическое выражение: <span class="input">23+12</span>
@@ -252,10 +268,18 @@ hij.</code></pre>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 22.4</h2>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли текст в одну строку</span> и <span class="hl-text">выводит в консоль количество предложений</span>. С точки зрения пунктуации, предложение оформляется в конце <span class="hl-text">точкой</span>, <span class="hl-text">восклицательным</span>, <span class="hl-text">вопросительным знаками</span> или <span class="hl-text">многоточием (три точки подряд)</span>.</p>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли текст в одну строку</span> и <span
+            class="hl-text">выводит в консоль количество предложений</span>. С точки зрения пунктуации, предложение
+          оформляется в конце <span class="hl-text">точкой</span>, <span class="hl-text">восклицательным</span>, <span
+            class="hl-text">вопросительным знаками</span> или <span class="hl-text">многоточием (три точки
+            подряд)</span>.</p>
 
         <h3>Подсказка:</h3>
-        <p>Для подсчёта точек проверяйте сразу две позиции. Например, если по индексу <code class="python"><b>i</b></code> находится точка, то проверяем по индексу <code class="python"><b>i + 1</b></code>. Если и на ней находится точка, то ничего не делаем. В противном случае увеличиваем счётчик предложений. Учтите, что в этом случае нужно проверять с индекса <span class="number"><b>0</b></span> до <code class="python"><b>&ltразмера строки&gt - 1</b></code>.</p>
+        <p>Для подсчёта точек проверяйте сразу две позиции. Например, если по индексу <code
+            class="python"><b>i</b></code> находится точка, то проверяем по индексу <code
+            class="python"><b>i + 1</b></code>. Если и на ней находится точка, то ничего не делаем. В противном случае
+          увеличиваем счётчик предложений. Учтите, что в этом случае нужно проверять с индекса <span
+            class="number"><b>0</b></span> до <code class="python"><b>{размера_строки} - 1</b></code>.</p>
         <h3>Консоль:</h3>
         <div class="console">
           <pre><code>Введите текст: <span class="input">abc? defg! hij... klm.</span>
@@ -265,7 +289,12 @@ hij.</code></pre>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 22.5</h2>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли кому</span>, <span class="hl-text">от кого</span> и <span class="hl-text">сообщение</span>, затем <span class="hl-text">выводит в консоль форматированный текст</span>. Используйте переменную, в котором будет находиться форматированный текст, и <span class="grey"><b>format()</b></span> или <span class="grey"><b>f-строки</b></span>. Команда вывода должна быть одна.</p>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли кому</span>, <span class="hl-text">от
+            кого</span> и <span class="hl-text">сообщение</span>, затем <span class="hl-text">выводит в консоль
+            форматированный текст</span>. Используйте переменную, в котором будет находиться форматированный текст, и
+          <span class="grey"><b>format()</b></span> или <span class="grey"><b>f-строки</b></span>. Команда вывода должна
+          быть одна.
+        </p>
         <h3>Консоль:</h3>
         <div class="console">
           <pre><code>Введите кому сообщение: <span class="input">Teston Lebra</span>
@@ -281,7 +310,9 @@ hij.</code></pre>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 22.6</h2>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку азотистых оснований из первых больших</span> и <span class="hl-text">маленьких букв</span> - А/а (Аденин), Г/г (Гуанин), Ц/ц (Цитозин), Т/т (Тимин), а затем <span class="hl-text">выводит в консоль сколько каждого из них</span>.</p>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку азотистых оснований из первых
+            больших</span> и <span class="hl-text">маленьких букв</span> - А/а (Аденин), Г/г (Гуанин), Ц/ц (Цитозин),
+          Т/т (Тимин), а затем <span class="hl-text">выводит в консоль сколько каждого из них</span>.</p>
         <h3>Консоль:</h3>
         <div class="console">
           <pre><code>Введите строку азотистых оснований: <span class="input">аГцТАЦгтАат</span>
@@ -294,9 +325,12 @@ hij.</code></pre>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 22.7</h2>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span> и <span class="hl-text">заменяет подряд идущие символы на этот же символ</span> и <span class="hl-text">количество повторений</span>, затем <span class="hl-text">выводит в консоль новую строку</span>.</p>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span> и <span
+            class="hl-text">заменяет подряд идущие символы на этот же символ</span> и <span class="hl-text">количество
+            повторений</span>, затем <span class="hl-text">выводит в консоль новую строку</span>.</p>
         <h3>Подсказка:</h3>
-        <p>Рассматривайте пару символов - текущий и предыдущий символ. Для этого создайте переменную, которая в самом конце цикла копирует текущий индекс.</p>
+        <p>Рассматривайте пару символов - текущий и предыдущий символ. Для этого создайте переменную, которая в самом
+          конце цикла копирует текущий индекс.</p>
         <h3>Консоль:</h3>
         <div class="console">
           <pre><code>Введите строку для сжатия: <span class="input">abbcccddddeeeea</span>
@@ -306,12 +340,19 @@ hij.</code></pre>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 22.8</h2>
-        <p>Напишите программу, которая <span class="hl-text">генерирует пароли</span>. Программа сперва должна <span class="hl-text">задать ряд вопросов</span>, затем <span class="hl-text">в зависимости от ответов создать <span class="number"><b>5</b></span> паролей</span> и <span class="hl-text">вывести их в консоль</span>.</p>
+        <p>Напишите программу, которая <span class="hl-text">генерирует пароли</span>. Программа сперва должна <span
+            class="hl-text">задать ряд вопросов</span>, затем <span class="hl-text">в зависимости от ответов создать
+            <span class="number"><b>5</b></span> паролей</span> и <span class="hl-text">вывести их в консоль</span>.</p>
         <h3>Подсказки:</h3>
         <ol>
-          <li>Генерируйте случайное число от <span class="number"><b>0</b></span> до размера набора символов. Полученное число будет индексом символа из набора символов. Используйте следующий код для генерации числа:<div class="console">
-              <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-                  <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+          <li>Генерируйте случайное число от <span class="number"><b>0</b></span> до размера набора символов. Полученное
+            число будет индексом символа из набора символов. Используйте следующий код для генерации числа:<div
+              class="console">
+              <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+                  height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                    clip-rule="evenodd"></path>
                 </svg>
                 Copy code</button>
               <pre><code class="python">from random import randint  # Подключение модуля random и импорт функции randint
@@ -319,7 +360,12 @@ hij.</code></pre>
 index = randint(start, end)  # Использование функции для генерации одного числа от start до end включительно</code></pre>
             </div>
           </li>
-          <li class="no-padding-bottom">Создайте одну переменную, которая будет выступать в качестве набора символов, которые будут добавляться в пароль. Изначально в этой переменной должны быть символы <span class="string"><b>"abcdefghijklmnopqrstuvwxyz"</b></span>. Если пароль должен содержать цифры, то добавляйте к нему строку <span class="string"><b>"0123456789"</b></span>. Если заглавные английские буквы, то <span class="string"><b>"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</b></span>. Если специальные символы, то <span class="string"><b>"!@#$%&*_-+=?"</b></span>.</li>
+          <li class="no-padding-bottom">Создайте одну переменную, которая будет выступать в качестве набора символов,
+            которые будут добавляться в пароль. Изначально в этой переменной должны быть символы <span
+              class="string"><b>"abcdefghijklmnopqrstuvwxyz"</b></span>. Если пароль должен содержать цифры, то
+            добавляйте к нему строку <span class="string"><b>"0123456789"</b></span>. Если заглавные английские буквы,
+            то <span class="string"><b>"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</b></span>. Если специальные символы, то <span
+              class="string"><b>"!@#$%&*_-+=?"</b></span>.</li>
         </ol>
         <h3>Консоль:</h3>
         <div class="console">
@@ -336,27 +382,50 @@ index = randint(start, end)  # Использование функции для 
         </div>
       </div>
       <div class="right-rect">
-        <h2>Домашнее Задание 22.9 (Необязатльное)</h2>
-        <p><span class="hl-text">Teston Lebra</span> попросили определить <span class="string"><b>"текст"</b></span> молекул ДНК по хэшам. Напишите программу, которая <span class="hl-text">перебирает все возможные комбинации молекул ДНК</span>, <span class="hl-text">вычисляет их хэши</span> и <span class="hl-text">выводит в консоль найденные последовательности ДНК</span>.</p>
+        <h2>Домашнее Задание 22.9 (Необязательное)</h2>
+        <p><span class="hl-text">Teston Lebra</span> попросили определить <span class="string"><b>"текст"</b></span>
+          молекул ДНК по хешам. Напишите программу, которая <span class="hl-text">перебирает все возможные комбинации
+            молекул ДНК</span>, <span class="hl-text">вычисляет их хеши</span> и <span class="hl-text">выводит в консоль
+            найденные последовательности ДНК</span>.</p>
 
-        <p>Хэши следующие:
+        <p>Хеши следующие:
           <span class="string"><b><br>fbfe4047a78675e30b3e6664392e308c83d5b7692180048db3652abad7cd19d4
               <br>b10ca0c7df6eea471a995c343bbf6acecb979f7fa9f91b6ce7f4e6b0825e1825
               <br>6037fa5f8f5312a8cca2a0a8a5f88395531e84d82deff50bae3f4e46360bfbc2
-              <br>774ef38ec143565fcc12bad7161b596d2ede50110333857e777a2ac3fce07e9c <br>23f3b5a428129da00e3d3cb03812318104c9ccc8fe7562974719ec63db85f39e</b></span>
+              <br>774ef38ec143565fcc12bad7161b596d2ede50110333857e777a2ac3fce07e9c
+              <br>23f3b5a428129da00e3d3cb03812318104c9ccc8fe7562974719ec63db85f39e</b></span>
         </p>
 
-        <p>Известно, что размер <span class="string"><b>"текста"</b></span> молекул ДНК составляет <span class="number"><b>10</b></span> символов и этот <span class="string"><b>"текст"</b></span> состоит из заглавных символов <span class="string"><b>"А"</b></span>, <span class="string"><b>"Г"</b></span>, <span class="string"><b>"Ц"</b></span> и <span class="string"><b>"Т"</b></span>. Программа должна <span class="hl-text">выводить в формате</span> <span class="string"><b>&ltхэш&gt <span class="grey">=</span> &ltтекст&gt</b></span>.</p>
+        <p>Известно, что размер <span class="string"><b>"текста"</b></span> молекул ДНК составляет <span
+            class="number"><b>10</b></span> символов и этот <span class="string"><b>"текст"</b></span> состоит из
+          заглавных символов <span class="string"><b>"А"</b></span>, <span class="string"><b>"Г"</b></span>, <span
+            class="string"><b>"Ц"</b></span> и <span class="string"><b>"Т"</b></span>. Программа должна <span
+            class="hl-text">выводить в формате</span> <span class="string"><b>{хеш} <span class="grey">=</span>
+              {текст}</b></span>.</p>
         <h3>Подсказки:</h3>
         <ol>
-          <li>Вводить <span class="hl-text">ничего не нужно</span>. Ваша программа должна <span class="hl-text">перебирать возможные комбинации</span> и <span class="hl-text">определять их хэши</span>. Если хэши совпадают с искомыми, то нужно выводить последовательность ДНК.</li>
+          <li>Вводить <span class="hl-text">ничего не нужно</span>. Ваша программа должна <span
+              class="hl-text">перебирать возможные комбинации</span> и <span class="hl-text">определять их хеши</span>.
+            Если хеши совпадают с искомыми, то нужно выводить последовательность ДНК.</li>
           <li>Создайте переменную, которая будет хранить набор символов <span class="string"><b>"АГЦТ"</b></span>.</li>
-          <li>Создайте <span class="number"><b>5</b></span> переменных для каждого хэша.</li>
-          <li>По структуре программа должна состоять из цикла <code class="python"><b>while</b></code>, внутри которого находится цикл <code class="python"><b>for</b></code>, внутри которого находится цикл <code class="python"><b>for</b></code>, внутри которого находится цикл <code class="python"><b>for</b></code> и т.д. В итоге должен получится внешний цикл <code class="python"><b>while</b></code> и <span class="number"><b>10</b></span> вложенных циклов <code class="python"><b>for</b></code> по принципу матрёшки. Цикл <code class="python"><b>while</b></code> должен прекратиться, когда было обнаружено <span class="number"><b>5</b></span> хэшов. Циклы <code class="python"><b>for</b></code> должны перебирать числа от <span class="number"><b>0</b></span> до <span class="number"><b>3</b></span> включительно, чтобы с помощью этих чисел перебирать символы из <span class="string"><b>"АГЦТ"</b></span>.</li>
+          <li>Создайте <span class="number"><b>5</b></span> переменных для каждого хеша.</li>
+          <li>По структуре программа должна состоять из цикла <code class="python"><b>while</b></code>, внутри которого
+            находится цикл <code class="python"><b>for</b></code>, внутри которого находится цикл <code
+              class="python"><b>for</b></code>, внутри которого находится цикл <code class="python"><b>for</b></code> и
+            т.д. В итоге должен получится внешний цикл <code class="python"><b>while</b></code> и <span
+              class="number"><b>10</b></span> вложенных циклов <code class="python"><b>for</b></code> по принципу
+            матрёшки. Цикл <code class="python"><b>while</b></code> должен прекратиться, когда было обнаружено <span
+              class="number"><b>5</b></span> хешей. Циклы <code class="python"><b>for</b></code> должны перебирать числа
+            от <span class="number"><b>0</b></span> до <span class="number"><b>3</b></span> включительно, чтобы с
+            помощью этих чисел перебирать символы из <span class="string"><b>"АГЦТ"</b></span>.</li>
           <li>В самом начале цикла <code class="python"><b>while</b></code> обнуляйте строку.</li>
-          <li>Каждый следующий цикл <code class="python"><b>for</b></code> должен брать копию строки от предыдущего цикла и добавлять к копии символ из <span class="string"><b>"АГЦТ"</b></span>:<div class="console">
-              <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-                  <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+          <li>Каждый следующий цикл <code class="python"><b>for</b></code> должен брать копию строки от предыдущего
+            цикла и добавлять к копии символ из <span class="string"><b>"АГЦТ"</b></span>:<div class="console">
+              <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+                  height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                    clip-rule="evenodd"></path>
                 </svg>
                 Copy code</button>
               <pre><code class="python">while ...:
@@ -372,9 +441,12 @@ index = randint(start, end)  # Использование функции для 
                 ...</code></pre>
             </div>
           </li>
-          <li class="no-padding-bottom">Для вычисления хэша используйте следующий код:<div class="console">
-              <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-                  <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+          <li class="no-padding-bottom">Для вычисления хеша используйте следующий код:<div class="console">
+              <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+                  height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                    clip-rule="evenodd"></path>
                 </svg>
                 Copy code</button>
               <pre><code class="python">from hashlib import sha256  # Подключение модуля hashlib и импорт функции sha256
@@ -408,13 +480,13 @@ print(dna_hash)  # Для проверки работы</code></pre>
       button.innerHTML = `
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
     `;
-      setTimeout(function() {
+      setTimeout(function () {
         button.innerHTML = originalHTML;
       }, 2000);
     }
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function(codeBlock, index) {
+      codeBlocks.forEach(function (codeBlock, index) {
         let innerHTML = codeBlock.innerHTML;
         console.log(index, innerHTML);
         // STRING
