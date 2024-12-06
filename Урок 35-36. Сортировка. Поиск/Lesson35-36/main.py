@@ -54,6 +54,15 @@
 # print(*my_list)
 
 
+# my_list = [25, 100, 36, 20, 12, 18, 60, 80, 15, 16]
+# my_list = sorted(my_list, reverse=True)
+# print(my_list)
+
+
+# students = [["Tom", 20], ["Jim", 15], ["Kate", 10], ["Bob", 30], ["Arthur", 25]]
+# students = sorted(students, key=lambda x: x[1])
+# print(students)
+
 # ==============================================LESSON36==============================================
 # Линейный поиск
 # Бинарный поиск
