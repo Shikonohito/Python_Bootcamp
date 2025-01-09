@@ -74,7 +74,6 @@
 
 # ==============================================LESSON62==============================================
 # https://www.exchangerate-api.com/docs/overview
-# https://jservice.io/
 
 # from datetime import datetime
 # import requests
@@ -93,30 +92,3 @@
 #
 # print(f"Last update: {last_upd}")
 # print(f"From {CURRENT_CURRENCY} to {TARGET_CURRENCY} rate: {rate}")
-
-# ====================================================================================================
-
-# import requests
-# BASE_URL = "https://jservice.io/api/random"
-#
-# count = 0
-# while True:
-#     if count == 5:
-#         user_choice = input("You want to quit? (y/n)").lower()
-#         count = 0
-#         if user_choice == "y":
-#             break
-#
-#     response = requests.get(BASE_URL).json()
-#     question = response[0]["question"]
-#     answer = response[0]["answer"].lower()
-#
-#     print(question)
-#     print(answer)
-#     user_answer = input("Your answer: ").lower()
-#     if user_answer == answer:
-#         print("Correct!")
-#     else:
-#         print("Incorrect!")
-#
-#     count += 1

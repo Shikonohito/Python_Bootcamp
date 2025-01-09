@@ -121,13 +121,13 @@ person_listbox = tkinter.Listbox(frame_person, font=("Arial", 18), height=13)
 person_listbox.place(x=20, y=20)
 
 
-def fill_person_listbox():
+def refresh_person_listbox():
     person_listbox.delete(0, tkinter.END)
     for person in data_base.get_persons():
         person_listbox.insert(tkinter.END, str(person))
 
 
-fill_person_listbox()
+refresh_person_listbox()
 
 person_id_lbl = tkinter.Label(frame_person, text="ID:", font=("Arial", 18))
 person_id_lbl.place(x=340, y=20)
@@ -166,10 +166,13 @@ def add_person():
     # Добавляем объект в бэкенд
     if data_base.add_person(new_person):
         # Формируем строковое представление объекта
-        new_person_listbox = str(new_person)
+        # new_person_listbox = str(new_person)
 
         # Добавляем строковое представление объекта во фронтенд
-        person_listbox.insert(tkinter.END, new_person_listbox)
+        # person_listbox.insert(tkinter.END, new_person_listbox)
+
+        # Обновляем фронтенд
+        refresh_person_listbox()
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
@@ -183,19 +186,25 @@ person_add_btn.place(x=20, y=400)
 
 def delete_person():
     # Считываем индексы выделенных элементов из фронтенда
-    person_listbox_ind = person_listbox.curselection()
+    selected_person_indexes = person_listbox.curselection()
 
-    if len(person_listbox_ind) > 0:
+    if len(selected_person_indexes) > 0:
+        # Выделяем в переменную индекс выбранного элемента
+        selected_person_index = selected_person_indexes[0]
+
         # Считываем элемент по индексу
-        selected_person = person_listbox.get(person_listbox_ind[0])
+        selected_person_str = person_listbox.get(selected_person_index)
 
         # Отдельно выделяем идентификатор
-        person_id = selected_person.split()[0]
+        selected_person_id = selected_person_str.split()[0]
 
         # Пытаемся удалить из бэкенда
-        if data_base.remove_person(person_id):
+        if data_base.remove_person(selected_person_id):
             # Удаляем из фронтенда
-            person_listbox.delete(person_listbox_ind[0])
+            # person_listbox.delete(selected_person_index)
+
+            # Обновляем фронтенд
+            refresh_person_listbox()
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
@@ -209,13 +218,16 @@ person_delete_btn.place(x=75, y=400)
 
 def change_person():
     # Считываем индексы выделенных элементов из фронтенда
-    person_listbox_ind = person_listbox.curselection()
-    if len(person_listbox_ind) > 0:
+    selected_person_indexes = person_listbox.curselection()
+    if len(selected_person_indexes) > 0:
+        # Выделяем в переменную индекс выбранного элемента
+        selected_person_index = selected_person_indexes[0]
+
         # Считываем элемент по индексу
-        selected_person = person_listbox.get(person_listbox_ind[0])
+        selected_person_str = person_listbox.get(selected_person_index)
 
         # Отдельно выделяем идентификатор
-        selected_id = selected_person.split()[0]
+        selected_person_id = selected_person_str.split()[0]
 
         # Считываем данные из полей фронтенда
         new_id = person_id_entry.get()
@@ -226,13 +238,16 @@ def change_person():
         new_person = Person(new_id, new_name, new_age)
 
         # Пытаемся изменить объект в бэкенде
-        if data_base.change_person(selected_id, new_person):
+        if data_base.change_person(selected_person_id, new_person):
             # Формируем строковое представление объекта
-            new_person_listbox = str(new_person)
+            # new_person_listbox = str(new_person)
 
             # Изменяем данные во фронтенде
-            person_listbox.delete(person_listbox_ind[0])
-            person_listbox.insert(person_listbox_ind[0], new_person_listbox)
+            # person_listbox.delete(selected_person_index)
+            # person_listbox.insert(selected_person_index, new_person_listbox)
+
+            # Обновляем фронтенд
+            refresh_person_listbox()
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
@@ -246,18 +261,21 @@ person_change_btn.place(x=150, y=400)
 
 def show_person_data():
     # Считываем индексы выделенных элементов из фронтенда
-    person_listbox_ind = person_listbox.curselection()
-    if len(person_listbox_ind) > 0:
+    selected_person_indexes = person_listbox.curselection()
+    if len(selected_person_indexes) > 0:
+        # Выделяем в переменную индекс выбранного элемента
+        selected_person_index = selected_person_indexes[0]
+
         # Считываем элемент по индексу
-        selected_person = person_listbox.get(person_listbox_ind[0])
+        selected_person_str = person_listbox.get(selected_person_index)
 
         # Отдельно выделяем идентификатор
-        selected_id = selected_person.split()[0]
+        selected_person_id = selected_person_str.split()[0]
 
         # Запрашиваем из бэкенда объект по идентификатору
-        person = data_base.get_person(selected_id)
-        if person:
-            person_data = f"ID: {person.get_id()}\nName: {person.get_name()}\nAge: {person.get_age()}"
+        selected_person = data_base.get_person(selected_person_id)
+        if selected_person:
+            person_data = f"ID: {selected_person.get_id()}\nName: {selected_person.get_name()}\nAge: {selected_person.get_age()}"
             person_info.config(text=person_data, justify="left")
 
 
@@ -266,18 +284,18 @@ person_info_btn.place(x=235, y=400)
 
 
 # def fill_person_info(event):
-#     person_listbox_ind = person_listbox.curselection()
-#     if len(person_listbox_ind) > 0:
-#         selected_person = person_listbox.get(person_listbox_ind[0])
-#         selected_id = selected_person.split()[0]
-#         person = data_base.get_person(selected_id)
-#         if person:
+#     selected_person_indexes = person_listbox.curselection()
+#     if len(selected_person_indexes) > 0:
+#         selected_person_str = person_listbox.get(selected_person_indexes[0])
+#         selected_person_id = selected_person_str.split()[0]
+#         selected_person = data_base.get_person(selected_person_id)
+#         if selected_person:
 #             person_id_entry.delete(0, tkinter.END)
-#             person_id_entry.insert(0, person.get_id())
+#             person_id_entry.insert(0, selected_person.get_id())
 #             person_name_entry.delete(0, tkinter.END)
-#             person_name_entry.insert(0, person.get_name())
+#             person_name_entry.insert(0, selected_person.get_name())
 #             person_age_entry.delete(0, tkinter.END)
-#             person_age_entry.insert(0, person.get_age())
+#             person_age_entry.insert(0, str(selected_person.get_age()))
 #
 #
 # person_listbox.bind("<<ListboxSelect>>", fill_person_info)

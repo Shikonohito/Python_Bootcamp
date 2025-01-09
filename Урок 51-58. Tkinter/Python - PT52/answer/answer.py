@@ -74,14 +74,14 @@ customer_listbox = tkinter.Listbox(customer_frame, font=("Arial", 18), height=13
 customer_listbox.place(x=20, y=20)
 
 
-def fill_customer_listbox():
+def refresh_customer_listbox():
     customer_listbox.delete(0, tkinter.END)
     for item in customer_list:
         listbox_item = f'{item["id"]} {item["name"]}'
         customer_listbox.insert(tkinter.END, listbox_item)
 
 
-fill_customer_listbox()
+refresh_customer_listbox()
 
 customer_id_lbl = tkinter.Label(customer_frame, text="ID:", font=("Arial", 18))
 customer_id_lbl.place(x=340, y=20)
@@ -127,10 +127,13 @@ def add_customer():
     # Пытаемся добавить объект в бэкенд
     if backend_add_customer(new_customer):
         # Формируем строковое представление объекта
-        new_customer_listbox = f'{new_customer["id"]} {new_customer["name"]}'
+        # new_customer_listbox = f'{new_customer["id"]} {new_customer["name"]}'
 
         # Добавляем строковое представление объекта во фронтенд
-        customer_listbox.insert(tkinter.END, new_customer_listbox)
+        # customer_listbox.insert(tkinter.END, new_customer_listbox)
+
+        # Обновляем фронтенд
+        refresh_customer_listbox()
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
@@ -144,21 +147,27 @@ customer_add_btn.place(x=20, y=400)
 
 def delete_customer():
     # Считываем индексы выделенных элементов из фронтенда
-    customer_listbox_ind = customer_listbox.curselection()
-    print(customer_listbox_ind)
-    if len(customer_listbox_ind) > 0:
+    selected_customer_indexes = customer_listbox.curselection()
+    print(selected_customer_indexes)
+    if len(selected_customer_indexes) > 0:
+        # Выделяем в переменную индекс выбранного элемента
+        selected_customer_index = selected_customer_indexes[0]
+
         # Считываем элемент по индексу
-        selected_customer = customer_listbox.get(customer_listbox_ind[0])
-        print(selected_customer)
+        selected_customer_str = customer_listbox.get(selected_customer_index)
+        print(selected_customer_str)
 
         # Отдельно выделяем идентификатор
-        customer_id = selected_customer.split()[0]
-        print(customer_id)
+        selected_customer_id = selected_customer_str.split()[0]
+        print(selected_customer_id)
 
         # Пытаемся удалить из бэкенда
-        if backend_remove_customer(customer_id):
+        if backend_remove_customer(selected_customer_id):
             # Удаляем из фронтенда
-            customer_listbox.delete(customer_listbox_ind[0])
+            # customer_listbox.delete(customer_listbox_ind[0])
+
+            # Обновляем фронтенд
+            refresh_customer_listbox()
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
@@ -172,13 +181,16 @@ customer_delete_btn.place(x=75, y=400)
 
 def change_customer():
     # Считываем индексы выделенных элементов из фронтенда
-    customer_listbox_ind = customer_listbox.curselection()
-    if len(customer_listbox_ind) > 0:
+    selected_customer_indexes = customer_listbox.curselection()
+    if len(selected_customer_indexes) > 0:
+        # Выделяем в переменную индекс выбранного элемента
+        selected_customer_index = selected_customer_indexes[0]
+
         # Считываем элемент по индексу
-        selected_customer = customer_listbox.get(customer_listbox_ind[0])
+        selected_customer_str = customer_listbox.get(selected_customer_index)
 
         # Отдельно выделяем идентификатор
-        selected_id = selected_customer.split()[0]
+        selected_customer_id = selected_customer_str.split()[0]
 
         # Считываем данные из полей фронтенда
         new_id = customer_id_entry.get()
@@ -190,13 +202,16 @@ def change_customer():
         new_customer = {"id": new_id, "name": new_name, "l_name": new_l_name, "age": new_age}
 
         # Пытаемся изменить объект в бэкенде
-        if backend_change_customer(selected_id, new_customer):
+        if backend_change_customer(selected_customer_id, new_customer):
             # Формируем строковое представление объекта
-            new_customer_listbox = f'{new_customer["id"]} {new_customer["name"]}'
+            # new_customer_listbox = f'{new_customer["id"]} {new_customer["name"]}'
 
             # Изменяем данные во фронтенде
-            customer_listbox.delete(customer_listbox_ind[0])
-            customer_listbox.insert(customer_listbox_ind[0], new_customer_listbox)
+            # customer_listbox.delete(selected_customer_index)
+            # customer_listbox.insert(selected_customer_index, new_customer_listbox)
+
+            # Обновляем фронтенд
+            refresh_customer_listbox()
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
@@ -210,18 +225,21 @@ customer_change_btn.place(x=150, y=400)
 
 def show_customer_data():
     # Считываем индексы выделенных элементов из фронтенда
-    customer_listbox_ind = customer_listbox.curselection()
-    if len(customer_listbox_ind) > 0:
+    selected_customer_indexes = customer_listbox.curselection()
+    if len(selected_customer_indexes) > 0:
+        # Выделяем в переменную индекс выбранного элемента
+        selected_customer_index = selected_customer_indexes[0]
+
         # Считываем элемент по индексу
-        selected_customer = customer_listbox.get(customer_listbox_ind[0])
+        selected_customer_str = customer_listbox.get(selected_customer_index)
 
         # Отдельно выделяем идентификатор
-        selected_id = selected_customer.split()[0]
+        selected_customer_id = selected_customer_str.split()[0]
 
         # Запрашиваем из бэкенда объект по идентификатору
-        customer = backend_get_customer(selected_id)
-        if customer:
-            customer_data = f'{customer["id"]} {customer["name"]} {customer["l_name"]} {customer["age"]}'
+        selected_customer = backend_get_customer(selected_id)
+        if selected_customer:
+            customer_data = f'{selected_customer["id"]} {selected_customer["name"]} {selected_customer["l_name"]} {selected_customer["age"]}'
             customer_info.config(text=customer_data)
 
 

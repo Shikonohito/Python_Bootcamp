@@ -171,13 +171,13 @@ student_listbox = tkinter.Listbox(frame_student, font=("Arial", 18), height=13)
 student_listbox.place(x=20, y=20)
 
 
-def fill_student_listbox():
+def refresh_student_listbox():
     student_listbox.delete(0, tkinter.END)
     for student in data_base.get_students():
         student_listbox.insert(tkinter.END, str(student))
 
 
-fill_student_listbox()
+refresh_student_listbox()
 
 student_id_lbl = tkinter.Label(frame_student, text="ID:", font=("Arial", 18))
 student_id_lbl.place(x=340, y=20)
@@ -228,18 +228,21 @@ student_add_btn.place(x=20, y=400)
 
 def delete_student():
     # Считываем индексы выделенных элементов из фронтенда
-    student_listbox_ind = student_listbox.curselection()
-    if len(student_listbox_ind) > 0:
+    selected_student_indexes = student_listbox.curselection()
+    if len(selected_student_indexes) > 0:
+        # Выделяем в переменную индекс выбранного элемента
+        selected_student_index = selected_student_indexes[0]
+
         # Считываем элемент по индексу
-        selected_student = student_listbox.get(student_listbox_ind[0])
+        selected_student_str = student_listbox.get(selected_student_index)
 
         # Отдельно выделяем идентификатор
-        student_id = selected_student.split()[0]
+        selected_student_id = selected_student_str.split()[0]
 
         # Пытаемся удалить из бэкенда
-        if data_base.remove_student_by_id(student_id):
+        if data_base.remove_student_by_id(selected_student_id):
             # Удаляем из фронтенда
-            student_listbox.delete(student_listbox_ind[0])
+            student_listbox.delete(selected_student_index)
 
             student_combobox["values"] = data_base.get_students()
 
@@ -255,13 +258,16 @@ student_delete_btn.place(x=75, y=400)
 
 def change_student():
     # Считываем индексы выделенных элементов из фронтенда
-    student_listbox_ind = student_listbox.curselection()
-    if len(student_listbox_ind) > 0:
+    selected_student_indexes = student_listbox.curselection()
+    if len(selected_student_indexes) > 0:
+        # Выделяем в переменную индекс выбранного элемента
+        selected_student_index = selected_student_indexes[0]
+
         # Считываем элемент по индексу
-        selected_student = student_listbox.get(student_listbox_ind[0])
+        selected_student_str = student_listbox.get(selected_student_index)
 
         # Отдельно выделяем идентификатор
-        selected_id = selected_student.split()[0]
+        selected_student_id = selected_student_str.split()[0]
 
         # Считываем данные из полей фронтенда
         new_id = student_id_entry.get()
@@ -271,13 +277,13 @@ def change_student():
         new_student = Student(new_id, new_name)
 
         # Пытаемся изменить объект в бэкенде
-        if data_base.change_student(selected_id, new_student):
+        if data_base.change_student(selected_student_id, new_student):
             # Формируем строковое представление объекта
             new_student_listbox = str(new_student)
 
             # Изменяем данные во фронтенде
-            student_listbox.delete(student_listbox_ind[0])
-            student_listbox.insert(student_listbox_ind[0], new_student_listbox)
+            student_listbox.delete(selected_student_index)
+            student_listbox.insert(selected_student_index, new_student_listbox)
 
             # Обновляем фронтенд для корректного отображения
             student_combobox["values"] = data_base.get_students()
@@ -297,18 +303,21 @@ student_change_btn.place(x=150, y=400)
 
 def show_student_data():
     # Считываем индексы выделенных элементов из фронтенда
-    student_listbox_ind = student_listbox.curselection()
-    if len(student_listbox_ind) > 0:
+    selected_student_indexes = student_listbox.curselection()
+    if len(selected_student_indexes) > 0:
+        # Выделяем в переменную индекс выбранного элемента
+        selected_student_index = selected_student_indexes[0]
+
         # Считываем элемент по индексу
-        selected_student = student_listbox.get(student_listbox_ind[0])
+        selected_student_str = student_listbox.get(selected_student_index)
 
         # Отдельно выделяем идентификатор
-        selected_id = selected_student.split()[0]
+        selected_student_id = selected_student_str.split()[0]
 
         # Запрашиваем из бэкенда объект по идентификатору
-        student = data_base.get_student(selected_id)
-        if student:
-            student_data = f"ID: {student.get_id()}\nName: {student.get_name()}"
+        selected_student = data_base.get_student(selected_student_id)
+        if selected_student:
+            student_data = f"ID: {selected_student.get_id()}\nName: {selected_student.get_name()}"
             student_info.config(text=student_data, justify="left")
 
 
@@ -316,16 +325,16 @@ student_info_btn = tkinter.Button(frame_student, text="Info", font=("Arial", 14)
 student_info_btn.place(x=235, y=400)
 
 # def fill_student_info(event):
-#     student_listbox_ind = student_listbox.curselection()
-#     if len(student_listbox_ind) > 0:
-#         selected_student = student_listbox.get(student_listbox_ind[0])
-#         selected_id = selected_student.split()[0]
-#         student = data_base.get_student(selected_id)
-#         if student:
+#     selected_student_indexes = student_listbox.curselection()
+#     if len(selected_student_indexes) > 0:
+#         selected_student_str = student_listbox.get(selected_student_indexes[0])
+#         selected_student_id = selected_student_str.split()[0]
+#         selected_student = data_base.get_student(selected_student_id)
+#         if selected_student:
 #             student_id_entry.delete(0, tkinter.END)
-#             student_id_entry.insert(0, student.get_id())
+#             student_id_entry.insert(0, selected_student.get_id())
 #             student_name_entry.delete(0, tkinter.END)
-#             student_name_entry.insert(0, student.get_name())
+#             student_name_entry.insert(0, selected_student.get_name())
 #
 #
 # student_listbox.bind("<<ListboxSelect>>", fill_student_info)
@@ -352,35 +361,35 @@ student_grade_entry = tkinter.Entry(frame_grades, width=3, font=("Arial", 16))
 student_grade_entry.place(x=100, y=100)
 
 
-def fill_grades_listbox(student: Student):
+def refresh_grades_listbox(student: Student):
     grades_listbox.delete(0, tkinter.END)
     for grade in student.get_grades():
         grades_listbox.insert(tkinter.END, str(grade))
 
 
 # def show_grades_event(event):
-#     student_str = student_combobox.get()
-#     selected_student_info.config(text=f"{student_str}", justify="left")
+#     selected_student_str = student_combobox.get()
+#     selected_student_info.config(text=f"{selected_student_str}", justify="left")
 #
-#     student_str_id = student_str.split()[0]
-#     student = data_base.get_student(student_str_id)
+#     selected_student_id = selected_student_str.split()[0]
+#     selected_student = data_base.get_student(selected_student_id)
 #
-#     if student:
-#         fill_grades_listbox(student)
+#     if selected_student:
+#         refresh_grades_listbox(selected_student)
 #
 #
 # student_combobox.bind("<<ComboboxSelected>>", show_grades_event)
 
 
 def show_grades():
-    student_str = student_combobox.get()
-    selected_student_info.config(text=f"{student_str}", justify="left")
+    selected_student_str = student_combobox.get()
+    selected_student_info.config(text=f"{selected_student_str}", justify="left")
 
-    student_str_id = student_str.split()[0]
-    student = data_base.get_student(student_str_id)
+    selected_student_id = selected_student_str.split()[0]
+    selected_student = data_base.get_student(selected_student_id)
 
-    if student:
-        fill_grades_listbox(student)
+    if selected_student:
+        refresh_grades_listbox(selected_student)
 
 
 show_grades_btn = tkinter.Button(frame_grades, text="Show grades", font=("Arial", 16), command=show_grades)
@@ -389,12 +398,12 @@ show_grades_btn.place(x=400, y=430)
 
 def add_grade():
     grade = int(student_grade_entry.get())
-    student_str = student_combobox.get()
-    student_str_id = student_str.split()[0]
-    student = data_base.get_student(student_str_id)
+    selected_student_str = student_combobox.get()
+    selected_student_id = selected_student_str.split()[0]
+    selected_student = data_base.get_student(selected_student_id)
 
-    if student:
-        student.add_grade(grade)
+    if selected_student:
+        selected_student.add_grade(grade)
         show_grades()
 
 
