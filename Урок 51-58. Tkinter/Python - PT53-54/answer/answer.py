@@ -122,13 +122,13 @@ employee_listbox = tkinter.Listbox(frame_employee, font=("Arial", 18), height=13
 employee_listbox.place(x=20, y=20)
 
 
-def fill_employee_listbox():
+def refresh_employee_listbox():
     employee_listbox.delete(0, tkinter.END)
     for employee in data_base.get_employees():
         employee_listbox.insert(tkinter.END, str(employee))
 
 
-fill_employee_listbox()
+refresh_employee_listbox()
 
 employee_id_lbl = tkinter.Label(frame_employee, text="ID:", font=("Arial", 18))
 employee_id_lbl.place(x=340, y=20)
@@ -184,19 +184,22 @@ employee_add_btn.place(x=20, y=400)
 
 def delete_employee():
     # Считываем индексы выделенных элементов из фронтенда
-    employee_listbox_ind = employee_listbox.curselection()
+    selected_employee_indexes = employee_listbox.curselection()
 
-    if len(employee_listbox_ind) > 0:
+    if len(selected_employee_indexes) > 0:
+        # Выделяем в переменную индекс выбранного элемента
+        selected_employee_index = selected_employee_indexes[0]
+
         # Считываем элемент по индексу
-        selected_employee = employee_listbox.get(employee_listbox_ind[0])
+        selected_employee_str = employee_listbox.get(selected_employee_index)
 
         # Отдельно выделяем идентификатор
-        employee_id = selected_employee.split()[0]
+        selected_employee_id = selected_employee_str.split()[0]
 
         # Пытаемся удалить из бэкенда
-        if data_base.remove_employee(employee_id):
+        if data_base.remove_employee(selected_employee_id):
             # Удаляем из фронтенда
-            employee_listbox.delete(employee_listbox_ind[0])
+            employee_listbox.delete(selected_employee_index)
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
@@ -210,13 +213,16 @@ employee_delete_btn.place(x=75, y=400)
 
 def change_employee():
     # Считываем индексы выделенных элементов из фронтенда
-    employee_listbox_ind = employee_listbox.curselection()
-    if len(employee_listbox_ind) > 0:
+    selected_employee_indexes = employee_listbox.curselection()
+    if len(selected_employee_indexes) > 0:
+        # Выделяем в переменную индекс выбранного элемента
+        selected_employee_index = selected_employee_indexes[0]
+
         # Считываем элемент по индексу
-        selected_employee = employee_listbox.get(employee_listbox_ind[0])
+        selected_employee_str = employee_listbox.get(selected_employee_index)
 
         # Отдельно выделяем идентификатор
-        selected_id = selected_employee.split()[0]
+        selected_employee_id = selected_employee_str.split()[0]
 
         # Считываем данные из полей фронтенда
         new_id = employee_id_entry.get()
@@ -227,13 +233,13 @@ def change_employee():
         new_employee = Employee(new_id, new_name, new_age)
 
         # Пытаемся изменить объект в бэкенде
-        if data_base.change_employee(selected_id, new_employee):
+        if data_base.change_employee(selected_employee_id, new_employee):
             # Формируем строковое представление объекта
             new_employee_listbox = str(new_employee)
 
             # Изменяем данные во фронтенде
-            employee_listbox.delete(employee_listbox_ind[0])
-            employee_listbox.insert(employee_listbox_ind[0], new_employee_listbox)
+            employee_listbox.delete(selected_employee_index)
+            employee_listbox.insert(selected_employee_index, new_employee_listbox)
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
@@ -247,18 +253,21 @@ employee_change_btn.place(x=150, y=400)
 
 def show_employee_data():
     # Считываем индексы выделенных элементов из фронтенда
-    employee_listbox_ind = employee_listbox.curselection()
-    if len(employee_listbox_ind) > 0:
+    selected_employee_indexes = employee_listbox.curselection()
+    if len(selected_employee_indexes) > 0:
+        # Выделяем в переменную индекс выбранного элемента
+        selected_employee_index = selected_employee_indexes[0]
+
         # Считываем элемент по индексу
-        selected_employee = employee_listbox.get(employee_listbox_ind[0])
+        selected_employee_str = employee_listbox.get(selected_employee_index)
 
         # Отдельно выделяем идентификатор
-        selected_id = selected_employee.split()[0]
+        selected_employee_id = selected_employee_str.split()[0]
 
         # Запрашиваем из бэкенда объект по идентификатору
-        employee = data_base.get_employee(selected_id)
-        if employee:
-            employee_data = f"ID: {employee.get_id()}\nName: {employee.get_name()}\nAge: {employee.get_age()}"
+        selected_employee = data_base.get_employee(selected_employee_id)
+        if selected_employee:
+            employee_data = f"ID: {selected_employee.get_id()}\nName: {selected_employee.get_name()}\nAge: {selected_employee.get_age()}"
             employee_info.config(text=employee_data, justify="left")
 
         # Для проверки соответствия наполнения бэкенда и фронтенда
