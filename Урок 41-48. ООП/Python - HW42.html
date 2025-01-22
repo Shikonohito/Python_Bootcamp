@@ -4,7 +4,9 @@
   <title>Python - HW42</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
   <style>
     body {
       background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
@@ -156,6 +158,10 @@
       color: #AA4926;
       font-family: "JetBrains mono", monospace;
     }
+
+    ul {
+      margin-top: 0;
+    }
   </style>
 </head>
 
@@ -163,16 +169,47 @@
   <div class="container">
     <div class="sidebar">
       <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
-      <p id="copyrights">© Фикрет Зейналов, 2024</p>
+      <p id="copyrights">© Фикрет Зейналов, 2025</p>
     </div>
     <div class="right-block">
       <div class="right-rect">
         <h2>Домашнее Задание 42.1</h2>
-        <p>Создайте класс <span class="hl-text">"Игрок"</span>. Этот класс должен <span class="hl-text">хранить поля для никнейма</span>, <span class="hl-text">рейтинга</span>, <span class="hl-text">количества побед</span>, <span class="hl-text">количества поражений</span>.
-          <br>Для класса определите <span class="hl-text">строковое представление</span> (<code class="python"><b>__str__</b></code>) и <span class="hl-text">конструктор</span> (<code class="python"><b>__init__</b></code>).
-          <br>Для класса определите <span class="hl-text">метод засчитывания победы</span>. Метод должен <span class="hl-text">увеличивать рейтинг на <code class="python"><b>3</b></code> единицы</span> и <span class="hl-text">увеличивать счётчик побед на</span> <code class="python"><b>1</b></code>.
-          <br>Для класса определите <span class="hl-text">метод засчитывания поражения</span>. Метод должен <span class="hl-text">уменьшать рейтинг на <code class="python"><b>10</b></code> единиц</span> и <span class="hl-text">увеличивать счётчик поражений на</span> <code class="python"><b>1</b></code>.
-          <br>Для класса определите <span class="hl-text">метод, который возвращает победы делённые на поражения</span>.
+        <p>Создайте класс <span class="hl-text">"Игрок"</span>. Этот класс должен <span class="hl-text">хранить
+            поля</span>:
+        <ul>
+          <li>Никнейм</li>
+          <li>Рейтинг</li>
+          <li>Количество побед</li>
+          <li>Количество поражений</li>
+        </ul>
+        </p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Строковое представление (<code class="python"><b>__str__</b></code>)</li>
+          <li>Конструктор (<code class="python"><b>__init__</b></code>)</li>
+          <li>Засчитывание победы
+            <ul>
+              <li>Ничего не принимает.</li>
+              <li>Увеличивает <span class="hl-text">рейтинг на <code class="python"><b>3</b></code> единицы</span>.</li>
+              <li>Увеличивает <span class="hl-text">счётчик побед на</span> <code class="python"><b>1</b></code>.</li>
+            </ul>
+          </li>
+          <li>Засчитывание поражения
+            <ul>
+              <li>Ничего не принимает.</li>
+              <li>Уменьшает <span class="hl-text">рейтинг на <code class="python"><b>10</b></code> единиц</span>.</li>
+              <li>Увеличивает <span class="hl-text">счётчик поражений на</span> <code class="python"><b>1</b></code>.
+              </li>
+            </ul>
+          </li>
+          <li>Соотношение побед к поражениям
+            <ul>
+              <li>Ничего не принимает.</li>
+              <li>Возвращает <span class="hl-text">победы делённые на поражения</span>.</li>
+            </ul>
+          </li>
+        </ul>
         </p>
       </div>
       <div class="right-rect">
@@ -189,31 +226,123 @@
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает в консоли данные всех игроков в виде</span>:
-        <div class="console">
-          <pre><code>"Никнейм" - <рейтинг>, <количество_побед>/<количество_поражений>
-"Никнейм" - <рейтинг>, <количество_побед>/<количество_поражений>
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>В консоли <span class="hl-text">выводятся данные всех игроков</span> в виде:
+            <div class="console">
+              <pre><code>{никнейм} - {рейтинг}, {количество_побед}, {количество_поражений}, {соотношение_побед_к_поражениям}
+{никнейм} - {рейтинг}, {количество_побед}, {количество_поражений}, {соотношение_побед_к_поражениям}
 ...</code></pre>
-        </div>
+            </div>
+          </li>
+        </ul>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли никнейм игрока</span> и <span class="hl-text">показывает в консоли данные введённого игрока в виде</span>:
-        <div class="console">
-          <pre><code>"Никнейм" - <рейтинг>, <количество_побед>/<количество_поражений>, <cоотношение_побед/поражений></code></pre>
-        </div>
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается никнейм</span>.</li>
+          <li>В консоли <span class="hl-text">показываются данные введённого игрока</span> в виде</span>:
+            <div class="console">
+              <pre><code>{никнейм} - {рейтинг}, {количество_побед}, {количество_поражений}, {соотношение_побед_к_поражениям}</code></pre>
+            </div>
+          </li>
+        </ul>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли никнейм</span>. Если никнейм не занят, то программа <span class="hl-text">формирует объект "Игрок"</span>, у которого <span class="hl-text">рейтинг</span>, <span class="hl-text">количество побед</span> и <span class="hl-text">поражений</span> равны <code class="python"><b>0</b></code>, и <span class="hl-text">помещает в список игроков</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли никнейм</span>. Если никнейм найден, то программа <span class="hl-text">удаляет игрока из списка</span>.</p>
-        <p>При выборе <span class="hl-text">пунктов 5</span>-<span class="hl-text">6</span> программа <span class="hl-text">запрашивает с консоли никнейм</span>. Если никнейм найден, то программа <span class="hl-text">засчитывает победу в случае пункта 5</span> и <span class="hl-text">поражение в случае пункта 6</span>.</p>
+        <p>Выбран <span class="hl-text">пункт 3</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается никнейм</span>.</li>
+          <li>Если никнейм не занят, то программа <span class="hl-text">формирует объект "Игрок"</span>, у которого
+            <span class="hl-text">рейтинг</span>, <span class="hl-text">количество побед</span> и <span
+              class="hl-text">поражений</span> равны <code class="python"><b>0</b></code>, и <span
+              class="hl-text">помещает в список игроков</span>.
+          </li>
+          <li>Если никнейм занят, то в консоли <span class="hl-text">выводится соответствующая информация</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 4</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается никнейм</span>.</li>
+          <li>Если никнейм найден, то программа <span class="hl-text">удаляет игрока из списка</span>.</li>
+          <li>Если никнейм не найден, то в консоли <span class="hl-text">выводится соответствующая информация</span>.
+          </li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 5</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается никнейм</span>.</li>
+          <li>Если никнейм найден, то программа <span class="hl-text">засчитывает победу найденному игроку</span>.</li>
+          <li>Если никнейм не найден, то в консоли <span class="hl-text">выводится соответствующая информация</span>.
+          </li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 6</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается никнейм</span>.</li>
+          <li>Если никнейм найден, то программа <span class="hl-text">засчитывает поражение найденному игроку</span>.
+          </li>
+          <li>Если никнейм не найден, то в консоли <span class="hl-text">выводится соответствующая информация</span>.
+          </li>
+        </ul>
+        </p>
       </div>
+
       <div class="right-rect">
         <h2>Домашнее Задание 42.3</h2>
-        <p>Создайте класс <span class="hl-text">"Аккаунт"</span>. Этот класс должен <span class="hl-text">хранить поля для логина</span>, <span class="hl-text">пароля</span>, <span class="hl-text">имени</span>, <span class="hl-text">фамилии</span> и <span class="hl-text">баланса</span>.
-          <br>Для класса определите <span class="hl-text">строковое представление</span> (<code class="python"><b>__str__</b></code>) и <span class="hl-text">конструктор</span> (<code class="python"><b>__init__</b></code>).
-          <br>Для класса определите <span class="hl-text">метод пополнения баланса</span> и <span class="hl-text">метод снятия с баланса</span>. Методы принимают <span class="hl-text">положительные целые числа</span>.
-          <br>Для класса определите <span class="hl-text">метод перевода денег</span>. Метод принимает <span class="hl-text">аккаунт</span> и <span class="hl-text">количество денег</span>, у себя <span class="hl-text">вызывает метод снятия с баланса</span>. Если получилось снять у себя, то <span class="hl-text">вызывает пополнение у целевого аккаунта</span>. <span class="hl-text">Возвращает</span> <code class="python"><b>True</b></code>, если операция прошла успешно, и <code class="python"><b>False</b></code> в противном случае.
+        <p>Создайте класс <span class="hl-text">"Аккаунт"</span>. Этот класс должен <span class="hl-text">хранить
+            поля</span>:
+        <ul>
+          <li>Логин</li>
+          <li>Пароль</li>
+          <li>Имя</li>
+          <li>Фамилия</li>
+          <li>Баланс</li>
+        </ul>
         </p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Строковое представление (<code class="python"><b>__str__</b></code>)</li>
+          <li>Конструктор (<code class="python"><b>__init__</b></code>)</li>
+          <li>Пополнение баланса
+            <ul>
+              <li>Принимает <span class="hl-text">число</span>.</li>
+              <li>Если число положительное, то <span class="hl-text">увеличивает баланс на принимаемое число</span>.
+                <span class="hl-text">Возвращает</span> <code class="python"><b>True</b></code>.
+              </li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+              </li>
+            </ul>
+          </li>
+          <li>Снятие с баланса
+            <ul>
+              <li>Принимает <span class="hl-text">число</span>.</li>
+              <li>Если число положительное и на балансе достаточно денег, то <span class="hl-text">уменьшает баланс на
+                  принимаемое число</span>. <span class="hl-text">Возвращает</span> <code
+                  class="python"><b>True</b></code>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+              </li>
+            </ul>
+          </li>
+          <li>Перевод денег
+            <ul>
+              <li>Принимает <span class="hl-text">целевой аккаунт</span>, которому нужно перевести, и <span
+                  class="hl-text">положительное число</span>.
+              </li>
+              <li>Вызывает у себя <span class="hl-text">метод снятия с баланса</span>.</li>
+              <li>Если получилось снять у себя, то <span class="hl-text">вызывает пополнение у целевого аккаунта</span>.
+                <span class="hl-text">Возвращает</span> <code class="python"><b>True</b></code>.
+              </li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+              </li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 42.4</h2>
@@ -225,10 +354,24 @@
         </div>
         </p>
 
-        <p>Все аккаунты хранятся в <span class="hl-text">списке</span>. Аккаунт - это <span class="hl-text">объект класса "Аккаунт"</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает с консоли логин</span> и <span class="hl-text">пароль</span>. Если введённого логина среди других аккаунтов списка нет, то программа <span class="hl-text">создаёт объект "Аккаунт"</span> и <span class="hl-text">добавляет в список</span>. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>. Затем <span class="hl-text">возвращается в меню входа</span>.</p>
+        <p>Все аккаунты хранятся в <span class="hl-text">списке</span>. Аккаунт - это <span class="hl-text">объект
+            класса "Аккаунт"</span>.</p>
 
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли логин</span> и <span class="hl-text">пароль</span>. Если логин и пароль совпадают с одним из аккаунтов, то программа <span class="hl-text">показывает следующее меню</span>:
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается логин</span> и <span class="hl-text">пароль</span>.</li>
+          <li>Если введённого логина среди других аккаунтов списка нет, то программа <span class="hl-text">создаёт
+              объект "Аккаунт"</span> и <span class="hl-text">добавляет в список</span>.</li>
+          <li>В противном случае в консоли <span class="hl-text">выводится соответствующая информация</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается логин</span> и <span class="hl-text">пароль</span>.</li>
+          <li>Если логин и пароль совпадают с одним из аккаунтов, то программа <span class="hl-text">показывает меню
+              аккаунта</span>.</li>
+        </ul>
         <div class="console">
           <pre><code>1. Показать данные аккаунта
 2. Изменить фамилию
@@ -240,22 +383,80 @@
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">вызывает строковое представление у объекта</span> и <span class="hl-text">выводит в консоль следующее</span>:
-        <div class="console">
-          <pre><code>"Имя" "Фамилия"
-Баланс: <баланс></code></pre>
-        </div>
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">вызывает строковое представление у объекта</span> и <span
+              class="hl-text">выводит в консоль следующее</span>:
+            <div class="console">
+              <pre><code>{логин} {имя} {фамилия} {баланс}</code></pre>
+            </div>
+          </li>
+        </ul>
         </p>
 
-        <p>При выборе <span class="hl-text">пунктов 2</span>-<span class="hl-text">3</span> программа <span class="hl-text">запрашивает соответствующие данные</span> и <span class="hl-text">сразу же меняет данные у аккаунта</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает число</span>, затем <span class="hl-text">вызывает у объекта метод пополнения</span>. Программа должна <span class="hl-text">сообщить об успехе</span> или <span class="hl-text">проблеме</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает логин другого пользователя</span>. Если он найден, то программа <span class="hl-text">запрашивает с консоли сумму перевода</span>. Затем программа <span class="hl-text">вызывает у текущего аккаунта метод перевода</span>. В зависимости от результата программа <span class="hl-text">выводит в консоль сообщение</span>.</p>
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается фамилия</span>.</li>
+          <li>У текущего аккаунта <span class="hl-text">меняется фамилия</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 3</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается имя</span>.</li>
+          <li>У текущего аккаунта <span class="hl-text">меняется имя</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 4</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается число</span>.</li>
+          <li>У текущего аккаунта <span class="hl-text">вызывается метод пополнения баланса</span>.</li>
+          <li>В зависимости от результата работы метода, в консоли <span class="hl-text">выводится соответствующее
+              сообщение</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 5</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается логин пользователя</span>.</li>
+          <li>Если пользователь найден и это не текущий аккаунт, то программа <span class="hl-text">запрашивает с
+              консоли число</span> и <span class="hl-text">вызывает у текущего аккаунта метод перевода</span>.</li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 6</span>:
+        <ul>
+          <li>Показывается меню входа.</li>
+        </ul>
+        </p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 42.5</h2>
-        <p>Создайте класс <span class="hl-text">"Автомобиль"</span>. Этот класс должен <span class="hl-text">хранить поля для идентификатора</span>, <span class="hl-text">марки</span>, <span class="hl-text">модели</span>, <span class="hl-text">цены</span>.
-          <br>Для класса определите <span class="hl-text">строковое представление</span> (<code class="python"><b>__str__</b></code>) и <span class="hl-text">конструктор</span> (<code class="python"><b>__init__</b></code>).
-          <br>Для класса определите <span class="hl-text">метод копии</span>. Метод должен <span class="hl-text">вернуть объект "Автомобиль" с теми же данными, что и у себя</span>.
+        <p>Создайте класс <span class="hl-text">"Автомобиль"</span>. Этот класс должен <span class="hl-text">хранить
+            поля</span>:
+        <ul>
+          <li>Идентификатор</li>
+          <li>Марка</li>
+          <li>Модель</li>
+          <li>Цена</li>
+        </ul>
+        </p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Строковое представление (<code class="python"><b>__str__</b></code>)</li>
+          <li>Конструктор (<code class="python"><b>__init__</b></code>)</li>
+          <li>Получение копии текущего объекта
+            <ul>
+              <li>Ничего не принимает.</li>
+              <li>Формирует <span class="hl-text">объект "Автомобиль"</span> с теми же полями, что и у себя.</li>
+              <li>Возвращает <span class="hl-text">сформированный объект</span>.</li>
+            </ul>
+          </li>
+        </ul>
         </p>
       </div>
       <div class="right-rect">
@@ -272,20 +473,79 @@
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>. Если она находит автомобиль с этим идентификатором, то <span class="hl-text">выводит его строковое представление в виде</span>:
-        <div class="console">
-          <pre><code>"Идентификатор" "Марка" "Модель" <цена></code></pre>
-        </div>
+        <p>Все автомобили хранятся в <span class="hl-text">списке</span>. Автомобиль - это <span class="hl-text">объект
+            класса "Автомобиль"</span>.</p>
+
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается идентификатор</span>.</li>
+          <li>Если автомобиль найден, то программа <span class="hl-text">выводит в консоль его строковое представление в
+              виде:</span>.
+            <div class="console">
+              <pre><code>{идентификатор} {марка} {модель} {цена}</code></pre>
+            </div>
+          </li>
+          <li>Если автомобиль не найден, то в консоли <span class="hl-text">выводится соответствующая информация</span>.
+          </li>
+        </ul>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">проходится по списку автомобилей</span> и <span class="hl-text">вызывает у них строковое представление</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">проходится по списку автомобилей</span>, <span class="hl-text">забирает у них цену</span> и <span class="hl-text">высчитывает общую стоимость</span>, затем <span class="hl-text">выводит её в консоль</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>, <span class="hl-text">марку</span>, <span class="hl-text">модель</span> и <span class="hl-text">цену</span>. Затем <span class="hl-text">формирует из него объект "Автомобиль"</span>. После этого программа <span class="hl-text">проходится по каждому автомобилю из списка</span> и <span class="hl-text">сверяет идентификаторы</span>. Если совпадений нет, то <span class="hl-text">добавляет созданный объект в список в автомобилей</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>. Если идентификатор найден среди автомобилей в списке, то программа <span class="hl-text">удаляет найденный объект из списка автомобилей</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 6</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>. Если идентификатор найден, то программа <span class="hl-text">выводит следующее</span>:
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">проходится по списку автомобилей</span>.</li>
+          <li>Вызывает <span class="hl-text">у них строковое представление</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 3</span>:
+        <ul>
+          <li>Программа <span class="hl-text">проходится по списку автомобилей</span>.</li>
+          <li>Забирается <span class="hl-text">цена у автомобиля</span>.</li>
+          <li>Цена прибавляется к <span class="hl-text">общей стоимости</span>.</li>
+          <li>В консоль <span class="hl-text">выводится общая стоимость</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 4</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается идентификатор</span>, <span class="hl-text">марка</span>,
+            <span class="hl-text">модель</span> и <span class="hl-text">цена</span>.
+          </li>
+          <li>Формируется <span class="hl-text">объект "Автомобиль"</span>.</li>
+          <li>Проходится по <span class="hl-text">каждому автомобилю из списка</span>.</li>
+          <li>Если введённый идентификатор не совпадает ни с одним идентификатором автомобиля из списка, то <span
+              class="hl-text">добавляет созданный объект в список в автомобилей</span>.</li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 5</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается идентификатор</span>.</li>
+          <li>Проходится по <span class="hl-text">каждому автомобилю из списка</span>.</li>
+          <li>Если введённый идентификатор совпадает с идентификатором автомобиля из списка, то <span
+              class="hl-text">удаляет найденный автомобиль из списка</span>.</li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 6</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашивается идентификатор</span>.</li>
+          <li>Проходится по <span class="hl-text">каждому автомобилю из списка</span>.</li>
+          <li>Если введённый идентификатор совпадает с идентификатором автомобиля из списка, то <span
+              class="hl-text">делается копия найденного автомобиля</span> и <span class="hl-text">показывается меню
+              изменения (см. ниже)</span>.</li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
+        </p>
+
         <div class="console">
-          <pre><code>Старые данные: "Идентификатор" "Марка" "Модель" <цена>
-Новые данные: "Идентификатор" "Марка" "Модель" <цена>
+          <pre><code>Старые данные: {идентификатор_оригинала} {марка_оригинала} {модель_оригинала} {цена_оригинала}
+Новые данные: {идентификатор_копии} {марка_копии} {модель_копии} {цена_копии}
 =========================================================
 1. Изменить идентификатор
 2. Изменить марку
@@ -294,17 +554,36 @@
 5. Подтвердить изменения и вернуться
 6. Отменить изменения и вернуться</code></pre>
         </div>
+
+        <p>Выбран <span class="hl-text">пункт 1-4</span>:
+        <ul>
+          <li>С консоли <span class="hl-text">запрашиваются соответствующие данные</span>.</li>
+          <li>Данные <span class="hl-text">выставляются в соответствующие поля копии автомобиля</span>.</li>
+        </ul>
         </p>
 
-        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">4</span> программа <span class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится только в том случае, если был выбран <span class="hl-text">пункт 5</span>. Поэтому <span class="hl-text">пункты 1</span>-<span class="hl-text">4</span> должны <span class="hl-text">изменять копию данных</span>, а при выборе <span class="hl-text">пункта 5 заменять оригинал</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 5</span> программа должна <span class="hl-text">проверить идентификатор изменённых данных</span>. Если идентификатор не изменился или же совпадений с идентификаторами других пользователей нет, то <span class="hl-text">проверка пройдена успешно</span>. Если цена положительна, то <span class="hl-text">проверка пройдена</span>. Если все проверки пройдены, то <span class="hl-text">старые данные заменяются на новые</span>. В противном случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
+        <p>Выбран <span class="hl-text">пункт 5</span>:
+        <ul>
+          <li>Проходится по <span class="hl-text">каждому автомобилю из списка</span>.</li>
+          <li>Если идентификатор копии совпадает хотя бы с одним идентификатором из списка, то <span
+              class="hl-text">флажок опускается</span>.</li>
+          <li>После прохода если флажок поднят или же идентификатор копии совпадает с идентификатором оригинала, то
+            <span class="hl-text">первая проверка пройдена успешно</span>.
+          </li>
+          <li>Если цена у копии положительная, то <span class="hl-text">вторая проверка пройдена успешно</span>.</li>
+          <li>Если обе проверки пройдены успешно, то <span class="hl-text">все поля оригинала заменяются на
+              соответствующие поля</span> и <span class="hl-text">возвращается предыдущее меню</span>.</li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
+        </p>
       </div>
     </div>
   </div>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function(codeBlock, index) {
+      codeBlocks.forEach(function (codeBlock, index) {
         let innerHTML = codeBlock.innerHTML;
         console.log(index, innerHTML);
         // STRING
