@@ -4,7 +4,9 @@
   <title>Python - HW44</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
   <style>
     body {
       background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
@@ -196,6 +198,10 @@
     .no-padding-bottom {
       padding-bottom: 0;
     }
+
+    ul {
+      margin-top: 0;
+    }
   </style>
 </head>
 
@@ -208,17 +214,35 @@
     <div class="right-block">
       <div class="right-rect">
         <h2>Домашнее Задание 44.1</h2>
-        <p>Создайте класс <span class="hl-text">"Персонаж"</span>. Этот класс должен <span class="hl-text">хранить поля для имени</span>, <span class="hl-text">максимального здоровья</span>, <span class="hl-text">текущего здоровья</span>, <span class="hl-text">брони (от <code class="python"><b>0</b></code> до <code class="python"><b>1</b></code>)</span> и <span class="hl-text">урона</span>.
-          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
-          <br>Для класса определите <span class="hl-text">метод исцеления</span>. Метод должен <span class="hl-text">принимать число</span>, затем <span class="hl-text">увеличивать текущее здоровья на число</span>.
-          <br>Для класса определите <span class="hl-text">метод определения, жив ли объект</span>. Метод <span class="hl-text">ничего не принимает</span>, <span class="hl-text">возвращает <code class="python"><b>True</b></code></span>, если текущее здоровье больше нуля, и <span class="hl-text">возвращает <code class="python"><b>False</b></code></span> в противном случае.
-          <br>Для класса определите <span class="hl-text">метод получения урона</span>. Метод должен <span class="hl-text">принимать число</span>, затем <span class="hl-text">проверять, жив ли объект</span>. Если да, то <span class="hl-text">умножать это число на <code class="python"><b>(1 - броня)</b></code></span> и <span class="hl-text">отнимать из текущего здоровья полученное число</span>, <span class="hl-text">возвращать</span> <code class="python"><b>True</b></code>. В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
-          <br>Для класса определите <span class="hl-text">метод нанесения урона</span>. Метод должен <span class="hl-text">принимать объект класса "Персонаж"</span>, затем <span class="hl-text">вызывать у этого объекта метод получения урона, передав ему свой урон</span>. <span class="hl-text">Возвращает то, что вернёт вызванный метод</span>.
+        <p>Создайте класс <span class="hl-text">"Персонаж"</span>. Этот класс должен <span class="hl-text">хранить поля
+            для имени</span>, <span class="hl-text">максимального здоровья</span>, <span class="hl-text">текущего
+            здоровья</span>, <span class="hl-text">брони (от <code class="python"><b>0</b></code> до <code
+              class="python"><b>1</b></code>)</span> и <span class="hl-text">урона</span>.
+          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span
+            class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+          <br>Для класса определите <span class="hl-text">метод исцеления</span>. Метод должен <span
+            class="hl-text">принимать число</span>, затем <span class="hl-text">увеличивать текущее здоровья на
+            число</span>.
+          <br>Для класса определите <span class="hl-text">метод определения, жив ли объект</span>. Метод <span
+            class="hl-text">ничего не принимает</span>, <span class="hl-text">возвращает <code
+              class="python"><b>True</b></code></span>, если текущее здоровье больше нуля, и <span
+            class="hl-text">возвращает <code class="python"><b>False</b></code></span> в противном случае.
+          <br>Для класса определите <span class="hl-text">метод получения урона</span>. Метод должен <span
+            class="hl-text">принимать число</span>, затем <span class="hl-text">проверять, жив ли объект</span>. Если
+          да, то <span class="hl-text">умножать это число на <code class="python"><b>(1 - броня)</b></code></span> и
+          <span class="hl-text">отнимать из текущего здоровья полученное число</span>, <span
+            class="hl-text">возвращать</span> <code class="python"><b>True</b></code>. В противном случае <span
+            class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+          <br>Для класса определите <span class="hl-text">метод нанесения урона</span>. Метод должен <span
+            class="hl-text">принимать объект класса "Персонаж"</span>, затем <span class="hl-text">вызывать у этого
+            объекта метод получения урона, передав ему свой урон</span>. <span class="hl-text">Возвращает то, что вернёт
+            вызванный метод</span>.
         </p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 44.2</h2>
-        <p>Используя класс из <span class="hl-text">Домашнего Задания 44.1</span>, <span class="hl-text">создайте два объекта класса "Персонаж"</span>. Затем реализуйте следующее меню:
+        <p>Используя класс из <span class="hl-text">Домашнего Задания 44.1</span>, <span class="hl-text">создайте два
+            объекта класса "Персонаж"</span>. Затем реализуйте следующее меню:
         <div class="console">
           <pre><code>Персонаж игрока: {описание_персонажа}
 Персонаж противника: {описание_персонажа}
@@ -230,32 +254,60 @@
         </div>
         </p>
         <p>После каждого выбора пункта <span class="hl-text">противник должен наносить урон персонажу игрока</span>.
-          <br><span class="hl-text"><b>Необязательно:</b></span> Запрограммируйте противника так, чтобы он мог также <span class="hl-text">исцеляться</span>, а после каждого выбора пункта случайно выбирал - <span class="hl-text">атаковать игрока</span> или <span class="hl-text">исцелиться</span>.
+          <br><span class="hl-text"><b>Необязательно:</b></span> Запрограммируйте противника так, чтобы он мог также
+          <span class="hl-text">исцеляться</span>, а после каждого выбора пункта случайно выбирал - <span
+            class="hl-text">атаковать игрока</span> или <span class="hl-text">исцелиться</span>.
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 1</span> <span class="hl-text">программа вызывает у первого объекта метод нанесения урона</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 1</span> <span class="hl-text">программа вызывает у первого объекта
+            метод нанесения урона</span>.</p>
 
-        <p>При выборе <span class="hl-text">пункта 2</span> <span class="hl-text">программа запрашивает количество исцеления</span> и <span class="hl-text">вызывает у первого объекта метод исцеления</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 3</span> <span class="hl-text">программа создаёт нового персонажа в качестве противника</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 2</span> <span class="hl-text">программа запрашивает количество
+            исцеления</span> и <span class="hl-text">вызывает у первого объекта метод исцеления</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 3</span> <span class="hl-text">программа создаёт нового персонажа в
+            качестве противника</span>.</p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 44.3</h2>
-        <p>Создайте класс <span class="hl-text">"Устройство"</span>. Этот класс должен <span class="hl-text">хранить поля для идентификатора</span>, <span class="hl-text">бренда</span>, <span class="hl-text">модели</span> и <span class="hl-text">включено ли устройство</span>.
-          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
-          <br>Для класса определите <span class="hl-text">метод включения</span> и <span class="hl-text">выключения устройства</span>. Методы должны <span class="hl-text">менять поле "включено ли устройство" на <code class="python"><b>True</b></code> и <code class="python"><b>False</b></code> соответственно</span>.
+        <p>Создайте класс <span class="hl-text">"Устройство"</span>. Этот класс должен <span class="hl-text">хранить
+            поля для идентификатора</span>, <span class="hl-text">бренда</span>, <span class="hl-text">модели</span> и
+          <span class="hl-text">включено ли устройство</span>.
+          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span
+            class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+          <br>Для класса определите <span class="hl-text">метод включения</span> и <span class="hl-text">выключения
+            устройства</span>. Методы должны <span class="hl-text">менять поле "включено ли устройство" на <code
+              class="python"><b>True</b></code> и <code class="python"><b>False</b></code> соответственно</span>.
         </p>
-        <p>Создайте класс <span class="hl-text">"Телефон"</span>. Этот класс должен <span class="hl-text">наследоваться от класса "Устройство"</span> и <span class="hl-text">хранить поле для операционной системы</span>.
-          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
-          <br>Для класса определите <span class="hl-text">метод установки приложения</span>. Метод <span class="hl-text">принимает название приложения</span> и, если устройство включено, <span class="hl-text">возвращает строку</span> <code class="python"><b>"{название_приложения} установлено на {название_модели}."</b></code>. В противном случае метод <span class="hl-text">возвращает строку</span> <code class="python"><b>"Устройство не включено."</b></code>.
+        <p>Создайте класс <span class="hl-text">"Телефон"</span>. Этот класс должен <span class="hl-text">наследоваться
+            от класса "Устройство"</span> и <span class="hl-text">хранить поле для операционной системы</span>.
+          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span
+            class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+          <br>Для класса определите <span class="hl-text">метод установки приложения</span>. Метод <span
+            class="hl-text">принимает название приложения</span> и, если устройство включено, <span
+            class="hl-text">возвращает строку</span> <code
+            class="python"><b>"{название_приложения} установлено на {название_модели}."</b></code>. В противном случае
+          метод <span class="hl-text">возвращает строку</span> <code
+            class="python"><b>"Устройство не включено."</b></code>.
         </p>
-        <p>Создайте класс <span class="hl-text">"Ноутбук"</span>. Этот класс должен <span class="hl-text">наследоваться от класса "Устройство"</span> и <span class="hl-text">хранить поле для объёма оперативной памяти</span>.
-          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
-          <br>Для класса определите <span class="hl-text">метод запуска приложения</span>. Метод <span class="hl-text">принимает название приложения</span> и, если устройство включено и хватает объёма оперативной памяти, <span class="hl-text">отнимает 1 из объёма памяти</span> и <span class="hl-text">возвращает строку</span> <code class="python"><b>"{название_приложения} запущено на {название_модели}."</b></code>. Если устройство не включено, то метод <span class="hl-text">возвращает строку</span> <code class="python"><b>"Устройство не включено."</b></code>. Если у устройства не хватает объёма оперативной памяти. то <span class="hl-text">возвращает строку</span> <code class="python"><b>"Не хватает объёма оперативной памяти."</b></code>.
+        <p>Создайте класс <span class="hl-text">"Ноутбук"</span>. Этот класс должен <span class="hl-text">наследоваться
+            от класса "Устройство"</span> и <span class="hl-text">хранить поле для объёма оперативной памяти</span>.
+          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span
+            class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+          <br>Для класса определите <span class="hl-text">метод запуска приложения</span>. Метод <span
+            class="hl-text">принимает название приложения</span> и, если устройство включено и хватает объёма
+          оперативной памяти, <span class="hl-text">отнимает 1 из объёма памяти</span> и <span
+            class="hl-text">возвращает строку</span> <code
+            class="python"><b>"{название_приложения} запущено на {название_модели}."</b></code>. Если устройство не
+          включено, то метод <span class="hl-text">возвращает строку</span> <code
+            class="python"><b>"Устройство не включено."</b></code>. Если у устройства не хватает объёма оперативной
+          памяти. то <span class="hl-text">возвращает строку</span> <code
+            class="python"><b>"Не хватает объёма оперативной памяти."</b></code>.
         </p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 44.4</h2>
-        <p>Используя классы из <span class="hl-text">Домашнего Задания 44.3</span> создайте по одному объекту класса "Телефон" и класса "Ноутбук". Реализуйте следующее меню:
+        <p>Используя классы из <span class="hl-text">Домашнего Задания 44.3</span> создайте по одному объекту класса
+          "Телефон" и класса "Ноутбук". Реализуйте следующее меню:
         <div class="console">
           <pre><code>Телефон: {описание_телефона}
 Ноутбук: {описание_ноутбука}
@@ -270,19 +322,36 @@
 </code></pre>
         </div>
         </p>
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>, <span class="hl-text">бренд</span>, <span class="hl-text">модель</span>, <span class="hl-text">операционную систему</span>. Затем <span class="hl-text">создаёт новый телефон из полученных данных</span> и <span class="hl-text">заменяет текущий телефон</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>, <span class="hl-text">бренд</span>, <span class="hl-text">модель</span>, <span class="hl-text">объём оперативной памяти</span>. Затем <span class="hl-text">создаёт новый ноутбук из полученных данных</span> и <span class="hl-text">заменяет текущий ноутбук</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">вызывает метод включения телефона</span>, если телефон выключен, или <span class="hl-text">вызывает метод выключения телефона</span>, если телефон выключен. Затем <span class="hl-text">сообщает в консоли о результате</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">вызывает метод включения ноутбука</span>, если ноутбук выключен, или <span class="hl-text">вызывает метод выключения ноутбука</span>, если ноутбук выключен. Затем <span class="hl-text">сообщает в консоли о результате</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает с консоли название приложения</span> и <span class="hl-text">вызывает метод установки у телефона</span>. Затем <span class="hl-text">сообщает результат в консоль</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 6</span> программа <span class="hl-text">запрашивает с консоли название приложения</span> и <span class="hl-text">вызывает метод запуска у ноутбука</span>. Затем <span class="hl-text">сообщает результат в консоль</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает с консоли
+            идентификатор</span>, <span class="hl-text">бренд</span>, <span class="hl-text">модель</span>, <span
+            class="hl-text">операционную систему</span>. Затем <span class="hl-text">создаёт новый телефон из полученных
+            данных</span> и <span class="hl-text">заменяет текущий телефон</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли
+            идентификатор</span>, <span class="hl-text">бренд</span>, <span class="hl-text">модель</span>, <span
+            class="hl-text">объём оперативной памяти</span>. Затем <span class="hl-text">создаёт новый ноутбук из
+            полученных данных</span> и <span class="hl-text">заменяет текущий ноутбук</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">вызывает метод включения
+            телефона</span>, если телефон выключен, или <span class="hl-text">вызывает метод выключения телефона</span>,
+          если телефон выключен. Затем <span class="hl-text">сообщает в консоли о результате</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">вызывает метод включения
+            ноутбука</span>, если ноутбук выключен, или <span class="hl-text">вызывает метод выключения ноутбука</span>,
+          если ноутбук выключен. Затем <span class="hl-text">сообщает в консоли о результате</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает с консоли
+            название приложения</span> и <span class="hl-text">вызывает метод установки у телефона</span>. Затем <span
+            class="hl-text">сообщает результат в консоль</span>.</p>
+        <p>При выборе <span class="hl-text">пункта 6</span> программа <span class="hl-text">запрашивает с консоли
+            название приложения</span> и <span class="hl-text">вызывает метод запуска у ноутбука</span>. Затем <span
+            class="hl-text">сообщает результат в консоль</span>.</p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 44.5</h2>
         <p>Создайте класс и определите в нём поля и методы, чтобы работал следующий код:
         <div class="console">
-          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+              height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd"
+                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                clip-rule="evenodd"></path>
             </svg>
             Copy code</button>
           <pre><code class="python">car_1 = Car("Bugatti", "Divo", 380)
@@ -329,19 +398,26 @@ print(car_1.is_engine_started())  # False</code></pre>
         <h3>Подсказки:</h3>
         <ol>
           <li>Машина должна хранить скорость в км/ч.</li>
-          <li>Для <code class="python"><b>brake</b></code> создайте следующий метод: <code class="python"><b>brake(self, mu=0.75, g=9.8)</b></code>.</li>
+          <li>Для <code class="python"><b>brake</b></code> создайте следующий метод: <code
+              class="python"><b>brake(self, mu=0.75, g=9.8)</b></code>.</li>
           <li class="no-padding-bottom">Тормозной путь вычисляйте по формуле:
             <br><code class="python"><b>braking_distance = speed_ms * speed_ms / (2 * mu * g)</b></code>
-            <br>где <code class="python"><b>speed_ms</b></code> - скорость в м/с, <code class="python"><b>mu</b></code> - коэффициент силы трения, <code class="python"><b>g</b></code> - ускорение свободного падения.
+            <br>где <code class="python"><b>speed_ms</b></code> - скорость в м/с, <code class="python"><b>mu</b></code>
+            - коэффициент силы трения, <code class="python"><b>g</b></code> - ускорение свободного падения.
           </li>
         </ol>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 44.6</h2>
-        <p><span class="hl-text">Teston Lebra</span> описал класс и его использование, но нарушил инкапсуляцию как с классом, так и с некоторыми функциями. <span class="hl-text">Переделайте весь его код так, чтобы инкапсуляция не нарушалась</span>. <span class="hl-text">Оставьте комментарии там, где Вы изменили код</span>.
+        <p><span class="hl-text">Teston Lebra</span> описал класс и его использование, но нарушил инкапсуляцию как с
+          классом, так и с некоторыми функциями. <span class="hl-text">Переделайте весь его код так, чтобы инкапсуляция
+            не нарушалась</span>. <span class="hl-text">Оставьте комментарии там, где Вы изменили код</span>.
         <div class="console">
-          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+              height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd"
+                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                clip-rule="evenodd"></path>
             </svg>
             Copy code</button>
           <pre><code class="python">class ITStepStudent:
@@ -605,13 +681,13 @@ while True:
       button.innerHTML = `
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
     `;
-      setTimeout(function() {
+      setTimeout(function () {
         button.innerHTML = originalHTML;
       }, 2000);
     }
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function(codeBlock, index) {
+      codeBlocks.forEach(function (codeBlock, index) {
         let innerHTML = codeBlock.innerHTML;
         console.log(index, innerHTML);
         // STRING

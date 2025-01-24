@@ -4,7 +4,9 @@
   <title>Python - PT43</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
   <style>
     body {
       background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
@@ -160,6 +162,10 @@
       color: #AA4926;
       font-family: "JetBrains mono", monospace;
     }
+
+    ul {
+      margin-top: 0;
+    }
   </style>
 </head>
 
@@ -172,15 +178,104 @@
     <div class="right-block">
       <div class="right-rect">
         <h2>Практическое Задание 43.1</h2>
-        <p>Создайте класс <span class="hl-text">"Task"</span>. Этот класс должен <span class="hl-text">хранить поля для названия</span>, <span class="hl-text">описания</span>, <span class="hl-text">статуса</span> (<code class="python"><b>"выполнена"</b></code>/<code class="python"><b>"не выполнена"</b></code>) и <span class="hl-text">приоритета</span> (<code class="python"><b>1</b></code>-<code class="python"><b>9</b></code>).
-          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
-          <br>Для класса определите <span class="hl-text">методы повышения</span> и <span class="hl-text">понижения приоритета</span>.
-          <br>Для класса определите <span class="hl-text">методы смены статуса на выполнена</span> и <span class="hl-text">не выполнена</span>.
+        <p>Создайте класс <span class="hl-text">"Task"</span>. Этот класс должен <span class="hl-text">хранить
+            поля</span>:
+        <ul>
+          <li>Название</li>
+          <li>Описание</li>
+          <li>Статус (<code class="python"><b>"выполнен"</b></code>/<code class="python"><b>"не выполнен"</b></code>)
+          </li>
+          <li>Приоритет (<code class="python"><b>1</b></code>-<code class="python"><b>9</b></code>)</li>
+        </ul>
         </p>
 
-        <p>Создайте класс <span class="hl-text">"TaskManager"</span>. Этот класс должен <span class="hl-text">хранить поле для списка задач</span>.
-          <br>Для класса определите <span class="hl-text">конструктор</span>.
-          <br>Для класса определите <span class="hl-text">методы добавления</span>, <span class="hl-text">поиска</span> (получить список с фильтром по выполненным/не выполненным, приоритету), <span class="hl-text">изменения</span> и <span class="hl-text">удаления задач</span>.
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Строковое представление</li>
+          <li>Конструктор</li>
+          <li>Свойства</li>
+          <li>Повышение приоритета
+            <ul>
+              <li>Ничего не принимает.</li>
+              <li>Если приоритет меньше <code class="python"><b>9</b></code>, то <span class="hl-text">увеличивает
+                  приоритет на <code class="python"><b>1</b></code></span>.</li>
+            </ul>
+          </li>
+          <li>Понижение приоритета
+            <ul>
+              <li>Ничего не принимает.</li>
+              <li>Если приоритет больше <code class="python"><b>0</b></code>, то <span class="hl-text">уменьшает
+                  приоритет на <code class="python"><b>1</b></code></span>.</li>
+            </ul>
+          </li>
+          <li>Смена статуса
+            <ul>
+              <li>Ничего не принимает.</li>
+              <li>Если статус <code class="python"><b>"выполнен"</b></code>, то <span class="hl-text">меняет на <code
+                    class="python"><b>"не выполнен"</b></code></span>.</li>
+              <li>Если статус <code class="python"><b>"не выполнен"</b></code>, то <span class="hl-text">меняет на <code
+                    class="python"><b>"выполнен"</b></code></span>.</li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+        <br>
+        <p>Создайте класс <span class="hl-text">"TaskManager"</span>. Этот класс должен <span class="hl-text">хранить
+            поля</span>:
+        <ul>
+          <li>Список задач</li>
+        </ul>
+        </p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конструктор</li>
+          <li>Геттер</li>
+          <li>Поиск задачи
+            <ul>
+              <li>Принимает <span class="hl-text">название задачи</span>.</li>
+              <li>Если задача с указанным названием найдена, то <span class="hl-text">возвращает индекс задачи в
+                  списке</span>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> -<code class="python"><b>1</b></code>.</li>
+            </ul>
+          </li>
+          <li>Добавление задачи
+            <ul>
+              <li>Принимает <span class="hl-text">экземпляр класса "Task"</span>.</li>
+              <li>Если задача не найдена в списке, то <span class="hl-text">добавляет её в список задач</span>. <span
+                  class="hl-text">Возвращает</span> <code class="python"><b>True</b></code>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+              </li>
+            </ul>
+          </li>
+          <li>Удаление задачи
+            <ul>
+              <li>Принимает <span class="hl-text">название задачи</span>.</li>
+              <li>Если задача не найдена в списке, то <span class="hl-text">добавляет её в список задач</span>. <span
+                  class="hl-text">Возвращает</span> <code class="python"><b>True</b></code>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+              </li>
+            </ul>
+          </li>
+          <li>Фильтр по выполненным или не выполненным и приоритету
+            <ul>
+              <li>Принимает <span class="hl-text">необязательный флаг</span> (по умолчанию <code
+                  class="python"><b>0</b></code>) и <span class="hl-text">приоритет</span> (по умолчанию <code
+                  class="python"><b>0</b></code>).</li>
+              <li>Если флаг <code class="python"><b>0</b></code>, то <span class="hl-text">составляет список задач,
+                  которые выполнены или не выполнены</span>.</li>
+              <li>Если флаг <code class="python"><b>1</b></code>, то <span class="hl-text">составляет список задач,
+                  которые выполнены</span>.</li>
+              <li>Если флаг <code class="python"><b>2</b></code>, то <span class="hl-text">составляет список задач,
+                  которые не выполнены</span>.</li>
+              <li>Если приоритет <code class="python"><b>0</b></code>, то <span class="hl-text">составляет список задач
+                  с любым приоритетом</span>.</li>
+              <li>Если приоритет любое другое число, то <span class="hl-text">составляет список задач с указанным
+                  приоритетом</span>.</li>
+              <li>Возвращает <span class="hl-text">полученный список задач в виде кортежа</span>.</li>
+            </ul>
+          </li>
+        </ul>
         </p>
       </div>
       <div class="right-rect">
@@ -188,79 +283,88 @@
         <p>Используя классы из <span class="hl-text">Практического Задания 43.1</span>, реализуйте следующее меню:
         <div class="console">
           <pre><code>1. Показать все задачи
-2. Показать задачу по номеру в списке
-3. Показать задачи по критерию
+2. Показать задачу по названию
+3. Показать задачи по критериям
 4. Добавить задачу
-5. Изменить задачу
-6. Удалить задачу
-7. Завершить программу</code></pre>
+5. Удалить задачу
+6. Завершить программу</code></pre>
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает в консоли все задачи в виде</span>:
-        <div class="console">
-          <pre><code><номер_задачи_из_списка> "Название" "(выполнена/не выполнена)" - <приоритет>
-"Описание"
-============================================================================
-<номер_задачи_из_списка> "Название" "(выполнена/не выполнена)" - <приоритет>
-"Описание"
-============================================================================
+        <p>Все задачи хранятся в <span class="hl-text">экземпляре класса "TaskManager"</span>. Задача – это <span
+            class="hl-text">экземпляр класса "Task"</span>.</p>
+
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">проходит по каждой задаче</span> и <span class="hl-text">выводит в консоль
+              её строковое представление</span> в виде:
+            <div class="console">
+              <pre><code>{название} {статус} {приоритет}
+{название} {статус} {приоритет}
 ...</code></pre>
-        </div>
+            </div>
+          </li>
+        </ul>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли номер задачи</span> и <span class="hl-text">показывает в консоли задачу по номеру в виде</span>:
-        <div class="console">
-          <pre><code><номер_задачи_из_списка> "Название" "(выполнена/не выполнена)" - <приоритет>
-"Описание"</code></pre>
-        </div>
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли название</span>.</li>
+          <li>Если задача с указанным названием найдена в списке задач, то <span class="hl-text">выводит в консоль её
+              строковое представление</span> и <span class="hl-text">описание</span> в виде:
+            <div class="console">
+              <pre><code>{название} {статус} {приоритет}
+{описание}</code></pre>
+            </div>
+          </li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли статус</span> (<code class="python"><b>0</b></code> - любой, <code class="python"><b>1</b></code> - выполнена, <code class="python"><b>2</b></code> - не выполнена) и <span class="hl-text">приоритет</span> (<code class="python"><b>0</b></code> - любой, <code class="python"><b>1</b></code>-<code class="python"><b>9</b></code> приоритеты). Затем <span class="hl-text">выводит в консоль в виде</span>:
-        <div class="console">
-          <pre><code><номер_задачи_из_списка> "Название" "(выполнена/не выполнена)" - <приоритет>
-"Описание"
-============================================================================
-<номер_задачи_из_списка> "Название" "(выполнена/не выполнена)" - <приоритет>
-"Описание"
-============================================================================
+        <p>Выбран <span class="hl-text">пункт 3</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли статус</span> (<code class="python"><b>0</b></code>
+            – любой, <code class="python"><b>1</b></code> – выполнена, <code class="python"><b>2</b></code> – не
+            выполнена) и <span class="hl-text">приоритет</span> (<code class="python"><b>0</b></code> – любой, <code
+              class="python"><b>1</b></code>-<code class="python"><b>9</b></code> приоритеты).</li>
+          <li>Если задачи по указанному фильтру найдены, то <span class="hl-text">выводит в консоль строковое
+              представление задач</span> в виде:
+            <div class="console">
+              <pre><code>{название} {статус} {приоритет}
+{название} {статус} {приоритет}
 ...</code></pre>
-        </div>
+            </div>
+          </li>
+        </ul>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли название</span>, <span class="hl-text">описание</span> и <span class="hl-text">приоритет</span>. Затем <span class="hl-text">формирует объект "Task"</span> и <span class="hl-text">добавляет в объект "TaskManager"</span>.</p>
-
-        <p>При выборе <span class="hl-text">пункта 6</span> программа <span class="hl-text">запрашивает с консоли номер задачи</span>. Если задача найдена, то <span class="hl-text">удаляет её</span>.</p>
-
-        <p>При выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает номер задачи</span>. Если задача найдена, то <span class="hl-text">выводит следующее</span>:
-        <div class="console">
-          <pre><code>СТАРЫЕ ДАННЫЕ:
-<номер_задачи_из_списка> "Название" "(выполнена/не выполнена)" - <приоритет>
-"Описание"
-
-НОВЫЕ ДАННЫЕ:
-<номер_задачи_из_списка> "Название" "(выполнена/не выполнена)" - <приоритет>
-"Описание"
-============================================================================
-1. Изменить название
-2. Изменить описание
-3. Изменить приоритет
-4. Сменить статус
-5. Подтвердить изменения и вернуться
-6. Отменить изменения и вернуться</code></pre>
-        </div>
+        <p>Выбран <span class="hl-text">пункт 4</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли название</span>, <span
+              class="hl-text">описание</span> и <span class="hl-text">приоритет</span>.</li>
+          <li>Формирует из данных <span class="hl-text">задачу</span>.</li>
+          <li>Пытается <span class="hl-text">добавить задачу в список задач</span>.</li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
         </p>
 
-        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">3</span> программа <span class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится только в том случае, если был выбран <span class="hl-text">пункт 5</span>. Поэтому <span class="hl-text">пункты 1</span>-<span class="hl-text">3</span> должны <span class="hl-text">изменять копию данных</span>, а при выборе <span class="hl-text">пункта 5 заменять оригинал</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 5</span> программа должна <span class="hl-text">заменить старые данные на новые</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">сменяет статус с <code class="python"><b>"выполнена"</b></code> на</span> <code class="python"><b>"не выполнена"</b></code> и <span class="hl-text">наоборот в другом случае</span>.</p>
+        <p>Выбран <span class="hl-text">пункт 5</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли название</span>.</li>
+          <li>Пытается <span class="hl-text">удалить задачу из списка задач</span>.</li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
+        </p>
       </div>
     </div>
   </div>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function(codeBlock, index) {
+      codeBlocks.forEach(function (codeBlock, index) {
         let innerHTML = codeBlock.innerHTML;
         console.log(index, innerHTML);
         // STRING

@@ -4,7 +4,9 @@
   <title>Python - PT45</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
   <style>
     body {
       background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
@@ -172,47 +174,97 @@
     <div class="right-block">
       <div class="right-rect">
         <h2>Практическое Задание 45.1</h2>
-        <p>Создайте класс <span class="hl-text">"Устройство"</span>. Этот класс должен <span class="hl-text">хранить поле для названия</span>.
-          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
-          <br>Для класса определите <span class="hl-text">метод "Использовать", который просто выводит в консоль "Использование"</span>.
+        <p>Создайте класс <span class="hl-text">"Игрок"</span>. Этот класс должен <span class="hl-text">хранить
+            поля</span>:
+        <ul>
+          <li>Никнейм</li>
+          <li>Рейтинг</li>
+          <li>Количество побед</li>
+          <li>Количество поражений</li>
+        </ul>
         </p>
 
-        <p>Создайте ещё <code class="python"><b>3</b></code> класса, которые наследуются от класса <span class="hl-text">"Устройство"</span> - <span class="hl-text">"Кофемашина"</span>, <span class="hl-text">"Тостер"</span> и <span class="hl-text">"Посудомойка"</span>.
-          <br>Переопределите для них <span class="hl-text">метод "Использовать" по своему усмотрению</span>.
-          <br>Переопределите для них <span class="hl-text">конструктор</span> и <span class="hl-text">строковое представление</span>.
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Строковое представление (<code class="python"><b>__str__</b></code>)</li>
+          <li>Конструктор (<code class="python"><b>__init__</b></code>)</li>
+          <li>Засчитывание победы
+            <ul>
+              <li>Ничего не принимает.</li>
+              <li>Увеличивает <span class="hl-text">рейтинг на <code class="python"><b>3</b></code> единицы</span>.</li>
+              <li>Увеличивает <span class="hl-text">счётчик побед на</span> <code class="python"><b>1</b></code>.</li>
+            </ul>
+          </li>
+          <li>Засчитывание поражения
+            <ul>
+              <li>Ничего не принимает.</li>
+              <li>Уменьшает <span class="hl-text">рейтинг на <code class="python"><b>10</b></code> единиц</span>.</li>
+              <li>Увеличивает <span class="hl-text">счётчик поражений на</span> <code class="python"><b>1</b></code>.
+              </li>
+            </ul>
+          </li>
+          <li>Соотношение побед к поражениям
+            <ul>
+              <li>Ничего не принимает.</li>
+              <li>Возвращает <span class="hl-text">победы делённые на поражения</span>.</li>
+            </ul>
+          </li>
+        </ul>
         </p>
 
-        <p>Реализуйте следующее меню:
-        <div class="console">
-          <pre><code>1. Выбрать кофемашину
-2. Выбрать тостер
-3. Выбрать посудомойка</code></pre>
-        </div>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 45.1</h2>
+        <p>Создайте класс <span class="hl-text">"Транспорт"</span>. Этот класс должен <span class="hl-text">хранить поля
+            для идентификатора</span> и <span class="hl-text">максимальной скорости</span>.
+          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span
+            class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+          <br>Для класса определите <span class="hl-text">метод движения</span>. Метод <span class="hl-text">принимает
+            расстояние в км</span> и <span class="hl-text">возвращает время в часах</span>, которое потратит транспорт с
+          максимальной скоростью на преодоление указанного расстояния.
+          <br>Для класса определите <span class="hl-text">метод определения требуемого количества ресурсов за
+            прохождение расстояния</span>. Метод <span class="hl-text">принимает расстояние в км</span> и <span
+            class="hl-text">возвращает количество требуемого ресурса</span>. В данном случае метод просто <span
+            class="hl-text">возвращает</span> <code class="python"><b>0</b></code>.
         </p>
 
-        <p>При выборе <span class="hl-text">любого пункта</span>, программа <span class="hl-text">создаёт объект выбранного класса</span> и <span class="hl-text">вызывает у него метод использования</span>.</p>
+        <p>Создайте класс <span class="hl-text">"Автомобиль"</span>. Этот класс должен <span
+            class="hl-text">наследоваться от класса "Транспорт"</span> и <span class="hl-text">хранить поля для
+            топлива</span> и <span class="hl-text">расхода топлива на км</span>.
+          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span
+            class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+          <br>Для класса переопределите <span class="hl-text">метод определения требуемого количества ресурсов за
+            прохождение расстояния</span>. Метод <span class="hl-text">принимает расстояние в км</span> и <span
+            class="hl-text">возвращает количество требуемого топлива</span>.
+        </p>
+        <p>Создайте класс <span class="hl-text">"Электромобиль"</span>. Этот класс должен <span
+            class="hl-text">наследоваться от класса "Транспорт"</span> и <span class="hl-text">хранить поля для
+            заряда</span> и <span class="hl-text">расхода заряда за час</span>.
+          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span
+            class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
+          <br>Для класса переопределите <span class="hl-text">метод определения требуемого количества ресурсов за
+            прохождение расстояния</span>. Метод <span class="hl-text">принимает расстояние в км</span> и <span
+            class="hl-text">возвращает количество требуемого заряда</span>.
+        </p>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 45.2</h2>
-        <p>Создайте класс <span class="hl-text">"Конвертер"</span>.
-          <br>Для класса определите <code class="python"><b>2</b></code> <span class="hl-text">статических метода конвертации</span>, например, <span class="hl-text">перевода метров в указанную единицу</span> и <span class="hl-text">перевода цельсия в указанную единицу</span>.
-        </p>
-
-        <p>Затем реализуйте следующее меню:
+        <p>Реализуйте следующее меню:
         <div class="console">
-          <pre><code>1. Метры
-2. Цельсий</code></pre>
+          <pre><code>1. Показать все автомобили из списка
+2. Добавить автомобиль в список
+3. Удалить автомобиль в список
+4. Определить количество ресурса за прохождение расстояния
+5. Завершить программу</code></pre>
         </div>
         </p>
-
-        <p>При выборе <span class="hl-text">единицы измерения</span> программа должна <span class="hl-text">предлагать меню по выбору конвертации</span>, а затем <span class="hl-text">запрашивать количество единиц</span> и <span class="hl-text">выводить результат конвертации</span>.</p>
       </div>
     </div>
   </div>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function(codeBlock, index) {
+      codeBlocks.forEach(function (codeBlock, index) {
         let innerHTML = codeBlock.innerHTML;
         console.log(index, innerHTML);
         // STRING
