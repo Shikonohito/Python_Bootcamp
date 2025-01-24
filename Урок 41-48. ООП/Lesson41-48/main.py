@@ -2,10 +2,10 @@
 # ООП - Классы и объекты
 # Принципы ООП - Абстракция
 # Создание класса
-# Создание объекта класса
 # Поля (атрибуты), методы
 # Метод __str__()
 # Конструктор __init__()
+# Создание экземпляра класса
 
 
 # class Student:
@@ -47,17 +47,16 @@
 
 
 # ==============================================LESSON42==============================================
-# Урок 42. Создание и работа со своим классом
+# Урок 42. Создание и работа со своими классами
 
 # ====================================================================================================
 # ПЗ 42.1 - 42.4
 # ====================================================================================================
 
-# ==============================================LESSON43==============================================
+# ==============================================LESSON43-44==============================================
 # Принципы ООП - Инкапсуляция
 # Спецификаторы доступа public, private, protected
 # Свойства - геттеры и сеттеры
-# Деструктор __del__()
 
 
 # class Positive_Num:
@@ -254,7 +253,7 @@
 # ====================================================================================================
 
 
-# ==============================================LESSON44==============================================
+# ==============================================LESSON45==============================================
 # Принципы ООП - Наследование
 # Наследование на примерах
 # Переопределение конструктора и вызов конструктора родителя super()
@@ -400,15 +399,16 @@
 # print(total_price)
 
 # ====================================================================================================
-# ПЗ 44.1 - 44.2
+# ПЗ 45.1 - 45.2
 # ====================================================================================================
 
 
-# ==============================================LESSON45==============================================
+# ==============================================LESSON46==============================================
 # Принципы ООП - Полиморфизм
-# Статические методы, методы класса и экземпляра класса
+# Полиморфизм функций - len(list, str, dict)
 # Полиморфизм на примерах
 # Утиная типизация
+# Статические методы, методы класса и экземпляра класса
 
 
 # class Animal:
@@ -534,80 +534,6 @@
 # print(student_1)
 
 # ====================================================================================================
-# ПЗ 45.1 - 45.2
-# ====================================================================================================
-
-
-# ==============================================LESSON46==============================================
-# magic-методы
-# Перегрузка операторов
-# __eq__(), __ne__(), __lt__(), __le__(), __gt__(), __ge__(), __getitem__(), __setitem__(), __contains__
-
-
-# class Student:
-#     __name = "Unknown"
-#     __age = 0
-#     __grades = list()
-#     __average_grade = 0
-#
-#     def __init__(self, name, age, grades):
-#         self.__name = name
-#         self.__age = age
-#         self.__grades = grades
-#         if len(self.__grades) > 0:
-#             self.__average_grade = sum(self.__grades) / len(self.__grades)
-#
-#     def __str__(self):
-#         result = f"{self.__name} {self.__age} {self.__grades} {self.__average_grade}"
-#         return result
-#
-#     def __gt__(self, other):
-#         return self.__average_grade > other.__average_grade
-#
-#     def student_gt(self, other):
-#         return self.__average_grade > other.__average_grade
-#
-#     def __lt__(self, other):
-#         return self.__average_grade < other.__average_grade
-#
-#     def __getitem__(self, item):  # если __contains__ отсутствует, in использует его
-#         if item < len(self.__grades):
-#             result = self.__grades[item]
-#         else:
-#             result = -1
-#         return result
-#
-#     def __eq__(self, other):
-#         return self.__name == other.__name and self.__age == other.__age
-#
-#     def __contains__(self, item):  # in использует его
-#         is_found = False
-#         for grade in self.__grades:
-#             if grade == item:
-#                 is_found = True
-#                 break
-#         return is_found
-#
-#     def __add__(self, other):
-#         self.__grades.append(other)
-#
-#
-# student_1 = Student("Tom", 25, [11, 12, 10, 12])
-# student_2 = Student("Tom", 25, [10, 9, 10, 12])
-#
-# print(student_1)
-# print(student_2)
-# print(student_1.student_gt(student_2))
-# print(student_1 > student_2)
-# print(student_1 < student_2)
-# print(student_1[0])
-# print(student_1 == student_2)
-# print(12 in student_2)
-#
-# student_1 + 20
-# print(student_1)
-
-# ====================================================================================================
 # ПЗ 46.1 - 46.2
 # ====================================================================================================
 
@@ -676,8 +602,82 @@
 
 
 # ==============================================LESSON48==============================================
-# Использование своих классов.
+# Применение и использование агрегации.
 
 # ====================================================================================================
 # ДЗ 48.1 - 48.2
+# ====================================================================================================
+
+
+# magic-методы
+# Перегрузка операторов
+# __eq__(), __ne__(), __lt__(), __le__(), __gt__(), __ge__(), __getitem__(), __setitem__(), __contains__
+
+
+# class Student:
+#     __name = "Unknown"
+#     __age = 0
+#     __grades = list()
+#     __average_grade = 0
+#
+#     def __init__(self, name, age, grades):
+#         self.__name = name
+#         self.__age = age
+#         self.__grades = grades
+#         if len(self.__grades) > 0:
+#             self.__average_grade = sum(self.__grades) / len(self.__grades)
+#
+#     def __str__(self):
+#         result = f"{self.__name} {self.__age} {self.__grades} {self.__average_grade}"
+#         return result
+#
+#     def __gt__(self, other):
+#         return self.__average_grade > other.__average_grade
+#
+#     def student_gt(self, other):
+#         return self.__average_grade > other.__average_grade
+#
+#     def __lt__(self, other):
+#         return self.__average_grade < other.__average_grade
+#
+#     def __getitem__(self, item):  # если __contains__ отсутствует, in использует его
+#         if item < len(self.__grades):
+#             result = self.__grades[item]
+#         else:
+#             result = -1
+#         return result
+#
+#     def __eq__(self, other):
+#         return self.__name == other.__name and self.__age == other.__age
+#
+#     def __contains__(self, item):  # in использует его
+#         is_found = False
+#         for grade in self.__grades:
+#             if grade == item:
+#                 is_found = True
+#                 break
+#         return is_found
+#
+#     def __add__(self, other):
+#         self.__grades.append(other)
+#
+#
+# student_1 = Student("Tom", 25, [11, 12, 10, 12])
+# student_2 = Student("Tom", 25, [10, 9, 10, 12])
+#
+# print(student_1)
+# print(student_2)
+# print(student_1.student_gt(student_2))
+# print(student_1 > student_2)
+# print(student_1 < student_2)
+# print(student_1[0])
+# print(student_1 == student_2)
+# print(12 in student_2)
+#
+# student_1 + 20
+# print(student_1)
+
+
+# ====================================================================================================
+# ПЗ 47.1 - 47.2
 # ====================================================================================================
