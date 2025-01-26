@@ -1,1052 +1,575 @@
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Python - HW46</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
-      color: #fff;
-      font-family: "Inter", sans-serif;
-      margin: 0px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python - HW46</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
+            color: #fff;
+            font-family: "Inter", sans-serif;
+            margin: 0px;
+        }
 
-    .container {
-      display: flex;
-      flex-direction: row;
-    }
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
 
-    .sidebar {
-      width: 240px;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-    }
+        .sidebar {
+            width: 240px;
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+            position: sticky;
+            top: 0;
+        }
 
-    .sidebar img {
-      height: 240px;
-      width: 240px;
-    }
+        .sidebar img {
+            height: 240px;
+            width: 240px;
+        }
 
-    .sidebar #copyrights {
-      background: linear-gradient(to right, #343434 0%, #363636 100%);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
+        .sidebar #copyrights {
+            background: linear-gradient(to right, #343434 0%, #363636 100%);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
 
-    .right-block {
-      flex: 1;
-      width: 70%;
-      gap: 50px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      padding: 50px 25px 50px 0;
-      margin: 10px;
-    }
+        .right-block {
+            flex: 1;
+            width: 70%;
+            gap: 50px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            padding: 50px 25px 50px 0;
+            margin: 10px;
+        }
 
-    .right-rect {
-      background-color: rgba(38, 38, 38, 0.75);
-      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-      padding: 30px 25px;
-      border-radius: 10px;
-    }
+        .right-rect {
+            background-color: rgba(38, 38, 38, 0.75);
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+            padding: 30px 25px;
+            border-radius: 10px;
+        }
 
-    .right-rect h2,
-    .right-rect .hl-text {
-      margin: 0;
-      color: #FFC000;
-    }
+        .right-rect h2,
+        .right-rect .hl-text {
+            margin: 0;
+            color: #FFC000;
+        }
 
-    .right-rect h3 {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      color: #FFC000;
-    }
+        .right-rect h3 {
+            margin-top: 40px;
+            margin-bottom: 0px;
+            color: #FFC000;
+        }
 
-    .console {
-      background-color: #1E1F22;
-      border-radius: 5px;
-      margin-top: 10px;
-      position: relative;
-    }
+        .console {
+            background-color: #1E1F22;
+            border-radius: 5px;
+            margin-top: 10px;
+            position: relative;
+        }
 
-    p {
-      margin-top: 15px;
-      margin-bottom: 0px;
-    }
+        p {
+            margin-top: 15px;
+            margin-bottom: 0px;
+        }
 
-    pre {
-      white-space: pre-wrap;
-      white-space: pre;
-      overflow-x: auto;
-      word-wrap: normal;
-      padding: 20px 10px;
-    }
+        pre {
+            white-space: pre-wrap;
+            white-space: pre;
+            overflow-x: auto;
+            word-wrap: normal;
+            padding: 20px 10px;
+        }
 
-    .console .input {
-      color: #6AAB73;
-      font-style: italic;
-    }
+        .console .input {
+            color: #6AAB73;
+            font-style: italic;
+        }
 
-    code {
-      font-family: "JetBrains mono", monospace;
-      color: #BCBEC4;
-    }
+        code {
+            font-family: "JetBrains mono", monospace;
+            color: #BCBEC4;
+        }
 
-    .copy-button {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      padding: 5px 10px;
-      background-color: #FFC000;
-      color: #1E1F22;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-family: "JetBrains mono", monospace;
-      font-weight: bold;
-    }
+        .copy-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            padding: 5px 10px;
+            background-color: #FFC000;
+            color: #1E1F22;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "JetBrains mono", monospace;
+            font-weight: bold;
+        }
 
-    .string {
-      color: #6AAB73;
-      font-family: "JetBrains mono", monospace;
-    }
+        .string {
+            color: #6AAB73;
+            font-family: "JetBrains mono", monospace;
+        }
 
-    .string-bracket,
-    .string-esc,
-    .keyword {
-      color: #CF8E6D;
-      font-family: "JetBrains mono", monospace;
-    }
+        .string-bracket,
+        .string-esc,
+        .keyword {
+            color: #CF8E6D;
+            font-family: "JetBrains mono", monospace;
+        }
 
-    .self {
-      color: #94558D;
-      font-family: "JetBrains mono", monospace;
-    }
+        .self {
+            color: #94558D;
+            font-family: "JetBrains mono", monospace;
+        }
 
-    .string-bracket-inner {
-      color: #BCBEC4;
-      font-family: "JetBrains mono", monospace;
-    }
+        .string-bracket-inner {
+            color: #BCBEC4;
+            font-family: "JetBrains mono", monospace;
+        }
 
-    .number {
-      color: #2AACB8;
-      font-family: "JetBrains mono", monospace;
-    }
+        .number {
+            color: #2AACB8;
+            font-family: "JetBrains mono", monospace;
+        }
 
-    .comments {
-      color: #7A7E85;
-      font-family: "JetBrains mono", monospace;
-    }
+        .comments {
+            color: #7A7E85;
+            font-family: "JetBrains mono", monospace;
+        }
 
-    .metadata {
-      color: #B3AE60;
-      font-family: "JetBrains mono", monospace;
-    }
+        .metadata {
+            color: #B3AE60;
+            font-family: "JetBrains mono", monospace;
+        }
 
-    .built-in {
-      color: #8888C6;
-      font-family: "JetBrains mono", monospace;
-    }
+        .built-in {
+            color: #8888C6;
+            font-family: "JetBrains mono", monospace;
+        }
 
-    .function {
-      color: #56A8F5;
-      font-family: "JetBrains mono", monospace;
-    }
+        .function {
+            color: #56A8F5;
+            font-family: "JetBrains mono", monospace;
+        }
 
-    .special-names {
-      color: #B200B2;
-      font-family: "JetBrains mono", monospace;
-    }
+        .special-names {
+            color: #B200B2;
+            font-family: "JetBrains mono", monospace;
+        }
 
-    .keyword-argument {
-      color: #AA4926;
-      font-family: "JetBrains mono", monospace;
-    }
-  </style>
+        .keyword-argument {
+            color: #AA4926;
+            font-family: "JetBrains mono", monospace;
+        }
+
+        ul {
+            margin-top: 0;
+        }
+
+        .inner-p {
+            margin-top: 50px;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
-      <p id="copyrights">© Фикрет Зейналов, 2025</p>
+    <div class="container">
+        <div class="sidebar">
+            <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+            <p id="copyrights">© Фикрет Зейналов, 2025</p>
+        </div>
+        <div class="right-block">
+            <div class="right-rect">
+                <h2>Домашнее Задание 46.1</h2>
+                <p>Создайте класс <span class="hl-text">"Игрок"</span>. Этот класс должен <span class="hl-text">хранить
+                        поля</span>:
+                <ul>
+                    <li>Имя</li>
+                    <li>Уровень</li>
+                    <li>Текущий опыт</li>
+                    <li>Требуемый опыт для следующего уровня</li>
+                </ul>
+                </p>
+
+                <p>Для класса определите <span class="hl-text">методы</span>:
+                <ul>
+                    <li>Конструктор</li>
+                    <li>Строковое представление</li>
+                    <li>Свойства</li>
+                    <li>Повышение уровня
+                        <ul>
+                            <li>Ничего не принимает.</li>
+                            <li>Обнуляет <span class="hl-text">текущий опыт</span>.</li>
+                            <li>Увеличивает <span class="hl-text">требуемый опыт для следующего уровня на</span> <code
+                                    class="python"><b>200</b></code>.</li>
+                            <li>Увеличивает <span class="hl-text">уровень на</span> <code
+                                    class="python"><b>1</b></code>.</li>
+                        </ul>
+                    </li>
+                    <li>Получение опыта
+                        <ul>
+                            <li>Принимает <span class="hl-text">число</span>.</li>
+                            <li>Увеличивает <span class="hl-text">текущий опыт на число</span>.</li>
+                            <li>Если текущий опыт больше-равен требуемого опыта для следующего уровня, то <span
+                                    class="hl-text">вызывает повышение уровня</span>.</li>
+                        </ul>
+                    </li>
+                </ul>
+                </p>
+
+                <p class="inner-p">Создайте класс <span class="hl-text">"Маг"</span>, который наследуется от класса
+                    <span class="hl-text">"Игрок"</span>. Этот класс должен <span class="hl-text">хранить поля</span>:
+                <ul>
+                    <li>Список изученных книг</li>
+                </ul>
+                </p>
+
+                <p>Для класса определите <span class="hl-text">методы</span>:
+                <ul>
+                    <li>Конструктор</li>
+                    <li>Получение изученных книг</li>
+                    <li>Изучение книги
+                        <ul>
+                            <li>Принимает <span class="hl-text">название книги</span>.</li>
+                            <li>Добавляет <span class="hl-text">название в список</span>.</li>
+                            <li>Вызывает <span class="hl-text">получение опыта с числом</span> <code
+                                    class="python"><b>200</b></code>.</li>
+                        </ul>
+                    </li>
+                </ul>
+                </p>
+
+                <p class="inner-p">Создайте класс <span class="hl-text">"Вор"</span>, который наследуется от класса
+                    <span class="hl-text">"Игрок"</span>. Этот класс должен <span class="hl-text">хранить поля</span>:
+                <ul>
+                    <li>Деньги</li>
+                </ul>
+                </p>
+
+                <p>Для класса определите <span class="hl-text">методы</span>:
+                <ul>
+                    <li>Конструктор</li>
+                    <li>Получение количества денег</li>
+                    <li>Кража
+                        <ul>
+                            <li>Принимает <span class="hl-text">количество денег</span>.</li>
+                            <li>Если денег до <code class="python"><b>200</b></code>, то <span class="hl-text">шанс
+                                    украсть <code class="python"><b>100%</b></code></span>.</li>
+                            <li>Если денег от <code class="python"><b>200</b></code> до <code
+                                    class="python"><b>500</b></code>, то <span class="hl-text">шанс украсть <code
+                                        class="python"><b>75%</b></code></span>.</li>
+                            <li>Если денег от <code class="python"><b>500</b></code>, то <span class="hl-text">шанс
+                                    украсть <code class="python"><b>50%</b></code></span>.</li>
+                            <li>Если украсть удалось, то <span class="hl-text">увеличивает количество денег</span> и
+                                <span class="hl-text">вызывает получение опыта, передав количество денег делённые
+                                    на</span> <code class="python"><b>10</b></code>. <span
+                                    class="hl-text">Возвращает</span> <code class="python"><b>True</b></code>.
+                            </li>
+                            <li>В противном случае <span class="hl-text">возвращает</span> <code
+                                    class="python"><b>False</b></code>.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                </p>
+
+                <h3>Подсказка:</h3>
+                <p>Для того, чтобы узнать, получилось украсть или нет, взять случайное число и определить, входит ли он
+                    в нужный промежуток. Для генерации случайного числа используйте код, указанный ниже:
+                <div class="console">
+                    <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Copy code</button>
+                    <pre><code class="python">from random import randint # Подключение модуля random и импорт функции randint
+
+start = 1
+end = 100
+number = randint(start, end) # Генерация случайного числа от start до end </code></pre>
+                </div>
+                </p>
+            </div>
+            <div class="right-rect">
+                <h2>Домашнее Задание 46.2</h2>
+                <p>Используя классы из <span class="hl-text">Домашнего Задания 46.1</span>, <span
+                        class="hl-text">создайте по одному экземпляру каждого класса</span> и <span
+                        class="hl-text">реализуйте следующее меню</span>:
+                <div class="console">
+                    <pre><code>1. Выдать книгу магу
+2. Указать цель для вора
+3. Добавить всем опыта</code></pre>
+                </div>
+                </p>
+
+                <p>Выбран <span class="hl-text">пункт 1</span>:
+                <ul>
+                    <li>Программа <span class="hl-text">запрашивает с консоли название книги</span>.</li>
+                    <li>У мага <span class="hl-text">вызывается изучение книги</span>.</li>
+                    <li>Программа <span class="hl-text">выводит в консоль строковое представление мага</span> и <span
+                            class="hl-text">список изученных книг</span>.</li>
+                </ul>
+                </p>
+
+                <p>Выбран <span class="hl-text">пункт 2</span>:
+                <ul>
+                    <li>Программа <span class="hl-text">запрашивает с консоли количество денег у цели</span>.</li>
+                    <li>У вора <span class="hl-text">вызывается кража</span>.</li>
+                    <li>В зависимости от результата, программа <span class="hl-text">выводит в консоль результат</span>,
+                        <span class="hl-text">строковое представление вора</span> и <span class="hl-text">количество
+                            денег</span>.
+                    </li>
+                </ul>
+                </p>
+
+                <p>Выбран <span class="hl-text">пункт 3</span>:
+                <ul>
+                    <li>Программа <span class="hl-text">вызывает функцию, передав ей список персонажей</span> и <span
+                            class="hl-text">количество опыта</span>.</li>
+                    <li>Функция выводит в консоль <span class="hl-text">строковое представление каждого
+                            персонажа</span>.</li>
+                    <li>Вызывает у каждого персонажа <span class="hl-text">получение опыта</span>.</li>
+                    <li>Снова выводит в консоль <span class="hl-text">строковое представление каждого персонажа</span>.
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <div class="right-rect">
+                <h2>Домашнее Задание 46.3</h2>
+                <p>Создайте класс <span class="hl-text">"Товар"</span>. Этот класс должен <span class="hl-text">хранить
+                        поля</span>:
+                <ul>
+                    <li>Идентификатор</li>
+                    <li>Цена</li>
+                    <li>Действующая скидка</li>
+                </ul>
+                </p>
+
+                <p>Для класса определите <span class="hl-text">методы</span>:
+                <ul>
+                    <li>Конструктор</li>
+                    <li>Строковое представление</li>
+                    <li>Свойства</li>
+                    <li>Отменить скидку</li>
+                    <ul>
+                        <li>Ничего не принимает.</li>
+                        <li>Восстанавливает цену по <span class="hl-text">действующей скидке</span>.</li>
+                        <li>Обнуляет <span class="hl-text">действующую скидку</span>.</li>
+                    </ul>
+                    <li>Применить скидку
+                        <ul>
+                            <li>Принимает <span class="hl-text">число</span>.</li>
+                            <li>Если скидка уже действует, то <span class="hl-text">вызывает отмену скидки</span>.</li>
+                            <li>Выставляет <span class="hl-text">действующую скидку</span>.</li>
+                            <li>Выставляет <span class="hl-text">цену по действующей скидке</span>.</li>
+                        </ul>
+                    </li>
+                </ul>
+                </p>
+
+                <p class="inner-p">Создайте класс <span class="hl-text">"Ноутбук"</span>, который наследуется от класса
+                    <span class="hl-text">"Товар"</span>. Этот класс должен <span class="hl-text">хранить поля</span>:
+                <ul>
+                    <li>CPU</li>
+                    <li>GPU</li>
+                    <li>RAM</li>
+                    <li>Память</li>
+                </ul>
+                </p>
+
+                <p>Для класса определите <span class="hl-text">методы</span>:
+                <ul>
+                    <li>Конструктор</li>
+                    <li>Строковое представление</li>
+                </ul>
+                </p>
+
+                <p class="inner-p">Создайте класс <span class="hl-text">"Шоколад"</span>, который наследуется от класса
+                    <span class="hl-text">"Товар"</span>. Этот класс должен <span class="hl-text">хранить поля</span>:
+                <ul>
+                    <li>Название</li>
+                    <li>Калории</li>
+                </ul>
+                </p>
+
+                <p>Для класса определите <span class="hl-text">методы</span>:
+                <ul>
+                    <li>Конструктор</li>
+                    <li>Строковое представление</li>
+                </ul>
+                </p>
+
+                <p class="inner-p">Создайте класс <span class="hl-text">"Кружка"</span>, который наследуется от класса
+                    <span class="hl-text">"Товар"</span>. Этот класс должен <span class="hl-text">хранить поля</span>:
+                <ul>
+                    <li>Вместимость</li>
+                </ul>
+                </p>
+
+                <p>Для класса определите <span class="hl-text">методы</span>:
+                <ul>
+                    <li>Конструктор</li>
+                    <li>Строковое представление</li>
+                </ul>
+                </p>
+            </div>
+            <div class="right-rect">
+                <h2>Домашнее Задание 46.4</h2>
+                <p>Используя классы из <span class="hl-text">Домашнего Задания 46.3</span>, <span
+                        class="hl-text">создайте по одному экземпляру каждого класса</span>, <span
+                        class="hl-text">поместите их в список</span> и <span class="hl-text">реализуйте следующее
+                        меню</span>:
+                <div class="console">
+                    <pre><code>1. Показать все товары
+2. Добавить новый товар
+3. Применить скидку к товару</code></pre>
+                </div>
+                </p>
+
+                <p>Выбран <span class="hl-text">пункт 1</span>:
+                <ul>
+                    <li>Программа <span class="hl-text">проходит по каждому товару</span> и <span
+                            class="hl-text">выводит в консоль его строковое представление</span> в виде:
+                        <div class="console">
+                            <pre><code>{идентификатор} {цена} {действующая_скидка} {остальные_данные}
+{идентификатор} {цена} {действующая_скидка} {остальные_данные}
+...</code></pre>
+                        </div>
+                    </li>
+                </ul>
+                </p>
+
+                <p>Выбран <span class="hl-text">пункт 2</span>:
+                <ul>
+                    <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>, <span
+                            class="hl-text">цену</span>, <span class="hl-text">тип товара</span>.</li>
+                    <li>В зависимости от типа товара программа <span class="hl-text">запрашивает с консоли
+                            дополнительную информацию</span> и <span class="hl-text">создаёт соответствующий экземпляр
+                            класса</span>.</li>
+                    <li>Если товара с указанным идентификатором нет в списке, то <span class="hl-text">добавляет товар в
+                            список</span>.</li>
+                    <li>В зависимости от результата, программа <span class="hl-text">выводит в консоль результат</span>.
+                    </li>
+                </ul>
+                </p>
+
+                <p>Выбран <span class="hl-text">пункт 3</span>:
+                <ul>
+                    <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span> и <span
+                            class="hl-text">скидку</span>.</li>
+                    <li>Если товар с указанным идентификатором найден в списке, то <span class="hl-text">вызывает
+                            применение скидки у товара</span>.</li>
+                    <li>В зависимости от результата, программа <span class="hl-text">выводит в консоль результат</span>.
+                    </li>
+                </ul>
+                </p>
+            </div>
+        </div>
     </div>
-    <div class="right-block">
-      <div class="right-rect">
-        <h2>Домашнее Задание 46.1</h2>
-        <p>Создайте класс <span class="hl-text">"Payment"</span>. Этот класс должен <span class="hl-text">хранить поля для названия сервиса</span> и <span class="hl-text">процента комиссии</span>.
-          <br>Для класса определите <span class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
-          <br>Для класса определите <span class="hl-text">метод "Сделать оплату", который принимает сумму</span> и <span class="hl-text">возвращает сумму с процентом</span>.
-        </p>
-        <p>Создайте класс <span class="hl-text">"PaypalPayment"</span>, который наследуется от <span class="hl-text">"Payment"</span>. Переопределите для него <span class="hl-text">конструктор</span> и <span class="hl-text">метод оплаты</span>.
-          <br>Конструктор <span class="hl-text">ничего не должен принимать</span>, а должен вызывать <span class="hl-text">конструктор родителя</span> и <span class="hl-text">передавать ему</span> строку <span class="string"><b>"Paypal"</b></span> и число <span class="number"><b>5</b></span>.
-          <br>Метод оплаты переопределите так, чтобы сперва <span class="hl-text">проверял принимаемую сумму</span>. Если сумма меньше <span class="number"><b>5000</b></span>, то <span class="hl-text">вызывается родительский метод оплаты</span> и <span class="hl-text">возвращается то, что вернёт родительский метод</span>. В противном случае <span class="hl-text">возвращается</span> <span class="number"><b>0</b></span>.
-        </p>
-        <p>Создайте класс <span class="hl-text">"CreditCardPayment"</span>, который наследуется от <span class="hl-text">"Payment"</span>. Дополните его полем баланса. Переопределите для него <span class="hl-text">конструктор</span> и <span class="hl-text">метод оплаты</span>.
-          <br>Конструктор <span class="hl-text">должен принимать баланс</span>, вызывать <span class="hl-text">конструктор родителя</span> и <span class="hl-text">передавать ему</span> строку <span class="string"><b>"Credit Card"</b></span> и число <span class="number"><b>1.5</b></span>. После этого он должен выставлять в своё поле <span class="hl-text">баланс</span>.
-          <br>Метод оплаты переопределите так, чтобы сперва <span class="hl-text">вызывался родительский метод оплаты</span>. Если вернувшаяся сумма меньше-равна баланса, то <span class="hl-text">из баланса отнимается эта сумма</span> и <span class="hl-text">возвращается отнимаемая сумма</span>. В противном случае <span class="hl-text">возвращается</span> <span class="number"><b>0</b></span>.
-          <br>Дополните класс <span class="hl-text">геттером баланса</span>.
-        </p>
-        <p>Создайте класс <span class="hl-text">"BonusCardPayment"</span>, который наследуется от <span class="hl-text">"Payment"</span>. Дополните его полем баланса. Переопределите для него <span class="hl-text">конструктор</span> и <span class="hl-text">метод оплаты</span>.
-          <br>Конструктор <span class="hl-text">должен принимать баланс</span>, вызывать <span class="hl-text">конструктор родителя</span> и <span class="hl-text">передавать ему</span> строку <span class="string"><b>"Bonus Card"</b></span> и число <span class="number"><b>0</b></span>. После этого он должен выставлять в своё поле <span class="hl-text">баланс</span>.
-          <br>Метод оплаты переопределите так, чтобы сперва <span class="hl-text">вызывался родительский метод оплаты</span>. Если вернувшаяся сумма меньше-равна баланса, то <span class="hl-text">из баланса отнимается эта сумма</span> и <span class="hl-text">возвращается отнимаемая сумма</span>. В противном случае <span class="hl-text">возвращается</span> <span class="number"><b>0</b></span>.
-          <br>Дополните класс <span class="hl-text">геттером баланса</span>.
-        </p>
-
-        <p>После описания классов для самопроверки используйте код ниже. Если всё в порядке, то при запуске кода, в консоли Вы увидете, что все тесты пройдены.
-        <div class="console">
-          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
-            </svg>
-            Copy code</button>
-          <pre><code class="python">payments_amount = (4000, 6500, 500, 995, 600, 700, 25)
-payments_balance = (None, None, 1000, 1000, 1000, 200, -500)
-payments = (PaypalPayment(), PaypalPayment(),
-            CreditCardPayment(payments_balance[2]), CreditCardPayment(payments_balance[2]),
-            BonusCardPayment(payments_balance[4]), BonusCardPayment(payments_balance[5]),
-            BonusCardPayment(payments_balance[6]))
-payments_correct_returns = (4200, 0, 507.5, 0, 600, 0, 0)
-
-for i in range(len(payments_amount)):
-    payment = payments[i]
-    payment_amount = payments_amount[i]
-    payment_correct_return = payments_correct_returns[i]
-
-    payment_return = payment.make_payment(payment_amount)
-
-    if payment_return == payment_correct_return:
-        print(f"===== TEST {i} - Success =====")
-    else:
-        print(f"===== TEST {i} - Fail =====")
-
-    payment_name = payment.get_name()
-    print(f"Payment type: {payment_name}")
-    print(f"Payment amount: {payment_amount}")
-    print(f"Payment correct return: {payment_correct_return}")
-    print(f"Payment actual return: {payment_return}")
-    if isinstance(payment, CreditCardPayment) or isinstance(payment, BonusCardPayment):
-        print(f"Payment balance BEFORE payment: {payments_balance[i]}")
-        print(f"Payment balance AFTER payment: {payment.get_balance()}")
-    print()</code></pre>
-        </div>
-        </p>
-      </div>
-      <div class="right-rect">
-        <h2>Домашнее Задание 46.2</h2>
-        <p>Переделайте класс <code class="python"><b>StudentDB</b></code> так, чтобы программа заработала.
-        <div class="console">
-          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
-            </svg>
-            Copy code</button>
-          <pre><code class="python">class Student:
-    __username = ""
-    __f_name = ""
-    __l_name = ""
-
-    def __init__(self, username: str, f_name: str, l_name: str):
-        self.__username = username
-        self.__f_name = f_name.title()
-        self.__l_name = l_name.title()
-
-    def __str__(self):
-        return f"{self.__username} {self.__f_name} {self.__l_name}"
-
-    def get_username(self):
-        return self.__username
-
-
-class StudentDB:
-    __student_list = list()
-
-    def __init__(self, students: list[Student] = list):
-        self.__student_list = students
-
-    def get_students(self):
-        return tuple(self.__student_list)
-
-
-student_1 = Student("Teston_xyz", "Teston", "Lebra")
-student_2 = Student("Tom_267", "Tom", "Jackson")
-db = StudentDB([student_1, student_2])
-for student in db.get_students():
-    print(student)
-
-student_3 = Student("AT_red", "Astrid", "Hofferson")
-if student_3 in db:  # False
-    print("Found")
-else:
-    print("Not found")
-print()
-
-db + student_3  # Добавляется новый студент
-for student in db.get_students():
-    print(student)
-
-if student_3 in db:  # True
-    print("Found")
-else:
-    print("Not found")
-print()
-
-student_4 = Student("AT_red", "NOT", "ADDED")
-db + student_4  # Ничего не происходит, так как идентификатор уже присутствует
-for student in db.get_students():
-    print(student)</code></pre>
-        </div>
-        </p>
-      </div>
-      <div class="right-rect">
-        <h2>Домашнее Задание 46.3</h2>
-        <p>Перед <span class="hl-text">Teston</span> и его напарником поставили задачу - реализовать <span class="hl-text">простой магазин компьютерных игр</span>. Teston реализовал <span class="hl-text">бэкенд</span>:
-        <div class="console">
-          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
-            </svg>
-            Copy code</button>
-          <pre><code class="python">class GameProduct:
-    __id = str()
-    __name = str()
-    __price = float()
-
-    def __init__(self, game_id: str, name: str, price: float):
-        self.__id = game_id
-        self.__name = name
-        self.__price = price
-
-    def __str__(self):
-        return f"{self.__id} - {self.__name} - {self.__price}"
-
-    def __is_price_valid(self, price: float):
-        return price >= 0
-
-    def set_price(self, price: float):
-        is_success = False
-        if self.__is_price_valid(price):
-            self.__price = price
-            is_success = True
-        return is_success
-
-    def get_price(self):
-        return self.__price
-
-    def set_id(self, game_id: str):
-        self.__id = game_id
-
-    def get_id(self):
-        return self.__id
-
-    def set_name(self, name: str):
-        self.__name = name
-
-    def get_name(self):
-        return self.__name
-
-    def get_copy(self):
-        return GameProduct(self.__id, self.__name, self.__price)
-
-
-class User:
-    _login = str()
-    _password = str()
-
-    def __init__(self, login: str, password: str):
-        self._login = login
-        self._password = password
-
-    def set_login(self, login: str):
-        self._login = login
-
-    def get_login(self):
-        return self._login
-
-    def set_password(self, password: str):
-        self._password = password
-
-    def get_password(self):
-        return self._password
-
-
-class Customer(User):
-    __games_library: list[GameProduct] = list()
-    __balance = float()
-    __games_cart: list[GameProduct] = list()
-    __is_blocked = False
-
-    def __init__(self, login: str, password: str, games: list[GameProduct] = None, balance=0.0):
-        super().__init__(login, password)
-        if games:
-            self.__games_library = games
-        else:
-            self.__games_library: list[GameProduct] = list()
-        self.__balance = balance
-        __games_cart: list[GameProduct] = list()
-        self.__is_blocked = False
-
-    def get_balance(self):
-        return self.__balance
-
-    def __is_valid_money(self, money: float):
-        return money > 0
-
-    def top_up_balance(self, money: float):
-        is_success = False
-        if self.__is_valid_money(money):
-            self.__balance += money
-            is_success = True
-        return is_success
-
-    def get_str_games_library(self):
-        games_library = self.__games_library
-        if len(games_library) > 0:
-            temp_games_str = list()
-            for game in games_library:
-                temp_games_str.append(str(game))
-            to_return = "\n".join(temp_games_str)
-        else:
-            to_return = ""
-        return to_return
-
-    def get_str_games_cart(self):
-        games_cart = self.__games_cart
-        if len(games_cart) > 0:
-            temp_games_str = list()
-            for game in games_cart:
-                temp_games_str.append(str(game))
-            to_return = "\n".join(temp_games_str)
-        else:
-            to_return = ""
-        return to_return
-
-    def get_cart_total_price(self):
-        total_price = 0
-        for game in self.__games_cart:
-            total_price += game.get_price()
-        return total_price
-
-    def __get_game_index_library(self, game_id: str):
-        found_index = -1
-        games_library = self.__games_library
-        for i in range(len(games_library)):
-            if game_id == games_library[i].get_id():
-                found_index = i
-                break
-        return found_index
-
-    def __is_game_in_library(self, game: GameProduct):
-        is_success = False
-        found_index = self.__get_game_index_library(game.get_id())
-        if found_index != -1:
-            is_success = True
-        return is_success
-
-    def get_having_games_from_cart(self):
-        having_games = list()
-        for game in self.__games_cart:
-            if self.__is_game_in_library(game):
-                having_games.append(game)
-        return having_games
-
-    def get_str_having_games_from_cart(self):
-        games = self.get_having_games_from_cart()
-        if len(games) > 0:
-            temp_games_str = list()
-            for game in games:
-                temp_games_str.append(str(game))
-            to_return = "\n".join(temp_games_str)
-        else:
-            to_return = ""
-        return to_return
-
-    def __is_valid_money(self, money: float):
-        return money > 0
-
-    def __is_enough_balance(self, money: float):
-        return self.__balance >= money
-
-    def decrease_balance(self, money: float):
-        is_success = False
-        if self.__is_valid_money(money):
-            self.__balance -= money
-            is_success = True
-        return is_success
-
-    def clear_cart(self):
-        self.__games_cart = list()
-
-    def __transfer_from_cart_to_lib(self):
-        for game in self.__games_cart:
-            self.__games_library.append(game)
-
-    def purchase_cart(self):
-        is_success = False
-        having_games = self.get_having_games_from_cart()
-        total_cart_price = self.get_cart_total_price()
-        if self.__is_enough_balance(total_cart_price) and len(having_games) == 0:
-            self.decrease_balance(total_cart_price)
-            self.__transfer_from_cart_to_lib()
-            self.clear_cart()
-            is_success = True
-        return is_success
-
-    def __get_game_index_cart(self, game_id: str):
-        found_index = -1
-        games_cart = self.__games_cart
-        for i in range(len(games_cart)):
-            if game_id == games_cart[i].get_id():
-                found_index = i
-                break
-        return found_index
-
-    def remove_game_from_cart(self, game_id: str):
-        is_success = False
-        found_index = self.__get_game_index_cart(game_id)
-        if found_index != -1:
-            del self.__games_cart[found_index]
-            is_success = True
-        return is_success
-
-    def add_game_to_cart(self, game: GameProduct):
-        is_success = False
-        found_index = self.__get_game_index_cart(game.get_id())
-        if found_index == -1:
-            self.__games_cart.append(game)
-            is_success = True
-        return is_success
-
-    def is_blocked(self):
-        return self.__is_blocked
-
-    def get_data_str_short(self):
-        status = "Действующий аккаунт"
-        if self.__is_blocked:
-            status = "Заблокированный аккаунт"
-        return (f"{self.get_login()} - {self.get_password()} - {self.__balance} - "
-                f"{len(self.__games_library)} - {status}")
-
-    def get_data_str_detail(self):
-        user_data_str = self.get_data_str_short()
-        games_data_str = self.get_str_games_library()
-        return user_data_str + "\n\nИгры на аккаунте:\n" + games_data_str
-
-    def block(self):
-        self.__is_blocked = True
-
-    def unblock(self):
-        self.__is_blocked = False
-
-
-class Admin(User):
-    def __init__(self, login: str, password: str):
-        super().__init__(login, password)
-
-
-class GameShop:
-    __customers: list[Customer] = list()
-    __admins: list[Admin] = list()
-    __games_library: list[GameProduct] = list()
-
-    def __init__(self, customers: list[Customer] = None, admins: list[Admin] = None, game_library: list[GameProduct] = None):
-        if customers:
-            self.__customers = customers
-        else:
-            self.__customers: list[Customer] = list()
-
-        if admins:
-            self.__admins = admins
-        else:
-            self.__admins: list[Admin] = list()
-
-        if game_library:
-            self.__games_library = game_library
-        else:
-            self.__games_library: list[GameProduct] = list()
-
-    def __get_customer_index(self, login_to_find: str):
-        found_index = -1
-        customers = self.__customers
-        for i in range(len(customers)):
-            if customers[i].get_login() == login_to_find:
-                found_index = i
-                break
-        return found_index
-
-    def get_customer(self, login_to_find: str):
-        found_index = self.__get_customer_index(login_to_find)
-        found_customer = None
-        if found_index != -1:
-            found_customer = self.__customers[found_index]
-        return found_customer
-
-    def __get_admin_index(self, login_to_find: str):
-        found_index = -1
-        admins = self.__admins
-        for i in range(len(admins)):
-            if admins[i].get_login() == login_to_find:
-                found_index = i
-                break
-        return found_index
-
-    def get_admin(self, login_to_find: str):
-        found_index = self.__get_admin_index(login_to_find)
-        found_admin = None
-        if found_index != -1:
-            found_admin = self.__admins[found_index]
-        return found_admin
-
-    def register_customer(self, customer_to_register: Customer):
-        is_success = False
-        found_customer = self.get_customer(customer_to_register.get_login())
-        found_admin = self.get_admin(customer_to_register.get_login())
-        if found_customer is None and found_admin is None:
-            self.__customers.append(customer_to_register)
-            is_success = True
-        return is_success
-
-    def try_enter_customer(self, enter_login: str, enter_password: str):
-        is_success = False
-        found_customer = self.get_customer(enter_login)
-        if found_customer and found_customer.get_password() == enter_password and not found_customer.is_blocked():
-            is_success = True
-        return is_success
-
-    def try_enter_admin(self, enter_login: str, enter_password: str):
-        is_success = False
-        found_admin = self.get_admin(enter_login)
-        if found_admin and found_admin.get_password() == enter_password:
-            is_success = True
-        return is_success
-
-    def customer_top_up_balance(self, login: str, money: float):
-        is_success = False
-        found_customer = self.get_customer(login)
-        if found_customer:
-            is_success = found_customer.top_up_balance(money)
-        return is_success
-
-    def change_customer_login(self, customer_to_change: Customer, login: str):
-        is_success = False
-        found_customer = self.get_customer(customer_to_change.get_login())
-        found_customer_new_login = self.get_customer(login)
-        found_admin_new_login = self.get_admin(login)
-        if found_customer and found_customer_new_login is None and found_admin_new_login is None:
-            found_customer.set_login(login)
-            is_success = True
-        return is_success
-
-    def change_customer_password(self, customer_to_change: Customer, password: str):
-        is_success = False
-        found_customer = self.get_customer(customer_to_change.get_login())
-        if found_customer:
-            found_customer.set_password(password)
-            is_success = True
-        return is_success
-
-    def get_str_customer_games(self, customer: Customer):
-        customer_games_str = ""
-        found_customer = self.get_customer(customer.get_login())
-        if found_customer:
-            customer_games_str = found_customer.get_str_games_cart()
-        return customer_games_str
-
-    def get_str_games_shop(self):
-        games = self.__games_library
-        if len(games) > 0:
-            temp_games_str = list()
-            for game in games:
-                temp_games_str.append(str(game))
-            to_return = "\n".join(temp_games_str)
-        else:
-            to_return = ""
-        return to_return
-
-    def __get_game_index(self, game_id: str):
-        found_index = -1
-        games = self.__games_library
-        for i in range(len(games)):
-            if games[i].get_id() == game_id:
-                found_index = i
-                break
-        return found_index
-
-    def get_game(self, game_id: str):
-        found_index = self.__get_game_index(game_id)
-        found_game = None
-        if found_index != -1:
-            found_game = self.__games_library[found_index]
-        return found_game
-
-    def add_game_to_cart(self, customer: Customer, game_id: str):
-        is_success = False
-        found_customer = self.get_customer(customer.get_login())
-        if found_customer:
-            found_game = self.get_game(game_id)
-            if found_game:
-                is_success = found_customer.add_game_to_cart(game)
-        return is_success
-
-    def add_game(self, game: GameProduct):
-        is_success = False
-        found_index = self.__get_game_index(game.get_id())
-        if found_index == -1:
-            self.__games_library.append(game)
-            is_success = True
-        return is_success
-
-    def remove_game(self, game_id: str):
-        is_success = False
-        found_index = self.__get_game_index(game_id)
-        if found_index != -1:
-            del self.__games_library[found_index]
-            is_success = True
-        return is_success
-
-    def change_game(self, game_to_change_id: str, changed_game: GameProduct):
-        is_success = False
-        game_to_change = self.get_game(game_to_change_id)
-        if game_to_change:
-            changed_game_id = changed_game.get_id()
-            changed_game_index = self.__get_game_index(changed_game_id)
-            if changed_game_index == -1 or game_to_change_id == changed_game_id:
-                game_to_change.set_id(changed_game.get_id())
-                game_to_change.set_name(changed_game.get_name())
-                game_to_change.set_price(changed_game.get_price())
-        return is_success
-
-    def get_str_customers(self):
-        customers = self.__customers
-        if len(customers) > 0:
-            temp_customers_str = list()
-            for customer in customers:
-                temp_customers_str.append(customer.get_data_str_short())
-            to_return = "\n".join(temp_customers_str)
-        else:
-            to_return = ""
-        return to_return
-
-    def block_customer(self, customer_login: str):
-        is_success = False
-        found_customer = self.get_customer(customer_login)
-        if found_customer and not found_customer.is_blocked():
-            found_customer.block()
-            is_success = True
-        return is_success
-
-    def unblock_customer(self, customer_login: str):
-        is_success = False
-        found_customer = self.get_customer(customer_login)
-        if found_customer and found_customer.is_blocked():
-            found_customer.unblock()
-            is_success = True
-        return is_success
-
-    def get_str_admins(self):
-        admins = self.__admins
-        if len(admins) > 0:
-            temp_admin_str = list()
-            for admin in admins:
-                temp_admin_str.append(admin.get_login())
-            to_return = "\n".join(temp_admin_str)
-        else:
-            to_return = ""
-        return to_return
-
-    def register_admin(self, admin_to_register: Admin):
-        is_success = False
-        found_customer = self.get_customer(admin_to_register.get_login())
-        found_admin = self.get_admin(admin_to_register.get_login())
-        if found_customer is None and found_admin is None:
-            self.__admins.append(admin_to_register)
-            is_success = True
-        return is_success
-
-    def remove_admin(self, admin_login: str):
-        is_success = False
-        found_admin_index = self.__get_admin_index(admin_login)
-        if found_admin_index != -1 and len(self.__admins) > 1:
-            del self.__admins[found_admin_index]
-            is_success = True
-        return is_success
-
-
-# ТЕСТОВЫЕ ДАННЫЕ
-cust_1_game_1 = GameProduct("G-001", "Deus Ex", 13.9)
-cust_1_game_2 = GameProduct("G-025", "Arma 3", 49.9)
-customer_1_games = [cust_1_game_1, cust_1_game_2]
-customer_1 = Customer("teston", "5869", customer_1_games)
-
-customer_2 = Customer("kate", "1234")
-customer_3 = Customer("bob", "4221")
-customer_list = [customer_1, customer_2, customer_3]
-
-admin_1 = Admin("admin", "root")
-admin_2 = Admin("admin5869", "5869")
-admin_list = [admin_1, admin_2]
-
-game_1 = GameProduct("G-001", "Deus Ex", 13.9)
-game_2 = GameProduct("G-025", "Arma 3", 49.9)
-game_3 = GameProduct("G-012", "The Witcher 3", 29.9)
-game_list = [game_1, game_2, game_3]
-
-game_shop = GameShop(customer_list, admin_list, game_list)
-</code></pre>
-        </div>
-        </p>
-        <p>Однако его напарник не смог реализовать фронтенд. <span class="hl-text">Реализуйте фронтенд по описанию ниже, используя код бэкенда</span>.</p>
-        <p>При запуске программы пользователя встречает следующее меню:
-        <div class="console">
-          <pre><code>1. Войти
-2. Зарегистрироваться
-3. Завершить программу</code></pre>
-        </div>
-        </p>
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли новый логин</span> и <span class="hl-text">пароль</span>, затем пытается <span class="hl-text">зарегистрировать нового пользователя</span>. После этого программа <span class="hl-text">сообщает о результате</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает с консоли логин</span> и <span class="hl-text">пароль</span>, затем пытается <span class="hl-text">провести вход пользователя</span>. Если не удалось войти, то программа <span class="hl-text">сообщает об этом</span>. В противном случае, если логин и пароль от клиента, программа <span class="hl-text">показывает в консоли главное меню клиента</span>. Если же логин и пароль от администратора, то программа <span class="hl-text">показывает в консоли главное меню администратора</span>.</p>
-        <h3>Главное меню клиента:</h3>
-        <div class="console">
-          <pre><code>1. Мой аккаунт
-2. Моя библиотека
-3. Магазин
-4. Выйти из аккаунта
-5. Завершить программу</code></pre>
-        </div>
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает меню аккаунта</span>.</p>
-        <h3>Меню аккаунта:</h3>
-        <div class="console">
-          <pre><code>Логин: <название_логина>        Баланс: <число>
-1. Пополнить баланс
-2. Изменить логин
-3. Изменить пароль
-4. Вернуться</code></pre>
-        </div>
-        <p>В <span class="hl-text">меню аккаунта</span> при выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает с консоли количество денег</span> и пытается <span class="hl-text">пополнить баланс аккаунта</span>. Затем программа <span class="hl-text">сообщает результат</span>.</p>
-        <p>В <span class="hl-text">меню аккаунта</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли новый логин</span> и пытается <span class="hl-text">изменить его у пользователя</span>. Затем программа <span class="hl-text">сообщает результат</span>.</p>
-        <p>В <span class="hl-text">меню аккаунта</span> при выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли новый пароль</span> и пытается <span class="hl-text">изменить его у пользователя</span>. Затем программа <span class="hl-text">сообщает результат</span>.</p>
-        <p>В <span class="hl-text">главном меню клиента</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">выводит в консоль все игры, которые есть на аккаунте</span>.</p>
-        <p>В <span class="hl-text">главном меню клиента</span> при выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">показывает меню магазина</span> в виде:
-        <div class="console">
-          <pre><code>1. Моя корзина
-2. Показать все игры магазина
-3. Показать игру по идентификатору
-4. Вернуться</code></pre>
-        </div>
-        </p>
-        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает меню корзины</span> в виде:
-        <div class="console">
-          <pre><code>Итоговая сумма: <сумма_цен_корзины>
-1. Оплатить корзину
-2. Удалить игру из корзины
-3. Вернуться
-======================== КОРЗИНА ========================
-<идентификатор> - <название> - <цена>
-<идентификатор> - <название> - <цена>
-<идентификатор> - <название> - <цена>
-...</code></pre>
-        </div>
-        </p>
-        <p>В <span class="hl-text">меню корзины</span> при выборе <span class="hl-text">пункта 1</span> программа пытается <span class="hl-text">выполнить оплату</span>. Затем программа <span class="hl-text">сообщает о результате</span>.</p>
-        <p>В <span class="hl-text">меню корзины</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли идентификатор игры</span> и пытается <span class="hl-text">удалить игру из корзины пользователя</span>. Затем программа <span class="hl-text">сообщает о результате</span>.</p>
-        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">показывает все игры магазина</span> и <span class="hl-text">меню игр</span> в виде:
-        <div class="console">
-          <pre><code>1. Добавить игру в корзину
-2. Вернуться
-======================== ИГРЫ ========================
-<идентификатор> - <название> - <цена>
-<идентификатор> - <название> - <цена>
-<идентификатор> - <название> - <цена>
-...</code></pre>
-        </div>
-        </p>
-        <p>В <span class="hl-text">меню игр</span> при выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает с консоли идентификатор игры</span>, затем пытается <span class="hl-text">добавить игру по идентификатору в корзину пользователя</span>. После этого <span class="hl-text">сообщает о результате</span>.</p>
-        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли идентификатор игры</span>. Если игра не найдена, то <span class="hl-text">сообщает об этом</span>. В противном случае <span class="hl-text">выводит данные игры в консоль</span> в виде:
-        <div class="console">
-          <pre><code><идентификатор> - <название> - <цена></code></pre>
-        </div>
-        </p>
-        <h3>(ДОПОЛНИТЕЛЬНО) Главное меню администратора:</h3>
-        <div class="console">
-          <pre><code>1. Магазин
-2. Клиенты
-3. Администраторы
-4. Выйти из аккаунта
-5. Завершить программу</code></pre>
-        </div>
-        <p>В <span class="hl-text">главном меню администратора</span> при выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">показывает меню магазина</span>:
-        <div class="console">
-          <pre><code>1. Показать все игры магазина
-2. Показать игру по идентификатору
-3. Добавить новую игру
-4. Удалить игру
-5. Изменить данные игры
-6. Вернуться</code></pre>
-        </div>
-        </p>
-        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит список игр магазина в консоль</span>.</p>
-        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>. Если игра найдена, то <span class="hl-text">выводит её данные</span>. В противном случае <span class="hl-text">сообщает о проблеме</span>.</p>
-        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>, <span class="hl-text">название</span> и <span class="hl-text">цену</span>, затем пытается <span class="hl-text">добавить игру в магазин</span>. После этого <span class="hl-text">сообщает о результате</span>.</p>
-        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 4</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>, затем пытается <span class="hl-text">удалить игру из магазина</span>. После этого <span class="hl-text">сообщает о результате</span>.</p>
-        <p>В <span class="hl-text">меню магазина</span> при выборе <span class="hl-text">пункта 5</span> программа <span class="hl-text">запрашивает с консоли идентификатор</span>. Если игра найдена то <span class="hl-text">показывает меню изменения игры</span>:
-        <div class="console">
-          <pre><code>СТАРЫЕ ДАННЫЕ: <идентификатор> - <название> - <цена>
-НОВЫЕ ДАННЫЕ: <идентификатор> - <название> - <цена>
-1. Изменить идентификатор
-2. Изменить название
-3. Изменить цену
-4. Подтвердить изменения и вернуться
-5. Отменить изменения и вернуться</code></pre>
-        </div>
-        </p>
-        <p>В <span class="hl-text">меню изменения игры</span> при выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">3</span> программа <span class="hl-text">запрашивает соответствующие данные</span> и <span class="hl-text">меняет их у копии</span>.</p>
-        <p>В <span class="hl-text">меню изменения игры</span> при выборе <span class="hl-text">пункта 4</span> программа пытается <span class="hl-text">подтвердить изменения</span>. Если всё хорошо, то <span class="hl-text">изменения фиксируются</span>, об этом <span class="hl-text">сообщается в консоли</span> и программа <span class="hl-text">возвращается в предыдущее меню</span>. В противном случае программа <span class="hl-text">сообщает о проблеме</span> и <span class="hl-text">остаётся в этом меню</span>.</p>
-        <p>В <span class="hl-text">главном меню администратора</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">показывает меню операций над клиентами</span>:
-        <div class="console">
-          <pre><code>1. Показать всех клиентов
-2. Показать клиента по логину
-3. Заблокировать клиента по логину
-4. Разблокировать клиента по логину
-5. Вернуться</code></pre>
-        </div>
-        </p>
-        <p>В <span class="hl-text">меню операций над клиентами</span> при выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит всех клиентов магазина</span> в виде:
-        <div class="console">
-          <pre><code><логин> - <пароль> - <баланс> - <количество_игр> - <действующий_аккаунт/заблокированный_аккаунт>
-<логин> - <пароль> - <баланс> - <количество_игр> - <действующий_аккаунт/заблокированный_аккаунт>
-<логин> - <пароль> - <баланс> - <количество_игр> - <действующий_аккаунт/заблокированный_аккаунт>
-...</code></pre>
-        </div>
-        </p>
-        <p>В <span class="hl-text">меню операций над клиентами</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает идентификатор клиента</span>. Если клиент не найден, то <span class="hl-text">сообщает об этом</span>. В противном случае <span class="hl-text">выводит данные клиента в консоль</span> в виде:
-        <div class="console">
-          <pre><code><логин> - <пароль> - <баланс> - <количество_игр> - <действующий_аккаунт/заблокированный_аккаунт>
-
-Игры на аккаунте:
-<идентификатор> - <название> - <цена>
-<идентификатор> - <название> - <цена>
-<идентификатор> - <название> - <цена>
-...</code></pre>
-        </div>
-        </p>
-        <p>В <span class="hl-text">меню операций над клиентами</span> при выборе <span class="hl-text">пунктов 3</span>-<span class="hl-text">4</span> программа <span class="hl-text">запрашивает идентификатор клиента</span>. Если клиент найден, то <span class="hl-text">выполняет соответствующее действие</span>. Затем <span class="hl-text">сообщает о результате</span>.</p>
-        <p>В <span class="hl-text">главном меню администратора</span> при выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">показывает меню операций над администраторами</span>:
-        <div class="console">
-          <pre><code>1. Показать всех администраторов
-2. Зарегистрировать нового администратора
-3. Удалить администратора
-4. Вернуться</code></pre>
-        </div>
-        </p>
-        <p>В <span class="hl-text">меню операций над администраторами</span> при выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит в консоль всех администраторов</span> в виде:
-        <div class="console">
-          <pre><code>Логин
-Логин
-Логин
-...</code></pre>
-        </div>
-        </p>
-        <p>В <span class="hl-text">меню операций над администраторами</span> при выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">запрашивает с консоли новый логин</span> и <span class="hl-text">пароль</span>, затем пытается <span class="hl-text">зарегистрировать нового администратора</span>. После этого программа <span class="hl-text">сообщает о результате</span>.</p>
-        <p>В <span class="hl-text">меню операций над администраторами</span> при выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли логин</span>, затем пытается <span class="hl-text">удалить администратора</span>. После этого <span class="hl-text">сообщает о результате</span>. Если был удалён администратор, через которого зашли, то программа должна <span class="hl-text">вернуться в меню входа в аккаунт</span>.</p>
-      </div>
-    </div>
-  </div>
-  <script>
-    function copyCode(button) {
-      var codeBlock = button.nextElementSibling.querySelector('code');
-      var range = document.createRange();
-      range.selectNode(codeBlock);
-      window.getSelection().removeAllRanges();
-      window.getSelection().addRange(range);
-      document.execCommand('copy');
-      window.getSelection().removeAllRanges();
-      changeCopyButton(button);
-    }
-
-    function changeCopyButton(button) {
-      var originalHTML = button.innerHTML;
-      button.innerHTML = `
+    <script>
+        function copyCode(button) {
+            var codeBlock = button.nextElementSibling.querySelector('code');
+            var range = document.createRange();
+            range.selectNode(codeBlock);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            changeCopyButton(button);
+        }
+
+        function changeCopyButton(button) {
+            var originalHTML = button.innerHTML;
+            button.innerHTML = `
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
     `;
-      setTimeout(function() {
-        button.innerHTML = originalHTML;
-      }, 2000);
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-      const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function(codeBlock, index) {
-        let innerHTML = codeBlock.innerHTML;
-        console.log(index, innerHTML);
-        // STRING
-        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string">${match}</span>`;
+            setTimeout(function () {
+                button.innerHTML = originalHTML;
+            }, 2000);
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            const codeBlocks = document.querySelectorAll('code.python');
+            codeBlocks.forEach(function (codeBlock, index) {
+                let innerHTML = codeBlock.innerHTML;
+                console.log(index, innerHTML);
+                // STRING
+                let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+                innerHTML = innerHTML.replace(regex, (match) => {
+                    return `<span class="string">${match}</span>`;
+                });
+                regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+                innerHTML = innerHTML.replace(regex, (match) => {
+                    return `<span class="string">${match}</span>`;
+                });
+                // KEYWORD CLASS
+                regex = /(class)(?!=)/g;
+                innerHTML = innerHTML.replace(regex, (match) => {
+                    return `<span class="keyword">${match}</span>`;
+                });
+                // KEYWORDS
+                const keywords = [
+                    'def', 'for', 'in', 'while', 'and', 'or', 'not',
+                    'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+                    'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'del', 'None'
+                ];
+                regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+                innerHTML = innerHTML.replace(regex, (match) => {
+                    return `<span class="keyword">${match}</span>`;
+                });
+                // KEYWORD NUMBER
+                regex = /\b\d+(\.\d+)?/g;
+                innerHTML = innerHTML.replace(regex, (match) => {
+                    return `<span class="number">${match}</span>`;
+                });
+                // STRING-ESC
+                regex = /\\./g;
+                innerHTML = innerHTML.replace(regex, (match) => {
+                    return `<span class="string-esc">${match}</span>`;
+                });
+                // COMMENTS
+                regex = /(#.*$)/gm;
+                innerHTML = innerHTML.replace(regex, (match) => {
+                    return `<span class="comments">${match}</span>`;
+                });
+                // METADATA
+                regex = /^(\s*@\w+)/gm;
+                innerHTML = innerHTML.replace(regex, (match) => {
+                    return `<span class="metadata">${match}</span>`;
+                });
+                // SELF
+                regex = /\bself\b/g;
+                innerHTML = innerHTML.replace(regex, (match) => {
+                    return `<span class="self">${match}</span>`;
+                });
+                // BUILT-IN
+                regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max|sort|isinstance|super)\b/g;
+                innerHTML = innerHTML.replace(regex, (match) => {
+                    return `<span class="built-in">${match}</span>`;
+                });
+                // FUNCTION
+                regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+                innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+                // SPECIAL NAMES
+                regex = /(__\w+__)/g;
+                innerHTML = innerHTML.replace(regex, '<span class="special-names">$1</span>');
+                // KEYWORD-ARGUMENT
+                regex = /, (end|sep)=/g;
+                innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
+                codeBlock.innerHTML = innerHTML
+            });
         });
-        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string">${match}</span>`;
-        });
-        // KEYWORD CLASS
-        regex = /(class)(?!=)/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="keyword">${match}</span>`;
-        });
-        // KEYWORDS
-        const keywords = [
-          'def', 'for', 'in', 'while', 'and', 'or', 'not',
-          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
-          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'del', 'None'
-        ];
-        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="keyword">${match}</span>`;
-        });
-        // KEYWORD NUMBER
-        regex = /\b\d+(\.\d+)?/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="number">${match}</span>`;
-        });
-        // STRING-ESC
-        regex = /\\./g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string-esc">${match}</span>`;
-        });
-        // COMMENTS
-        regex = /(#.*$)/gm;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="comments">${match}</span>`;
-        });
-        // METADATA
-        regex = /^(\s*@\w+)/gm;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="metadata">${match}</span>`;
-        });
-        // SELF
-        regex = /\bself\b/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="self">${match}</span>`;
-        });
-        // BUILT-IN
-        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max|sort|isinstance|super)\b/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="built-in">${match}</span>`;
-        });
-        // FUNCTION
-        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
-        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
-        // SPECIAL NAMES
-        regex = /(__\w+__)/g;
-        innerHTML = innerHTML.replace(regex, '<span class="special-names">$1</span>');
-        // KEYWORD-ARGUMENT
-        regex = /, (end|sep)=/g;
-        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
-        codeBlock.innerHTML = innerHTML
-      });
-    });
-  </script>
+    </script>
 </body>
