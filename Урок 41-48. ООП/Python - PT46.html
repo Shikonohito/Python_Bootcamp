@@ -162,6 +162,14 @@
       color: #AA4926;
       font-family: "JetBrains mono", monospace;
     }
+
+    ul {
+      margin-top: 0;
+    }
+
+    .inner-p {
+      margin-top: 50px;
+    }
   </style>
 </head>
 
@@ -174,52 +182,294 @@
     <div class="right-block">
       <div class="right-rect">
         <h2>Практическое Задание 46.1</h2>
-        <p>Создайте класс <span class="hl-text">"Устройство"</span>. Этот класс должен <span class="hl-text">хранить
-            поле для названия</span>.
-          <br>Для класса определите <span class="hl-text">строковое представление</span>, <span
-            class="hl-text">конструктор</span> и <span class="hl-text">свойства</span>.
-          <br>Для класса определите <span class="hl-text">метод "Использовать", который просто выводит в консоль
-            "Использование"</span>.
+        <p>Создайте класс <span class="hl-text">"Студент"</span>. Этот класс должен <span class="hl-text">хранить
+            поля</span>:
+        <ul>
+          <li>Имя</li>
+          <li>Список оценок</li>
+        </ul>
         </p>
 
-        <p>Создайте ещё <code class="python"><b>3</b></code> класса, которые наследуются от класса <span
-            class="hl-text">"Устройство"</span> - <span class="hl-text">"Кофемашина"</span>, <span
-            class="hl-text">"Тостер"</span> и <span class="hl-text">"Посудомойка"</span>.
-          <br>Переопределите для них <span class="hl-text">метод "Использовать" по своему усмотрению</span>.
-          <br>Переопределите для них <span class="hl-text">конструктор</span> и <span class="hl-text">строковое
-            представление</span>.
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конструктор</li>
+          <li>Строковое представление</li>
+          <li>Добавление оценки
+            <ul>
+              <li>Принимает <span class="hl-text">оценку</span>.</li>
+              <li>Добавляет <span class="hl-text">оценку в список</span>.</li>
+            </ul>
+          </li>
+        </ul>
         </p>
 
-        <p>Реализуйте следующее меню:
-        <div class="console">
-          <pre><code>1. Выбрать кофемашину
-2. Выбрать тостер
-3. Выбрать посудомойка</code></pre>
-        </div>
+        <p class="inner-p">Создайте класс <span class="hl-text">"Банковская карта"</span>. Этот класс должен <span
+            class="hl-text">хранить поля</span>:
+        <ul>
+          <li>Идентификатор</li>
+          <li>Баланс</li>
+        </ul>
         </p>
 
-        <p>При выборе <span class="hl-text">любого пункта</span>, программа <span class="hl-text">создаёт объект
-            выбранного класса</span> и <span class="hl-text">вызывает у него метод использования</span>.</p>
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конструктор</li>
+          <li>Строковое представление</li>
+          <li>Добавление к балансу
+            <ul>
+              <li>Принимает <span class="hl-text">сумму пополнения</span>.</li>
+              <li>Добавляет <span class="hl-text">сумму пополнения к балансу</span>.</li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+
+        <p class="inner-p">Создайте класс <span class="hl-text">"Плейлист"</span>. Этот класс должен <span
+            class="hl-text">хранить
+            поля</span>:
+        <ul>
+          <li>Название</li>
+          <li>Список песен</li>
+        </ul>
+        </p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конструктор</li>
+          <li>Строковое представление</li>
+          <li>Добавление песни в плейлист
+            <ul>
+              <li>Принимает <span class="hl-text">песню в виде строки</span>.</li>
+              <li>Добавляет <span class="hl-text">песню в список песен</span>.</li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+
+        <p class="inner-p">Создайте <span class="hl-text">по одному экземпляру каждого класса</span>, <span
+            class="hl-text">добавьте их
+            в список</span>, а также создайте <span class="hl-text">список из <code class="python"><b>3</b></code>
+            элементов</span>, для реализации <span class="hl-text">утиной типизации</span>.
+        </p>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 46.2</h2>
-        <p>Создайте класс <span class="hl-text">"Конвертер"</span>.
-          <br>Для класса определите <code class="python"><b>2</b></code> <span class="hl-text">статических метода
-            конвертации</span>, например, <span class="hl-text">перевода метров в указанную единицу</span> и <span
-            class="hl-text">перевода цельсия в указанную единицу</span>.
+        <p>Создайте класс <span class="hl-text">"Фигура"</span>. Этот класс должен <span class="hl-text">хранить
+            поля</span>:
+        <ul>
+          <li>Идентификатор</li>
+        </ul>
         </p>
 
-        <p>Затем реализуйте следующее меню:
-        <div class="console">
-          <pre><code>1. Метры
-2. Цельсий</code></pre>
-        </div>
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конструктор</li>
+          <li>Строковое представление</li>
+          <li>Вычисление площади
+            <ul>
+              <li>Ничего не принимает.</li>
+              <li>Возвращает <code class="python"><b>0</b></code></li>
+            </ul>
+          </li>
+        </ul>
         </p>
 
-        <p>При выборе <span class="hl-text">единицы измерения</span> программа должна <span class="hl-text">предлагать
-            меню по выбору конвертации</span>, а затем <span class="hl-text">запрашивать количество единиц</span> и
-          <span class="hl-text">выводить результат конвертации</span>.
+        <p class="inner-p">Создайте класс <span class="hl-text">"Прямоугольник"</span>, который наследуется от класса
+          <span class="hl-text">"Фигура"</span>. Этот класс должен <span class="hl-text">хранить поля</span>:
+        <ul>
+          <li>Длина</li>
+          <li>Ширина</li>
+        </ul>
         </p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конструктор</li>
+          <li>Строковое представление</li>
+          <li>Вычисление площади
+            <ul>
+              <li>Ничего не принимает.</li>
+              <li>Возвращает <span class="hl-text">площадь прямоугольника</span></li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+
+        <p class="inner-p">Создайте класс <span class="hl-text">"Круг"</span>, который наследуется от класса <span
+            class="hl-text">"Фигура"</span>. Этот класс должен <span class="hl-text">хранить поля</span>:
+        <ul>
+          <li>Радиус</li>
+        </ul>
+        </p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конструктор</li>
+          <li>Строковое представление</li>
+          <li>Вычисление площади
+            <ul>
+              <li>Ничего не принимает.</li>
+              <li>Возвращает <span class="hl-text">площадь круга</span></li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+
+        <p class="inner-p">Создайте класс <span class="hl-text">"Треугольник"</span>, который наследуется от класса
+          <span class="hl-text">"Фигура"</span>. Этот класс должен <span class="hl-text">хранить поля</span>:
+        <ul>
+          <li>Сторону</li>
+          <li>Высота к стороне</li>
+        </ul>
+        </p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конструктор</li>
+          <li>Строковое представление</li>
+          <li>Вычисление площади
+            <ul>
+              <li>Ничего не принимает.</li>
+              <li>Возвращает <span class="hl-text">площадь треугольника</span></li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+
+        <p class="inner-p">Создайте <span class="hl-text">по одному экземпляру каждого класса</span> и <span
+            class="hl-text">добавьте</span> их в список. Выведите в консоль <span class="hl-text">площадь каждой фигуры
+            с помощью утиной типизации</span>.
+        </p>
+
+        <p>Создайте <span class="hl-text">функцию</span>, которая принимает <span class="hl-text">список фигур</span> и
+          возвращает <span class="hl-text">сумму площадей</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 46.3</h2>
+        <p>Создайте класс <span class="hl-text">"Метод оплаты"</span>. Этот класс должен <span class="hl-text">хранить
+            поля</span>:
+        <ul>
+          <li>Идентификатор</li>
+          <li>Баланс</li>
+        </ul>
+        </p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конструктор</li>
+          <li>Строковое представление</li>
+          <li>Оплата
+            <ul>
+              <li>Принимает <span class="hl-text">сумму оплаты</span>.</li>
+              <li>Если сумма положительна и на балансе достаточно денег, то <span class="hl-text">отнимает из баланса
+                  сумму</span>. <span class="hl-text">Возвращает</span> <code class="python"><b>True</b></code>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.
+              </li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+
+        <p class="inner-p">Создайте класс <span class="hl-text">"Банковская карта"</span>, который наследуется от класса
+          <span class="hl-text">"Метод оплаты"</span>. Этот класс должен <span class="hl-text">хранить поля</span>:
+        <ul>
+          <li>Коэффициент налога</li>
+        </ul>
+        </p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конструктор</li>
+          <li>Строковое представление</li>
+          <li>Оплата
+            <ul>
+              <li>Принимает <span class="hl-text">сумму оплаты</span>.</li>
+              <li>Вызывает <span class="hl-text">оплату родителя, передав сумму оплаты, умножив на коэффициент</span>.
+              </li>
+              <li>Возвращает то, что <span class="hl-text">вернёт метод родителя</span>.</li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+
+        <p class="inner-p">Создайте класс <span class="hl-text">"Бонусная карта"</span>, который наследуется от класса
+          <span class="hl-text">"Метод оплаты"</span>. Этот класс должен <span class="hl-text">хранить поля</span>:
+        <ul>
+          <li>Лимит оплаты</li>
+        </ul>
+        </p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конструктор</li>
+          <li>Строковое представление</li>
+          <li>Оплата
+            <ul>
+              <li>Принимает <span class="hl-text">сумму оплаты</span>.</li>
+              <li>Если сумма оплаты не превышает лимит оплаты, то <span class="hl-text">вызывает оплату родителя,
+                  передав сумму оплаты, умножив на коэффициент</span>.
+              </li>
+              <li>Возвращает то, что <span class="hl-text">вернёт метод родителя</span>.</li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+
+        <p class="inner-p">Создайте класс <span class="hl-text">"Криптокошелёк"</span>, который наследуется от класса
+          <span class="hl-text">"Метод оплаты"</span>. Этот класс должен <span class="hl-text">хранить поля</span>:
+        <ul>
+          <li>Коэффициент конвертации</li>
+        </ul>
+        </p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конструктор</li>
+          <li>Строковое представление</li>
+          <li>Оплата
+            <ul>
+              <li>Принимает <span class="hl-text">сумму оплаты</span>.</li>
+              <li>Вызывает <span class="hl-text">оплату родителя, передав сумму оплаты, умножив на коэффициент</span>.
+              </li>
+              <li>Возвращает то, что <span class="hl-text">вернёт метод родителя</span>.</li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 46.4</h2>
+        <p>Используя классы из <span class="hl-text">Практического Задания 45.1</span>, создайте по одному <span
+            class="hl-text">экземпляру каждого класса</span>. Программа должна <span class="hl-text">запросить с консоли
+            сумму оплаты</span>, затем <span class="hl-text">предложить на выбор <code class="python"><b>3</b></code>
+            варианта</span>. В зависимости от выбора пользователя <span class="hl-text">производится соответствующая
+            оплата</span>.</p>
+        <p>Реализуйте оплату через <span class="hl-text">функцию</span>, которая принимает <span class="hl-text">метод
+            оплаты</span> и <span class="hl-text">сумму</span>, <span class="hl-text">производит оплату</span> и <span
+            class="hl-text">выводит результат работы</span>.</p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 46.5</h2>
+        <p>Создайте класс <span class="hl-text">"Конвертер"</span>.</p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конвертирование AZN в USD
+            <ul>
+              <li>Принимает <span class="hl-text">сумму AZN</span>.</li>
+              <li>Возвращает <span class="hl-text">сумму USD</span>.</li>
+            </ul>
+          </li>
+          <li>Конвертирование скорости км/ч в м/с
+            <ul>
+              <li>Принимает <span class="hl-text">скорость в км/ч</span>.</li>
+              <li>Возвращает <span class="hl-text">скорость в м/с</span>.</li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+
+        <p class="=inner-p">Затем протестируйте класс.</p>
       </div>
     </div>
   </div>
