@@ -29,6 +29,7 @@ body {
 .sidebar #copyrights {
     background: linear-gradient(to right, #343434 0%, #363636 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
 }
 
@@ -48,6 +49,7 @@ body {
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
     padding: 30px 25px;
     border-radius: 10px;
+    min-width: 600px;
 }
 
 .right-rect h2,
@@ -195,4 +197,9 @@ ul {
 
 .inner-p {
     margin-top: 50px;
+}
+
+.right-rect img {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
