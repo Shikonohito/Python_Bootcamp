@@ -161,6 +161,10 @@
     .keyword-argument {
       color: #AA4926;
     }
+
+    ul {
+      margin-top: 0;
+    }
   </style>
 </head>
 
@@ -185,18 +189,24 @@
             категорию</span>.
         </p>
         <p>Категории следующие:
-          <br>— <span class="hl-text"><b>"A":</b></span> более <code><span class="number"><b>90</b></span></code>
-          баллов.
-          <br>— <span class="hl-text"><b>"B":</b></span> От <code><span class="number"><b>80</b></span></code> до
-          <code><span class="number"><b>90</b></span></code> баллов включительно.
-          <br>— <span class="hl-text"><b>"C":</b></span> От <code><span class="number"><b>70</b></span></code> до
-          <code><span class="number"><b>79</b></span></code> баллов включительно.
-          <br>— <span class="hl-text"><b>"D":</b></span> От <code><span class="number"><b>60</b></span></code> до
-          <code><span class="number"><b>69</b></span></code> баллов включительно.
-          <br>— <span class="hl-text"><b>"E":</b></span> От <code><span class="number"><b>50</b></span></code> до
-          <code><span class="number"><b>59</b></span></code> баллов.
-          <br>— <span class="hl-text"><b>"F":</b></span> Менее <code><span class="number"><b>50</b></span></code>
-          баллов.
+        <ul>
+          <li><span class="hl-text"><b>"A":</b></span> более <code><span class="number"><b>90</b></span></code>
+            баллов.</li>
+          <li><span class="hl-text"><b>"B":</b></span> От <code><span class="number"><b>80</b></span></code> до
+            <code><span class="number"><b>90</b></span></code> баллов включительно.
+          </li>
+          <li><span class="hl-text"><b>"C":</b></span> От <code><span class="number"><b>70</b></span></code> до
+            <code><span class="number"><b>79</b></span></code> баллов включительно.
+          </li>
+          <li><span class="hl-text"><b>"D":</b></span> От <code><span class="number"><b>60</b></span></code> до
+            <code><span class="number"><b>69</b></span></code> баллов включительно.
+          </li>
+          <li><span class="hl-text"><b>"E":</b></span> От <code><span class="number"><b>50</b></span></code> до
+            <code><span class="number"><b>59</b></span></code> баллов.
+          </li>
+          <li><span class="hl-text"><b>"F":</b></span> Менее <code><span class="number"><b>50</b></span></code>
+            баллов.</li>
+        </ul>
         </p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
@@ -209,10 +219,10 @@
         <h2>Домашнее Задание 12.2</h2>
         <p><span class="hl-text">Teston Lebra</span> попросили переписать свой прототип программы входа по логину и
           паролю. Программа должна выводить в консоль
-          <code><span class="string"><b>"Вход выполнен успешно."</b></span></code>, если логин -
-          <code><span class="string"><b>"admin"</b></span></code>, а пароль -
-          <code><span class="string"><b>"5869"</b></span></code> или же логин -
-          <code><span class="string"><b>"root"</b></span></code>, а пароль -
+          <code><span class="string"><b>"Вход выполнен успешно."</b></span></code>, если логин –
+          <code><span class="string"><b>"admin"</b></span></code>, а пароль –
+          <code><span class="string"><b>"5869"</b></span></code> или же логин –
+          <code><span class="string"><b>"root"</b></span></code>, а пароль –
           <code><span class="string"><b>"1002"</b></span></code>. В противном случае программа должна выводить в консоль
           <code><span class="string"><b>"Неверный логин или пароль."</b></span></code>. Напишите программу, которая
           <span class="hl-text">запрашивает с консоли логин</span> и <span class="hl-text">пароль</span>, а затем <span
@@ -231,13 +241,18 @@
         <p>Магазин <span class="hl-text">"Всё Не Дорого"</span> ввёл новую политику к своим клиентам. Клиенты, которые
           выполнили определённые условия, получают бонус.</p>
         <p>Условия для получения бонуса следующие:
-          <br>— Клиент должен быть <span class="hl-text">участником бонусной программы</span> или <span
-            class="hl-text">совершить покупку на сумму более</span> <code><span class="number"><b>300</b></span></code>.
-          <br>— Покупка должна быть совершена в <span class="hl-text">рабочий день</span>, за исключением случаев, когда
-          <span class="hl-text">сумма покупки превышает ещё более высокий порог в сумму</span>
-          <code><span class="number"><b>1000</b></span></code>, что позволяет получить бонус также и в выходные.
-          <br>— Клиент не должен иметь <span class="hl-text">неоплаченных задолженностей</span>.
+        <ul>
+          <li>Клиент должен быть <span class="hl-text">участником бонусной программы</span> или <span
+              class="hl-text">совершить
+              покупку на сумму более</span> <code><span class="number"><b>300</b></span></code>.</li>
+          <li>Покупка должна быть совершена в <span class="hl-text">рабочий день</span>, за исключением случаев, когда
+            <span class="hl-text">сумма покупки превышает ещё более высокий порог в сумму</span>
+            <code><span class="number"><b>1000</b></span></code>, что позволяет получить бонус также и в выходные.
+          </li>
+          <li>Клиент не должен иметь <span class="hl-text">неоплаченных задолженностей</span>.</li>
+        </ul>
         </p>
+
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли подтверждение участника</span>, <span
             class="hl-text">сумму покупки</span>, <span class="hl-text">подтверждение рабочего дня</span>, <span
             class="hl-text">наличие задолженности</span>, а затем <span class="hl-text">выводит в консоль</span>
@@ -259,12 +274,17 @@
         <p><span class="hl-text">Teston Lebra</span> поручили разработать прототип программы для управления доступом к
           файлам в системе. Каждый файл имеет свой уровень конфиденциальности, а у пользователей есть различные уровни
           доступа.</p>
+
         <p>Условия для доступа следующие:
-          <br>— Пользователь должен иметь <span class="hl-text">права администратора</span> или <span
-            class="hl-text">быть создателем файла</span>.
-          <br>— Уровень конфиденциальности файла <span class="hl-text">должен быть ниже</span> или <span
-            class="hl-text">равен</span> уровню доступа пользователя.
-          <br>— Файл <span class="hl-text">не должен быть заблокирован</span>.
+        <ul>
+          <li>Пользователь должен иметь <span class="hl-text">права администратора</span> или <span class="hl-text">быть
+              создателем
+              файла</span>.</li>
+          <li>Уровень конфиденциальности файла <span class="hl-text">должен быть ниже</span> или <span
+              class="hl-text">равен</span>
+            уровню доступа пользователя.</li>
+          <li>Файл <span class="hl-text">не должен быть заблокирован</span>.</li>
+        </ul>
         </p>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли подтверждение прав
             администратора</span>, <span class="hl-text">подтверждение создателя файла</span>, <span
@@ -289,11 +309,14 @@
         <p><span class="hl-text">Teston Lebra</span> написал программу для того, чтобы определять, подходит ли человек
           для проведения собеседования или нет.</p>
         <p>Человека можно звать на собеседование, если выполняются следующие критерии:
-          <br>— Человеку больше <code><span class="number"><b>21</b></span></code> года
-          <br>— Опыт работы <code><span class="number"><b>24</b></span></code> <span class="hl-text">и более
-            месяцев</span>
-          <br>— При наличии сертификата опыт работы может быть от <code><span class="number"><b>12</b></span></code>
-          <span class="hl-text">и более месяцев</span>
+        <ul>
+          <li>Человеку больше <code><span class="number"><b>21</b></span></code> года.</li>
+          <li>Опыт работы <code><span class="number"><b>24</b></span></code> <span class="hl-text">и более
+              месяцев</span>.</li>
+          <li>При наличии сертификата опыт работы может быть от <code><span class="number"><b>12</b></span></code>
+            <span class="hl-text">и более месяцев</span>.
+          </li>
+        </ul>
         </p>
         <p>Программа корректно не работает. <span class="hl-text">Исправьте программу так, чтобы она работала корректно,
             и рядом напишите комментарии о том, почему изменённый вариант должен работать верно</span>.</p>
@@ -331,16 +354,24 @@ else:
         <p><span class="hl-text">Teston Lebra</span> попросили написать программу, которая запрашивает с консоли процент
           вероятности дождя и выводит в консоль словесную интерпретацию.</p>
         <p>Интерпретация следующая:
-          <br>— <span class="hl-text"><b>Низкая вероятность:</b></span> до
-          <code><span class="number"><b>30%</b></span></code> включительно.
-          <br>— <span class="hl-text"><b>Умеренная вероятность:</b></span> от
-          <code><span class="number"><b>31%</b></span></code> до <code><span class="number"><b>60%</b></span></code>
-          включительно.
-          <br>— <span class="hl-text"><b>Высокая вероятность:</b></span> от
-          <code><span class="number"><b>61%</b></span></code> до <code><span class="number"><b>80%</b></span></code>
-          включительно.
-          <br>— <span class="hl-text"><b>Очень высокая вероятность:</b></span> от
-          <code><span class="number"><b>81%</b></span></code> и выше.
+        <ul>
+          <li><span class="hl-text"><b>Низкая вероятность:</b></span> до
+            <code><span class="number"><b>30%</b></span></code>
+            включительно.
+          </li>
+          <li><span class="hl-text"><b>Умеренная вероятность:</b></span> от
+            <code><span class="number"><b>31%</b></span></code> до
+            <code><span class="number"><b>60%</b></span></code> включительно.
+          </li>
+          <li><span class="hl-text"><b>Высокая вероятность:</b></span> от
+            <code><span class="number"><b>61%</b></span></code> до
+            <code><span class="number"><b>80%</b></span></code> включительно.
+          </li>
+          <li><span class="hl-text"><b>Очень высокая вероятность:</b></span> от
+            <code><span class="number"><b>81%</b></span></code> и
+            выше.
+          </li>
+        </ul>
         </p>
         <p>Программа в целом работает, но иногда некорректно. <span class="hl-text">Исправьте программу так, чтобы она
             работала корректно, и рядом напишите комментарии о том, почему изменённый вариант должен работать
@@ -380,17 +411,22 @@ else:
           <code><span class="string"><b>"Студент не может получить стипендию."</b></span></code> в зависимости от
           критериев. Критерии подсказал ему преподаватель кафедры дискретной математики.
         </p>
-        <p>Критерии следующие:
-          <br>— Средний балл студента от <code><span class="number"><b>80</b></span></code> <span class="hl-text">и
-            выше</span> или средний балл от <code><span class="number"><b>80</b></span></code> <span class="hl-text">и
-            выше</span>, но при этом возраст студента <span class="hl-text">больше</span>
-          <code><span class="number"><b>21</b></span></code> и <span class="hl-text">нет долгов</span> или же возраст
-          студента от <code><span class="number"><b>21</b></span></code> <span class="hl-text">и меньше</span> и <span
-            class="hl-text">нет долгов</span>.
-          <br>— <span class="hl-text">Нет долгов</span>, при этом <span class="hl-text">есть рекомендация</span> или
-          <span class="hl-text">нет долгов</span>.
-          <br>— Средний балл студента от <code><span class="number"><b>80</b></span></code> <span class="hl-text">и
-            выше</span> или же <span class="hl-text">ниже</span> <code><span class="number"><b>80</b></span></code>.
+        <p>Интерпретация следующая:
+        <ul>
+          <li>Средний балл студента от <code><span class="number"><b>80</b></span></code> <span class="hl-text">и
+              выше</span> или средний балл от <code><span class="number"><b>80</b></span></code> <span class="hl-text">и
+              выше</span>, но при этом возраст студента <span class="hl-text">больше</span>
+            <code><span class="number"><b>21</b></span></code> и <span class="hl-text">нет долгов</span> или же возраст
+            студента от <code><span class="number"><b>21</b></span></code> <span class="hl-text">и меньше</span> и <span
+              class="hl-text">нет долгов</span>.
+          </li>
+          <li><span class="hl-text">Нет долгов</span>, при этом <span class="hl-text">есть рекомендация</span> или
+            <span class="hl-text">нет долгов</span>.
+          </li>
+          <li>Средний балл студента от <code><span class="number"><b>80</b></span></code> <span class="hl-text">и
+              выше</span> или же <span class="hl-text">ниже</span> <code><span class="number"><b>80</b></span></code>.
+          </li>
+        </ul>
         </p>
         <p>Программа хоть и работает верно, но другой преподаватель отметил, что условие можно упростить. <span
             class="hl-text">Упростите условие этой программы</span>.</p>
