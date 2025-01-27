@@ -1,10 +1,12 @@
 function copyCode(button) {
+    const codeBlock = button.nextElementSibling.querySelector('code');
+    const codeText = codeBlock.textContent;
+
     if (navigator.clipboard) {
         navigator.clipboard.writeText(codeText)
             .then(() => changeCopyButton(button))
             .catch((err) => console.error('Не удалось скопировать текст: ', err));
     } else {
-        // Fallback для старых браузеров
         const range = document.createRange();
         range.selectNode(codeBlock);
         const selection = window.getSelection();
