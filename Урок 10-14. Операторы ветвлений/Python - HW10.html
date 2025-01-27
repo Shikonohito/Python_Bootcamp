@@ -161,6 +161,10 @@
     .keyword-argument {
       color: #AA4926;
     }
+
+    ul {
+      margin-top: 0;
+    }
   </style>
 </head>
 
@@ -187,21 +191,28 @@
 2. Определить расстояние</code></pre>
         </div>
         После этого программа <span class="hl-text">запрашивает с консоли выбор пункта</span>.</p>
-        <p>Выбор <span class="hl-text">пункта 1</span>:
-          <br>— <span class="hl-text">Запрашивает с консоли</span> расстояние в км.
-          <br>— Вычисляет затраченное время автомобиля на указанное расстояние.
-          <br>— <span class="hl-text">Выводит в консоль</span> <span class="string"><b>"На расстояние в <span
-                class="number">{число}</span> км автомобиль со скоростью <span class="number">{число}</span>
-              км/ч потратит часов: <span class="number">{число}</span>"</b></span>.
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли расстояние в км</span>.</li>
+          <li>Вычисляет <span class="hl-text">затраченное время автомобиля на указанное расстояние</span>.</li>
+          <li>Выводит в консоль <span class="string"><b>"На расстояние в <span class="number">{число}</span> км
+                автомобиль со скоростью <span class="number">{число}</span> км/ч потратит часов: <span
+                  class="number">{число}</span>"</b></span>.</li>
+        </ul>
         </p>
-        <p>Выбор <span class="hl-text">пункта 2</span>:
-          <br>— <span class="hl-text">Запрашивает с консоли</span> время в часах.
-          <br>— Вычисляет расстояние за указанное время.
-          <br>— <span class="hl-text">Выводит в консоль</span> <span class="string"><b>"За часов <span
-                class="number">{число}</span> автомобиль со скоростью <span class="number">{число}</span> км/ч
-              пройдёт км: <span class="number">{число}</span>"</b></span>
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли время в часах</span>.</li>
+          <li>Вычисляет <span class="hl-text">расстояние за указанное время</span>.</li>
+          <li>Выводит в консоль <span class="string"><b>"За часов <span class="number">{число}</span> автомобиль со
+                скоростью <span class="number">{число}</span> км/ч пройдёт км: <span
+                  class="number">{число}</span>"</b></span>.</li>
+        </ul>
         </p>
-        <h3>Консоль:</h3>
+
+
+        <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>Введите среднюю скорость автомобиля (км/ч): <span class="input">100</span>
 1. Определить время движения
@@ -222,7 +233,7 @@
         <h3>Подсказка:</h3>
         <p>Сперва определите алгоритм нахождения максимального числа из одного числа, затем из двух, затем из трёх и
           т.д. Алгоритм не должен зависеть от количества чисел.</p>
-        <h3>Консоль:</h3>
+        <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>Введите первое число: <span class="input">10</span>
 Введите второе число: <span class="input">2</span>
@@ -237,7 +248,7 @@
         <h2>Домашнее Задание 10.3</h2>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли цифру</span> и <span
             class="hl-text">выводит в консоль словесное представление цифры на английском языке</span>.</p>
-        <h3>Консоль:</h3>
+        <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>Введите цифру: <span class="input">0</span>
 
@@ -257,7 +268,7 @@
             месяцев проживания</span>, затем <span class="hl-text">выводит в консоль стоимость оплаты аренды с учётом
             скидки</span>.
         </p>
-        <h3>Консоль:</h3>
+        <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>Введите стоимость аренды в месяц: <span class="input">300</span>
 Введите количество месяцев проживания: <span class="input">12</span>
@@ -272,7 +283,7 @@
             class="hl-text">запрашивает с консоли температуру за каждый день</span> и <span class="hl-text">выводит в
             консоль среднее значение</span> и <span class="hl-text">дни, температура которых была больше средней</span>.
         </p>
-        <h3>Консоль:</h3>
+        <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>Введите температуру в Понедельник: <span class="input">18</span>
 Введите температуру в Вторник: <span class="input">20</span>
@@ -304,7 +315,7 @@
           <span class="hl-text">выводит в консоль итоговую скидку</span> и <span class="hl-text">итоговую стоимость с
             учётом скидки</span>. Рабочий скидочный купон - <code><span class="number"><b>5869</b></span></code>.
         </p>
-        <h3>Консоль:</h3>
+        <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>Введите стоимость корзины: <span class="input">650</span>
 Введите скидочный купон: <span class="input">5869</span>
@@ -329,7 +340,7 @@
           конвертации - <code><b>AZN -&gt RUB</b></code>, <code><b>AZN -&gt USD</b></code>,
           <code><b>RUB -&gt USD</b></code>. Задайте им любой курс и используйте их в программе.
         </p>
-        <h3>Консоль:</h3>
+        <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>1. AZN
 2. RUB
@@ -385,7 +396,7 @@ if first_digit == 5:
 if first_digit > 6:
     print("Ошибка ввода")</code></pre>
         </div>
-        <h3>Консоль:</h3>
+        <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>Введите код: <span class="input">404</span>
 
@@ -418,7 +429,7 @@ if choice == "1":
 if choice == "2":
     print(datetime.now().time())</code></pre>
         </div>
-        <h3>Консоль:</h3>
+        <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>1. Показать текущую дату
 2. Показать текущее время
@@ -474,7 +485,7 @@ if check_success == 4:
 if check_success != 4:
     print("Ошибка ввода.")</code></pre>
         </div>
-        <h3>Консоль:</h3>
+        <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>Введите 16-значный код карты: <span class="input">5869586958695869</span>
 Введите месяц: <span class="input">03</span>
