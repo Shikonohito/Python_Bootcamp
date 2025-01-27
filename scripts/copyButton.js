@@ -1,12 +1,19 @@
 function copyCode(button) {
-    const codeBlock = button.nextElementSibling.querySelector('code');
-    const range = document.createRange();
-    range.selectNode(codeBlock);
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
-    document.execCommand('copy');
-    window.getSelection().removeAllRanges();
-    changeCopyButton(button);
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(codeText)
+            .then(() => changeCopyButton(button))
+            .catch((err) => console.error('Не удалось скопировать текст: ', err));
+    } else {
+        // Fallback для старых браузеров
+        const range = document.createRange();
+        range.selectNode(codeBlock);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
+        selection.removeAllRanges();
+        changeCopyButton(button);
+    }
 }
 
 function changeCopyButton(button) {
