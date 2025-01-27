@@ -119,48 +119,59 @@
 
     .string {
       color: #6AAB73;
+      font-family: "JetBrains mono", monospace;
     }
 
     .string-bracket,
     .string-esc,
     .keyword {
       color: #CF8E6D;
+      font-family: "JetBrains mono", monospace;
     }
 
     .self {
       color: #94558D;
+      font-family: "JetBrains mono", monospace;
     }
 
     .string-bracket-inner {
       color: #BCBEC4;
+      font-family: "JetBrains mono", monospace;
     }
 
     .number {
       color: #2AACB8;
+      font-family: "JetBrains mono", monospace;
     }
 
     .comments {
       color: #7A7E85;
+      font-family: "JetBrains mono", monospace;
     }
 
     .metadata {
       color: #B3AE60;
+      font-family: "JetBrains mono", monospace;
     }
 
     .built-in {
       color: #8888C6;
+      font-family: "JetBrains mono", monospace;
     }
 
     .function {
       color: #56A8F5;
+      font-family: "JetBrains mono", monospace;
     }
 
     .special-names {
       color: #B200B2;
+      font-family: "JetBrains mono", monospace;
     }
 
     .keyword-argument {
       color: #AA4926;
+      font-family: "JetBrains mono", monospace;
     }
 
     ol {
@@ -183,8 +194,16 @@
       font-weight: bold;
     }
 
-    .grey {
-      color: #BCBEC4;
+    .no-padding-bottom {
+      padding-bottom: 0;
+    }
+
+    ul {
+      margin-top: 0;
+    }
+
+    .inner-p {
+      margin-top: 50px;
     }
 
     .right-rect img {
@@ -311,7 +330,7 @@ to be</code></pre>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли количество секунд</span> и <span
             class="hl-text">выводит в консоль количество полных лет</span>, <span class="hl-text">дней</span>, <span
             class="hl-text">часов</span>, <span class="hl-text">минут</span> и <span class="hl-text">секунд</span>.
-          Считайте, что в году <code><span class="number"><b>365</b></span></code> дней.</p>
+          Считайте, что в году <code class="python"><b>365</b></code> дней.</p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>Введите количество секунд: <span class="input">31719845</span>
@@ -348,30 +367,29 @@ to be</code></pre>
         <h3>Подсказки к первому способу:</h3>
         <ol>
           <li>Любое число можно представить в виде
-            <code><b><span class="number">1</span> * <span class="number">1000</span> + <span class="number">2</span> * <span class="number">100</span> + <span class="number">3</span> * <span class="number">10</span> + <span class="number">4</span> * <span class="number">1</span> = <span class="number">1234</span></b></code>.
+            <code class="python"><b>1 * 1000 + 2 * 100 + 3 * 10 + 4 * 1 = 1234</b></code>.
           </li>
           <li>
-            <code><b><span class="number">{число}</span> % <span class="number">10</span> = <span class="number">{последняя_цифра_числа}</span></b></code>.
+            <code class="python"><b>{число} % 10 = {последняя_цифра_числа}</b></code>.
           </li>
           <li>
-            <code><b><span class="number">{число}</span> // <span class="number">10</span> = <span class="number">{число_без_последней_цифры}</span></b></code>.
+            <code class="python"><b>{число} // 10 = {число_без_последней_цифры}</b></code>.
           </li>
           <li>Используйте смешанные деления, чтобы выделять конкретные цифры в числе.</li>
         </ol>
         <h3>Подсказки ко второму способу:</h3>
         <ol>
           <li>Любое число можно представить в виде
-            <code><b><span class="number">123</span> * <span class="number">10</span> + <span class="number">4</span> = <span class="number">1234</span></b></code>.
+            <code class="python"><b>123 * 10 + 4 = 1234</b></code>.
           </li>
           <li>
-            <code><b><span class="number">{число}</span> % <span class="number">10</span> = <span class="number">{последняя_цифра_числа}</span></b></code>.
+            <code class="python"><b>{число} % 10 = {последняя_цифра_числа}</b></code>.
           </li>
           <li>
-            <code><b><span class="number">{число}</span> // <span class="number">10</span> = <span class="number">{число_без_последней_цифры}</span></b></code>.
+            <code class="python"><b>{число} // 10 = {число_без_последней_цифры}</b></code>.
           </li>
-          <li>Выделите последнюю цифру, избавьтесь от последней цифры в исходном числе. Повторите это ещё
-            <code><span class="number"><b>3</b></span></code> раза.
-          </li>
+          <li>Выделите последнюю цифру, избавьтесь от последней цифры в исходном числе. Повторите это ещё <code
+              class="python"><b>3</b></code> раза.</li>
         </ol>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
@@ -387,26 +405,26 @@ to be</code></pre>
         <h2>Домашнее Задание 8.10</h2>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли четырёхзначное число</span>, <span
             class="hl-text">формирует из введённого числа перевёрнутое число</span> и <span class="hl-text">выводит
-            полученное число в
-            консоль</span>. Решите задание двумя способами.</p>
+            полученное число в консоль</span>. Решите задание двумя способами.</p>
 
         <h3>Подсказки к первому способу:</h3>
         <ol>
-          <li>Выделите каждую цифру в отдельные переменные при помощи операций <code><b>%</b></code> и
-            <code><b>//</b></code>.
+          <li>Выделите каждую цифру в отдельные переменные при помощи операций <code class="python"><b>%</b></code> и
+            <code class="python"><b>//</b></code>.
           </li>
           <li>Умножьте каждую полученную цифру на соответствующие десятки и найдите их сумму:
-            <code><b><span class="number">4</span> * <span class="number">1000</span> + <span class="number">3</span> * <span class="number">100</span> + <span class="number">2</span> * <span class="number">10</span> + <span class="number">1</span> * <span class="number">1</span> = <span class="number">4321</span></b></code>.
+            <code class="python"><b>4 * 1000 + 3 * 100 + 2 * 10 + 1 * 1 = 4321</b></code>
           </li>
         </ol>
         <h3>Подсказки ко второму способу:</h3>
         <ol>
-          <li>Выделите последнюю цифру исходного числа при помощи операции <span class="grey"><b>%</b></span>.</li>
-          <li>Умножьте перевёрнутое число на <code><span class="number"><b>10</b></span></code>.</li>
+          <li>Выделите последнюю цифру исходного числа при помощи операции <code class="python"><b>%</b></code>.</li>
+          <li>Умножьте перевёрнутое число на <code class="python"><b>10</b></code>.</li>
           <li>Прибавьте к нему выделенную цифру.</li>
-          <li>Избавьтесь от последней цифры исходного числа при помощи операции <code><b>//</b></code>.</li>
+          <li>Избавьтесь от последней цифры исходного числа при помощи операции <code class="python"><b>//</b></code>.
+          </li>
           <li>Повторите шаги
-            <code><span class="number"><b>1</b></span></code>-<code><span class="number"><b>4</b></span></code> ещё три
+            <span class="hl-text"><b>1</b></span>-<span class="hl-text"><b>4</b></span> ещё три
             раза.
           </li>
         </ol>
@@ -421,7 +439,7 @@ to be</code></pre>
         <h2>Домашнее Задание 8.11</h2>
         <p><span class="hl-text">Teston Lebra</span> решил попробовать себя в качестве программиста и написал программу,
           которая запрашивает с консоли количество зарплаты в месяц и выводит в консоль итоговую зарплату за
-          <code><span class="number">12</span></code> месяцев. Но программа почему-то работает некорректно. <span
+          <code class="python"><b>12</b></code> месяцев. Но программа почему-то работает некорректно. <span
             class="hl-text">Исправьте программу, чтобы она работала верно</span>, и <span class="hl-text">рядом напишите
             комментарии о том, почему изменённый вариант должен работать верно</span>.
         </p>
@@ -465,8 +483,8 @@ print("Зарплата за", count_month, "месяцев равна", total_s
     function changeCopyButton(button) {
       var originalHTML = button.innerHTML;
       button.innerHTML = `
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
-    `;
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+      `;
       setTimeout(function () {
         button.innerHTML = originalHTML;
       }, 2000);
@@ -494,7 +512,7 @@ print("Зарплата за", count_month, "месяцев равна", total_s
         const keywords = [
           'def', 'for', 'in', 'while', 'and', 'or', 'not',
           'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
-          'as', 'except', 'finally', 'return', 'True', 'False'
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'del', 'None'
         ];
         regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
         innerHTML = innerHTML.replace(regex, (match) => {
@@ -526,7 +544,7 @@ print("Зарплата за", count_month, "месяцев равна", total_s
           return `<span class="self">${match}</span>`;
         });
         // BUILT-IN
-        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len)\b/g;
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max|sort)\b/g;
         innerHTML = innerHTML.replace(regex, (match) => {
           return `<span class="built-in">${match}</span>`;
         });
