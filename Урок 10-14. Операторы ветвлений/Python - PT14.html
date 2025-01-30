@@ -7,109 +7,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
     rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
-      color: #fff;
-      font-family: "Inter", sans-serif;
-      margin: 0px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .sidebar {
-      width: 240px;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-    }
-
-    .sidebar img {
-      height: 240px;
-      width: 240px;
-    }
-
-    .sidebar #copyrights {
-      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .right-block {
-      flex: 1;
-      width: 70%;
-      gap: 50px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      padding: 50px 25px 50px 0;
-      margin: 10px;
-    }
-
-    .right-rect {
-      background-color: rgba(38, 38, 38, 0.75);
-      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-      padding: 30px 25px;
-      border-radius: 10px;
-    }
-
-    .right-rect h2,
-    .right-rect .hl-text {
-      margin: 0;
-      color: #FFC000;
-    }
-
-    .right-rect h3 {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      color: #FFC000;
-    }
-
-    .console {
-      background-color: #1E1F22;
-      border-radius: 5px;
-      margin-top: 10px;
-      position: relative;
-    }
-
-    p {
-      margin-top: 15px;
-      margin-bottom: 0px;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      white-space: pre;
-      overflow-x: auto;
-      word-wrap: normal;
-      padding: 20px 10px;
-    }
-
-    .console .input {
-      color: #6AAB73;
-      font-style: italic;
-    }
-
-    code {
-      font-family: "JetBrains mono", monospace;
-      color: #BCBEC4;
-    }
-
-    .string {
-      color: #6AAB73;
-    }
-
-    .number {
-      color: #2AACB8;
-    }
-  </style>
+  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/pt.css">
 </head>
 
 <body>
@@ -128,11 +26,24 @@
         </div>
         </p>
         <p>Затем программа <span class="hl-text">запрашивает ввод выбора с консоли</span>.</p>
-        <p>Если выбран <span class="hl-text">первый пункт</span>, то программа <span class="hl-text">запрашивает с
-            консоли число</span> и <span class="hl-text">определяет его чётность</span>.</p>
-        <p>Если выбран <span class="hl-text">второй пункт</span>, то программа <span class="hl-text">запрашивает с
-            консоли два числа</span> и <span class="hl-text">операцию (+, -, *, /)</span>, затем <span
-            class="hl-text">выводит в консоль результат операции</span>.</p>
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли число</span>.</li>
+          <li>Определяет<span class="hl-text">его чётность</span>.</li>
+          <li>Выводит <span class="hl-text">в консоль результат</span>.</li>
+        </ul>
+        </p>
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли два числа</span> и <span
+              class="hl-text">операцию</span>
+            <code class="python">+</code>, <code class="python">-</code>, <code class="python">*</code> или <code
+              class="python">/</code>.
+          </li>
+          <li>Вычисляет<span class="hl-text">результат операции над введёнными числами</span>.</li>
+          <li>Выводит <span class="hl-text">в консоль результат</span>.</li>
+        </ul>
+        </p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>1. Определить чётность числа
@@ -155,23 +66,29 @@
         </div>
         </p>
         <p>Затем программа <span class="hl-text">запрашивает ввод выбора с консоли</span>.</p>
-        <p>Если выбран <span class="hl-text">первый пункт</span>, то программа <span class="hl-text">запрашивает ввод
-            суммы с консоли</span>. Если сумма отрицательная, то программа должна <span class="hl-text">вывести в
-            консоль</span>
-          <code><span class="string"><b>"Невозможно положить на счёт отрицательную сумму."</b></span></code>. Если же
-          сумма положительная, то <span class="hl-text">деньги кладутся на счёт</span> и <span class="hl-text">выводится
-            сумма счёта</span>.
+
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли сумму</span>.</li>
+          <li>Если сумма отрицательная, то программа <span class="hl-text">выводит в консоль</span> <code
+              class="python"><b>"Невозможно положить на счёт отрицательную сумму."</b></code>.</li>
+          <li>Если же сумма положительная, то <span class="hl-text">деньги кладутся на счёт</span> и <span
+              class="hl-text">выводится сумма счёта</span>.</li>
+        </ul>
         </p>
-        <p>Если выбран <span class="hl-text">второй пункт</span>, то программа <span class="hl-text">запрашивает ввод
-            суммы с консоли</span>. Если сумма отрицательная, то программа должна <span class="hl-text">вывести в
-            консоль</span>
-          <code><span class="string"><b>"Невозможно снять со счёта отрицательную сумму."</b></span></code>. Если сумма
-          превышает количество денег на счету, то программа <span class="hl-text">сообщает</span>
-          <code><span class="string"><b>"На счету недостаточно денег."</b></span></code>. В противном случае, программа
-          <span class="hl-text">снимает со счёта деньги</span> и <span class="hl-text">выводит в консоль текущий
-            счёт</span>.
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли сумму</span>.</li>
+          <li>Если сумма отрицательная, то программа <span class="hl-text">выводит в консоль</span> <code
+              class="python"><b>"Невозможно снять со счёта отрицательную сумму."</b></code>.</li>
+          <li>Если же сумма положительная, то <span class="hl-text">снимает со счёта деньги</span> и <span
+              class="hl-text">выводит в консоль текущий
+              счёт</span>.</li>
+        </ul>
         </p>
-        <p>Считайте, что изначально на счету находится <code><span class="number"><b>250</b></span></code> денег.</p>
+
+        <p>Считайте, что изначально на счету находится <code class="python"><b>250</b></code> денег.</p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>1. Положить деньги на счёт
@@ -184,4 +101,6 @@
       </div>
     </div>
   </div>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>
