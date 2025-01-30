@@ -7,109 +7,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
     rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
-      color: #fff;
-      font-family: "Inter", sans-serif;
-      margin: 0px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .sidebar {
-      width: 240px;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-    }
-
-    .sidebar img {
-      height: 240px;
-      width: 240px;
-    }
-
-    .sidebar #copyrights {
-      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .right-block {
-      flex: 1;
-      width: 70%;
-      gap: 50px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      padding: 50px 25px 50px 0;
-      margin: 10px;
-    }
-
-    .right-rect {
-      background-color: rgba(38, 38, 38, 0.75);
-      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-      padding: 30px 25px;
-      border-radius: 10px;
-    }
-
-    .right-rect h2,
-    .right-rect .hl-text {
-      margin: 0;
-      color: #FFC000;
-    }
-
-    .right-rect h3 {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      color: #FFC000;
-    }
-
-    .console {
-      background-color: #1E1F22;
-      border-radius: 5px;
-      margin-top: 10px;
-      position: relative;
-    }
-
-    p {
-      margin-top: 15px;
-      margin-bottom: 0px;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      white-space: pre;
-      overflow-x: auto;
-      word-wrap: normal;
-      padding: 20px 10px;
-    }
-
-    .console .input {
-      color: #6AAB73;
-      font-style: italic;
-    }
-
-    code {
-      font-family: "JetBrains mono", monospace;
-      color: #BCBEC4;
-    }
-
-    .number {
-      color: #2AACB8;
-    }
-
-    .grey {
-      color: #BCBEC4;
-    }
-  </style>
+  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/pt.css">
 </head>
 
 <body>
@@ -144,7 +42,7 @@
       <div class="right-rect">
         <h2>Практическое Задание 9.2</h2>
         <p><span class="hl-text">Teston Lebra</span> и его четверо друзей решили собрать деньги для совместного отпуска.
-          Напишите программу, которая <code><span class="number"><b>5</b></span></code> <span class="hl-text">раз
+          Напишите программу, которая <code class="python"><b>5</b></code> <span class="hl-text">раз
             запрашивает ввод денег как числа с консоли</span> и <span class="hl-text">выводит в консоль итоговую сумму
             денег</span>. Используйте сокращённую запись для суммирования.</p>
         <h3>Пример работы в консоли:</h3>
@@ -161,7 +59,7 @@
       <div class="right-rect">
         <h2>Практическое Задание 9.3</h2>
         <p>Выполните <span class="hl-text">Практическое Задание 9.2</span>, используя <span class="hl-text">только
-            <code><span class="number"><b>2</b></span></code> переменные</span>.</p>
+            <code class="python"><b>2</b></code> переменные</span>.</p>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 9.4</h2>
@@ -185,9 +83,9 @@
       <div class="right-rect">
         <h2>Практическое Задание 9.6</h2>
         <p><span class="hl-text">Teston Lebra</span> нужно оформить четырёхзначное число в виде
-          <code><b>X---X---X---X</b></code>, где <code><b>X</b></code> - это число. Напишите программу, которая <span
-            class="hl-text">запрашивает с консоли четырёхзначное число</span> и <span class="hl-text">выводит в консоль
-            в требуемом виде</span>. Используйте разделитель при выводе.
+          <code class="python"><b>X---X---X---X</b></code>, где <code class="python"><b>X</b></code> – это число.
+          Напишите программу, которая <span class="hl-text">запрашивает с консоли четырёхзначное число</span> и <span
+            class="hl-text">выводит в консоль в требуемом виде</span>. Используйте разделитель при выводе.
         </p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
@@ -205,7 +103,7 @@
             class="hl-text">итоговую цену</span>.</p>
         <h3>Подсказка</h3>
         <p>Чтобы получилось целое число, нужно метры в рулоне поделить на
-          <code><span class="number"><b>2</b></span></code> и добавить к итоговому количеству площади поклейки, затем
+          <code class="python"><b>2</b></code> и добавить к итоговому количеству площади поклейки, затем
           нацело поделить на метры в рулоне.
         </p>
         <h3>Пример работы в консоли:</h3>
@@ -223,7 +121,7 @@
         <p><span class="hl-text">Teston Lebra</span> любит путешествовать на своей машине. Он собрался в долгую дорогу,
           но не знает, сколько денег ему понадобится на бензин. Напишите программу, которая <span
             class="hl-text">запрашивает с консоли общее расстояние поездки в километрах</span>, <span
-            class="hl-text">средний расход топлива на <code><span class="number"><b>100</b></span></code> км (в
+            class="hl-text">средний расход топлива на <code class="python"><b>100</b></code> км (в
             литрах)</span> и <span class="hl-text">стоимость литра
             бензина</span>, затем <span class="hl-text">выводит в консоль общую стоимость бензина для поездки</span>.
         </p>
@@ -255,7 +153,8 @@
             процентную ставку</span> и <span class="hl-text">количество лет</span>, затем <span class="hl-text">выводит
             в консоль сумму вклада через указанное количество лет</span>.</p>
         <p>Программа должна считать по формуле:
-          <br><code><b><span class="number">{сумма_вклада}</span> = <span class="number">{начальная_сумма_вклада}</span> * ((<span class="number">1</span> + <span class="number">{годовая_процентная_ставка}</span> / <span class="number">100</span>) ** <span class="number">{количество_лет}</span>)</b></code>
+          <br><code
+            class="python"><b>{сумма_вклада} = {начальная_сумма_вклада} * ((1 + {годовая_процентная_ставка} / 100) ** {количество_лет})</b></code>
         </p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
@@ -283,4 +182,6 @@
       </div>
     </div>
   </div>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>
