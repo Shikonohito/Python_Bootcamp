@@ -7,109 +7,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
     rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
-      color: #fff;
-      font-family: "Inter", sans-serif;
-      margin: 0px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .sidebar {
-      width: 240px;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-    }
-
-    .sidebar img {
-      height: 240px;
-      width: 240px;
-    }
-
-    .sidebar #copyrights {
-      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .right-block {
-      flex: 1;
-      width: 70%;
-      gap: 50px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      padding: 50px 25px 50px 0;
-      margin: 10px;
-    }
-
-    .right-rect {
-      background-color: rgba(38, 38, 38, 0.75);
-      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-      padding: 30px 25px;
-      border-radius: 10px;
-    }
-
-    .right-rect h2,
-    .right-rect .hl-text {
-      margin: 0;
-      color: #FFC000;
-    }
-
-    .right-rect h3 {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      color: #FFC000;
-    }
-
-    .console {
-      background-color: #1E1F22;
-      border-radius: 5px;
-      margin-top: 10px;
-      position: relative;
-    }
-
-    p {
-      margin-top: 15px;
-      margin-bottom: 0px;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      white-space: pre;
-      overflow-x: auto;
-      word-wrap: normal;
-      padding: 20px 10px;
-    }
-
-    .console .input {
-      color: #6AAB73;
-      font-style: italic;
-    }
-
-    code {
-      font-family: "JetBrains mono", monospace;
-      color: #BCBEC4;
-    }
-
-    .string {
-      color: #6AAB73;
-    }
-
-    .number {
-      color: #2AACB8;
-    }
-  </style>
+  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/pt.css">
 </head>
 
 <body>
@@ -122,7 +20,7 @@
       <div class="right-rect">
         <h2>Практическое Задание 15.1</h2>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли число</span> и <span
-            class="hl-text">выводит в консоль все чётные числа от <code><span class="number"><b>2</b></span></code> до
+            class="hl-text">выводит в консоль все чётные числа от <code class="python"><b>2</b></code> до
             введённого числа включительно</span>.</p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
@@ -139,7 +37,7 @@
       <div class="right-rect">
         <h2>Практическое Задание 15.2</h2>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли
-            <code><span class="number"><b>2</b></span></code> числа</span> и <span class="hl-text">выводит в консоль все
+            <code class="python"><b>2</b></code> числа</span> и <span class="hl-text">выводит в консоль все
             чётные числа от первого введённого до второго введённого числа включительно в порядке возрастания</span>.
           Если первое число больше второго, то нужно поменять их местами.</p>
         <h3>Пример работы в консоли:</h3>
@@ -200,17 +98,25 @@
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 1</span>, программа должна <span class="hl-text">запросить с консоли
-            логин</span> и <span class="hl-text">пароль</span>. Затем <span class="hl-text">вернуться обратно в главное
-            меню</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 2</span>, программа должна <span class="hl-text">запросить с консоли
-            логин</span> и <span class="hl-text">пароль</span>. Затем она <span class="hl-text">проверяет на
-            правильность</span>. Если логин и пароль совпадают с теми, что были зарегистрированы, то программа <span
-            class="hl-text">выводит в консоль</span>
-          <code><span class="string"><b>"Выполняется вход..."</b></span></code>. В противном случае программа <span
-            class="hl-text">выводит в консоль</span>
-          <code><span class="string"><b>"Неверный логин или пароль."</b></span></code>.
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли логин</span> и <span class="hl-text">пароль</span>.
+          </li>
+          <li>Заменяет <span class="hl-text">текущие логин</span> и <span class="hl-text">пароль</span>.</li>
+        </ul>
         </p>
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли логин</span> и <span class="hl-text">пароль</span>.
+          </li>
+          <li>Если логин и пароль совпадают с текущими логином и паролем, то программа <span class="hl-text">выводит в
+              консоль</span> <code class="python"><b>"Выполняется вход..."</b></code>.</li>
+          <li>В противном случае программа <span class="hl-text">выводит в консоль</span> <code
+              class="python"><b>"Неверный логин или пароль."</b></code>.</li>
+        </ul>
+        </p>
+
         <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>1. Зарегистрировать аккаунт
@@ -241,7 +147,7 @@
       <div class="right-rect">
         <h2>Практическое Задание 15.6</h2>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли числа до тех пор, пока не получит
-            строку</span> <code><span class="string"><b>"END"</b></span></code> или <span class="hl-text">пустую
+            строку</span> <code class="python"><b>"END"</b></code> или <span class="hl-text">пустую
             строку</span>, а затем <span class="hl-text">выводит в консоль сумму чисел</span>.</p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
@@ -255,14 +161,12 @@
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 15.7</h2>
-        <p>При оплате карточкой на сайтах обычно указывается <code><span class="number"><b>16</b></span></code>-значный
-          номер карты. Напишите программу, которая <span class="hl-text">запрашивает с консоли
-            <code><span class="number"><b>16</b></span></code>-значный номер карты</span> и <span
-            class="hl-text">выводит в консоль</span>
-          <code><span class="string"><b>"Номер карты корректный."</b></span></code>, если в номере
-          <code><span class="number"><b>16</b></span></code> цифр, и
-          <code><span class="string"><b>"Номер карты неверный. Вы ввели <span class="number">{число}</span> цифр."</b></span></code>
-          в противном случае.
+        <p>При оплате карточкой на сайтах обычно указывается <code class="python"><b>16</b></code>-значный номер карты.
+          Напишите программу, которая <span class="hl-text">запрашивает с консоли <code
+              class="python"><b>16</b></code>-значный номер карты</span> и <span class="hl-text">выводит в
+            консоль</span> <code class="python"><b>"Номер карты корректный."</b></code>, если в номере <code
+            class="python"><b>16</b></code> цифр, и <code
+            class="python"><b>"Номер карты неверный. Вы ввели {число} цифр."</b></code> в противном случае.
         </p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
@@ -273,4 +177,6 @@
       </div>
     </div>
   </div>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>

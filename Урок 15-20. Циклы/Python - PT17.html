@@ -7,161 +7,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
     rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
-      color: #fff;
-      font-family: "Inter", sans-serif;
-      margin: 0px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .sidebar {
-      width: 240px;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-    }
-
-    .sidebar img {
-      height: 240px;
-      width: 240px;
-    }
-
-    .sidebar #copyrights {
-      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .right-block {
-      flex: 1;
-      width: 70%;
-      gap: 50px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      padding: 50px 25px 50px 0;
-      margin: 10px;
-    }
-
-    .right-rect {
-      background-color: rgba(38, 38, 38, 0.75);
-      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-      padding: 30px 25px;
-      border-radius: 10px;
-    }
-
-    .right-rect h2,
-    .right-rect .hl-text {
-      margin: 0;
-      color: #FFC000;
-    }
-
-    .right-rect h3 {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      color: #FFC000;
-    }
-
-    .console {
-      background-color: #1E1F22;
-      border-radius: 5px;
-      margin-top: 10px;
-      position: relative;
-    }
-
-    p {
-      margin-top: 15px;
-      margin-bottom: 0px;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      white-space: pre;
-      overflow-x: auto;
-      word-wrap: normal;
-      padding: 20px 10px;
-    }
-
-    .console .input {
-      color: #6AAB73;
-      font-style: italic;
-    }
-
-    code {
-      font-family: "JetBrains mono", monospace;
-      color: #BCBEC4;
-    }
-
-    .copy-button {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      padding: 5px 10px;
-      background-color: #FFC000;
-      color: #1E1F22;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-family: "JetBrains mono", monospace;
-      font-weight: bold;
-    }
-
-    .string {
-      color: #6AAB73;
-    }
-
-    .string-bracket,
-    .string-esc,
-    .keyword {
-      color: #CF8E6D;
-    }
-
-    .self {
-      color: #94558D;
-    }
-
-    .string-bracket-inner {
-      color: #BCBEC4;
-    }
-
-    .number {
-      color: #2AACB8;
-    }
-
-    .comments {
-      color: #7A7E85;
-    }
-
-    .metadata {
-      color: #B3AE60;
-    }
-
-    .built-in {
-      color: #8888C6;
-    }
-
-    .function {
-      color: #56A8F5;
-    }
-
-    .special-names {
-      color: #B200B2;
-    }
-
-    .keyword-argument {
-      color: #AA4926;
-    }
-  </style>
+  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/pt.css">
 </head>
 
 <body>
@@ -195,10 +41,10 @@ range(9, 5, -3)</code></pre>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 17.2</h2>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли два числа</span> - <span
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли два числа</span> – <span
             class="hl-text">начало</span> и <span class="hl-text">конец диапазона</span>. Программа должна <span
             class="hl-text">вывести в консоль все числа диапазона в обратном порядке с шагом</span>
-          <code><span class="number"><b>2</b></span></code>.
+          <code class="python"><b>2</b></code>.
         </p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
@@ -218,7 +64,7 @@ range(9, 5, -3)</code></pre>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли два числа</span> - <span
             class="hl-text">начало</span> и <span class="hl-text">конец диапазона</span>. Программа должна <span
             class="hl-text">вывести в консоль все числа диапазона в порядке убывания</span>, если начало больше конца. В
-          противном случае - <span class="hl-text">в порядке возрастания</span>.</p>
+          противном случае – <span class="hl-text">в порядке возрастания</span>.</p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>Введите начало диапазона: <span class="input">7</span>
@@ -232,7 +78,7 @@ range(9, 5, -3)</code></pre>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 17.4</h2>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли два числа</span> - <span
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли два числа</span> – <span
             class="hl-text">начало</span> и <span class="hl-text">конец диапазона</span>. Программа должна <span
             class="hl-text">вывести в консоль все нечётные числа диапазона в порядке убывания</span>.</p>
         <h3>Пример работы в консоли:</h3>
@@ -306,7 +152,7 @@ range(9, 5, -3)</code></pre>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли количество студентов</span> и <span
             class="hl-text">столько же раз запрашивает оценку</span>. В конце программа <span class="hl-text">выводит в
             консоль сколько студентов допускается до экзамена</span>. Если оценка
-          <code><span class="number"><b>7</b></span></code> или больше, то <span class="hl-text">студент считается
+          <code class="python"><b>7</b></code> или больше, то <span class="hl-text">студент считается
             допущенным</span>.
         </p>
         <h3>Пример работы в консоли:</h3>
@@ -323,97 +169,6 @@ range(9, 5, -3)</code></pre>
       </div>
     </div>
   </div>
-  <script>
-    function copyCode(button) {
-      var codeBlock = button.nextElementSibling.querySelector('code');
-      var range = document.createRange();
-      range.selectNode(codeBlock);
-      window.getSelection().removeAllRanges();
-      window.getSelection().addRange(range);
-      document.execCommand('copy');
-      window.getSelection().removeAllRanges();
-      changeCopyButton(button);
-    }
-
-    function changeCopyButton(button) {
-      var originalHTML = button.innerHTML;
-      button.innerHTML = `
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
-    `;
-      setTimeout(function () {
-        button.innerHTML = originalHTML;
-      }, 2000);
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-      const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function (codeBlock, index) {
-        let innerHTML = codeBlock.innerHTML;
-        console.log(index, innerHTML);
-        // STRING
-        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string">${match}</span>`;
-        });
-        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string">${match}</span>`;
-        });
-        // KEYWORD CLASS
-        regex = /(class)(?!=)/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="keyword">${match}</span>`;
-        });
-        // KEYWORDS
-        const keywords = [
-          'def', 'for', 'in', 'while', 'and', 'or', 'not',
-          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
-          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
-        ];
-        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="keyword">${match}</span>`;
-        });
-        // KEYWORD NUMBER
-        regex = /\b\d+(\.\d+)?/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="number">${match}</span>`;
-        });
-        // STRING-ESC
-        regex = /\\./g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string-esc">${match}</span>`;
-        });
-        // COMMENTS
-        regex = /(#.*$)/gm;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="comments">${match}</span>`;
-        });
-        // METADATA
-        regex = /^(\s*@\w+)/gm;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="metadata">${match}</span>`;
-        });
-        // SELF
-        regex = /\bself\b/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="self">${match}</span>`;
-        });
-        // BUILT-IN
-        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len)\b/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="built-in">${match}</span>`;
-        });
-        // FUNCTION
-        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
-        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
-        // SPECIAL-NAMES
-        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
-        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
-        // KEYWORD-ARGUMENT
-        regex = /, (end|sep)=/g;
-        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
-        codeBlock.innerHTML = innerHTML
-      });
-    });
-  </script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>

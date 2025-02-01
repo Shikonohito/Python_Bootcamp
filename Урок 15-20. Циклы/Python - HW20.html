@@ -7,203 +7,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
     rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
-      color: #fff;
-      font-family: "Inter", sans-serif;
-      margin: 0px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .sidebar {
-      width: 240px;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-    }
-
-    .sidebar img {
-      height: 240px;
-      width: 240px;
-    }
-
-    .sidebar #copyrights {
-      background: linear-gradient(to right, #343434 0%, #363636 100%);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .right-block {
-      flex: 1;
-      width: 70%;
-      gap: 50px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      padding: 50px 25px 50px 0;
-      margin: 10px;
-    }
-
-    .right-rect {
-      background-color: rgba(38, 38, 38, 0.75);
-      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-      padding: 30px 25px;
-      border-radius: 10px;
-    }
-
-    .right-rect h2,
-    .right-rect .hl-text {
-      margin: 0;
-      color: #FFC000;
-    }
-
-    .right-rect h3 {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      color: #FFC000;
-    }
-
-    .console {
-      background-color: #1E1F22;
-      border-radius: 5px;
-      margin-top: 10px;
-      position: relative;
-    }
-
-    p {
-      margin-top: 15px;
-      margin-bottom: 0px;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      white-space: pre;
-      overflow-x: auto;
-      word-wrap: normal;
-      padding: 20px 10px;
-    }
-
-    .console .input {
-      color: #6AAB73;
-      font-style: italic;
-    }
-
-    code {
-      font-family: "JetBrains mono", monospace;
-      color: #BCBEC4;
-    }
-
-    .copy-button {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      padding: 5px 10px;
-      background-color: #FFC000;
-      color: #1E1F22;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-family: "JetBrains mono", monospace;
-      font-weight: bold;
-    }
-
-    .string {
-      color: #6AAB73;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .string-bracket,
-    .string-esc,
-    .keyword {
-      color: #CF8E6D;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .self {
-      color: #94558D;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .string-bracket-inner {
-      color: #BCBEC4;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .number {
-      color: #2AACB8;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .comments {
-      color: #7A7E85;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .metadata {
-      color: #B3AE60;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .built-in {
-      color: #8888C6;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .function {
-      color: #56A8F5;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .special-names {
-      color: #B200B2;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .keyword-argument {
-      color: #AA4926;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    ol {
-      counter-reset: list;
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 0;
-    }
-
-    ol li {
-      counter-increment: list;
-      position: relative;
-      padding-left: 1.2em;
-      padding-bottom: 1.2em;
-    }
-
-    ol li::before {
-      content: counter(list) ". ";
-      position: absolute;
-      left: 0;
-      color: #FFC000;
-      font-weight: bold;
-    }
-
-    .grey {
-      color: #BCBEC4;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .no-padding-bottom {
-      padding-bottom: 0;
-    }
-  </style>
+  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/hw.css">
 </head>
 
 <body>
@@ -227,22 +31,29 @@
 3. Завершить программу
 Выберите действие: <span class="input">...</span></code></pre>
         </div>
-        <p>В программе есть две роли - <span class="hl-text">клиент</span> и <span class="hl-text">администратор</span>.
+        <p>В программе есть две роли – <span class="hl-text">клиент</span> и <span class="hl-text">администратор</span>.
           Условимся, что на всю программу у нас может быть только <span class="hl-text">один клиент</span> и только
           <span class="hl-text">один администратор</span>.
         </p>
-        <p>Выбор <span class="hl-text">пункта 1</span>:
-          <br>— Программа <span class="hl-text">запрашивает с консоли логин</span>, <span class="hl-text">пароль</span>,
-          <span class="hl-text">имя</span>, <span class="hl-text">фамилию</span>,
-          <code><span class="number"><b>16</b></span></code>-<span class="hl-text">значный номер карты</span> и <span
-            class="hl-text">CVV/CVC код</span>.
-          <br>— <span class="hl-text">Возвращается в меню входа</span>.
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли логин</span>, <span class="hl-text">пароль</span>,
+            <span class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, <code
+              class="python"><b>16</b></code>-<span class="hl-text">значный номер карты</span> и <span
+              class="hl-text">CVV/CVC код</span>.
+          </li>
+          <li>Заменяет <span class="hl-text">все данные клиента на новые</span>.</li>
+        </ul>
         </p>
-        <p>Выбор <span class="hl-text">пункта 2</span>:
-          <br>— Программа <span class="hl-text">запрашивает с консоли логин</span> и <span
-            class="hl-text">пароль</span>.
-          <br>— Если вводятся данные клиента, то <span class="hl-text">показывается меню клиента</span>.
-          <br>— Если вводятся данные администратора, то <span class="hl-text">показывается меню администратора</span>.
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли логин</span> и <span class="hl-text">пароль</span>.
+          </li>
+          <li>Если логин и пароль от клиента, то <span class="hl-text">показывается меню клиента</span>.</li>
+          <li>Если логин и пароль от администратора, то <span class="hl-text">показывается меню администратора</span>.
+          </li>
+          <li>В противном случае <span class="hl-text">в консоль выводится сообщение о проблеме</span>.</li>
+        </ul>
         </p>
         <h3>Меню клиента:</h3>
         <div class="console">
@@ -253,50 +64,70 @@
 4. Завершить программу
 Выберите действие: <span class="input">...</span></code></pre>
         </div>
-        <p>В <span class="hl-text">меню клиента</span> выбор <span class="hl-text">пункта 1</span>:
-          <br>— Программа <span class="hl-text">выводит в консоль идентификатор клиента</span>, <span
-            class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">текущий баланс
-            аккаунта</span> и <span class="hl-text">арендованный товар</span>.
-          <br>— <span class="hl-text">Выводит в консоль следующее меню</span>:
-        </p>
-        <div class="console">
-          <pre><code>Идентификатор: {идентификатор}
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">выводит в консоль идентификатор клиента</span>, <span
+              class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">текущий баланс
+              аккаунта</span>, <span class="hl-text">арендованный товар</span> и <span class="hl-text">дней
+              аренды</span>.</li>
+          <li>Выводит в консоль <span class="hl-text">следующее меню</span>:
+            <div class="console">
+              <pre><code>Идентификатор: {идентификатор}
 Имя: {имя}
 Фамилия: {фамилия}
 Текущий баланс: {баланс}
 Арендованный товар: {название_товара}
+Дней аренды: {количество_дней}
 ===============================================
 1. Изменить имя
 2. Изменить фамилию
 3. Пополнить счёт
 4. Изменить данные карты
 5. Вернуться
-6. Завершить программу
-</code></pre>
-        </div>
-        <p>В <span class="hl-text">меню кабинета</span> выбор <span class="hl-text">пункта 3</span>:
-          <br>— Программа <span class="hl-text">запрашивает с консоли
-            <code><span class="number"><b>16</b></span></code>-значный номер карты</span> и <span
-            class="hl-text">CVV/CVC код</span>.
-          <br>— Если они совпадают с данными клиента, то программа <span class="hl-text">запрашивает с консоли
-            сумму</span> и <span class="hl-text">добавляет на баланс карты</span>. В противном случае программа <span
-            class="hl-text">возвращает в меню кабинета</span>.
+6. Завершить программу</code></pre>
+            </div>
+          </li>
+          <li>Выбран <span class="hl-text">пункт 1</span> или <span class="hl-text">2</span>:
+            <ul>
+              <li>Программа <span class="hl-text">запрашивает с консоли соответствующие данные</span>.</li>
+              <li>Заменяет <span class="hl-text">соответствующие данные у клиента</span>.</li>
+            </ul>
+          </li>
+          <li>Выбран <span class="hl-text">пункт 3</span>:
+            <ul>
+              <li>Программа <span class="hl-text">запрашивает с консоли <code class="python"><b>16</b></code>-значный
+                  номер карты</span> и <span class="hl-text">CVV/CVC код</span>.
+              </li>
+              <li>Если введённые данные совпадают с данными клиента, то программа <span class="hl-text">запрашивает с
+                  консоли сумму пополнения</span>.</li>
+              <li>Если сумма положительная, то <span class="hl-text">увеличивает баланс на сумму пополнения</span>.</li>
+              <li>В зависимости от результата <span class="hl-text">в консоли выводится соответствующее
+                  сообщение.</span>.
+              </li>
+            </ul>
+          </li>
+          <li>Выбран <span class="hl-text">пункт 4</span>:
+            <ul>
+              <li>Программа <span class="hl-text">запрашивает с консоли <code class="python"><b>16</b></code>-значный
+                  номер карты</span> и <span class="hl-text">CVV/CVC код</span>.
+              </li>
+              <li>Заменяет <span class="hl-text">данные карты на введённые данные</span>.</li>
+            </ul>
+          </li>
+          <li>Выбран <span class="hl-text">пункт 5</span>:
+            <ul>
+              <li>Программа <span class="hl-text">возвращается в меню клиента</span>.</li>
+            </ul>
+          </li>
+        </ul>
         </p>
-        <p>В <span class="hl-text">меню кабинета</span> выбор <span class="hl-text">пункта 4</span>:
-          <br>— Программа <span class="hl-text">запрашивает с консоли
-            <code><span class="number"><b>16</b></span></code>-значный номер карты</span> и <span
-            class="hl-text">CVV/CVC код</span>.
-          <br>— Программа <span class="hl-text">заменяет данные карты на введённые</span>.
-        </p>
-        <p>В <span class="hl-text">меню кабинета</span> выбор <span class="hl-text">пункта 5</span>:
-          <br>— Программа <span class="hl-text">возвращается в меню клиента</span>.
-        </p>
-        <p>В <span class="hl-text">меню клиента</span> выбор <span class="hl-text">пункта 2</span>:
-          <br>— Программа <span class="hl-text">выводит в консоль следующие данные</span> и <span class="hl-text">меню
-            аренды</span>:
-        </p>
-        <div class="console">
-          <pre><code>Ваш текущий баланс: {число}
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">выводит в консоль следующие данные</span> и <span class="hl-text">меню
+              аренды</span>:
+            <div class="console">
+              <pre><code>Ваш текущий баланс: {баланс}
 ==========================================================
 1. Вернуться
 2. Завершить программу
@@ -306,16 +137,21 @@
 4. Средний класс - доступно: 15, цена аренды на 1 день: 17
 5. Бизнес класс - доступно: 30, цена аренды на 1 день: 42
 Выберите действие: <span class="input">...</span></code></pre>
-        </div>
-        <p>Выбор <span class="hl-text">товара</span>:
-          <br>— Программа <span class="hl-text">запрашивает количество целых дней для выбранного товара</span>.
-          <br>— <span class="hl-text">Выводит в консоль товар</span> и <span class="hl-text">количество дней
-            аренды</span>, а также <span class="hl-text">итоговую сумму</span>.
-          <br>— <span class="hl-text">Запрашивает с консоли подтверждение</span>.
-          <br>— Если пользователь подтвердил, не имеет арендованный товар и на балансе достаточное количество денег, то
-          программа <span class="hl-text">снимает деньги с баланса</span>, а также <span class="hl-text">отнимает
-            количество доступного товара</span> и <span class="hl-text">меняет у клиента арендованный товар</span> и
-          <span class="hl-text">количество дней аренды</span>.
+            </div>
+          </li>
+          <li>Выбран <span class="hl-text">пункт с товаром</span>:
+            <ul>
+              <li>Программа <span class="hl-text">запрашивает количество целых дней для выбранного товара</span>.</li>
+              <li>Выводит <span class="hl-text">в консоль товар</span> и <span class="hl-text">количество дней
+                  аренды</span>, а также <span class="hl-text">итоговую сумму</span>.</li>
+              <li>Запрашивает <span class="hl-text">с консоли подтверждение</span>.</li>
+              <li>Если пользователь подтвердил, не имеет арендованный товар, на складе товар есть и на балансе
+                достаточное количество денег, то программа <span class="hl-text">снимает деньги с баланса</span>, а
+                также <span class="hl-text">отнимает количество доступного товара</span> и <span class="hl-text">меняет
+                  у клиента арендованный товар</span> и <span class="hl-text">количество дней аренды</span>.</li>
+            </ul>
+          </li>
+        </ul>
         </p>
 
         <h3>Меню администратора:</h3>
@@ -328,71 +164,82 @@
 5. Завершить программу
 Выберите действие: <span class="input">...</span></code></pre>
         </div>
-        <p>Выбор <span class="hl-text">пункта 1</span>:
-          <br>— Программа <span class="hl-text">запрашивает с консоли идентификатор клиента</span>.
-          <br>— Если он верный, то программа <span class="hl-text">показывает текущий баланс</span> и <span
-            class="hl-text">арендованный товар выбранного клиента</span>.
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор клиента</span>.</li>
+          <li>Если введённый идентификатор совпадает с идентификатором клиента, то программа <span
+              class="hl-text">выводит в консоль имя</span>, <span class="hl-text">фамилию</span>, <span
+              class="hl-text">текущий баланс</span>, <span class="hl-text">арендованный товар выбранного клиента</span>
+            и <span class="hl-text">количество дней аренды</span>.</li>
+        </ul>
         </p>
-        <p>Выбор <span class="hl-text">пункта 2</span>:
-          <br>— Программа <span class="hl-text">запрашивает с консоли идентификатор клиента</span>.
-          <br>— Если он верный, то программа <span class="hl-text">увеличивает на
-            <code><span class="number"><b>1</b></span></code> товар</span>, который указан у клиента, и <span
-            class="hl-text">меняет арендованный товар клиента на</span>
-          <code><span class="string"><b>"Отсутствует"</b></span></code>.
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор клиента</span>.</li>
+          <li>Если введённый идентификатор совпадает с идентификатором клиента, то программа <span
+              class="hl-text">увеличивает на <code class="python"><b>1</b></code> товар</span>, который указан у
+            клиента, и <span class="hl-text">меняет арендованный товар клиента на</span> <code
+              class="python"><b>"Отсутствует"</b></code>.</li>
+        </ul>
         </p>
-        <p>Выбор <span class="hl-text">пункта 3</span>:
-          <br>— Программа <span class="hl-text">выводит в консоль следующие данные</span> и <span
-            class="hl-text">меню</span>:
-        </p>
-        <div class="console">
-          <pre><code>1. Вернуться
+
+        <p>Выбран <span class="hl-text">пункт 3</span>:
+        <ul>
+          <li>Программа <span class="hl-text">выводит в консоль следующие данные</span> и <span class="hl-text">меню
+              аренды</span>:
+            <div class="console">
+              <pre><code>1. Вернуться
 2. Завершить программу
-====================================================
+==========================================================
 Выберите товар, чтобы обновить его данные.
 3. Эконом класс - доступно: 0, цена аренды на 1 день: 13
 4. Средний класс - доступно: 15, цена аренды на 1 день: 17
 5. Бизнес класс - доступно: 30, цена аренды на 1 день: 42
 Выберите действие: <span class="input">...</span></code></pre>
-        </div>
-        <p>Выбор <span class="hl-text">товара</span>:
-          <br>— Программа <span class="hl-text">делает копию данных выбранного товара</span>.
-          <br>— <span class="hl-text">Выводит в консоль данные выбранного товара</span> и <span class="hl-text">данные
-            копии</span>.
-          <br>— <span class="hl-text">Выводит в консоль меню изменения товара</span>:
-        </p>
-        <div class="console">
-          <pre><code>СТАРЫЕ ДАННЫЕ: {название_товара} - доступно: {количество}, цена аренды на 1 день: {цена}
+            </div>
+          </li>
+          <li>Выбран <span class="hl-text">пункт с товаром</span>:
+            <ul>
+              <li>Программа <span class="hl-text">делает копию данных выбранного товара</span>.</li>
+              <li>Выводит <span class="hl-text">в консоль данные выбранного товара</span> и <span class="hl-text">данные
+                  копии</span>.</li>
+              <li>Выводит <span class="hl-text">в консоль меню изменения товара</span>:
+                <div class="console">
+                  <pre><code>СТАРЫЕ ДАННЫЕ: {название_товара} - доступно: {количество}, цена аренды на 1 день: {цена}
 НОВЫЕ ДАННЫЕ: {название_товара} - доступно: {количество}, цена аренды на 1 день: {цена}
 ====================================================
 1. Изменить название
 2. Изменить количество
 3. Изменить цену
 4. Подтвердить изменения и вернуться
-5. Вернуться
-</code></pre>
-        </div>
-        <p><span class="hl-text">Пункты 1</span>-<span class="hl-text">3</span> меняют данные только у <span
-            class="hl-text">копии</span>. При выборе <span class="hl-text">пункта 4</span> программа <span
-            class="hl-text">проверяет</span>, в порядке ли данные у копии и, если да, то <span class="hl-text">меняет
-            старые данные на изменённые</span>.</p>
+5. Вернуться</code></pre>
+                </div>
+              </li>
+              <li><span class="hl-text">Пункты 1</span>-<span class="hl-text">3</span> меняют данные только у <span
+                  class="hl-text">копии</span>.</li>
+              <li><span class="hl-text">Пункт 4</span> проверяет, положительные ли <span
+                  class="hl-text">количество</span> и <span class="hl-text">цена у копии</span> и, если да, то <span
+                  class="hl-text">меняет старые данные на изменённые</span>.</li>
+            </ul>
+          </li>
+        </ul>
         </p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 20.2 (Необязательное)</h2>
-        <p>Напишите программу <span class="hl-text">"Казино"</span>. В игре
-          <code><span class="number"><b>4</b></span></code> <span class="hl-text">игрока</span> -
-          <code><span class="number"><b>1</b></span></code> <span class="hl-text">человек</span> и
-          <code><span class="number"><b>3</b></span></code> <span class="hl-text">бота</span>. Изначально у <span
-            class="hl-text">каждого игрока</span> <code><span class="number"><b>1000</b></span></code> очков. Программа
-          сперва <span class="hl-text">предлагает каждому игроку сделать ставку, которая уходит в общий банк</span>.
-          Затем <span class="hl-text">предлагает каждому игроку выбрать число от
-            <code><span class="number"><b>1</b></span></code> до <code><span class="number"><b>6</b></span></code>
-            включительно</span>. Если игрок угадывает число, то <span class="hl-text">банк уходит к победителю</span>.
-          Если таких игроков несколько, то <span class="hl-text">банк делится между победителями</span>. После этого
-          <span class="hl-text">банк обнуляется</span>. Если у игрока <code><span class="number"><b>0</b></span></code>
-          очков, то <span class="hl-text">он выбывает из игры</span>. Побеждает тот, кто остаётся <span
-            class="hl-text">последний с очками</span>. В случае проигрыша или выигрыша программа должна <span
-            class="hl-text">предложить сыграть снова</span>.
+        <p>Напишите программу <span class="hl-text">"Казино"</span>. В игре <code class="python"><b>4</b></code> <span
+            class="hl-text">игрока</span> – <code class="python"><b>1</b></code> <span class="hl-text">человек</span> и
+          <code class="python"><b>3</b></code> <span class="hl-text">бота</span>. Изначально у <span
+            class="hl-text">каждого игрока</span> <code class="python"><b>1000</b></code> очков. Программа сперва <span
+            class="hl-text">предлагает каждому игроку сделать ставку, которая уходит в общий банк</span>. Затем <span
+            class="hl-text">предлагает каждому игроку выбрать число от <code class="python"><b>1</b></code> до <code
+              class="python"><b>6</b></code> включительно</span>. Если игрок угадывает число, то <span
+            class="hl-text">банк уходит к победителю</span>. Если таких игроков несколько, то <span class="hl-text">банк
+            делится между победителями</span>. После этого <span class="hl-text">банк обнуляется</span>. Если у игрока
+          <code class="python"><b>0</b></code> очков, то <span class="hl-text">он выбывает из игры</span>. Побеждает
+          тот, кто остаётся <span class="hl-text">последний с очками</span>. В случае проигрыша или выигрыша программа
+          должна <span class="hl-text">предложить сыграть снова</span>.
         </p>
         <h3>Подсказки:</h3>
         <ol>
@@ -409,8 +256,8 @@
 number = randint(start, end)  # Генерация случайного числа от start до end включительно</code></pre>
             </div>
           </li>
-          <li>Перед тем, как программа будет запрашивать ставки, проверяйте их наличие. <span
-              class="number"><b>0</b></span> очков означает, что игрок не может делать ставки.</li>
+          <li>Перед тем, как программа будет запрашивать ставки, проверяйте их наличие. <code
+              class="python"><b>0</b></code> очков означает, что игрок не может делать ставки.</li>
           <li class="no-padding-bottom">Когда игроки делают ставки не забудьте отнять эти ставки из очков игроков.</li>
         </ol>
         <h3>Пример работы в консоли:</h3>
@@ -450,97 +297,6 @@ number = randint(start, end)  # Генерация случайного числ
       </div>
     </div>
   </div>
-  <script>
-    function copyCode(button) {
-      var codeBlock = button.nextElementSibling.querySelector('code');
-      var range = document.createRange();
-      range.selectNode(codeBlock);
-      window.getSelection().removeAllRanges();
-      window.getSelection().addRange(range);
-      document.execCommand('copy');
-      window.getSelection().removeAllRanges();
-      changeCopyButton(button);
-    }
-
-    function changeCopyButton(button) {
-      var originalHTML = button.innerHTML;
-      button.innerHTML = `
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
-    `;
-      setTimeout(function () {
-        button.innerHTML = originalHTML;
-      }, 2000);
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-      const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function (codeBlock, index) {
-        let innerHTML = codeBlock.innerHTML;
-        console.log(index, innerHTML);
-        // STRING
-        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string">${match}</span>`;
-        });
-        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string">${match}</span>`;
-        });
-        // KEYWORD CLASS
-        regex = /(class)(?!=)/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="keyword">${match}</span>`;
-        });
-        // KEYWORDS
-        const keywords = [
-          'def', 'for', 'in', 'while', 'and', 'or', 'not',
-          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
-          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
-        ];
-        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="keyword">${match}</span>`;
-        });
-        // KEYWORD NUMBER
-        regex = /\b\d+(\.\d+)?/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="number">${match}</span>`;
-        });
-        // STRING-ESC
-        regex = /\\./g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string-esc">${match}</span>`;
-        });
-        // COMMENTS
-        regex = /(#.*$)/gm;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="comments">${match}</span>`;
-        });
-        // METADATA
-        regex = /^(\s*@\w+)/gm;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="metadata">${match}</span>`;
-        });
-        // SELF
-        regex = /\bself\b/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="self">${match}</span>`;
-        });
-        // BUILT-IN
-        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max)\b/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="built-in">${match}</span>`;
-        });
-        // FUNCTION
-        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
-        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
-        // SPECIAL-NAMES
-        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
-        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
-        // KEYWORD-ARGUMENT
-        regex = /, (end|sep)=/g;
-        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
-        codeBlock.innerHTML = innerHTML
-      });
-    });
-  </script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>
