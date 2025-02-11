@@ -7,111 +7,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
     rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
-      color: #fff;
-      font-family: "Inter", sans-serif;
-      margin: 0px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .sidebar {
-      width: 240px;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-    }
-
-    .sidebar img {
-      height: 240px;
-      width: 240px;
-    }
-
-    .sidebar #copyrights {
-      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .right-block {
-      flex: 1;
-      width: 70%;
-      gap: 50px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      padding: 50px 25px 50px 0;
-      margin: 10px;
-    }
-
-    .right-rect {
-      background-color: rgba(38, 38, 38, 0.75);
-      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-      padding: 30px 25px;
-      border-radius: 10px;
-    }
-
-    .right-rect h2,
-    .right-rect .hl-text {
-      margin: 0;
-      color: #FFC000;
-    }
-
-    .right-rect h3 {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      color: #FFC000;
-    }
-
-    .console {
-      background-color: #1E1F22;
-      border-radius: 5px;
-      margin-top: 10px;
-      position: relative;
-    }
-
-    p {
-      margin-top: 15px;
-      margin-bottom: 0px;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      white-space: pre;
-      overflow-x: auto;
-      word-wrap: normal;
-      padding: 20px 10px;
-    }
-
-    .console .input {
-      color: #6AAB73;
-      font-style: italic;
-    }
-
-    code {
-      font-family: "JetBrains mono", monospace;
-      color: #BCBEC4;
-    }
-
-    .string {
-      color: #6AAB73;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .number {
-      color: #2AACB8;
-      font-family: "JetBrains mono", monospace;
-    }
-  </style>
+  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/pt.css">
 </head>
 
 <body>
@@ -159,26 +55,50 @@
 3. Показать историю по границам
 4. Завершить программу</code></pre>
         </div>
-        <p>
-
-        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">запрашивает с консоли числа
-            до тех пор, пока не введут пустую строку</span>. Все числа должны <span class="hl-text">помещаться в
-            список</span>. После этого программа <span class="hl-text">возвращается в главное меню</span>.</p>
-
-        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">выводит в консоль данные из
-            списка по следующему шаблону</span>:
-        <div class="console">
-          <pre><code>{индекс} {слово_доход/расход} {число_как_есть}</code></pre>
-        </div>
-        Доходом считается <span class="hl-text">положительное число</span>, а расходом - <span
-          class="hl-text">отрицательное</span>.
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">запрашивает с консоли
-            начальный индекс</span> и <span class="hl-text">конечный индекс</span>. Затем программа <span
-            class="hl-text">выводит в консоль данные из списка в границах индексов включительно по тому же шаблону, что
-            и выше</span>.</p>
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли числа до тех пор, пока не введут пустую
+              строку</span>.</li>
+          <li>Все числа <span class="hl-text">помещаются в список</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">выводит в консоль данные из списка в виде:</span>
+            <div class="console">
+              <pre><code>{индекс} {слово_доход/расход} {абсолютное_значение_числа}
+{индекс} {слово_доход/расход} {абсолютное_значение_числа}
+{индекс} {слово_доход/расход} {абсолютное_значение_числа}
+...</code></pre>
+            </div>
+          </li>
+          <li>Положительное число считается <span class="hl-text">доходом</span>, а отрицательное число – <span
+              class="hl-text">расходом</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 3</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли начальный индекс</span> и <span
+              class="hl-text">конечный индекс</span>.</li>
+          <li>По полученным границам программа <span class="hl-text">выводит в консоль данные из списка в виде:</span>
+            <div class="console">
+              <pre><code>{индекс} {слово_доход/расход} {абсолютное_значение_числа}
+{индекс} {слово_доход/расход} {абсолютное_значение_числа}
+{индекс} {слово_доход/расход} {абсолютное_значение_числа}
+...</code></pre>
+            </div>
+          </li>
+          <li>Положительное число считается <span class="hl-text">доходом</span>, а отрицательное число – <span
+              class="hl-text">расходом</span>.</li>
+        </ul>
+        </p>
       </div>
     </div>
   </div>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>

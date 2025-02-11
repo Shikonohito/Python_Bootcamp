@@ -7,111 +7,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
     rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
-      color: #fff;
-      font-family: "Inter", sans-serif;
-      margin: 0px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .sidebar {
-      width: 240px;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-    }
-
-    .sidebar img {
-      height: 240px;
-      width: 240px;
-    }
-
-    .sidebar #copyrights {
-      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .right-block {
-      flex: 1;
-      width: 70%;
-      gap: 50px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      padding: 50px 25px 50px 0;
-      margin: 10px;
-    }
-
-    .right-rect {
-      background-color: rgba(38, 38, 38, 0.75);
-      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-      padding: 30px 25px;
-      border-radius: 10px;
-    }
-
-    .right-rect h2,
-    .right-rect .hl-text {
-      margin: 0;
-      color: #FFC000;
-    }
-
-    .right-rect h3 {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      color: #FFC000;
-    }
-
-    .console {
-      background-color: #1E1F22;
-      border-radius: 5px;
-      margin-top: 10px;
-      position: relative;
-    }
-
-    p {
-      margin-top: 15px;
-      margin-bottom: 0px;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      white-space: pre;
-      overflow-x: auto;
-      word-wrap: normal;
-      padding: 20px 10px;
-    }
-
-    .console .input {
-      color: #6AAB73;
-      font-style: italic;
-    }
-
-    code {
-      font-family: "JetBrains mono", monospace;
-      color: #BCBEC4;
-    }
-
-    .string {
-      color: #6AAB73;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .number {
-      color: #2AACB8;
-      font-family: "JetBrains mono", monospace;
-    }
-  </style>
+  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/pt.css">
 </head>
 
 <body>
@@ -123,8 +19,8 @@
     <div class="right-block">
       <div class="right-rect">
         <h2>Практическое Задание 21.1</h2>
-        <p>Напишите программу, которая <span class="hl-text">выводит в консоль слово</span> <span
-            class="string"><b>"Python"</b></span>, а затем <span class="hl-text">выводит в консоль символы на чётных
+        <p>Напишите программу, которая <span class="hl-text">выводит в консоль слово</span> <code
+            class="Python"><b>"Python"</b></code>, а затем <span class="hl-text">выводит в консоль символы на чётных
             индексах</span>.</p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
@@ -160,8 +56,8 @@ gnirtS tesT</code></pre>
       <div class="right-rect">
         <h2>Практическое Задание 21.4</h2>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли слово маленькими буквами</span> и
-          <span class="hl-text">выводит в консоль</span> <span class="string"><b>"Это палиндром."</b></span> или <span
-            class="string"><b>"Это не палиндром."</b></span> в зависимости от слова.
+          <span class="hl-text">выводит в консоль</span> <code class="Python"><b>"Это палиндром."</b></code> или <code
+            class="Python"><b>"Это не палиндром."</b></code> в зависимости от слова.
         </p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
@@ -173,7 +69,7 @@ gnirtS tesT</code></pre>
       <div class="right-rect">
         <h2>Практическое Задание 21.5</h2>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span> и <span
-            class="hl-text">выводит в консоль последние <span class="number"><b>3</b></span> символа строки</span>.</p>
+            class="hl-text">выводит в консоль последние <code class="Python"><b>3</b></code> символа строки</span>.</p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>Введите строку: <span class="input">abcdef</span>
@@ -236,8 +132,8 @@ gnirtS tesT</code></pre>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 21.10</h2>
-        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли <span
-              class="number"><b>16</b></span>-значный номер карты</span> и <span class="hl-text">выводит в консоль этот
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли <code
+              class="Python"><b>16</b></code>-значный номер карты</span> и <span class="hl-text">выводит в консоль этот
             же номер, но с замаскированными символами, кроме последних четырёх</span>.</p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
@@ -248,4 +144,6 @@ gnirtS tesT</code></pre>
       </div>
     </div>
   </div>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>
