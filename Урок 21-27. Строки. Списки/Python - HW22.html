@@ -7,203 +7,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
     rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
-      color: #fff;
-      font-family: "Inter", sans-serif;
-      margin: 0px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .sidebar {
-      width: 240px;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-    }
-
-    .sidebar img {
-      height: 240px;
-      width: 240px;
-    }
-
-    .sidebar #copyrights {
-      background: linear-gradient(to right, #343434 0%, #363636 100%);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .right-block {
-      flex: 1;
-      width: 70%;
-      gap: 50px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      padding: 50px 25px 50px 0;
-      margin: 10px;
-    }
-
-    .right-rect {
-      background-color: rgba(38, 38, 38, 0.75);
-      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-      padding: 30px 25px;
-      border-radius: 10px;
-    }
-
-    .right-rect h2,
-    .right-rect .hl-text {
-      margin: 0;
-      color: #FFC000;
-    }
-
-    .right-rect h3 {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      color: #FFC000;
-    }
-
-    .console {
-      background-color: #1E1F22;
-      border-radius: 5px;
-      margin-top: 10px;
-      position: relative;
-    }
-
-    p {
-      margin-top: 15px;
-      margin-bottom: 0px;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      white-space: pre;
-      overflow-x: auto;
-      word-wrap: normal;
-      padding: 20px 10px;
-    }
-
-    .console .input {
-      color: #6AAB73;
-      font-style: italic;
-    }
-
-    code {
-      font-family: "JetBrains mono", monospace;
-      color: #BCBEC4;
-    }
-
-    .copy-button {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      padding: 5px 10px;
-      background-color: #FFC000;
-      color: #1E1F22;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-family: "JetBrains mono", monospace;
-      font-weight: bold;
-    }
-
-    .string {
-      color: #6AAB73;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .string-bracket,
-    .string-esc,
-    .keyword {
-      color: #CF8E6D;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .self {
-      color: #94558D;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .string-bracket-inner {
-      color: #BCBEC4;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .number {
-      color: #2AACB8;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .comments {
-      color: #7A7E85;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .metadata {
-      color: #B3AE60;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .built-in {
-      color: #8888C6;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .function {
-      color: #56A8F5;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .special-names {
-      color: #B200B2;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .keyword-argument {
-      color: #AA4926;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    ol {
-      counter-reset: list;
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 0;
-    }
-
-    ol li {
-      counter-increment: list;
-      position: relative;
-      padding-left: 1.2em;
-      padding-bottom: 1.2em;
-    }
-
-    ol li::before {
-      content: counter(list) ". ";
-      position: absolute;
-      left: 0;
-      color: #FFC000;
-      font-weight: bold;
-    }
-
-    .grey {
-      color: #BCBEC4;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .no-padding-bottom {
-      padding-bottom: 0;
-    }
-  </style>
+  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/hw.css">
 </head>
 
 <body>
@@ -224,9 +28,9 @@
         <h2>Домашнее Задание 22.1</h2>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку с примером</span>, <span
             class="hl-text">проверяет правильность использования скобок</span> и затем <span class="hl-text">она выводит
-            в консоль</span> <span class="string"><b>"Открывающих скобок больше, чем закрывающих."</b></span>, <span
-            class="string"><b>"Закрывающих скобок больше, чем открывающих."</b></span> или <span
-            class="string"><b>"Скобки расставлены верно."</b></span>.</p>
+            в консоль</span> <code class="python"><b>"Открывающих скобок больше, чем закрывающих."</b></code>, <code
+            class="python"><b>"Закрывающих скобок больше, чем открывающих."</b></code> или <code
+            class="python"><b>"Скобки расставлены верно."</b></code>.</p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>Введите строку примера: <span class="input">2 + (10 - 5 - (2 + 10)</span>
@@ -250,10 +54,9 @@ hij.</code></pre>
       <div class="right-rect">
         <h2>Домашнее Задание 22.3</h2>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли арифметическое выражение вида</span>
-          <span class="number"><b>{число}<span class="grey">{операция}</span>{число}</b></span>, затем <span
-            class="hl-text">выводит в консоль результат выражения</span>. В качестве операции может быть <span
-            class="grey"><b>+</b></span>, <span class="grey"><b>-,</b></span> <span class="grey"><b>*</b></span>, <span
-            class="grey"><b>/</b></span>.
+          <code class="python"><b>{число}{операция}{число}</b></code>, затем <span class="hl-text">выводит в консоль
+            результат выражения</span>. В качестве операции может быть <code class="python"><b>+</b></code>, <code
+            class="python"><b>-,</b></code> <code class="python"><b>*</b></code>, <code class="python"><b>/</b></code>.
         </p>
 
         <h3>Подсказка:</h3>
@@ -278,8 +81,8 @@ hij.</code></pre>
         <p>Для подсчёта точек проверяйте сразу две позиции. Например, если по индексу <code
             class="python"><b>i</b></code> находится точка, то проверяем по индексу <code
             class="python"><b>i + 1</b></code>. Если и на ней находится точка, то ничего не делаем. В противном случае
-          увеличиваем счётчик предложений. Учтите, что в этом случае нужно проверять с индекса <span
-            class="number"><b>0</b></span> до <code class="python"><b>{размера_строки} - 1</b></code>.</p>
+          увеличиваем счётчик предложений. Учтите, что в этом случае нужно проверять с индекса <code
+            class="python"><b>0</b></code> до <code class="python"><b>{размера_строки} - 1</b></code>.</p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
           <pre><code>Введите текст: <span class="input">abc? defg! hij... klm.</span>
@@ -292,7 +95,8 @@ hij.</code></pre>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли кому</span>, <span class="hl-text">от
             кого</span> и <span class="hl-text">сообщение</span>, затем <span class="hl-text">выводит в консоль
             форматированный текст</span>. Используйте переменную, в котором будет находиться форматированный текст, и
-          <span class="grey"><b>format()</b></span> или <span class="grey"><b>f-строки</b></span>. Команда вывода должна
+          <code class="python"><b>format()</b></code> или <code class="python"><b>f-строки</b></code>. Команда вывода
+          должна
           быть одна.
         </p>
         <h3>Пример работы в консоли:</h3>
@@ -311,7 +115,7 @@ hij.</code></pre>
       <div class="right-rect">
         <h2>Домашнее Задание 22.6</h2>
         <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку азотистых оснований из первых
-            больших</span> и <span class="hl-text">маленьких букв</span> - А/а (Аденин), Г/г (Гуанин), Ц/ц (Цитозин),
+            больших</span> и <span class="hl-text">маленьких букв</span> – А/а (Аденин), Г/г (Гуанин), Ц/ц (Цитозин),
           Т/т (Тимин), а затем <span class="hl-text">выводит в консоль сколько каждого из них</span>.</p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
@@ -329,7 +133,7 @@ hij.</code></pre>
             class="hl-text">заменяет подряд идущие символы на этот же символ</span> и <span class="hl-text">количество
             повторений</span>, затем <span class="hl-text">выводит в консоль новую строку</span>.</p>
         <h3>Подсказка:</h3>
-        <p>Рассматривайте пару символов - текущий и предыдущий символ. Для этого создайте переменную, которая в самом
+        <p>Рассматривайте пару символов – текущий и предыдущий символ. Для этого создайте переменную, которая в самом
           конце цикла копирует текущий индекс.</p>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
@@ -342,10 +146,10 @@ hij.</code></pre>
         <h2>Домашнее Задание 22.8</h2>
         <p>Напишите программу, которая <span class="hl-text">генерирует пароли</span>. Программа сперва должна <span
             class="hl-text">задать ряд вопросов</span>, затем <span class="hl-text">в зависимости от ответов создать
-            <span class="number"><b>5</b></span> паролей</span> и <span class="hl-text">вывести их в консоль</span>.</p>
+            <code class="python"><b>5</b></code> паролей</span> и <span class="hl-text">вывести их в консоль</span>.</p>
         <h3>Подсказки:</h3>
         <ol>
-          <li>Генерируйте случайное число от <span class="number"><b>0</b></span> до размера набора символов. Полученное
+          <li>Генерируйте случайное число от <code class="python"><b>0</b></code> до размера набора символов. Полученное
             число будет индексом символа из набора символов. Используйте следующий код для генерации числа:<div
               class="console">
               <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
@@ -361,11 +165,11 @@ index = randint(start, end)  # Использование функции для 
             </div>
           </li>
           <li class="no-padding-bottom">Создайте одну переменную, которая будет выступать в качестве набора символов,
-            которые будут добавляться в пароль. Изначально в этой переменной должны быть символы <span
-              class="string"><b>"abcdefghijklmnopqrstuvwxyz"</b></span>. Если пароль должен содержать цифры, то
-            добавляйте к нему строку <span class="string"><b>"0123456789"</b></span>. Если заглавные английские буквы,
-            то <span class="string"><b>"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</b></span>. Если специальные символы, то <span
-              class="string"><b>"!@#$%&*_-+=?"</b></span>.</li>
+            которые будут добавляться в пароль. Изначально в этой переменной должны быть символы <code
+              class="python"><b>"abcdefghijklmnopqrstuvwxyz"</b></code>. Если пароль должен содержать цифры, то
+            добавляйте к нему строку <code class="python"><b>"0123456789"</b></code>. Если заглавные английские буквы,
+            то <code class="python"><b>"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</b></code>. Если специальные символы, то <code
+              class="python"><b>"!@$%&*_-+=?"</b></code>.</li>
         </ol>
         <h3>Пример работы в консоли:</h3>
         <div class="console">
@@ -383,44 +187,43 @@ index = randint(start, end)  # Использование функции для 
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 22.9 (Необязательное)</h2>
-        <p><span class="hl-text">Teston Lebra</span> попросили определить <span class="string"><b>"текст"</b></span>
+        <p><span class="hl-text">Teston Lebra</span> попросили определить <code class="python"><b>"текст"</b></code>
           молекул ДНК по хешам. Напишите программу, которая <span class="hl-text">перебирает все возможные комбинации
             молекул ДНК</span>, <span class="hl-text">вычисляет их хеши</span> и <span class="hl-text">выводит в консоль
             найденные последовательности ДНК</span>.</p>
 
         <p>Хеши следующие:
-          <span class="string"><b><br>fbfe4047a78675e30b3e6664392e308c83d5b7692180048db3652abad7cd19d4
-              <br>b10ca0c7df6eea471a995c343bbf6acecb979f7fa9f91b6ce7f4e6b0825e1825
-              <br>6037fa5f8f5312a8cca2a0a8a5f88395531e84d82deff50bae3f4e46360bfbc2
-              <br>774ef38ec143565fcc12bad7161b596d2ede50110333857e777a2ac3fce07e9c
-              <br>23f3b5a428129da00e3d3cb03812318104c9ccc8fe7562974719ec63db85f39e</b></span>
+          <code class="python"><b><br>"fbfe4047a78675e30b3e6664392e308c83d5b7692180048db3652abad7cd19d4"
+              <br>"b10ca0c7df6eea471a995c343bbf6acecb979f7fa9f91b6ce7f4e6b0825e1825"
+              <br>"6037fa5f8f5312a8cca2a0a8a5f88395531e84d82deff50bae3f4e46360bfbc2"
+              <br>"774ef38ec143565fcc12bad7161b596d2ede50110333857e777a2ac3fce07e9c"
+              <br>"23f3b5a428129da00e3d3cb03812318104c9ccc8fe7562974719ec63db85f39e"</b></code>
         </p>
 
-        <p>Известно, что размер <span class="string"><b>"текста"</b></span> молекул ДНК составляет <span
-            class="number"><b>10</b></span> символов и этот <span class="string"><b>"текст"</b></span> состоит из
-          заглавных символов <span class="string"><b>"А"</b></span>, <span class="string"><b>"Г"</b></span>, <span
-            class="string"><b>"Ц"</b></span> и <span class="string"><b>"Т"</b></span>. Программа должна <span
-            class="hl-text">выводить в формате</span> <span class="string"><b>{хеш} <span class="grey">=</span>
-              {текст}</b></span>.</p>
+        <p>Известно, что размер <code class="python"><b>"текста"</b></code> молекул ДНК составляет <code
+            class="python"><b>10</b></code> символов и этот <code class="python"><b>"текст"</b></code> состоит из
+          заглавных символов <code class="python"><b>"А"</b></code>, <code class="python"><b>"Г"</b></code>, <code
+            class="python"><b>"Ц"</b></code> и <code class="python"><b>"Т"</b></code>. Программа должна <span
+            class="hl-text">выводить в формате</span> <code class="python"><b>{хеш} = {текст}</b></code>.</p>
         <h3>Подсказки:</h3>
         <ol>
           <li>Вводить <span class="hl-text">ничего не нужно</span>. Ваша программа должна <span
               class="hl-text">перебирать возможные комбинации</span> и <span class="hl-text">определять их хеши</span>.
             Если хеши совпадают с искомыми, то нужно выводить последовательность ДНК.</li>
-          <li>Создайте переменную, которая будет хранить набор символов <span class="string"><b>"АГЦТ"</b></span>.</li>
-          <li>Создайте <span class="number"><b>5</b></span> переменных для каждого хеша.</li>
+          <li>Создайте переменную, которая будет хранить набор символов <code class="python"><b>"АГЦТ"</b></code>.</li>
+          <li>Создайте <code class="python"><b>5</b></code> переменных для каждого хеша.</li>
           <li>По структуре программа должна состоять из цикла <code class="python"><b>while</b></code>, внутри которого
             находится цикл <code class="python"><b>for</b></code>, внутри которого находится цикл <code
               class="python"><b>for</b></code>, внутри которого находится цикл <code class="python"><b>for</b></code> и
-            т.д. В итоге должен получится внешний цикл <code class="python"><b>while</b></code> и <span
-              class="number"><b>10</b></span> вложенных циклов <code class="python"><b>for</b></code> по принципу
-            матрёшки. Цикл <code class="python"><b>while</b></code> должен прекратиться, когда было обнаружено <span
-              class="number"><b>5</b></span> хешей. Циклы <code class="python"><b>for</b></code> должны перебирать числа
-            от <span class="number"><b>0</b></span> до <span class="number"><b>3</b></span> включительно, чтобы с
-            помощью этих чисел перебирать символы из <span class="string"><b>"АГЦТ"</b></span>.</li>
+            т.д. В итоге должен получится внешний цикл <code class="python"><b>while</b></code> и <code
+              class="python"><b>10</b></code> вложенных циклов <code class="python"><b>for</b></code> по принципу
+            матрёшки. Цикл <code class="python"><b>while</b></code> должен прекратиться, когда было обнаружено <code
+              class="python"><b>5</b></code> хешей. Циклы <code class="python"><b>for</b></code> должны перебирать числа
+            от <code class="python"><b>0</b></code> до <code class="python"><b>3</b></code> включительно, чтобы с
+            помощью этих чисел перебирать символы из <code class="python"><b>"АГЦТ"</b></code>.</li>
           <li>В самом начале цикла <code class="python"><b>while</b></code> обнуляйте строку.</li>
           <li>Каждый следующий цикл <code class="python"><b>for</b></code> должен брать копию строки от предыдущего
-            цикла и добавлять к копии символ из <span class="string"><b>"АГЦТ"</b></span>:<div class="console">
+            цикла и добавлять к копии символ из <code class="python"><b>"АГЦТ"</b></code>:<div class="console">
               <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
                   height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
                   <path fill="currentColor" fill-rule="evenodd"
@@ -463,97 +266,6 @@ print(dna_hash)  # Для проверки работы</code></pre>
       </div>
     </div>
   </div>
-  <script>
-    function copyCode(button) {
-      var codeBlock = button.nextElementSibling.querySelector('code');
-      var range = document.createRange();
-      range.selectNode(codeBlock);
-      window.getSelection().removeAllRanges();
-      window.getSelection().addRange(range);
-      document.execCommand('copy');
-      window.getSelection().removeAllRanges();
-      changeCopyButton(button);
-    }
-
-    function changeCopyButton(button) {
-      var originalHTML = button.innerHTML;
-      button.innerHTML = `
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
-    `;
-      setTimeout(function () {
-        button.innerHTML = originalHTML;
-      }, 2000);
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-      const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function (codeBlock, index) {
-        let innerHTML = codeBlock.innerHTML;
-        console.log(index, innerHTML);
-        // STRING
-        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string">${match}</span>`;
-        });
-        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string">${match}</span>`;
-        });
-        // KEYWORD CLASS
-        regex = /(class)(?!=)/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="keyword">${match}</span>`;
-        });
-        // KEYWORDS
-        const keywords = [
-          'def', 'for', 'in', 'while', 'and', 'or', 'not',
-          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
-          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
-        ];
-        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="keyword">${match}</span>`;
-        });
-        // KEYWORD NUMBER
-        regex = /\b\d+(\.\d+)?/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="number">${match}</span>`;
-        });
-        // STRING-ESC
-        regex = /\\./g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string-esc">${match}</span>`;
-        });
-        // COMMENTS
-        regex = /(#.*$)/gm;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="comments">${match}</span>`;
-        });
-        // METADATA
-        regex = /^(\s*@\w+)/gm;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="metadata">${match}</span>`;
-        });
-        // SELF
-        regex = /\bself\b/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="self">${match}</span>`;
-        });
-        // BUILT-IN
-        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max)\b/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="built-in">${match}</span>`;
-        });
-        // FUNCTION
-        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
-        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
-        // SPECIAL-NAMES
-        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
-        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
-        // KEYWORD-ARGUMENT
-        regex = /, (end|sep)=/g;
-        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
-        codeBlock.innerHTML = innerHTML
-      });
-    });
-  </script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>
