@@ -7,203 +7,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
     rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
-      color: #fff;
-      font-family: "Inter", sans-serif;
-      margin: 0px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .sidebar {
-      width: 240px;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-    }
-
-    .sidebar img {
-      height: 240px;
-      width: 240px;
-    }
-
-    .sidebar #copyrights {
-      background: linear-gradient(to right, #343434 0%, #363636 100%);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .right-block {
-      flex: 1;
-      width: 70%;
-      gap: 50px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      padding: 50px 25px 50px 0;
-      margin: 10px;
-    }
-
-    .right-rect {
-      background-color: rgba(38, 38, 38, 0.75);
-      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-      padding: 30px 25px;
-      border-radius: 10px;
-    }
-
-    .right-rect h2,
-    .right-rect .hl-text {
-      margin: 0;
-      color: #FFC000;
-    }
-
-    .right-rect h3 {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      color: #FFC000;
-    }
-
-    .console {
-      background-color: #1E1F22;
-      border-radius: 5px;
-      margin-top: 10px;
-      position: relative;
-    }
-
-    p {
-      margin-top: 15px;
-      margin-bottom: 0px;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      white-space: pre;
-      overflow-x: auto;
-      word-wrap: normal;
-      padding: 20px 10px;
-    }
-
-    .console .input {
-      color: #6AAB73;
-      font-style: italic;
-    }
-
-    code {
-      font-family: "JetBrains mono", monospace;
-      color: #BCBEC4;
-    }
-
-    .copy-button {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      padding: 5px 10px;
-      background-color: #FFC000;
-      color: #1E1F22;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-family: "JetBrains mono", monospace;
-      font-weight: bold;
-    }
-
-    .string {
-      color: #6AAB73;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .string-bracket,
-    .string-esc,
-    .keyword {
-      color: #CF8E6D;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .self {
-      color: #94558D;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .string-bracket-inner {
-      color: #BCBEC4;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .number {
-      color: #2AACB8;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .comments {
-      color: #7A7E85;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .metadata {
-      color: #B3AE60;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .built-in {
-      color: #8888C6;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .function {
-      color: #56A8F5;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .special-names {
-      color: #B200B2;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .keyword-argument {
-      color: #AA4926;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    ol {
-      counter-reset: list;
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 0;
-    }
-
-    ol li {
-      counter-increment: list;
-      position: relative;
-      padding-left: 1.2em;
-      padding-bottom: 1.2em;
-    }
-
-    ol li::before {
-      content: counter(list) ". ";
-      position: absolute;
-      left: 0;
-      color: #FFC000;
-      font-weight: bold;
-    }
-
-    .grey {
-      color: #BCBEC4;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .no-padding-bottom {
-      padding-bottom: 0;
-    }
-  </style>
+  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/hw.css">
 </head>
 
 <body>
@@ -234,63 +38,111 @@
 6. Завершить программу</code></pre>
         </div>
         </p>
-        <p>При выборе <span class="hl-text">пункта 1</span> программа должна <span class="hl-text">выводить в консоль
-            все имена из списка в одну строчку</span>.<br>Реализуйте через функцию <span
-            class="function"><b>show_list</b></span>:
-          <br>— Функция принимает <span class="hl-text">список имён</span>.
-          <br>— Выводит в консоль <span class="hl-text">в одну строку через пробел имена</span>.
-          <br>— Ничего <span class="hl-text">не возвращает</span>.
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">выводит в консоль все имена из списка в одну строчку</span>.</li>
+          <li>Реализуйте через функцию <span class="function"><b>show_list</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">список имён</span>.</li>
+              <li>Выводит в консоль <span class="hl-text">в одну строку через пробел имена</span>.</li>
+              <li>Ничего <span class="hl-text">не возвращает</span>.</li>
+            </ul>
+          </li>
+        </ul>
         </p>
-        <p>При выборе <span class="hl-text">пункта 2</span> программа должна <span class="hl-text">запросить с консоли
-            имя</span> и <span class="hl-text">поместить в список</span>, если такого имени нет в списке.<br>Реализуйте
-          через функцию <span class="function"><b>add_name</b></span>:
-          <br>— Функция принимает <span class="hl-text">список имён</span> и <span class="hl-text">имя</span>.
-          <br>— Проверяет имя с помощью функции <span class="function"><b>is_duplicate</b></span> (см. ниже). Если имя
-          проходит проверку, то помещает её <span class="hl-text">в список</span> и <span
-            class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>. В противном случае <span
-            class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли имя</span>.</li>
+          <li>Если введённого имени нет в списке, то <span class="hl-text">помещает имя в список</span>.</li>
+          <li>Реализуйте через функцию <span class="function"><b>add_name</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">список имён</span> и <span class="hl-text">имя</span>.</li>
+              <li>С помощью функции <span class="function"><b>is_duplicate</b></span> (см. ниже) проверяет имя.</li>
+              <li>Если проверка пройдена, то <span class="hl-text">помещает имя в список имён</span> и <span
+                  class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+              </li>
+            </ul>
+          </li>
+          <li>Реализуйте функцию <span class="function"><b>is_duplicate</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">список имён</span> и <span class="hl-text">имя</span>.</li>
+              <li>Если имя находится в списке (точное совпадение), то <span class="hl-text">возвращает</span> <span
+                  class="keyword"><b>True</b></span>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+              </li>
+            </ul>
+          </li>
+        </ul>
         </p>
-        <p>Функция <span class="function"><b>is_duplicate</b></span>:
-          <br>— Функция принимает <span class="hl-text">список имён</span> и <span class="hl-text">имя</span>.
-          <br>— Если имя находится в списке (точное совпадение), то <span class="hl-text">возвращает</span> <span
-            class="keyword"><b>True</b></span>. В противном случае <span class="hl-text">возвращает</span> <span
-            class="keyword"><b>False</b></span>.
+
+        <p>Выбран <span class="hl-text">пункт 3</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли порядковый номер</span> (не индекс).</li>
+          <li>По порядковому номеру <span class="hl-text">удаляет имя из списка</span>.</li>
+          <li>Реализуйте через функцию <span class="function"><b>remove_name</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">список имён</span> и <span class="hl-text">индекс</span>.</li>
+              <li>С помощью функции <span class="function"><b>is_correct_index</b></span> (см. ниже) проверяет индекс на
+                границы списка.</li>
+              <li>Если проверка пройдена, то <span class="hl-text">удаляет имя по индексу из списка</span> и <span
+                  class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+              </li>
+            </ul>
+          </li>
+          <li>Реализуйте функцию <span class="function"><b>is_correct_index</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">список имён</span> и <span class="hl-text">индекс</span>.</li>
+              <li>Если индекс в промежутке от <code class="python"><b>0</b></code> до <span class="hl-text">размера
+                  списка</span>, то <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>.
+              </li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+              </li>
+            </ul>
+          </li>
+        </ul>
         </p>
-        <p>При выборе <span class="hl-text">пункта 3</span> программа должна <span class="hl-text">запросить с консоли
-            порядковый номер имени</span> и <span class="hl-text">удалить имя</span>.<br>Реализуйте через функцию <span
-            class="function"><b>remove_name</b></span>:
-          <br>— Функция принимает <span class="hl-text">список имён</span> и <span class="hl-text">индекс</span>.
-          <br>— Проверяет индекс с помощью функции <span class="function"><b>is_correct_index</b></span> (см. ниже).
-          Если индекс проходит проверку, то <span class="hl-text">удаляет имя по индексу из списка</span> и <span
-            class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>. В противном случае <span
-            class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+
+        <p>Выбран <span class="hl-text">пункт 4</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли порядковый номер</span> (не индекс) и <span
+              class="hl-text">имя</span>.</li>
+          <li>По порядковому номеру <span class="hl-text">изменяет имя из списка</span>.</li>
+          <li>Реализуйте через функцию <span class="function"><b>change_name</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">список имён</span>, <span class="hl-text">индекс</span> и
+                <span class="hl-text">новое имя</span>.
+              </li>
+              <li>С помощью функции <span class="function"><b>is_correct_index</b></span> проверяет индекс на границы
+                списка.</li>
+              <li>С помощью функции <span class="function"><b>is_duplicate</b></span> проверяет имя.</li>
+              <li>Если обе проверки пройдены, то <span class="hl-text">изменяет имя по индексу из списка на новое
+                  имя</span> и <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
+              </li>
+            </ul>
+          </li>
+        </ul>
         </p>
-        <p>Функция <span class="function"><b>is_correct_index</b></span>:
-          <br>— Принимает <span class="hl-text">список имён</span> и <span class="hl-text">индекс</span>.
-          <br>— Если индекс в промежутке от <span class="number"><b>0</b></span> до <span class="number"><b>размера
-              списка</b></span>, то <span class="hl-text">возвращает</span> <span class="keyword"><b>True</b></span>. В
-          противном случае <span class="hl-text">возвращает</span> <span class="keyword"><b>False</b></span>.
-        </p>
-        <p>При выборе <span class="hl-text">пункта 4</span> программа должна <span class="hl-text">запросить с консоли
-            порядковый номер имени</span> и <span class="hl-text">имя</span>. Затем программа должна <span
-            class="hl-text">изменить имя по порядковому номеру на другое имя</span>, если нового имени нет в
-          списке.<br>Реализуйте через функцию <span class="function"><b>change_name</b></span>:
-          <br>— Функция принимает <span class="hl-text">список имён</span>, <span class="hl-text">индекс</span> и <span
-            class="hl-text">новое имя</span>.
-          <br>— Проверяет имя с помощью <span class="function"><b>is_duplicate</b></span> и индекс с помощью <span
-            class="function"><b>is_correct_index</b></span>. Если всё в порядке, то <span class="hl-text">изменяет имя
-            по индексу на новое имя</span> и <span class="hl-text">возвращает</span> <span
-            class="keyword"><b>True</b></span>. В противном случае <span class="hl-text">возвращает</span> <span
-            class="keyword"><b>False</b></span>.
-        </p>
-        <p>При выборе <span class="hl-text">пункта 5</span> программа должна <span class="hl-text">запросить с консоли
-            имя</span>. Затем программа должна <span class="hl-text">вывести порядковый номер имени</span>, если имя
-          есть в списке. В противном случае, программа должна <span class="hl-text">вывести число</span> <span
-            class="number"><b>-1</b></span>.<br>Реализуйте через функцию <span class="function"><b>get_index</b></span>:
-          <br>— Функция принимает <span class="hl-text">список имён</span> и <span class="hl-text">имя</span>.
-          <br>— Проходится <span class="hl-text">по списку</span> и <span class="hl-text">ищет имя</span>. Если имя
-          найдено, то <span class="hl-text">возвращает индекс этого имени</span>. В противном случае <span
-            class="hl-text">возвращает</span> <span class="number"><b>-1</b></span>.
+
+        <p>Выбран <span class="hl-text">пункт 5</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли имя</span>.</li>
+          <li>Если имя найдено в списке, то <span class="hl-text">выводит в консоль его порядковый номер из
+              списка</span>.</li>
+          <li>В противном случае <span class="hl-text">выводит в консоль</span> <code
+              class="python"><b>"Имя не найдено в списке"</b></code>.</li>
+          <li>Реализуйте через функцию <span class="function"><b>get_index</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">список имён</span> и <span class="hl-text">имя</span>.</li>
+              <li>Проходится <span class="hl-text">по списку</span> и <span class="hl-text">ищет имя</span>.</li>
+              <li>Если имя найдено в списке, то <span class="hl-text">возвращает индекс этого имени</span>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>-1</b></code>.</li>
+            </ul>
+          </li>
+        </ul>
         </p>
       </div>
       <div class="right-rect">
@@ -559,68 +411,120 @@ while True:
       <div class="right-rect">
         <h2>Домашнее Задание 32.4 (Необязательное)</h2>
         <p>На работе у <span class="hl-text">Teston Lebra</span> произошёл наплыв ботов, из-за чего появилось много
-          фейковых аккаунтов. В этой системе аккаунт это список следующего вида:</p>
-        <p>
-          <code><b>[<span class="string">{логин}</span>, <span class="string">{пароль}</span>, <span class="string">{имя}</span>, <span class="string">{фамилия}</span>, <span class="number">{баланс_аккаунта_в_виде_числа}</span>, <span class="string">{идентификатор}</span>, <span class="keyword">{статус_True_или_False}</span>, <span class="string">{дата}</span>]</b></code>
+          фейковых аккаунтов. В этой системе аккаунт это список следующего вида:
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+              height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd"
+                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">login = "логин"
+password = "пароль"
+f_name = "имя"
+l_name = "фамилия"
+balance = 1250
+acc_id = "88888888"
+ban_status = True
+ban_date = "2024-04-25"
+
+some_acc = [login, password, f_name, l_name, balance, acc_id, ban_status, ban_date]</code></pre>
+        </div>
         </p>
-        <p>Напишите следующие функции:</p>
-        <ol>
-          <li><code><b><span class="function">check_user</span>(account, deep_check)</b></code>
-            <br>Принимает аккаунт в виде <span class="hl-text">списка</span> и значение <code
-              class="python"><b>True</b></code> или <code class="python"><b>False</b></code>. Вызывает функцию
-            <code><b><span class="function">get_check_list</span></b></code>, передав ей <code><b>deep_check</b></code>,
-            сохраняет её результат в <code><b>check_list</b></code>, проходится по функциям из полученного списка и
-            вызывает их, передав <code><b>account</b></code>. Если хоть одна из функций вернёт <code
-              class="python"><b>False</b></code>, то дальнейшие проверки прерываются. Если проверки были прерваны, то
-            <code><b><span class="function">check_user</span></b></code> должен <span class="hl-text">вернуть</span>
-            <code class="python"><b>False</b></code>. В противном случае должен <span class="hl-text">вернуть</span>
-            <code class="python"><b>True</b></code>.
+        <p>Реализуйте следующие функции:
+        <ul>
+          <li><code><b><span class="function">check_user</span>(account, deep_check)</b></code>:
+            <ul>
+              <li>Функция принимает аккаунт в виде <span class="hl-text">списка</span> и значение <code
+                  class="python"><b>True</b></code> или <code class="python"><b>False</b></code>.</li>
+              <li>Вызывает функцию <span class="function"><b>get_check_list</b></span>, передав ей
+                <code><b>deep_check</b></code>.
+              </li>
+              <li>Результат от вызванной функции <span class="hl-text">сохраняет в переменной</span>
+                <code><b>check_list</b></code>.
+              </li>
+              <li>Проходится по функциям из <span class="hl-text">полученного списка</span> и <span
+                  class="hl-text">вызывает их</span>, передав <code><b>account</b></code>.</li>
+              <li>Если хоть одна из функций вернёт <code class="python"><b>False</b></code>, то <span
+                  class="hl-text">дальнейшие проверки прерываются</span> и <span class="hl-text">возвращается</span>
+                <code class="python"><b>False</b></code>.
+              </li>
+              <li>Если все функции вернули <code class="python"><b>True</b></code>, то <span
+                  class="hl-text">возвращается</span> <code class="python"><b>True</b></code>.
+              </li>
+            </ul>
           </li>
-          <li><code><b><span class="function">get_check_list</span>(deep_check)</b></code>
-            <br>Принимает значение <code class="python"><b>True</b></code> или <code class="python"><b>False</b></code>.
-            Если принял <code class="python"><b>True</b></code>, то помещает в список все функции, указанные ниже. В
-            противном случае помещает в список только функции <span class="function"><b>check_id</b></span>, <span
-              class="function"><b>check_ban</b></span> и <span class="function"><b>check_balance</b></span>. Затем <span
-              class="hl-text">возвращает полученный список</span>.
+          <li><code><b><span class="function">get_check_list</span>(deep_check)</b></code>:
+            <ul>
+              <li>Функция принимает значение <code class="python"><b>True</b></code> или <code
+                  class="python"><b>False</b></code>.</li>
+              <li>Если функция приняла <code class="python"><b>True</b></code>, то <span class="hl-text">помещает в
+                  список функции</span> <b><span class="function">check_password</span></b>, <b><span
+                    class="function">check_name</span></b>, <b><span class="function">check_balance</span></b>, <b><span
+                    class="function">check_id</span></b> и <b><span class="function">check_ban</span></b>.</li>
+              <li>В противном случае <span class="hl-text">помещает в список функции</span> <b><span
+                    class="function">check_balance</span></b>, <b><span class="function">check_id</span></b> и <b><span
+                    class="function">check_ban</span></b>.</li>
+              <li>Возвращает <span class="hl-text">полученный список</span>.</li>
+            </ul>
           </li>
-          <li><code><b><span class="function">check_password</span>(account)</b></code>
-            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет пароль. Если он пустой, то <span
-              class="hl-text">возвращает</span> <code class="python"><b>False</b></code>. В противном случае <span
-              class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.
+          <li><code><b><span class="function">check_password</span>(account)</b></code>:
+            <ul>
+              <li>Функция принимает аккаунт в виде <span class="hl-text">списка</span>.</li>
+              <li>Если пароль у аккаунта указан как пустая строка, то <span class="hl-text">возвращает</span> <code
+                  class="python"><b>False</b></code>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.
+              </li>
+            </ul>
           </li>
-          <li><code><b><span class="function">check_name</span>(account)</b></code>
-            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет имя и фамилию. Если они состоят
-            только из символов алфавита, то <span class="hl-text">возвращает</span> <code
-              class="python"><b>True</b></code>. В противном случае <span class="hl-text">возвращает</span> <code
-              class="python"><b>False</b></code>.
+          <li><code><b><span class="function">check_name</span>(account)</b></code>:
+            <ul>
+              <li>Функция принимает аккаунт в виде <span class="hl-text">списка</span>.</li>
+              <li>Если имя и фамилия у аккаунта состоят только из символов английского алфавита, то <span
+                  class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+              </li>
+            </ul>
           </li>
-          <li><code><b><span class="function">check_balance</span>(account)</b></code>
-            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет баланс. Если он меньше нуля или
-            больше <code class="python"><b>25000</b></code>, то <span class="hl-text">возвращает</span> <code
-              class="python"><b>False</b></code>. В противном случае <span class="hl-text">возвращает</span> <code
-              class="python"><b>True</b></code>.
+          <li><code><b><span class="function">check_balance</span>(account)</b></code>:
+            <ul>
+              <li>Функция принимает аккаунт в виде <span class="hl-text">списка</span>.</li>
+              <li>Если баланс у аккаунта от <code class="python"><b>0</b></code> до <code
+                  class="python"><b>25000</b></code> включительно, то <span class="hl-text">возвращает</span> <code
+                  class="python"><b>True</b></code>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+              </li>
+            </ul>
           </li>
-          <li><code><b><span class="function">check_id</span>(account)</b></code>
-            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет идентификатор. Если длина
-            идентификатора не равна <code class="python"><b>8</b></code>-и символам, то <span
-              class="hl-text">возвращает</span> <code class="python"><b>False</b></code>. В противном случае <span
-              class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.
+          <li><code><b><span class="function">check_id</span>(account)</b></code>:
+            <ul>
+              <li>Функция принимает аккаунт в виде <span class="hl-text">списка</span>.</li>
+              <li>Если идентификатор у аккаунта имеет длину в <code class="python"><b>8</b></code> символов, то <span
+                  class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+              </li>
+            </ul>
           </li>
-          <li class="no-padding-bottom"><code><b><span class="function">check_ban</span>(account)</b></code>
-            <br>Принимает аккаунт в виде <span class="hl-text">списка</span>, проверяет правильность бана. Если в
-            статусе стоит <code class="python"><b>False</b></code>, а дата не пустая, то <span
-              class="hl-text">возвращает</span> <code class="python"><b>False</b></code>. Также <span
-              class="hl-text">возвращает</span> <code class="python"><b>False</b></code>, если в статусе <code
-              class="python"><b>True</b></code>, а дата пустая. В противном случае <span
-              class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.
+          <li><code><b><span class="function">check_ban</span>(account)</b></code>:
+            <ul>
+              <li>Функция принимает аккаунт в виде <span class="hl-text">списка</span>.</li>
+              <li>Если статус бана у аккаунта <code class="python"><b>True</b></code> и дата бана не пустая строка или
+                же статус бана <code class="python"><b>False</b></code> и дата бана пустая строка, то <span
+                  class="hl-text">возвращает</span> <code class="python"><b>True</b></code>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+              </li>
+            </ul>
           </li>
-        </ol>
+        </ul>
+        </p>
         <h3>Подсказки:</h3>
         <ol>
-          <li>Для проверки имени и фамилии используйте метод <code><b>isalpha()</b></code>. Этот метод возвращает <code
-              class="python"><b>True</b></code>, если строка состоит только из символов алфавита, и <code
+          <li>Для проверки имени и фамилии используйте метод <code class="python"><b>isalpha()</b></code>. Этот метод
+            возвращает <code class="python"><b>True</b></code>, если строка состоит только из символов алфавита, и <code
               class="python"><b>False</b></code> в противном случае.</li>
-          <li class="no-padding-bottom">Для тестирования можете использовать следующий код:<div class="console">
+          <li class="no-padding-bottom">Для тестирования можете использовать следующий код:
+            <div class="console">
               <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
                   height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
                   <path fill="currentColor" fill-rule="evenodd"
@@ -655,7 +559,7 @@ for account in account_list:
           <code><b>key_digits_str</b></code>, <code><b>key_int</b></code>, <code><b>encrypted_str</b></code> <span
             class="hl-text">не использовались вообще</span>, а сама программа <span class="hl-text">занимала одну
             строчку</span>. Функции изменять <span class="hl-text">не нужно</span>. Также оставьте максимально подробные
-          комментарии по работе функций - <span class="hl-text">что принимают</span>, <span class="hl-text">что
+          комментарии по работе функций – <span class="hl-text">что принимают</span>, <span class="hl-text">что
             используют для своей работы</span>, <span class="hl-text">как работают</span>, <span class="hl-text">что
             возвращают</span>.
         </p>
@@ -689,97 +593,6 @@ print(encrypted_str)</code></pre>
       </div>
     </div>
   </div>
-  <script>
-    function copyCode(button) {
-      var codeBlock = button.nextElementSibling.querySelector('code');
-      var range = document.createRange();
-      range.selectNode(codeBlock);
-      window.getSelection().removeAllRanges();
-      window.getSelection().addRange(range);
-      document.execCommand('copy');
-      window.getSelection().removeAllRanges();
-      changeCopyButton(button);
-    }
-
-    function changeCopyButton(button) {
-      var originalHTML = button.innerHTML;
-      button.innerHTML = `
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
-    `;
-      setTimeout(function () {
-        button.innerHTML = originalHTML;
-      }, 2000);
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-      const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function (codeBlock, index) {
-        let innerHTML = codeBlock.innerHTML;
-        console.log(index, innerHTML);
-        // STRING
-        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string">${match}</span>`;
-        });
-        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string">${match}</span>`;
-        });
-        // KEYWORD CLASS
-        regex = /(class)(?!=)/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="keyword">${match}</span>`;
-        });
-        // KEYWORDS
-        const keywords = [
-          'def', 'for', 'in', 'while', 'and', 'or', 'not',
-          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
-          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'pass', 'None'
-        ];
-        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="keyword">${match}</span>`;
-        });
-        // KEYWORD NUMBER
-        regex = /\b\d+(\.\d+)?/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="number">${match}</span>`;
-        });
-        // STRING-ESC
-        regex = /\\./g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string-esc">${match}</span>`;
-        });
-        // COMMENTS
-        regex = /(#.*$)/gm;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="comments">${match}</span>`;
-        });
-        // METADATA
-        regex = /^(\s*@\w+)/gm;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="metadata">${match}</span>`;
-        });
-        // SELF
-        regex = /\bself\b/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="self">${match}</span>`;
-        });
-        // BUILT-IN
-        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max|bool)\b/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="built-in">${match}</span>`;
-        });
-        // FUNCTION
-        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
-        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
-        // SPECIAL-NAMES
-        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
-        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
-        // KEYWORD-ARGUMENT
-        regex = /, (end|sep)=/g;
-        innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
-        codeBlock.innerHTML = innerHTML
-      });
-    });
-  </script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>
