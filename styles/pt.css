@@ -207,3 +207,15 @@ ul {
 ul li ul {
     margin-bottom: 10;
 }
+
+a {
+    color: #FFC000;
+}
+
+a:visited {
+    color: #FFC000;
+}
+
+a:hover {
+    color: #ffd558;
+}
