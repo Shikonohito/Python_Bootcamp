@@ -7,101 +7,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
     rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
-      color: #fff;
-      font-family: "Inter", sans-serif;
-      margin: 0px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .sidebar {
-      width: 240px;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-    }
-
-    .sidebar img {
-      height: 240px;
-      width: 240px;
-    }
-
-    .sidebar #copyrights {
-      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .right-block {
-      flex: 1;
-      width: 70%;
-      gap: 50px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      padding: 50px 25px 50px 0;
-      margin: 10px;
-    }
-
-    .right-rect {
-      background-color: rgba(38, 38, 38, 0.75);
-      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-      padding: 30px 25px;
-      border-radius: 10px;
-    }
-
-    .right-rect h2,
-    .right-rect .hl-text {
-      margin: 0;
-      color: #FFC000;
-    }
-
-    .right-rect h3 {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      color: #FFC000;
-    }
-
-    p {
-      margin-top: 15px;
-      margin-bottom: 0px;
-    }
-
-    .keyword {
-      color: #CF8E6D;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .number {
-      color: #2AACB8;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .built-in {
-      color: #8888C6;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .function {
-      color: #56A8F5;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .grey {
-      color: #BCBEC4;
-      font-family: "JetBrains mono", monospace;
-    }
-  </style>
+  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/pt.css">
 </head>
 
 <body>
@@ -115,20 +21,20 @@
         <h2>Практическое Задание 28.1</h2>
         <p>Напишите функцию <span class="function"><b>draw_square</b></span>, которая на вход <span
             class="hl-text">принимает размер стороны</span>. Функция должна <span class="hl-text">рисовать в консоли
-            квадрат из <span class="grey"><b>*</b></span> указанного размера</span>.</p>
+            квадрат из <code class="python"><b>*</b></code> указанного размера</span>.</p>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 28.2</h2>
         <p>Напишите функцию <span class="function"><b>draw_quad</b></span>, которая на вход <span
             class="hl-text">принимает ширину</span> и <span class="hl-text">длину</span>. Функция должна <span
-            class="hl-text">рисовать в консоли четырёхугольник из <span class="grey"><b>*</b></span> указанного
+            class="hl-text">рисовать в консоли четырёхугольник из <code class="python"><b>*</b></code> указанного
             размера</span>.</p>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 28.3</h2>
         <p>Напишите функцию <span class="function"><b>get_size</b></span>, которая на вход <span
             class="hl-text">принимает список</span> и <span class="hl-text">возвращает его длину</span>. Не использовать
-          функцию <span class="built-in"><b>len</span><span class="grey">()</b></span>.</p>
+          функцию <code class="python"><b>len()</b></code>.</p>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 28.4</h2>
@@ -151,11 +57,13 @@
       <div class="right-rect">
         <h2>Практическое Задание 28.7</h2>
         <p>Напишите функцию <span class="function"><b>is_visible</b></span>, которая на вход <span
-            class="hl-text">принимает расстояние в метрах</span> и <span class="hl-text">возвращает</span> <span
-            class="keyword"><b>True</b></span>, если расстояние меньше <span class="number"><b>2</b></span>-х км, и
-          <span class="keyword"><b>False</b></span> в противном случае.
+            class="hl-text">принимает расстояние в метрах</span> и <span class="hl-text">возвращает</span> <code
+            class="python"><b>True</b></code>, если расстояние меньше <code class="python"><b>2</b></code>-х км, и
+          <code class="python"><b>False</b></code> в противном случае.
         </p>
       </div>
     </div>
   </div>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>

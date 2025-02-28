@@ -7,130 +7,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
     rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
-      color: #fff;
-      font-family: "Inter", sans-serif;
-      margin: 0px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .sidebar {
-      width: 240px;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-    }
-
-    .sidebar img {
-      height: 240px;
-      width: 240px;
-    }
-
-    .sidebar #copyrights {
-      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .right-block {
-      flex: 1;
-      width: 70%;
-      gap: 50px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      padding: 50px 25px 50px 0;
-      margin: 10px;
-    }
-
-    .right-rect {
-      background-color: rgba(38, 38, 38, 0.75);
-      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-      padding: 30px 25px;
-      border-radius: 10px;
-    }
-
-    .right-rect h2,
-    .right-rect .hl-text {
-      margin: 0;
-      color: #FFC000;
-    }
-
-    .right-rect h3 {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      color: #FFC000;
-    }
-
-    .console {
-      background-color: #1E1F22;
-      border-radius: 5px;
-      margin-top: 10px;
-      position: relative;
-    }
-
-    p {
-      margin-top: 15px;
-      margin-bottom: 0px;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      white-space: pre;
-      overflow-x: auto;
-      word-wrap: normal;
-      padding: 20px 10px;
-    }
-
-    .console code {
-      color: #BCBEC4;
-    }
-
-    .console .input {
-      color: #6AAB73;
-      font-style: italic;
-    }
-
-    code {
-      font-family: "JetBrains mono", monospace;
-      color: #BCBEC4;
-    }
-
-    .string {
-      color: #6AAB73;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .keyword {
-      color: #CF8E6D;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .number {
-      color: #2AACB8;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .function {
-      color: #56A8F5;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .grey {
-      color: #BCBEC4;
-      font-family: "JetBrains mono", monospace;
-    }
-  </style>
+  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/pt.css">
 </head>
 
 <body>
@@ -153,34 +30,54 @@
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 1</span> программа должна <span class="hl-text">выводить в консоль
-            все данные из глобального списка</span> <span class="grey"><b>log_balance</b></span>.</p>
-        <p>При выборе <span class="hl-text">пункта 2</span> программа должна <span class="hl-text">выводить в консоль
-            текущий баланс</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 3</span> программа должна <span class="hl-text">запросить с консоли
-            число</span> и <span class="hl-text">передать в функцию</span> <span
-            class="function"><b>add_income</b></span>. Если число положительное, то эта функция <span
-            class="hl-text">добавляет число в баланс</span>, <span class="hl-text">добавляет в <span
-              class="grey"><b>log_balance</b></span> строку</span> <span class="string"><b>"Доход: <span
-                class="number">{доход}</span>"</b></span> и <span class="hl-text">возвращает</span> <span
-            class="keyword"><b>True</b></span>, а в противном случае <span class="hl-text">возвращает</span> <span
-            class="keyword"><b>False</b></span>. Если функция вернула <span class="keyword"><b>True</b></span>, то
-          программа должна <span class="hl-text">вывести в консоль</span> <span class="string"><b>"Операция выполнена
-              успешно."</b></span>. В противном случае <span class="string"><b>"Ошибка выполнения операции."</b></span>.
+        <p>В программе должны быть <span class="hl-text">глобальный список</span> и <span class="hl-text">баланс</span>.
         </p>
-        <p>При выборе <span class="hl-text">пункта 4</span> программа должна <span class="hl-text">запросить с консоли
-            число</span> и <span class="hl-text">передать в функцию</span> <span
-            class="function"><b>add_expense</b></span>. Если число положительное, то эта функция <span
-            class="hl-text">отнимает число из баланса</span>, <span class="hl-text">добавляет в <span
-              class="grey"><b>log_balance</b></span> строку</span> <span class="string"><b>"Расход: <span
-                class="number">{расход}</span>"</b></span> и <span class="hl-text">возвращает</span> <span
-            class="keyword"><b>True</b></span>, а в противном случае <span class="hl-text">возвращает</span> <span
-            class="keyword"><b>False</b></span>. Если функция вернула <span class="keyword"><b>True</b></span>, то
-          программа должна <span class="hl-text">вывести в консоль</span> <span class="string"><b>"Операция выполнена
-              успешно."</b></span>. В противном случае <span class="string"><b>"Ошибка выполнения операции."</b></span>.
+
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">выводит в консоль данные глобального списка на каждой строке</span>.</li>
+        </ul>
         </p>
-        <p><span class="hl-text">Список</span> и <span class="hl-text">баланс</span> должны быть <span
-            class="hl-text">глобальными переменными</span>.</p>
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">выводит в консоль текущий баланс</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 3</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли число</span>.</li>
+          <li>Если число положительное, то <span class="hl-text">вызывает функцию</span> <span
+              class="function"><b>add_income</b></span>:
+            <ul>
+              <li>Функция <span class="hl-text">принимает сумму дохода</span>.</li>
+              <li>Добавляет <span class="hl-text">доход в баланс</span>.</li>
+              <li>Добавляет <span class="hl-text">строку <code class="python"><b>"Доход: {доход}"</b></code> в
+                  глобальный список</span>.</li>
+              <li>Ничего <span class="hl-text">не возвращает</span>.</li>
+            </ul>
+          </li>
+          <li>В зависимости от результата, <span class="hl-text">в консоль выводится сообщение</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 4</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли число</span>.</li>
+          <li>Если число положительное, то <span class="hl-text">вызывает функцию</span> <span
+              class="function"><b>add_expense</b></span>:
+            <ul>
+              <li>Функция <span class="hl-text">принимает сумму расхода</span>.</li>
+              <li>Отнимает <span class="hl-text">расход из баланса</span>.</li>
+              <li>Добавляет <span class="hl-text">строку <code class="python"><b>"Расход: {расход}"</b></code> в
+                  глобальный список</span>.</li>
+              <li>Ничего <span class="hl-text">не возвращает</span>.</li>
+            </ul>
+          </li>
+          <li>В зависимости от результата, <span class="hl-text">в консоль выводится сообщение</span>.</li>
+        </ul>
+        </p>
       </div>
       <div class="right-rect">
         <h2>Практическое Задание 30.2</h2>
@@ -190,14 +87,14 @@
       <div class="right-rect">
         <h2>Практическое Задание 30.3</h2>
         <p>Переделайте программу из <span class="hl-text">Практического Задания 30.1</span> так, чтобы <span
-            class="hl-text">использовалось замыкание для того, чтобы переменные</span> <span
-            class="grey"><b>log_balance</b></span> и <span class="hl-text">баланс перестали быть глобальными</span>.
-          Также напишите <span class="hl-text">две функции</span>, которые позволят <span class="hl-text">прочитать
-            данные из</span> <span class="grey"><b>log_balance</b></span> и <span class="hl-text">баланса</span>, и
-          <span class="hl-text">две функции</span>, которые позволят <span class="hl-text">установить новые
-            данные</span>.
+            class="hl-text">использовалось замыкание, вместо глобальных переменных</span>. Также напишите <span
+            class="hl-text">две функции</span>, которые позволят <span class="hl-text">прочитать данные из списка</span>
+          и <span class="hl-text">баланса</span>, и <span class="hl-text">две функции</span>, которые позволят <span
+            class="hl-text">установить новые данные</span>.
         </p>
       </div>
     </div>
   </div>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>
