@@ -7,172 +7,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
     rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
-      color: #fff;
-      font-family: "Inter", sans-serif;
-      margin: 0px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .sidebar {
-      width: 240px;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-    }
-
-    .sidebar img {
-      height: 240px;
-      width: 240px;
-    }
-
-    .sidebar #copyrights {
-      background: linear-gradient(to right, #343434 0%, #363636 100%);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .right-block {
-      flex: 1;
-      width: 70%;
-      gap: 50px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      padding: 50px 25px 50px 0;
-      margin: 10px;
-    }
-
-    .right-rect {
-      background-color: rgba(38, 38, 38, 0.75);
-      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-      padding: 30px 25px;
-      border-radius: 10px;
-    }
-
-    .right-rect h2,
-    .right-rect .hl-text {
-      margin: 0;
-      color: #FFC000;
-    }
-
-    .right-rect h3 {
-      margin-top: 40px;
-      margin-bottom: 0px;
-      color: #FFC000;
-    }
-
-    .console {
-      background-color: #1E1F22;
-      border-radius: 5px;
-      margin-top: 10px;
-      position: relative;
-    }
-
-    p {
-      margin-top: 15px;
-      margin-bottom: 0px;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      white-space: pre;
-      overflow-x: auto;
-      word-wrap: normal;
-      padding: 20px 10px;
-    }
-
-    .console .input {
-      color: #6AAB73;
-      font-style: italic;
-    }
-
-    code {
-      font-family: "JetBrains mono", monospace;
-      color: #BCBEC4;
-    }
-
-    .copy-button {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      padding: 5px 10px;
-      background-color: #FFC000;
-      color: #1E1F22;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-family: "JetBrains mono", monospace;
-      font-weight: bold;
-    }
-
-    .string {
-      color: #6AAB73;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .string-bracket,
-    .string-esc,
-    .keyword {
-      color: #CF8E6D;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .self {
-      color: #94558D;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .string-bracket-inner {
-      color: #BCBEC4;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .number {
-      color: #2AACB8;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .comments {
-      color: #7A7E85;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .metadata {
-      color: #B3AE60;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .built-in {
-      color: #8888C6;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .function {
-      color: #56A8F5;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .special-names {
-      color: #B200B2;
-      font-family: "JetBrains mono", monospace;
-    }
-
-    .keyword-argument {
-      color: #AA4926;
-      font-family: "JetBrains mono", monospace;
-    }
-  </style>
+  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/hw.css">
 </head>
 
 <body>
@@ -197,18 +32,18 @@
           <pre><code>1. Показать всех пользователей
 2. Показать пользователя по его идентификатору
 3. Добавить нового пользователя
-4. Изменить данные пользователя по его идентификатору
-5. Удалить пользователя по его идентификатору
+4. Удалить пользователя по его идентификатору
+5. Изменить данные пользователя по его идентификатору
 6. Завершить программу</code></pre>
         </div>
         </p>
 
         <p>Пользователь это <span class="hl-text">словарь</span> следующего вида:
         <div class="console">
-          <pre><code>{<span class="string">"user_id"</span>: <span class="string">{идентификатор}</span>, <span class="string">"f_name"</span>: <span class="string">{имя}</span>, <span class="string">"l_name"</span>: <span class="string">{фамилия}</span>,
- <span class="string">"cards"</span>: [
-                {<span class="string">"card_id"</span>: <span class="string">{идентификатор}</span>, <span class="string">"f_name"</span>: <span class="string">{имя}</span>, <span class="string">"l_name"</span>: <span class="string">{фамилия}</span>, <span class="string">"month"</span>: <span class="number">{месяц}</span>, <span class="string">"year"</span>: <span class="number">{год}</span>, <span class="string">"balance"</span>: <span class="number">{баланс}</span>},
-                {<span class="string">"card_id"</span>: <span class="string">{идентификатор}</span>, <span class="string">"f_name"</span>: <span class="string">{имя}</span>, <span class="string">"l_name"</span>: <span class="string">{фамилия}</span>, <span class="string">"month"</span>: <span class="number">{месяц}</span>, <span class="string">"year"</span>: <span class="number">{год}</span>, <span class="string">"balance"</span>: <span class="number">{баланс}</span>},
+          <pre><code class="python">{"user_id": "U-025", "f_name": "Teston", "l_name": "Lebra",
+ "cards": [
+                {"card_id": "5869586958695869", "f_name": "Teston", "l_name": "Lebra", "month": 12, "year": 2030, "balance": 1250},
+                {"card_id": "1234123412341234", "f_name": "Teston", "l_name": "Lebra", "month": 5, "year": 2028, "balance": 750},
                 ...
           ]
 }</code></pre>
@@ -238,10 +73,11 @@ user_list = [user_1, user_2, user_3]</code></pre>
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 1</span> (Показать всех пользователей) программа <span
-            class="hl-text">выводит в консоль данные всех пользователей в следующем формате</span>:
-        <div class="console">
-          <pre><code>{идентификатор_пользователя}
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">выводит в консоль данные всех пользователей в следующем формате</span>:
+            <div class="console">
+              <pre><code>{идентификатор_пользователя}
 {имя} {фамилия}
 {идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
 {идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
@@ -254,42 +90,56 @@ user_list = [user_1, user_2, user_3]</code></pre>
 ...
 =======================================================================================
 ...</code></pre>
-        </div>
+            </div>
+          </li>
+        </ul>
         </p>
 
-        <p>Сперва можно реализовать <span class="hl-text">пункт 2</span>, чтобы потом использовать реализацию в <span
-            class="hl-text">пункте 1</span>.</p>
-
-        <p>При выборе <span class="hl-text">пункта 2</span> (Показать пользователя по его идентификатору) программа
-          <span class="hl-text">запрашивает с консоли идентификатор</span>. Если идентификатор не найден, то программа
-          <span class="hl-text">сообщает об этом</span>. В противном случае <span class="hl-text">она выводит в консоль
-            найденные данные пользователя в следующем формате</span>:
-        <div class="console">
-          <pre><code>{идентификатор_пользователя}
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор пользователя</span>.</li>
+          <li>Если введённый идентификатор совпадает с идентификатором одного из пользователей из списка, то <span
+              class="hl-text">выводит в
+              консоль данные найденного пользователя в следующем виде</span>:
+            <div class="console">
+              <pre><code>{идентификатор_пользователя}
 {имя} {фамилия}
 {идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
 {идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
 ...</code></pre>
-        </div>
+            </div>
+          </li>
+        </ul>
         </p>
 
-        <p>При выборе <span class="hl-text">пункта 3</span> (Добавить нового пользователя) программа <span
-            class="hl-text">запрашивает с консоли новый идентификатор пользователя</span>, <span
-            class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, затем <span class="hl-text">создаёт
-            словарь из введённых данных</span>. Список карт изначально пуст. После этого <span
-            class="hl-text">пользователь добавляется в список</span>, если идентификатор нового пользователя не
-          совпадает ни с одним идентификатором других пользователей. В противном случае программа должна <span
-            class="hl-text">сообщить об этом</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 5</span> (Удалить пользователя по его идентификатору) программа <span
-            class="hl-text">запрашивает с консоли идентификатор пользователя</span> и <span class="hl-text">удаляет
-            пользователя</span>, если он был найден. В противном случае программа должна <span class="hl-text">сообщить
-            о проблеме</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 4</span> (Изменить данные пользователя по его идентификатору)
-          программа <span class="hl-text">запрашивает с консоли идентификатор пользователя</span>. Если идентификатор не
-          найден, то программа <span class="hl-text">сообщает об этом</span>. В противном случае программа <span
-            class="hl-text">выводит в консоль следующее</span>:
-        <div class="console">
-          <pre><code>СТАРЫЕ ДАННЫЕ
+        <p>Выбран <span class="hl-text">пункт 3</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор пользователя</span>, <span
+              class="hl-text">имя</span> и <span class="hl-text">фамилию</span>.</li>
+          <li>Формирует из данных <span class="hl-text">словарь пользователя</span>. Список карт изначально пуст.</li>
+          <li>Если идентификатор пользователя не совпадает ни с одним идентификатором пользователя из списка, то <span
+              class="hl-text">добавляет сформированный словарь в список пользователей</span>.</li>
+          <li>В зависимости от результата <span class="hl-text">выводит в консоль сообщение</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 4</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор пользователя</span>.</li>
+          <li>Если введённый идентификатор совпадает с идентификатором одного из пользователей из списка, то <span
+              class="hl-text">удаляет найденного пользователя из списка пользователей</span>.</li>
+          <li>В зависимости от результата <span class="hl-text">выводит в консоль сообщение</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 5</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор пользователя</span>.</li>
+          <li>Если введённый идентификатор совпадает с идентификатором одного из пользователей из списка, то <span
+              class="hl-text">делает копию пользователя</span> и <span class="hl-text">выводит в консоль
+              следующее</span>:
+            <div class="console">
+              <pre><code>СТАРЫЕ ДАННЫЕ
 {идентификатор_пользователя}
 {имя} {фамилия}
 {идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
@@ -307,39 +157,60 @@ user_list = [user_1, user_2, user_3]</code></pre>
 2. Изменить фамилию
 3. Изменить имя
 4. Добавить карту
-5. Изменить карту по идентификатору
-6. Удалить карту по идентификатору
+5. Удалить карту по идентификатору
+6. Изменить карту по идентификатору
 7. Подтвердить изменения и вернуться
 8. Отменить изменения и вернуться</code></pre>
-        </div>
-        </p>
-
-        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">3</span> программа <span
-            class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится только в том
-          случае, если был <span class="hl-text">выбран пункт 7</span>. Поэтому <span class="hl-text">пункты
-            1</span>-<span class="hl-text">6</span> должны изменять <span class="hl-text">копию данных</span>, а при
-          выборе <span class="hl-text">пункта 7 заменять оригинал</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 7</span> программа должна <span class="hl-text">проверить
-            идентификатор изменённых данных</span>. Если идентификатор не изменился или же совпадений с идентификаторами
-          других пользователей нет, то <span class="hl-text">старые данные заменяются на новые</span>. В противном
-          случае программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 4</span> (Добавить карту) программа <span class="hl-text">запрашивает
-            с консоли идентификатор карты</span>, <span class="hl-text">имя</span>, <span
-            class="hl-text">фамилию</span>, <span class="hl-text">месяц</span>, <span class="hl-text">год</span>, <span
-            class="hl-text">баланс</span>, затем <span class="hl-text">создаёт словарь из введённых данных</span>. После
-          этого <span class="hl-text">карта добавляется в список</span>, если идентификатор новой карты не совпадает ни
-          с одним идентификатором других карт в списке. В противном случае программа должна <span
-            class="hl-text">сообщить об этом</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 6</span> (Удалить карту по идентификатору) программа <span
-            class="hl-text">запрашивает с консоли идентификатор карты</span> и <span class="hl-text">удаляет
-            карту</span>, если она была найдена. В противном случае программа должна <span class="hl-text">сообщить о
-            проблеме</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 5</span> (Изменить карту по идентификатору) программа <span
-            class="hl-text">запрашивает с консоли идентификатор карты</span>. Если идентификатор не найден, то программа
-          <span class="hl-text">сообщает об этом</span>. В противном случае программа <span class="hl-text">выводит в
-            консоль следующее</span>:
-        <div class="console">
-          <pre><code>СТАРЫЕ ДАННЫЕ: {идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
+            </div>
+          </li>
+          <li>Выбран <span class="hl-text">пункт 1-3</span>:
+            <ul>
+              <li>Программа <span class="hl-text">запрашивает с консоли соответствующие данные</span>.</li>
+              <li>Изменения происходят с <span class="hl-text">копией</span>.</li>
+            </ul>
+          </li>
+          <li>Выбран <span class="hl-text">пункт 7</span>:
+            <ul>
+              <li>Программа <span class="hl-text">проверяет идентификатор изменённых данных</span>.</li>
+              <li>Если идентификатор копии совпадает с идентификатором старого пользователя или же идентификатор копии
+                не совпадает ни с одним идентификатором пользователя из списка, то <span class="hl-text">заменяет у
+                  старого пользователя все данные на соответствующие из копии</span> и <span
+                  class="hl-text">возвращается в главное меню</span>.</li>
+              <li>В зависимости от результата <span class="hl-text">выводит в консоль сообщение</span>.</li>
+            </ul>
+          </li>
+          <li>Выбран <span class="hl-text">пункт 4</span>:
+            <ul>
+              <li>Программа <span class="hl-text">запрашивает с консоли идентификатор карты</span>, <span
+                  class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">месяц</span>,
+                <span class="hl-text">год</span>, <span class="hl-text">баланс</span>.
+              </li>
+              <li>Формирует из данных <span class="hl-text">словарь карты</span>.</li>
+              <li>Если идентификатор карты не совпадает ни с одним идентификатором карты из списка карт пользователя, то
+                <span class="hl-text">добавляет сформированный словарь в список карт пользователя</span>.
+              </li>
+              <li>Изменения происходят с <span class="hl-text">копией</span>.</li>
+              <li>В зависимости от результата <span class="hl-text">выводит в консоль сообщение</span>.</li>
+            </ul>
+          </li>
+          <li>Выбран <span class="hl-text">пункт 5</span>:
+            <ul>
+              <li>Программа <span class="hl-text">запрашивает с консоли идентификатор карты</span>.</li>
+              <li>Если введённый идентификатор совпадает с идентификатором одной из карт из списка карт пользователя, то
+                <span class="hl-text">удаляет найденную карту из списка карт пользователя</span>.
+              </li>
+              <li>Изменения происходят с <span class="hl-text">копией</span>.</li>
+              <li>В зависимости от результата <span class="hl-text">выводит в консоль сообщение</span>.</li>
+            </ul>
+          </li>
+          <li>Выбран <span class="hl-text">пункт 6</span>:
+            <ul>
+              <li>Программа <span class="hl-text">запрашивает с консоли идентификатор карты пользователя</span>.</li>
+              <li>Если введённый идентификатор совпадает с идентификатором одной из карт из списка карт пользователя, то
+                <span class="hl-text">делает копию карты</span> и <span class="hl-text">выводит в консоль
+                  следующее</span>:
+                <div class="console">
+                  <pre><code>СТАРЫЕ ДАННЫЕ: {идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
 НОВЫЕ ДАННЫЕ: {идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
 =======================================================================================
 1. Изменить идентификатор карте
@@ -350,29 +221,40 @@ user_list = [user_1, user_2, user_3]</code></pre>
 6. Изменить баланс
 7. Подтвердить изменения и вернуться
 8. Отменить изменения и вернуться</code></pre>
-        </div>
+                </div>
+              </li>
+              <li>Выбран <span class="hl-text">пункт 1-6</span>:
+                <ul>
+                  <li>Программа <span class="hl-text">запрашивает с консоли соответствующие данные</span>.</li>
+                  <li>Изменения происходят с <span class="hl-text">копией</span>.</li>
+                </ul>
+              </li>
+              <li>Выбран <span class="hl-text">пункт 7</span>:
+                <ul>
+                  <li>Программа <span class="hl-text">проверяет идентификатор изменённых данных</span>.</li>
+                  <li>Если идентификатор копии совпадает с идентификатором старой карты или же идентификатор копии не
+                    совпадает ни с одним идентификатором карты из списка карт пользователя, то <span
+                      class="hl-text">заменяет у старой карты все данные на соответствующие из копии</span> и <span
+                      class="hl-text">возвращается в меню изменения пользователя</span>.</li>
+                  <li>В зависимости от результата <span class="hl-text">выводит в консоль сообщение</span>.</li>
+                </ul>
+              </li>
+          </li>
+        </ul>
         </p>
-
-        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">6</span> программа <span
-            class="hl-text">запрашивает с консоли соответствующие данные</span>. Изменения должны вносится только в том
-          случае, если был <span class="hl-text">выбран пункт 7</span>. Поэтому <span class="hl-text">пункты
-            1</span>-<span class="hl-text">6</span> должны изменять <span class="hl-text">копию данных</span>, а при
-          выборе <span class="hl-text">пункта 7 заменять оригинал</span>.</p>
-        <p>При выборе <span class="hl-text">пункта 7</span> программа должна <span class="hl-text">проверить
-            идентификатор изменённых данных</span>. Если идентификатор не изменился или же совпадений с идентификаторами
-          других карт нет, то <span class="hl-text">старые данные заменяются на новые</span>. В противном случае
-          программа должна <span class="hl-text">сообщить о проблеме</span>.</p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 40.2 (Необязательное)</h2>
         <p>На основе выполненного <span class="hl-text">Домашнего Задания 40.1</span> реализуйте <span class="hl-text">в
-            главном меню</span> <span class="string"><b>"Поиск по имени"</b></span>, который <span
+            главном меню</span> <code class="python"><b>"Поиск по имени"</b></code>, который <span
             class="hl-text">запрашивает с консоли имя</span>, а затем <span class="hl-text">ищет всех пользователей с
             указанным именем</span> (точное совпадение) и <span class="hl-text">выводит в консоль</span> в том же виде,
           как делает <span class="hl-text">пункт 1</span>.</p>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 40.3 (Необязательное)</h2>
+        <p>В самом начале программы пропишите строку <code
+            class="python"><b>from datetime import datetime, timedelta</b></code>.</p>
         <p>На основе выполненного <span class="hl-text">Домашнего Задания 40.1</span> измените функционал <span
             class="hl-text">добавления пользователей</span>. При составлении словаря пользователя добавьте ещё одну пару
           <code class="python"><b>"subscription": datetime.now().date()</b></code>. Эта пара будет хранить <span
@@ -391,46 +273,53 @@ user_list = [user_1, user_2, user_3]</code></pre>
         </div>
         </p>
 
-        <p>При выборе <span class="hl-text">пунктов 1</span>-<span class="hl-text">3</span> программа <span
-            class="hl-text">выводит в консоль курс подписки</span> и <span class="hl-text">список карт пользователя в
-            виде</span>:
-        <div class="console">
-          <pre><code>Подписка на 1 месяц - 5 единиц
+        <li>Выбран <span class="hl-text">пункт 1-3</span>:
+          <ul>
+            <li>Программа <span class="hl-text">выводит в консоль курс подписки</span> и <span class="hl-text">список
+                карт пользователя в виде</span>:
+              <div class="console">
+                <pre><code>Подписка на 1 месяц - 5 единиц
 Подписка на 3 месяца - 13 единиц
 Подписка на 1 год - 49 единиц
 =======================================================================================
 {идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
 {идентификатор_карточки} {имя_на_карточке} {фамилия_на_карточке} {месяц}/{год} {баланс}
 ...</code></pre>
-        </div>
-        </p>
-
-        <p>Затем программа <span class="hl-text">запрашивает ввод с консоли идентификатора карточки для оплаты</span>.
-          Если идентификатор карты найден и достаточно денег, то <span class="hl-text">деньги снимаются с баланса
-            карты</span>. Затем проверяется, что если <code><b>datetime.now()</b></code> больше
-          <code><b>{значение_по_ключу_subscription}</b></code>, то по ключу <code
-            class="python"><b>"subscription"</b></code> <span class="hl-text">выставляются следующие данные</span>:
-          <br>— Для <code class="python"><b>1</b></code> месяца: <code
-            class="python"><b>datetime.now() + timedelta(days=30)</b></code>
-          <br>— Для <code class="python"><b>3</b></code> месяцев: <code
-            class="python"><b>datetime.now() + timedelta(days=90)</b></code>
-          <br>— Для <code class="python"><b>1</b></code> года: <code
-            class="python"><b>datetime.now() + timedelta(days=365)</b></code>
-        </p>
-
-        <p>Если же <code><b>datetime.now()</b></code> меньше-равно
-          <code><b>{значение_по_ключу_subscription}</b></code>, то по ключу <code
-            class="python"><b>"subscription"</b></code> <span class="hl-text">выставляются следующие данные</span>:
-          <br>— Для <code class="python"><b>1</b></code> месяца: <code
-            class="python"><b>{значение_по_ключу_subscription} + timedelta(days=30)</b></code>
-          <br>— Для <code class="python"><b>3</b></code> месяцев: <code
-            class="python"><b>{значение_по_ключу_subscription} + timedelta(days=90)</b></code>
-          <br>— Для <code class="python"><b>1</b></code> года: <code
-            class="python"><b>{значение_по_ключу_subscription} + timedelta(days=365)</b></code>
-        </p>
-
-        <p>Не забудьте в самом начале программы прописать строку <code
-            class="python"><b>from datetime import datetime, timedelta</b></code>.</p>
+              </div>
+            </li>
+            <li>Затем программа <span class="hl-text">запрашивает с консоли идентификатор карточки для оплаты</span>.
+            </li>
+            <li>Если введённый идентификатор совпадает с идентификатором одной из карт из списка карт пользователя, то
+              <span class="hl-text">деньги снимаются с баланса карты</span>.
+            </li>
+            <li>Если после снятия денег с баланса <code class="python"><b>datetime.now()</b></code> больше
+              <code class="python"><b>{значение_по_ключу_subscription}</b></code>, то по ключу <code
+                class="python"><b>"subscription"</b></code>
+              <span class="hl-text">выставляются следующие данные</span>:
+              <ul>
+                <li>Для <code class="python"><b>1</b></code> месяца: <code
+                    class="python"><b>datetime.now() + timedelta(days=30)</b></code></li>
+                <li>Для <code class="python"><b>3</b></code> месяцев: <code
+                    class="python"><b>datetime.now() + timedelta(days=90)</b></code></li>
+                <li>Для <code class="python"><b>1</b></code> года: <code
+                    class="python"><b>datetime.now() + timedelta(days=365)</b></code></li>
+              </ul>
+            </li>
+            <li>Если после снятия денег с баланса <code class="python"><b>datetime.now()</b></code> меньше-равно
+              <code class="python"><b>{значение_по_ключу_subscription}</b></code>, то по ключу <code
+                class="python"><b>"subscription"</b></code>
+              <span class="hl-text">выставляются следующие данные</span>:
+              <ul>
+                <li>Для <code class="python"><b>1</b></code> месяца: <code
+                    class="python"><b>{значение_по_ключу_subscription} + timedelta(days=30)</b></code></li>
+                <li>Для <code class="python"><b>3</b></code> месяцев: <code
+                    class="python"><b>{значение_по_ключу_subscription} + timedelta(days=90)</b></code></li>
+                <li>Для <code class="python"><b>1</b></code> года: <code
+                    class="python"><b>{значение_по_ключу_subscription} + timedelta(days=365)</b></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 40.4 (Необязательное)</h2>
@@ -447,97 +336,6 @@ user_list = [user_1, user_2, user_3]</code></pre>
       </div>
     </div>
   </div>
-  <script>
-    function copyCode(button) {
-      var codeBlock = button.nextElementSibling.querySelector('code');
-      var range = document.createRange();
-      range.selectNode(codeBlock);
-      window.getSelection().removeAllRanges();
-      window.getSelection().addRange(range);
-      document.execCommand('copy');
-      window.getSelection().removeAllRanges();
-      changeCopyButton(button);
-    }
-
-    function changeCopyButton(button) {
-      var originalHTML = button.innerHTML;
-      button.innerHTML = `
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
-    `;
-      setTimeout(function () {
-        button.innerHTML = originalHTML;
-      }, 2000);
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-      const codeBlocks = document.querySelectorAll('code.python');
-      codeBlocks.forEach(function (codeBlock, index) {
-        let innerHTML = codeBlock.innerHTML;
-        console.log(index, innerHTML);
-        // STRING
-        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string">${match}</span>`;
-        });
-        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string">${match}</span>`;
-        });
-        // KEYWORD CLASS
-        regex = /(class)(?!=)/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="keyword">${match}</span>`;
-        });
-        // KEYWORDS
-        const keywords = [
-          'def', 'for', 'in', 'while', 'and', 'or', 'not',
-          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
-          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import'
-        ];
-        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="keyword">${match}</span>`;
-        });
-        // KEYWORD NUMBER
-        regex = /\b\d+(\.\d+)?/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="number">${match}</span>`;
-        });
-        // STRING-ESC
-        regex = /\\./g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="string-esc">${match}</span>`;
-        });
-        // COMMENTS
-        regex = /(#.*$)/gm;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="comments">${match}</span>`;
-        });
-        // METADATA
-        regex = /^(\s*@\w+)/gm;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="metadata">${match}</span>`;
-        });
-        // SELF
-        regex = /\bself\b/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="self">${match}</span>`;
-        });
-        // BUILT-IN
-        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max)\b/g;
-        innerHTML = innerHTML.replace(regex, (match) => {
-          return `<span class="built-in">${match}</span>`;
-        });
-        // FUNCTION
-        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
-        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
-        // SPECIAL-NAMES
-        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
-        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
-        // KEYWORD-ARGUMENT
-        regex = /(end|sep|days)=/g;
-        innerHTML = innerHTML.replace(regex, '<span class="keyword-argument">$1</span>=');
-        codeBlock.innerHTML = innerHTML
-      });
-    });
-  </script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>
