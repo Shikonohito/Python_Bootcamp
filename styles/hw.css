@@ -179,6 +179,13 @@ ol li {
     padding-bottom: 1.2em;
 }
 
+ol.num li {
+    counter-increment: list;
+    position: relative;
+    padding-left: 1.8em;
+    padding-bottom: 0.7em;
+}
+
 ol li::before {
     content: counter(list) ". ";
     position: absolute;
