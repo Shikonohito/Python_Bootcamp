@@ -72,14 +72,14 @@ human_listbox = tkinter.Listbox(human_frame, font=("Arial", 18), height=13)
 human_listbox.place(x=20, y=20)
 
 
-def fill_human_listbox():
+def refresh_human_listbox():
     human_listbox.delete(0, tkinter.END)
     for item in human_list:
         listbox_item = f'{item["id"]} {item["f_name"]} {item["l_name"]}'
         human_listbox.insert(tkinter.END, listbox_item)
 
 
-fill_human_listbox()
+refresh_human_listbox()
 
 human_id_lbl = tkinter.Label(human_frame, text="ID:", font=("Arial", 18))
 human_id_lbl.place(x=340, y=20)
@@ -157,21 +157,21 @@ human_add_btn.place(x=20, y=400)
 
 def delete_human():
     # Считываем индексы выделенных элементов из фронтенда
-    human_listbox_ind = human_listbox.curselection()
-    print(human_listbox_ind)
-    if len(human_listbox_ind) > 0:
+    human_listbox_indexes = human_listbox.curselection()
+    print(human_listbox_indexes)
+    if len(human_listbox_indexes) > 0:
         # Считываем элемент по индексу
-        selected_human = human_listbox.get(human_listbox_ind[0])
-        print(selected_human)
+        selected_human_str = human_listbox.get(human_listbox_indexes[0])
+        print(selected_human_str)
 
         # Отдельно выделяем идентификатор
-        human_id = selected_human.split()[0]
+        human_id = selected_human_str.split()[0]
         print(human_id)
 
         # Пытаемся удалить из бэкенда
         if backend_remove_human(human_id):
             # Удаляем из фронтенда
-            human_listbox.delete(human_listbox_ind[0])
+            human_listbox.delete(human_listbox_indexes[0])
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
@@ -185,13 +185,13 @@ human_delete_btn.place(x=75, y=400)
 
 def change_human():
     # Считываем индексы выделенных элементов из фронтенда
-    human_listbox_ind = human_listbox.curselection()
-    if len(human_listbox_ind) > 0:
+    human_listbox_indexes = human_listbox.curselection()
+    if len(human_listbox_indexes) > 0:
         # Считываем элемент по индексу
-        selected_human = human_listbox.get(human_listbox_ind[0])
+        selected_human_str = human_listbox.get(human_listbox_indexes[0])
 
         # Отдельно выделяем идентификатор
-        selected_id = selected_human.split()[0]
+        selected_id = selected_human_str.split()[0]
 
         # Считываем данные из полей фронтенда
         new_id = human_id_entry.get()
@@ -211,8 +211,8 @@ def change_human():
             new_human_listbox = f'{new_human["id"]} {new_human["f_name"]}'
 
             # Изменяем данные во фронтенде
-            human_listbox.delete(human_listbox_ind[0])
-            human_listbox.insert(human_listbox_ind[0], new_human_listbox)
+            human_listbox.delete(human_listbox_indexes[0])
+            human_listbox.insert(human_listbox_indexes[0], new_human_listbox)
 
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
@@ -226,13 +226,13 @@ human_change_btn.place(x=150, y=400)
 
 def show_human_data():
     # Считываем индексы выделенных элементов из фронтенда
-    human_listbox_ind = human_listbox.curselection()
-    if len(human_listbox_ind) > 0:
+    human_listbox_indexes = human_listbox.curselection()
+    if len(human_listbox_indexes) > 0:
         # Считываем элемент по индексу
-        selected_human = human_listbox.get(human_listbox_ind[0])
+        selected_human_str = human_listbox.get(human_listbox_indexes[0])
 
         # Отдельно выделяем идентификатор
-        selected_id = selected_human.split()[0]
+        selected_id = selected_human_str.split()[0]
 
         # Запрашиваем из бэкенда объект по идентификатору
         human = backend_get_human(selected_id)

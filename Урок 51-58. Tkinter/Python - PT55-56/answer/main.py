@@ -1,364 +1,282 @@
-# Используя код, указанный ниже, реализуйте меню и переходы на
-# фреймы клиентов, продуктов и операций клиента над продуктами.
+import tkinter
+from tkinter import ttk
 
-class Product:
-    __id = str()
-    __name = str()
-    __price = float()
-    __amount = int()
+class Student:
+    __id = ""
+    __name = ""
 
-    def __init__(self, id: str, name: str, price: float, amount: int):
+    def __init__(self, id: str, name: str):
         self.__id = id
-        self.__name = name
-        self.set_price(price)
-        self.set_amount(amount)
-
-    def __str__(self):
-        result = f"{self.__id} {self.__name} {self.__amount}"
-        return result
-
-    def set_id(self, new_id: str):
-        self.__id = new_id
-
-    def get_id(self):
-        return self.__id
-
-    def set_name(self, new_name: str):
-        self.__name = new_name
-
-    def get_name(self):
-        return self.__name
-
-    def set_price(self, price: float):
-        if price < 0:
-            price = 0
-        self.__price = price
-
-    def get_price(self):
-        return self.__price
-
-    def set_amount(self, amount: int):
-        if amount < 0:
-            amount = 0
-        self.__amount = amount
-
-    def get_amount(self):
-        return self.__amount
-
-    def increase_amount(self, amount: int):
-        self.__amount += amount
-
-    def decrease_amount(self, amount: int):
-        self.__amount -= amount
-
-
-class Customer:
-    __id = str()
-    __name = str()
-    __age = 0
-    __product_list: list[Product] = list()
-
-    def __init__(self, id: str, name: str, age: int, product_list: list[Product] = None):
-        self.__id = id
-        self.__name = name
-        self.set_age(age)
-
-        if product_list:
-            self.__product_list = product_list
-        else:
-            self.__product_list: list[Product] = list()
+        self.__name = name.title()
 
     def __str__(self):
         result = f"{self.__id} {self.__name}"
         return result
 
-    def set_id(self, new_id: str):
-        self.__id = new_id
+    def set_id(self, id: str):
+        self.__id = id
 
     def get_id(self):
         return self.__id
 
-    def set_name(self, new_name: str):
-        self.__name = new_name
+    def set_name(self, name: str):
+        self.__name = name
 
     def get_name(self):
         return self.__name
 
-    def set_age(self, new_age: int):
-        if new_age < 0:
-            new_age = 0
-        self.__age = new_age
 
-    def get_age(self):
-        return self.__age
+class Group:
+    __id = str()
+    __teacher_name = str()
+    __students: list[Student] = list()
 
-    def set_products(self, product_list: list[Product]):
-        self.__product_list = product_list
+    def __init__(self, id: str, teacher_name: str):
+        self.__id = id
+        self.__teacher_name = teacher_name
+        self.__students: list[Student] = list()
 
-    def get_products(self):
-        return tuple(self.__product_list)
+    def __str__(self):
+        return f"{self.__id} {self.__teacher_name}"
 
-    def __get_product_index(self, product_id: str) -> int:
+    def set_id(self, id: str):
+        self.__id = id
+
+    def get_id(self):
+        return self.__id
+
+    def set_teacher_name(self, teacher_name: str):
+        self.__teacher_name = teacher_name
+
+    def get_teacher_name(self):
+        return self.__teacher_name
+
+    def set_students(self, students: list[Student]):
+        self.__students = students
+
+    def get_students(self):
+        return tuple(self.__students)
+
+    def get_student_index(self, student_id: str):
         found_index = -1
-        for i in range(len(self.__product_list)):
-            if product_id == self.__product_list[i].get_id():
+        for i in range(len(self.__students)):
+            if student_id == self.__students[i].get_id():
                 found_index = i
                 break
         return found_index
 
-    def get_product(self, product_id: str) -> Product | None:
-        index = self.__get_product_index(product_id)
+    def get_student(self, student_id: str) -> None | Student:
+        index = self.get_student_index(student_id)
         if index != -1:
-            product = self.__product_list[index]
+            student = self.__students[index]
         else:
-            product = None
-        return product
+            student = None
+        return student
 
-    def add_product(self, new_product: Product) -> int:
-        index = self.__get_product_index(new_product.get_id())
-        if index == -1:
-            self.__product_list.append(new_product)
-            result = 1
-        else:
-            self.__product_list[index].increase_amount(new_product.get_amount())
-            result = 2
-        return result
-
-    def remove_product(self, product_id: str) -> bool:
+    def add_student(self, student: Student):
         is_success = False
-        index = self.__get_product_index(product_id)
-        if index != -1:
-            del self.__product_list[index]
+        index = self.get_student_index(student.get_id())
+        if index == -1:
+            self.__students.append(student)
             is_success = True
         return is_success
 
-    def change_product(self, product_id: str, changed_product: Product) -> bool:
+    def remove_student_by_id(self, student_id: str):
         is_success = False
-        product = self.get_product(product_id)
-        if product:
-            changed_product_id = changed_product.get_id()
-            changed_product_index = self.__get_product_index(changed_product_id)
-            if product_id == changed_product_id or changed_product_index == -1:
-                product.set_id(changed_product.get_id())
-                product.set_name(changed_product.get_name())
-                product.set_price(changed_product.get_price())
-                product.set_amount(changed_product.get_amount())
-                is_success = True
+        index = self.get_student_index(student_id)
+        if index != -1:
+            del self.__students[index]
+            is_success = True
         return is_success
-
-    def clear_product_list(self):
-        self.__product_list = list()
 
 
 class DB:
-    __customer_list: list[Customer] = list()
-    __product_list: list[Product] = list()
+    __students: list[Student] = list()
+    __groups: list[Group] = list()
 
-    def __init__(self, customer_list: list[Customer] = None, product_list: list[Product] = None):
-        if customer_list:
-            self.__customer_list = customer_list
+    def __init__(self, students: None | list[Student] = None, groups: None | list[Group] = None):
+        if students:
+            self.__students: list[Student] = students
         else:
-            self.__customer_list: list[Customer] = list()
+            self.__students: list[Student] = list()
 
-        if product_list:
-            self.__product_list = product_list
+        if groups:
+            self.__groups: list[Group] = groups
         else:
-            self.__product_list: list[Product] = list()
+            self.__groups: list[Group] = list()
 
-    def set_customers(self, new_list: list[Customer]):
-        self.__customer_list = new_list
+    def set_students(self, students: list[Student]):
+        self.__students = students
 
-    def get_customers(self):
-        return tuple(self.__customer_list)
+    def get_students(self):
+        return tuple(self.__students)
 
-    def set_products(self, new_list: list[Product]):
-        self.__product_list = new_list
-
-    def get_products(self):
-        return tuple(self.__product_list)
-
-    def __get_customer_index(self, customer_id: str) -> int:
+    def get_student_index(self, student_id: str):
         found_index = -1
-        for i in range(len(self.__customer_list)):
-            if customer_id == self.__customer_list[i].get_id():
+        for i in range(len(self.__students)):
+            if student_id == self.__students[i].get_id():
                 found_index = i
                 break
         return found_index
 
-    def get_customer(self, customer_id) -> Customer | None:
-        index = self.__get_customer_index(customer_id)
-        customer = None
+    def get_student(self, student_id: str) -> None | Student:
+        index = self.get_student_index(student_id)
         if index != -1:
-            customer = self.__customer_list[index]
-        return customer
+            student = self.__students[index]
+        else:
+            student = None
+        return student
 
-    def add_customer(self, new_customer: Customer) -> bool:
+    def add_student(self, student: Student):
         is_success = False
-        index = self.__get_customer_index(new_customer.get_id())
+        index = self.get_student_index(student.get_id())
         if index == -1:
-            self.__customer_list.append(new_customer)
+            self.__students.append(student)
             is_success = True
         return is_success
 
-    def remove_customer(self, customer_id: str) -> bool:
+    def remove_student_by_id(self, student_id: str):
         is_success = False
-        index = self.__get_customer_index(customer_id)
+        index = self.get_student_index(student_id)
         if index != -1:
-            del self.__customer_list[index]
+            del self.__students[index]
+            for group in self.__groups:
+                group.remove_student_by_id(student_id)
             is_success = True
         return is_success
 
-    def change_customer(self, customer_id: str, changed_customer: Customer) -> bool:
+    def change_student(self, student_id: str, changed_student: Student):
         is_success = False
-        customer = self.get_customer(customer_id)
-        if customer:
-            changed_customer_id = changed_customer.get_id()
-            changed_customer_index = self.__get_customer_index(changed_customer_id)
-            if customer_id == changed_customer_id or changed_customer_index == -1:
-                customer.set_id(changed_customer.get_id())
-                customer.set_name(changed_customer.get_name())
-                customer.set_age(changed_customer.get_age())
+        student = self.get_student(student_id)
+        if student:
+            changed_student_id = changed_student.get_id()
+            changed_student_index = self.get_student_index(changed_student_id)
+            if student_id == changed_student_id or changed_student_index == -1:
+                student.set_id(changed_student.get_id())
+                student.set_name(changed_student.get_name())
                 is_success = True
         return is_success
 
-    def __get_product_index(self, product_id: str) -> int:
+    def set_groups(self, groups: list[Group]):
+        self.__groups = groups
+
+    def get_groups(self):
+        return tuple(self.__groups)
+
+    def get_group_index(self, group_id: str):
         found_index = -1
-        for i in range(len(self.__product_list)):
-            if product_id == self.__product_list[i].get_id():
+        for i in range(len(self.__groups)):
+            if group_id == self.__groups[i].get_id():
                 found_index = i
                 break
         return found_index
 
-    def get_product(self, product_id: str) -> Product | None:
-        index = self.__get_product_index(product_id)
+    def get_group(self, group_id: str) -> None | Group:
+        index = self.get_group_index(group_id)
         if index != -1:
-            product = self.__product_list[index]
+            group = self.__groups[index]
         else:
-            product = None
-        return product
+            group = None
+        return group
 
-    def add_product(self, new_product: Product) -> bool:
+    def add_group(self, group: Group):
         is_success = False
-        index = self.__get_product_index(new_product.get_id())
+        index = self.get_group_index(group.get_id())
         if index == -1:
-            self.__product_list.append(new_product)
+            self.__groups.append(group)
             is_success = True
         return is_success
 
-    def remove_product(self, product_id: str) -> bool:
+    def remove_group_by_id(self, group_id: str):
         is_success = False
-        index = self.__get_product_index(product_id)
+        index = self.get_group_index(group_id)
         if index != -1:
-            del self.__product_list[index]
+            del self.__groups[index]
             is_success = True
         return is_success
 
-    def change_product(self, product_id: str, changed_product: Product) -> bool:
+    def change_group(self, group_id: str, changed_group: Group):
         is_success = False
-        product = self.get_product(product_id)
-        if product:
-            changed_product_id = changed_product.get_id()
-            changed_product_index = self.__get_product_index(changed_product_id)
-            if product_id == changed_product_id or changed_product_index == -1:
-                product.set_id(changed_product.get_id())
-                product.set_name(changed_product.get_name())
-                product.set_price(changed_product.get_price())
-                product.set_amount(changed_product.get_amount())
-                is_success = True
-        return is_success
-
-    def can_decrease_products(self, product_list: tuple[Product, ...]) -> bool:
-        is_success = True
-        for product in product_list:
-            db_product = self.get_product(product.get_id())
-            if not db_product or product.get_amount() > db_product.get_amount():
-                is_success = False
-                break
-        return is_success
-
-    def decrease_products(self, product_list: tuple[Product, ...]):
-        for product in product_list:
-            db_product = self.get_product(product.get_id())
-            db_product.decrease_amount(product.get_amount())
-
-    def make_transaction(self, customer_id: str):
-        is_success = False
-        customer = self.get_customer(customer_id)
-        if customer:
-            customer_products = customer.get_products()
-            if self.can_decrease_products(customer_products):
-                self.decrease_products(customer_products)
-                customer.clear_product_list()
+        group = self.get_group(group_id)
+        if group:
+            changed_group_id = changed_group.get_id()
+            changed_group_index = self.get_student_index(changed_group_id)
+            if group_id == changed_group_id or changed_group_index == -1:
+                group.set_id(changed_group.get_id())
+                group.set_teacher_name(changed_group.get_teacher_name())
                 is_success = True
         return is_success
 
 
-import tkinter
-from tkinter import ttk
+student_1 = Student("ABC1234", "Tom")
+student_2 = Student("XYZ5869", "Bob")
+student_3 = Student("CBE1324", "Tom")
+student_4 = Student("XYZ1234", "Kate")
+student_5 = Student("RTE2345", "Jim")
 
-customer_1 = Customer("ABC1234", "Tom", 18)
-customer_2 = Customer("XYZ5869", "Bob", 24)
-customer_3 = Customer("CBE1324", "Tom", 28)
-customer_4 = Customer("XYZ1234", "Kate", 24)
-customer_5 = Customer("RTE2345", "Jim", 16)
-
-product_1 = Product("50004", "Apple", 5, 100)
-product_2 = Product("50005", "Bread", 2, 150)
-product_3 = Product("50006", "Tomato", 6, 450)
+group_1 = Group("G-5869", "Teston Lebra")
+group_2 = Group("G-0078", "Astrid Grid")
 
 data_base = DB()
-data_base.add_customer(customer_1)
-data_base.add_customer(customer_2)
-data_base.add_customer(customer_3)
-data_base.add_customer(customer_4)
-data_base.add_customer(customer_5)
+data_base.add_student(student_1)
+data_base.add_student(student_2)
+data_base.add_student(student_3)
+data_base.add_student(student_4)
+data_base.add_student(student_5)
 
-data_base.add_product(product_1)
-data_base.add_product(product_2)
-data_base.add_product(product_3)
+data_base.add_group(group_1)
+data_base.add_group(group_2)
 
 root = tkinter.Tk()
-root.title("Listbox")
+root.title("Frames and Menu")
 root.geometry("720x480")
 root.resizable(False, False)
 
-frame_customers = tkinter.Frame(root)
-frame_customers.pack(expand=True, fill="both")
+frame_student = tkinter.Frame(root)
+frame_student.pack(expand=True, fill="both")
 
-frame_products = tkinter.Frame(root)
-frame_products.pack_forget()
+frame_groups = tkinter.Frame(root)
+frame_groups.pack_forget()
 
-frame_operations = tkinter.Frame(root)
-frame_operations.pack_forget()
+frame_assign_to_group = tkinter.Frame(root)
+frame_assign_to_group.pack_forget()
 
-def show_customers():
+
+def show_frame_students():
     # Скрываем всё, что не нужно
-    frame_products.pack_forget()
-    frame_operations.pack_forget()
+    frame_groups.pack_forget()
+    frame_assign_to_group.pack_forget()
 
-    # Показываем всё, что нужно
-    frame_customers.pack(fill="both", expand=True)
+    # Изменяем размеры окна, если хотим
     root.geometry("720x480")
 
+    # Показываем всё, что требуется показать
+    frame_student.pack(fill="both", expand=True)
 
-def show_products():
+
+def show_frame_groups():
     # Скрываем всё, что не нужно
-    frame_customers.pack_forget()
-    frame_operations.pack_forget()
+    frame_student.pack_forget()
+    frame_assign_to_group.pack_forget()
 
-    # Показываем всё, что нужно
-    frame_products.pack(fill="both", expand=True)
-    root.geometry("880x350")
-
-
-def show_operations():
-    # Скрываем всё, что не нужно
-    frame_customers.pack_forget()
-    frame_products.pack_forget()
-
-    # Показываем всё, что нужно
-    frame_operations.pack(fill="both", expand=True)
+    # Изменяем размеры окна, если хотим
     root.geometry("720x480")
+
+    # Показываем всё, что требуется показать
+    frame_groups.pack(fill="both", expand=True)
+
+
+def show_frame_assign_to_group():
+    # Скрываем всё, что не нужно
+    frame_groups.pack_forget()
+    frame_student.pack_forget()
+
+    # Изменяем размеры окна, если хотим
+    root.geometry("720x480")
+
+    # Показываем всё, что требуется показать
+    frame_assign_to_group.pack(fill="both", expand=True)
+
 
 def close_program():
     root.quit()
@@ -367,472 +285,342 @@ def close_program():
 root_menu = tkinter.Menu(root)
 root.config(menu=root_menu)
 show_menu = tkinter.Menu(root_menu, tearoff=False)
-show_menu.add_command(label="Customers", command=show_customers)
-show_menu.add_command(label="Products", command=show_products)
-show_menu.add_command(label="Operations", command=show_operations)
+show_menu.add_command(label="Students", command=show_frame_students)
+show_menu.add_command(label="Groups", command=show_frame_groups)
+show_menu.add_command(label="Assign to Group", command=show_frame_assign_to_group)
 show_menu.add_separator()
 show_menu.add_command(label="Exit", command=close_program)
 root_menu.add_cascade(label="Show", menu=show_menu)
 
-# BEGIN FRAME CUSTOMERS
-fc_customer_listbox = tkinter.Listbox(frame_customers, font=("Arial", 18), height=13)
-fc_customer_listbox.place(x=20, y=20)
+
+# BEGIN FRAME STUDENT
+fs_student_listbox = tkinter.Listbox(frame_student, font=("Arial", 18), height=13)
+fs_student_listbox.place(x=20, y=20)
 
 
-def fill_customer_listbox():
-    fc_customer_listbox.delete(0, tkinter.END)
-    for customer in data_base.get_customers():
-        fc_customer_listbox.insert(tkinter.END, str(customer))
+def refresh_fs_student_listbox():
+    fs_student_listbox.delete(0, tkinter.END)
+    for student in data_base.get_students():
+        fs_student_listbox.insert(tkinter.END, str(student))
 
 
-fill_customer_listbox()
+refresh_fs_student_listbox()
 
-fc_customer_id_lbl = tkinter.Label(frame_customers, text="ID:", font=("Arial", 18))
-fc_customer_id_lbl.place(x=340, y=20)
+fs_student_id_lbl = tkinter.Label(frame_student, text="ID:", font=("Arial", 18))
+fs_student_id_lbl.place(x=340, y=20)
 
-fc_customer_id_entry = tkinter.Entry(frame_customers, font=("Arial", 18))
-fc_customer_id_entry.place(x=340, y=60)
+fs_student_id_entry = tkinter.Entry(frame_student, font=("Arial", 18))
+fs_student_id_entry.place(x=340, y=60)
 
-fc_customer_name_lbl = tkinter.Label(frame_customers, text="Name:", font=("Arial", 18))
-fc_customer_name_lbl.place(x=340, y=100)
+fs_student_name_lbl = tkinter.Label(frame_student, text="Name:", font=("Arial", 18))
+fs_student_name_lbl.place(x=340, y=100)
 
-fc_customer_name_entry = tkinter.Entry(frame_customers, font=("Arial", 18))
-fc_customer_name_entry.place(x=340, y=140)
+fs_student_name_entry = tkinter.Entry(frame_student, font=("Arial", 18))
+fs_student_name_entry.place(x=340, y=140)
 
-fc_customer_age_lbl = tkinter.Label(frame_customers, text="Age:", font=("Arial", 18))
-fc_customer_age_lbl.place(x=340, y=180)
+fs_student_info_lbl = tkinter.Label(frame_student, text="User info:", font=("Arial", 18))
+fs_student_info_lbl.place(x=340, y=300)
 
-fc_customer_age_entry = tkinter.Entry(frame_customers, font=("Arial", 18), width=3)
-fc_customer_age_entry.place(x=340, y=220)
-
-fc_customer_info_lbl = tkinter.Label(frame_customers, text="User info:", font=("Arial", 18))
-fc_customer_info_lbl.place(x=340, y=300)
-
-fc_customer_info = tkinter.Label(frame_customers, text="", font=("Arial", 18))
-fc_customer_info.place(x=340, y=340)
+fs_student_info = tkinter.Label(frame_student, text="", font=("Arial", 18))
+fs_student_info.place(x=340, y=340)
 
 
-def fc_add_customer():
-    # Считываем данные из полей фронтенда
-    new_id = fc_customer_id_entry.get()
-    new_name = fc_customer_name_entry.get()
-    new_age = fc_customer_age_entry.get()
+def fs_add_student():
+    new_id = fs_student_id_entry.get()
+    new_name = fs_student_name_entry.get()
 
-    # Проверяем/Корректируем данные из полей фронтенда
-    new_id = new_id.upper()
-    new_name = new_name.capitalize()
-    new_age = int(new_age)
+    new_student = Student(new_id, new_name)
 
-    # Формируем из данных объект
-    new_customer = Customer(new_id, new_name, new_age)
+    if data_base.add_student(new_student):
+        refresh_fs_student_listbox()
+        fatg_student_combobox["values"] = data_base.get_students()
 
-    # Добавляем объект в бэкенд
-    if data_base.add_customer(new_customer):
-        # Формируем строковое представление объекта
-        new_customer_listbox = str(new_customer)
-
-        # Добавляем строковое представление объекта во фронтенд
-        fc_customer_listbox.insert(tkinter.END, new_customer_listbox)
-        fo_customer_combobox["values"] = data_base.get_customers()
-
-    # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
-    for customer in data_base.get_customers():
-        print(f"{customer.get_id()} {customer.get_name()} {customer.get_age()}")
+    for student in data_base.get_students():
+        print(student)
 
 
-fc_customer_add_btn = tkinter.Button(frame_customers, text="New", font=("Arial", 14), command=fc_add_customer)
-fc_customer_add_btn.place(x=20, y=400)
+fs_student_add_btn = tkinter.Button(frame_student, text="New", font=("Arial", 14), command=fs_add_student)
+fs_student_add_btn.place(x=20, y=400)
 
 
-def fc_delete_customer():
-    # Считываем индексы выделенных элементов из фронтенда
-    customer_listbox_ind = fc_customer_listbox.curselection()
-    if len(customer_listbox_ind) > 0:
-        # Считываем элемент по индексу
-        selected_customer = fc_customer_listbox.get(customer_listbox_ind[0])
+def fs_delete_student():
+    selected_student_indexes = fs_student_listbox.curselection()
+    if len(selected_student_indexes) > 0:
+        selected_student_index = selected_student_indexes[0]
+        selected_student_str = fs_student_listbox.get(selected_student_index)
+        selected_student_id = selected_student_str.split()[0]
 
-        # Отдельно выделяем идентификатор
-        customer_id = selected_customer.split()[0]
+        if data_base.remove_student_by_id(selected_student_id):
+            refresh_fs_student_listbox()
+            fatg_student_combobox["values"] = data_base.get_students()
+            fatg_student_combobox.set("")
+            fatg_student_listbox.delete(0, tkinter.END)
+            fatg_selected_group_info.config(text="", justify="left")
 
-        # Пытаемся удалить из бэкенда
-        if data_base.remove_customer(customer_id):
-            # Удаляем из фронтенда
-            fc_customer_listbox.delete(customer_listbox_ind[0])
-
-            fo_customer_combobox["values"] = data_base.get_customers()
-            fo_customer_combobox.set("")
-
-    # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
-    for customer in data_base.get_customers():
-        print(f"{customer.get_id()} {customer.get_name()} {customer.get_age()}")
+    for student in data_base.get_students():
+        print(student)
 
 
-fc_customer_delete_btn = tkinter.Button(frame_customers, text="Delete", font=("Arial", 14), command=fc_delete_customer)
-fc_customer_delete_btn.place(x=75, y=400)
+fs_student_delete_btn = tkinter.Button(frame_student, text="Delete", font=("Arial", 14), command=fs_delete_student)
+fs_student_delete_btn.place(x=75, y=400)
 
 
-def fc_change_customer():
-    # Считываем индексы выделенных элементов из фронтенда
-    customer_listbox_ind = fc_customer_listbox.curselection()
-    if len(customer_listbox_ind) > 0:
-        # Считываем элемент по индексу
-        selected_customer = fc_customer_listbox.get(customer_listbox_ind[0])
+def fs_change_student():
+    selected_student_indexes = fs_student_listbox.curselection()
+    if len(selected_student_indexes) > 0:
+        selected_student_index = selected_student_indexes[0]
+        selected_student_str = fs_student_listbox.get(selected_student_index)
+        selected_student_id = selected_student_str.split()[0]
 
-        # Отдельно выделяем идентификатор
-        selected_id = selected_customer.split()[0]
+        new_id = fs_student_id_entry.get()
+        new_name = fs_student_name_entry.get()
 
-        # Считываем данные из полей фронтенда
-        new_id = fc_customer_id_entry.get()
-        new_name = fc_customer_name_entry.get()
-        new_age = fc_customer_age_entry.get()
+        new_student = Student(new_id, new_name)
 
-        # Проверяем/Корректируем данные из полей фронтенда
-        new_id = new_id.upper()
-        new_name = new_name.capitalize()
-        new_age = int(new_age)
+        if data_base.change_student(selected_student_id, new_student):
+            refresh_fs_student_listbox()
+            fatg_student_combobox["values"] = data_base.get_students()
+            fatg_student_combobox.set("")
+            fatg_student_listbox.delete(0, tkinter.END)
+            fatg_selected_group_info.config(text="", justify="left")
 
-        # Формируем из данных объект
-        new_customer = Customer(new_id, new_name, new_age)
-
-        # Пытаемся изменить объект в бэкенде
-        if data_base.change_customer(selected_id, new_customer):
-            # Формируем строковое представление объекта
-            new_customer_listbox = str(new_customer)
-
-            # Изменяем данные во фронтенде
-            fc_customer_listbox.delete(customer_listbox_ind[0])
-            fc_customer_listbox.insert(customer_listbox_ind[0], new_customer_listbox)
-
-            fo_customer_combobox["values"] = data_base.get_customers()
-            fo_customer_combobox.set("")
-
-    # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
-    for customer in data_base.get_customers():
-        print(f"{customer.get_id()} {customer.get_name()} {customer.get_age()}")
+    for student in data_base.get_students():
+        print(student)
 
 
-customer_change_btn = tkinter.Button(frame_customers, text="Change", font=("Arial", 14), command=fc_change_customer)
-customer_change_btn.place(x=150, y=400)
+fs_student_change_btn = tkinter.Button(frame_student, text="Change", font=("Arial", 14), command=fs_change_student)
+fs_student_change_btn.place(x=150, y=400)
 
 
-def fc_show_customer_data():
-    # Считываем индексы выделенных элементов из фронтенда
-    customer_listbox_ind = fc_customer_listbox.curselection()
-    if len(customer_listbox_ind) > 0:
-        # Считываем элемент по индексу
-        selected_customer = fc_customer_listbox.get(customer_listbox_ind[0])
+def fs_show_student_data():
+    selected_student_indexes = fs_student_listbox.curselection()
+    if len(selected_student_indexes) > 0:
+        selected_student_index = selected_student_indexes[0]
+        selected_student_str = fs_student_listbox.get(selected_student_index)
+        selected_student_id = selected_student_str.split()[0]
 
-        # Отдельно выделяем идентификатор
-        selected_id = selected_customer.split()[0]
-
-        # Запрашиваем из бэкенда объект по идентификатору
-        customer = data_base.get_customer(selected_id)
-        if customer:
-            customer_data = f"ID: {customer.get_id()}\nName: {customer.get_name()}\nAge: {customer.get_age()}"
-            fc_customer_info.config(text=customer_data, justify="left")
+        selected_student = data_base.get_student(selected_student_id)
+        if selected_student:
+            student_data = f"ID: {selected_student.get_id()}\nName: {selected_student.get_name()}"
+            fs_student_info.config(text=student_data, justify="left")
 
 
-fc_customer_info_btn = tkinter.Button(frame_customers, text="Info", font=("Arial", 14), command=fc_show_customer_data)
-fc_customer_info_btn.place(x=235, y=400)
+fs_student_info_btn = tkinter.Button(frame_student, text="Info", font=("Arial", 14), command=fs_show_student_data)
+fs_student_info_btn.place(x=235, y=400)
+# END FRAME STUDENT
 
-# def fc_fill_customer_info(event):
-#     customer_listbox_ind = fc_customer_listbox.curselection()
-#     if len(customer_listbox_ind) > 0:
-#         selected_customer = fc_customer_listbox.get(customer_listbox_ind[0])
-#         selected_id = selected_customer.split()[0]
-#         customer = data_base.get_customer(selected_id)
-#         if customer:
-#             fc_customer_id_entry.delete(0, tkinter.END)
-#             fc_customer_id_entry.insert(0, customer.get_id())
-#             fc_customer_name_entry.delete(0, tkinter.END)
-#             fc_customer_name_entry.insert(0, customer.get_name())
-#             fc_customer_age_entry.delete(0, tkinter.END)
-#             fc_customer_age_entry.insert(0, customer.get_age())
-#
-#
-# fc_customer_listbox.bind("<<ListboxSelect>>", fill_customer_info)
-
-# END FRAME CUSTOMERS
-
-# BEGIN FRAME PRODUCTS
-fp_product_listbox = tkinter.Listbox(frame_products, font=("Arial", 18), height=8)
-fp_product_listbox.place(x=20, y=20)
+# BEGIN FRAME GROUP
+fg_group_listbox = tkinter.Listbox(frame_groups, font=("Arial", 18), height=13)
+fg_group_listbox.place(x=20, y=20)
 
 
-def fill_product_listbox():
-    fp_product_listbox.delete(0, tkinter.END)
-    for product in data_base.get_products():
-        fp_product_listbox.insert(tkinter.END, str(product))
+def refresh_fg_group_listbox():
+    fg_group_listbox.delete(0, tkinter.END)
+    for group in data_base.get_groups():
+        fg_group_listbox.insert(tkinter.END, str(group))
 
 
-fill_product_listbox()
+refresh_fg_group_listbox()
 
-fp_product_id_lbl = tkinter.Label(frame_products, text="ID:", font=("Arial", 18))
-fp_product_id_lbl.place(x=20, y=260)
+fg_group_id_lbl = tkinter.Label(frame_groups, text="ID:", font=("Arial", 18))
+fg_group_id_lbl.place(x=340, y=20)
 
-fp_product_id_entry = tkinter.Entry(frame_products, font=("Arial", 18), width=10)
-fp_product_id_entry.place(x=20, y=300)
+fg_group_id_entry = tkinter.Entry(frame_groups, font=("Arial", 18))
+fg_group_id_entry.place(x=340, y=60)
 
-fp_product_name_lbl = tkinter.Label(frame_products, text="Name:", font=("Arial", 18))
-fp_product_name_lbl.place(x=220, y=260)
+fg_group_name_lbl = tkinter.Label(frame_groups, text="Name:", font=("Arial", 18))
+fg_group_name_lbl.place(x=340, y=100)
 
-fp_product_name_entry = tkinter.Entry(frame_products, font=("Arial", 18))
-fp_product_name_entry.place(x=220, y=300)
+fg_group_name_entry = tkinter.Entry(frame_groups, font=("Arial", 18))
+fg_group_name_entry.place(x=340, y=140)
 
-fp_product_price_lbl = tkinter.Label(frame_products, text="Price:", font=("Arial", 18))
-fp_product_price_lbl.place(x=540, y=260)
+fg_group_info_lbl = tkinter.Label(frame_groups, text="Group info:", font=("Arial", 18))
+fg_group_info_lbl.place(x=340, y=300)
 
-fp_product_price_entry = tkinter.Entry(frame_products, font=("Arial", 18), width=8)
-fp_product_price_entry.place(x=540, y=300)
-
-fp_product_amount_lbl = tkinter.Label(frame_products, text="Amount:", font=("Arial", 18))
-fp_product_amount_lbl.place(x=700, y=260)
-
-fp_product_amount_entry = tkinter.Entry(frame_products, font=("Arial", 18), width=8)
-fp_product_amount_entry.place(x=700, y=300)
-
-fp_product_info_lbl = tkinter.Label(frame_products, text="Product info:", font=("Arial", 18))
-fp_product_info_lbl.place(x=460, y=20)
-
-fp_product_info = tkinter.Label(frame_products, text="", font=("Arial", 18))
-fp_product_info.place(x=460, y=60)
+fg_group_info = tkinter.Label(frame_groups, text="", font=("Arial", 18))
+fg_group_info.place(x=340, y=340)
 
 
-def fp_add_product():
-    # Считываем данные из полей фронтенда
-    new_id = fp_product_id_entry.get()
-    new_name = fp_product_name_entry.get()
-    new_price = float(fp_product_price_entry.get())
-    new_amount = int(fp_product_amount_entry.get())
+def fg_add_group():
+    new_id = fg_group_id_entry.get()
+    new_name = fg_group_name_entry.get()
 
-    # Формируем из данных объект
-    new_product = Product(new_id, new_name, new_price, new_amount)
+    new_group = Group(new_id, new_name)
 
-    # Добавляем объект в бэкенд
-    if data_base.add_product(new_product):
-        # Формируем строковое представление объекта
-        new_product_listbox = str(new_product)
+    if data_base.add_group(new_group):
+        refresh_fg_group_listbox()
+        fatg_group_combobox["values"] = data_base.get_groups()
 
-        # Добавляем строковое представление объекта во фронтенд
-        fp_product_listbox.insert(tkinter.END, new_product_listbox)
-
-        fo_product_combobox["values"] = data_base.get_products()
-
-    # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
-    for product in data_base.get_products():
-        print(f"{product.get_id()} {product.get_name()} {product.get_price()}")
+    for group in data_base.get_groups():
+        print(group)
 
 
-fp_product_add_btn = tkinter.Button(frame_products, text="New", font=("Arial", 14), command=fp_add_product)
-fp_product_add_btn.place(x=300, y=20)
+fg_group_add_btn = tkinter.Button(frame_groups, text="New", font=("Arial", 14), command=fg_add_group)
+fg_group_add_btn.place(x=20, y=400)
 
 
-def fp_delete_product():
-    # Считываем индексы выделенных элементов из фронтенда
-    product_listbox_ind = fp_product_listbox.curselection()
-    if len(product_listbox_ind) > 0:
-        # Считываем элемент по индексу
-        selected_product = fp_product_listbox.get(product_listbox_ind[0])
+def fg_delete_group():
+    selected_group_indexes = fg_group_listbox.curselection()
+    if len(selected_group_indexes) > 0:
+        selected_group_index = selected_group_indexes[0]
+        selected_group_str = fg_group_listbox.get(selected_group_index)
+        selected_group_id = selected_group_str.split()[0]
 
-        # Отдельно выделяем идентификатор
-        product_id = selected_product.split()[0]
+        if data_base.remove_group_by_id(selected_group_id):
+            refresh_fg_group_listbox()
+            fatg_group_combobox["values"] = data_base.get_groups()
+            fatg_group_combobox.set("")
+            fatg_student_listbox.delete(0, tkinter.END)
+            fatg_selected_group_info.config(text="", justify="left")
 
-        # Пытаемся удалить из бэкенда
-        if data_base.remove_product(product_id):
-            # Удаляем из фронтенда
-            fp_product_listbox.delete(product_listbox_ind[0])
-
-            fo_product_combobox["values"] = data_base.get_products()
-            fo_product_combobox.set("")
-
-    # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
-    for product in data_base.get_products():
-        print(f"{product.get_id()} {product.get_name()} {product.get_price()}")
+    for group in data_base.get_groups():
+        print(group)
 
 
-fp_product_delete_btn = tkinter.Button(frame_products, text="Delete", font=("Arial", 14), command=fp_delete_product)
-fp_product_delete_btn.place(x=300, y=70)
+fg_group_delete_btn = tkinter.Button(frame_groups, text="Delete", font=("Arial", 14), command=fg_delete_group)
+fg_group_delete_btn.place(x=75, y=400)
 
 
-def fp_change_product():
-    # Считываем индексы выделенных элементов из фронтенда
-    product_listbox_ind = fp_product_listbox.curselection()
-    if len(product_listbox_ind) > 0:
-        # Считываем элемент по индексу
-        selected_product = fp_product_listbox.get(product_listbox_ind[0])
+def fg_change_group():
+    selected_group_indexes = fg_group_listbox.curselection()
+    if len(selected_group_indexes) > 0:
+        selected_group_index = selected_group_indexes[0]
+        selected_group_str = fg_group_listbox.get(selected_group_index)
+        selected_group_id = selected_group_str.split()[0]
 
-        # Отдельно выделяем идентификатор
-        selected_id = selected_product.split()[0]
+        new_id = fg_group_id_entry.get()
+        new_teacher_name = fg_group_name_entry.get()
 
-        # Считываем данные из полей фронтенда
-        new_id = fp_product_id_entry.get()
-        new_name = fp_product_name_entry.get()
-        new_price = float(fp_product_price_entry.get())
-        new_amount = int(fp_product_amount_entry.get())
+        new_group = Group(new_id, new_teacher_name)
 
-        # Формируем из данных объект
-        new_product = Product(new_id, new_name, new_price, new_amount)
+        if data_base.change_group(selected_group_id, new_group):
+            refresh_fg_group_listbox()
+            fatg_group_combobox["values"] = data_base.get_groups()
+            fatg_group_combobox.set("")
+            fatg_student_listbox.delete(0, tkinter.END)
+            fatg_selected_group_info.config(text="", justify="left")
 
-        # Пытаемся изменить объект в бэкенде
-        if data_base.change_product(selected_id, new_product):
-            # Формируем строковое представление объекта
-            new_product_listbox = str(new_product)
-
-            # Изменяем данные во фронтенде
-            fp_product_listbox.delete(product_listbox_ind[0])
-            fp_product_listbox.insert(product_listbox_ind[0], new_product_listbox)
-
-            fo_product_combobox["values"] = data_base.get_products()
-            fo_product_combobox.set("")
-
-    # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
-    for product in data_base.get_products():
-        print(f"{product.get_id()} {product.get_name()} {product.get_price()}")
+    for group in data_base.get_groups():
+        print(group)
 
 
-fp_product_change_btn = tkinter.Button(frame_products, text="Change", font=("Arial", 14), command=fp_change_product)
-fp_product_change_btn.place(x=300, y=120)
+fg_group_change_btn = tkinter.Button(frame_groups, text="Change", font=("Arial", 14), command=fg_change_group)
+fg_group_change_btn.place(x=150, y=400)
 
 
-def fp_show_product_data():
-    # Считываем индексы выделенных элементов из фронтенда
-    product_listbox_ind = fp_product_listbox.curselection()
-    if len(product_listbox_ind) > 0:
-        # Считываем элемент по индексу
-        selected_product = fp_product_listbox.get(product_listbox_ind[0])
+def fg_show_group_data():
+    selected_group_indexes = fg_group_listbox.curselection()
+    if len(selected_group_indexes) > 0:
+        selected_group_index = selected_group_indexes[0]
+        selected_group_str = fg_group_listbox.get(selected_group_index)
+        selected_group_id = selected_group_str.split()[0]
 
-        # Отдельно выделяем идентификатор
-        selected_id = selected_product.split()[0]
-
-        # Запрашиваем из бэкенда объект по идентификатору
-        product = data_base.get_product(selected_id)
-        if product:
-            product_data = (f"ID: {product.get_id()}\nName: {product.get_name()}\n"
-                            f"Price: {product.get_price()}₼\nAmount: {product.get_amount()}")
-            fp_product_info.config(text=product_data, justify="left")
+        selected_group = data_base.get_group(selected_group_id)
+        if selected_group:
+            group_data = f"ID: {selected_group.get_id()}\nTeacher: {selected_group.get_teacher_name()}"
+            fg_group_info.config(text=group_data, justify="left")
 
 
-fp_product_info_btn = tkinter.Button(frame_products, text="Info", font=("Arial", 14), command=fp_show_product_data)
-fp_product_info_btn.place(x=300, y=170)
-# END FRAME PRODUCT
+fg_group_info_btn = tkinter.Button(frame_groups, text="Info", font=("Arial", 14), command=fg_show_group_data)
+fg_group_info_btn.place(x=235, y=400)
+# END FRAME GROUP
 
-# BEGIN FRAME OPERATIONS
-fo_customer_lbl = tkinter.Label(frame_operations, text="Customer:", font=("Arial", 16))
-fo_customer_lbl.place(x=20, y=20)
-fo_customer_combobox = ttk.Combobox(frame_operations, values=data_base.get_customers(), font=("Arial", 18), state="readonly")
-fo_customer_combobox.place(x=20, y=60)
+# BEGIN FRAME ASSIGN TO GROUP
+fatg_group_lbl = tkinter.Label(frame_assign_to_group, text="Group:", font=("Arial", 16))
+fatg_group_lbl.place(x=20, y=20)
+fatg_group_combobox = ttk.Combobox(frame_assign_to_group, values=data_base.get_groups(), font=("Arial", 18), state="readonly")
+fatg_group_combobox.place(x=20, y=60)
 
-fo_product_lbl = tkinter.Label(frame_operations, text="Product:", font=("Arial", 16))
-fo_product_lbl.place(x=20, y=220)
-fo_product_combobox = ttk.Combobox(frame_operations, values=data_base.get_products(), font=("Arial", 18), state="readonly")
-fo_product_combobox.place(x=20, y=260)
+fatg_student_lbl = tkinter.Label(frame_assign_to_group, text="Student:", font=("Arial", 16))
+fatg_student_lbl.place(x=20, y=120)
+fatg_student_combobox = ttk.Combobox(frame_assign_to_group, values=data_base.get_students(), font=("Arial", 18), state="readonly")
+fatg_student_combobox.place(x=20, y=160)
 
-fo_product_amount_lbl = tkinter.Label(frame_operations, text="Amount:", font=("Arial", 18))
-fo_product_amount_lbl.place(x=20, y=300)
-fo_product_amount_entry = tkinter.Entry(frame_operations, font=("Arial", 18), width=8)
-fo_product_amount_entry.place(x=20, y=340)
+fatg_selected_group_info_lbl = tkinter.Label(frame_assign_to_group, text="Group:", font=("Arial", 16))
+fatg_selected_group_info_lbl.place(x=400, y=20)
+fatg_selected_group_info = tkinter.Label(frame_assign_to_group, text="", font=("Arial", 16))
+fatg_selected_group_info.place(x=480, y=20)
 
-fo_operations_info = tkinter.Label(frame_operations, text="", font=("Arial", 16))
-fo_operations_info.place(x=20, y=380)
-
-fo_product_listbox = tkinter.Listbox(frame_operations, font=("Arial", 18), height=12)
-fo_product_listbox.place(x=400, y=60)
-
-fo_customer_selected_lbl = tkinter.Label(frame_operations, text="", font=("Arial", 16))
-fo_customer_selected_lbl.place(x=400, y=20)
-
-fo_customer_lbl = tkinter.Label(frame_operations, text="Customer:", font=("Arial", 16))
-fo_customer_lbl.place(x=20, y=20)
+fatg_student_listbox = tkinter.Listbox(frame_assign_to_group, font=("Arial", 18), height=13)
+fatg_student_listbox.place(x=400, y=60)
 
 
-def fill_customer_product_listbox(customer_products: tuple[Product, ...]):
-    fo_product_listbox.delete(0, tkinter.END)
-    for product in customer_products:
-        fo_product_listbox.insert(tkinter.END, str(product))
+def refresh_fatg_student_listbox(group: Group):
+    fatg_student_listbox.delete(0, tkinter.END)
+    for student in group.get_students():
+        fatg_student_listbox.insert(tkinter.END, str(student))
 
 
-def fo_show_customer_products():
-    customer_str = fo_customer_combobox.get()
-    customer_id = customer_str.split()[0]
+def fatg_show_students_listbox():
+    selected_group_str = fatg_group_combobox.get()
+    fatg_selected_group_info.config(text=f"{selected_group_str}", justify="left")
 
-    selected_customer = data_base.get_customer(customer_id)
-    if selected_customer:
-        fill_customer_product_listbox(selected_customer.get_products())
-        fo_customer_selected_lbl.config(text=str(selected_customer))
+    selected_group_id = selected_group_str.split()[0]
+    selected_group = data_base.get_group(selected_group_id)
 
-
-fo_customer_select_btn = tkinter.Button(frame_operations, text="Show customer products", font=("Arial", 16),
-                                    command=fo_show_customer_products)
-fo_customer_select_btn.place(x=20, y=140)
+    if selected_group:
+        refresh_fatg_student_listbox(selected_group)
 
 
-# def show_customer_products(event):
-#     customer_str = fo_customer_combobox.get()
-#     customer_id = customer_str.split()[0]
-#
-#     selected_customer = data_base.get_customer(customer_id)
-#     if selected_customer:
-#         fill_customer_product_listbox(selected_customer)
-#         fo_customer_selected_lbl.config(text=str(selected_customer))
-#
-#
-# fo_customer_combobox.bind("<<ComboboxSelected>>", show_customer_products)
+fatg_show_students_btn = tkinter.Button(frame_assign_to_group, text="Show students", font=("Arial", 16), command=fatg_show_students_listbox)
+fatg_show_students_btn.place(x=400, y=430)
 
 
-def fo_add_product_to_customer():
-    customer_str = fo_customer_combobox.get()
-    product_str = fo_product_combobox.get()
-    product_amount = fo_product_amount_entry.get()
+def fatg_add_student():
+    selected_group_str = fatg_group_combobox.get()
+    fatg_selected_group_info.config(text=f"{selected_group_str}", justify="left")
 
-    customer_id = customer_str.split()[0]
-    product_id = product_str.split()[0]
-    selected_customer = data_base.get_customer(customer_id)
-    selected_product = data_base.get_product(product_id)
+    selected_group_id = selected_group_str.split()[0]
+    selected_group = data_base.get_group(selected_group_id)
 
-    if selected_customer and selected_product:
-        product_to_add = Product(selected_product.get_id(),
-                                 selected_product.get_name(),
-                                 selected_product.get_price(),
-                                 int(product_amount))
-        result = selected_customer.add_product(product_to_add)
-        if result == 1 or result == 2:
-            fo_operations_info.config(text="Product added", justify="left")
-            fill_customer_product_listbox(selected_customer.get_products())
-            fo_customer_selected_lbl.config(text=str(selected_customer))
-        else:
-            fo_operations_info.config(text="Error", justify="left")
+    selected_student_str = fatg_student_combobox.get()
+    selected_student_id = selected_student_str.split()[0]
+    selected_student = data_base.get_student(selected_student_id)
+
+    if selected_group and selected_student:
+        selected_group.add_student(selected_student)
+        refresh_fatg_student_listbox(selected_group)
+
+    print()
+    for group in data_base.get_groups():
+        print("=" * 25, group, "=" * 25)
+        for student in group.get_students():
+            print(student)
 
 
-fo_add_product_btn = tkinter.Button(frame_operations, text="Add product", font=("Arial", 16),
-                                    command=fo_add_product_to_customer)
-fo_add_product_btn.place(x=20, y=420)
+fatg_add_student_btn = tkinter.Button(frame_assign_to_group, text="Add student", font=("Arial", 16), command=fatg_add_student)
+fatg_add_student_btn.place(x=20, y=240)
 
 
-def fo_make_transaction():
-    customer_str = fo_customer_combobox.get()
+def fatg_remove_student():
+    selected_student_indexes = fatg_student_listbox.curselection()
+    if len(selected_student_indexes) > 0:
+        selected_student_index = selected_student_indexes[0]
+        selected_student_str = fatg_student_listbox.get(selected_student_index)
+        selected_student_id = selected_student_str.split()[0]
 
-    customer_id = customer_str.split()[0]
-    customer = data_base.get_customer(customer_id)
+        selected_group_str = fatg_selected_group_info.cget("text")
+        selected_group_id = selected_group_str.split()[0]
+        selected_group = data_base.get_group(selected_group_id)
 
-    if data_base.make_transaction(customer_id):
-        fill_product_listbox()
-        fill_customer_product_listbox(customer.get_products())
-        fo_product_combobox["values"] = data_base.get_products()
-        fo_product_combobox.set("")
-        fo_operations_info.config(text="Transaction success!", justify="left")
-    else:
-        fo_operations_info.config(text="Error!", justify="left")
+        if selected_group.remove_student_by_id(selected_student_id):
+            refresh_fatg_student_listbox(selected_group)
+
+    print()
+    for group in data_base.get_groups():
+        print("=" * 25, group, "=" * 25)
+        for student in group.get_students():
+            print(student)
 
 
-fo_make_transaction_btn = tkinter.Button(frame_operations, text="Make transaction", font=("Arial", 16),
-                                    command=fo_make_transaction)
-fo_make_transaction_btn.place(x=400, y=420)
+fatg_remove_student_btn = tkinter.Button(frame_assign_to_group, text="Remove", font=("Arial", 16), command=fatg_remove_student)
+fatg_remove_student_btn.place(x=570, y=430)
 # END FRAME OPERATIONS
 
 root.mainloop()

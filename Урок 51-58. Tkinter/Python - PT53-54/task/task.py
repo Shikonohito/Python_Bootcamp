@@ -4,16 +4,16 @@
 
 class Employee:
     __id = str()
-    __name = str()
-    __age = str()
+    __role = str()
+    __salary = int()
 
-    def __init__(self, id: str, name: str, age: int):
+    def __init__(self, id: str, role: str, salary: int):
         self.__id = id
-        self.__name = name
-        self.set_age(age)
+        self.__role = role
+        self.set_salary(salary)
 
     def __str__(self):
-        return f"{self.__id} {self.__name}"
+        return f"{self.__id} {self.__role}"
 
     def set_id(self, id: str):
         self.__id = id
@@ -21,20 +21,20 @@ class Employee:
     def get_id(self):
         return self.__id
 
-    def set_name(self, name: str):
-        self.__name = name
+    def set_role(self, role: str):
+        self.__role = role
 
-    def get_name(self):
-        return self.__name
+    def get_role(self):
+        return self.__role
 
-    def set_age(self, age: int):
-        if age >= 0:
-            self.__age = age
+    def set_salary(self, salary: int):
+        if salary >= 0:
+            self.__salary = salary
         else:
-            self.__age = 0
+            self.__salary = 0
 
-    def get_age(self):
-        return self.__age
+    def get_salary(self):
+        return self.__salary
 
 
 class DB:
@@ -88,18 +88,18 @@ class DB:
             changed_employee_index = self.__get_employee_index(changed_employee_id)
             if employee_id == changed_employee_id or changed_employee_index == -1:
                 employee.set_id(changed_employee_id)
-                employee.set_name(changed_employee.get_name())
-                employee.set_age(changed_employee.get_age())
+                employee.set_role(changed_employee.get_role())
+                employee.set_salary(changed_employee.get_salary())
                 is_success = True
         return is_success
 
 
 # ТЕСТОВЫЕ ДАННЫЕ
-employee_1 = Employee("E-001", "Teston", 25)
-employee_2 = Employee("E-055", "Tom", 28)
-employee_3 = Employee("E-029", "Kate", 27)
-employee_4 = Employee("E-014", "Bob", 29)
-employee_5 = Employee("E-059", "Jack", 35)
+employee_1 = Employee("E-001", "Software Developer", 1400)
+employee_2 = Employee("E-055", "Mobile Developer", 1200)
+employee_3 = Employee("E-029", "Software Engineer", 2500)
+employee_4 = Employee("E-014", "QA Tester", 800)
+employee_5 = Employee("E-059", "Software Developer", 1400)
 
 data_base = DB()
 data_base.add_employee(employee_1)
