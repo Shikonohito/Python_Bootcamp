@@ -237,7 +237,7 @@ def show_customer_data():
         selected_customer_id = selected_customer_str.split()[0]
 
         # Запрашиваем из бэкенда объект по идентификатору
-        selected_customer = backend_get_customer(selected_id)
+        selected_customer = backend_get_customer(selected_customer_id)
         if selected_customer:
             customer_data = f'{selected_customer["id"]} {selected_customer["name"]} {selected_customer["l_name"]} {selected_customer["age"]}'
             customer_info.config(text=customer_data)

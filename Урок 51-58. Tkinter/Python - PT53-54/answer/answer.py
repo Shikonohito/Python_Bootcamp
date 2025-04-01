@@ -1,19 +1,20 @@
+import tkinter
 # Используя описанный ниже код бэкенда, создайте графическое приложение,
 # в котором есть возможность добавить, показать, изменить, удалить сотрудника.
 # Используйте виджеты Label, Entry, Button, Listbox.
 
 class Employee:
     __id = str()
-    __name = str()
-    __age = str()
+    __role = str()
+    __salary = int()
 
-    def __init__(self, id: str, name: str, age: int):
+    def __init__(self, id: str, role: str, salary: int):
         self.__id = id
-        self.__name = name
-        self.set_age(age)
+        self.__role = role
+        self.set_salary(salary)
 
     def __str__(self):
-        return f"{self.__id} {self.__name}"
+        return f"{self.__id} {self.__role}"
 
     def set_id(self, id: str):
         self.__id = id
@@ -21,20 +22,20 @@ class Employee:
     def get_id(self):
         return self.__id
 
-    def set_name(self, name: str):
-        self.__name = name
+    def set_role(self, role: str):
+        self.__role = role
 
-    def get_name(self):
-        return self.__name
+    def get_role(self):
+        return self.__role
 
-    def set_age(self, age: int):
-        if age >= 0:
-            self.__age = age
+    def set_salary(self, salary: int):
+        if salary >= 0:
+            self.__salary = salary
         else:
-            self.__age = 0
+            self.__salary = 0
 
-    def get_age(self):
-        return self.__age
+    def get_salary(self):
+        return self.__salary
 
 
 class DB:
@@ -88,18 +89,18 @@ class DB:
             changed_employee_index = self.__get_employee_index(changed_employee_id)
             if employee_id == changed_employee_id or changed_employee_index == -1:
                 employee.set_id(changed_employee_id)
-                employee.set_name(changed_employee.get_name())
-                employee.set_age(changed_employee.get_age())
+                employee.set_role(changed_employee.get_role())
+                employee.set_salary(changed_employee.get_salary())
                 is_success = True
         return is_success
 
 
 # ТЕСТОВЫЕ ДАННЫЕ
-employee_1 = Employee("E-001", "Teston", 25)
-employee_2 = Employee("E-055", "Tom", 28)
-employee_3 = Employee("E-029", "Kate", 27)
-employee_4 = Employee("E-014", "Bob", 29)
-employee_5 = Employee("E-059", "Jack", 35)
+employee_1 = Employee("E-001", "Software Developer", 1400)
+employee_2 = Employee("E-055", "Mobile Developer", 1200)
+employee_3 = Employee("E-029", "Software Engineer", 2500)
+employee_4 = Employee("E-014", "QA Tester", 800)
+employee_5 = Employee("E-059", "Software Developer", 1400)
 
 data_base = DB()
 data_base.add_employee(employee_1)
@@ -107,8 +108,6 @@ data_base.add_employee(employee_2)
 data_base.add_employee(employee_3)
 data_base.add_employee(employee_4)
 data_base.add_employee(employee_5)
-
-import tkinter
 
 root = tkinter.Tk()
 root.title("Python - PT53-54")
@@ -118,7 +117,7 @@ root.resizable(False, False)
 frame_employee = tkinter.Frame(root)
 frame_employee.pack(expand=True, fill="both")
 
-employee_listbox = tkinter.Listbox(frame_employee, font=("Arial", 18), height=13)
+employee_listbox = tkinter.Listbox(frame_employee, font=("Arial", 18), height=13, width=23)
 employee_listbox.place(x=20, y=20)
 
 
@@ -136,19 +135,19 @@ employee_id_lbl.place(x=340, y=20)
 employee_id_entry = tkinter.Entry(frame_employee, font=("Arial", 18))
 employee_id_entry.place(x=340, y=60)
 
-employee_name_lbl = tkinter.Label(frame_employee, text="Name:", font=("Arial", 18))
-employee_name_lbl.place(x=340, y=100)
+employee_role_lbl = tkinter.Label(frame_employee, text="Role:", font=("Arial", 18))
+employee_role_lbl.place(x=340, y=100)
 
-employee_name_entry = tkinter.Entry(frame_employee, font=("Arial", 18))
-employee_name_entry.place(x=340, y=140)
+employee_role_entry = tkinter.Entry(frame_employee, font=("Arial", 18))
+employee_role_entry.place(x=340, y=140)
 
-employee_age_lbl = tkinter.Label(frame_employee, text="Age:", font=("Arial", 18))
-employee_age_lbl.place(x=340, y=180)
+employee_salary_lbl = tkinter.Label(frame_employee, text="Salary:", font=("Arial", 18))
+employee_salary_lbl.place(x=340, y=180)
 
-employee_age_entry = tkinter.Entry(frame_employee, font=("Arial", 18), width=3)
-employee_age_entry.place(x=340, y=220)
+employee_salary_entry = tkinter.Entry(frame_employee, font=("Arial", 18), width=3)
+employee_salary_entry.place(x=340, y=220)
 
-employee_info_lbl = tkinter.Label(frame_employee, text="User info:", font=("Arial", 18))
+employee_info_lbl = tkinter.Label(frame_employee, text="Employee info:", font=("Arial", 18))
 employee_info_lbl.place(x=340, y=300)
 
 employee_info = tkinter.Label(frame_employee, text="", font=("Arial", 18))
@@ -158,11 +157,11 @@ employee_info.place(x=340, y=340)
 def add_employee():
     # Считываем данные из полей фронтенда
     new_id = employee_id_entry.get()
-    new_name = employee_name_entry.get()
-    new_age = int(employee_age_entry.get())
+    new_role = employee_role_entry.get()
+    new_salary = int(employee_salary_entry.get())
 
     # Формируем из данных объект
-    new_employee = Employee(new_id, new_name, new_age)
+    new_employee = Employee(new_id, new_role, new_salary)
 
     # Добавляем объект в бэкенд
     if data_base.add_employee(new_employee):
@@ -175,7 +174,7 @@ def add_employee():
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
     for employee in data_base.get_employees():
-        print(f"{employee.get_id()} {employee.get_name()} {employee.get_age()}")
+        print(f"{employee.get_id()} {employee.get_role()} {employee.get_salary()}")
 
 
 employee_add_btn = tkinter.Button(frame_employee, text="New", font=("Arial", 14), command=add_employee)
@@ -204,7 +203,7 @@ def delete_employee():
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
     for employee in data_base.get_employees():
-        print(f"{employee.get_id()} {employee.get_name()} {employee.get_age()}")
+        print(f"{employee.get_id()} {employee.get_role()} {employee.get_salary()}")
 
 
 employee_delete_btn = tkinter.Button(frame_employee, text="Delete", font=("Arial", 14), command=delete_employee)
@@ -226,11 +225,11 @@ def change_employee():
 
         # Считываем данные из полей фронтенда
         new_id = employee_id_entry.get()
-        new_name = employee_name_entry.get()
-        new_age = int(employee_age_entry.get())
+        new_role = employee_role_entry.get()
+        new_salary = int(employee_salary_entry.get())
 
         # Формируем из данных объект
-        new_employee = Employee(new_id, new_name, new_age)
+        new_employee = Employee(new_id, new_role, new_salary)
 
         # Пытаемся изменить объект в бэкенде
         if data_base.change_employee(selected_employee_id, new_employee):
@@ -244,7 +243,7 @@ def change_employee():
     # Для проверки соответствия наполнения бэкенда и фронтенда
     print()
     for employee in data_base.get_employees():
-        print(f"{employee.get_id()} {employee.get_name()} {employee.get_age()}")
+        print(f"{employee.get_id()} {employee.get_role()} {employee.get_salary()}")
 
 
 employee_change_btn = tkinter.Button(frame_employee, text="Change", font=("Arial", 14), command=change_employee)
@@ -267,13 +266,13 @@ def show_employee_data():
         # Запрашиваем из бэкенда объект по идентификатору
         selected_employee = data_base.get_employee(selected_employee_id)
         if selected_employee:
-            employee_data = f"ID: {selected_employee.get_id()}\nName: {selected_employee.get_name()}\nAge: {selected_employee.get_age()}"
+            employee_data = f"ID: {selected_employee.get_id()}\nRole: {selected_employee.get_role()}\nSalary: {selected_employee.get_salary()}"
             employee_info.config(text=employee_data, justify="left")
 
         # Для проверки соответствия наполнения бэкенда и фронтенда
         print()
         for employee in data_base.get_employees():
-            print(f"{employee.get_id()} {employee.get_name()} {employee.get_age()}")
+            print(f"{employee.get_id()} {employee.get_role()} {employee.get_salary()}")
 
 
 employee_info_btn = tkinter.Button(frame_employee, text="Info", font=("Arial", 14), command=show_employee_data)
