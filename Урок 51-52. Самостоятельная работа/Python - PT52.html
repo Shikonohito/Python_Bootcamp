@@ -1,0 +1,256 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT42</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/pt.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2025</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Практическое Задание 42.1</h2>
+        <p>Создайте класс <span class="hl-text">"Студент"</span>. Этот класс должен <span class="hl-text">хранить
+            поля</span>:
+        <ul>
+          <li>Идентификатор</li>
+          <li>Имя</li>
+          <li>Фамилия</li>
+          <li>Группа</li>
+          <li>Список оценок</li>
+          <li>Среднюю оценку</li>
+        </ul>
+        </p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конструктор (<span class="special-names"><b>__init__</b></span>)</li>
+          <li>Строковое представление (<span class="special-names"><b>__str__</b></span>)</li>
+          <li>Добавление оценки
+            <ul>
+              <li>Принимает <span class="hl-text">оценку</span>.</li>
+              <li>Если оценка от <code class="python"><b>1</b></code> до <code class="python"><b>12</b></code>
+                включительно, то добавляет <span class="hl-text">оценку в список</span>. Обновляет <span
+                  class="hl-text">среднюю оценку</span>. <span class="hl-text">Возвращает</span> <code
+                  class="python"><b>True</b></code>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+              </li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 42.2</h2>
+        <p>Используя созданный класс в <span class="hl-text">Практическом Задании 42.1</span>, реализуйте следующее
+          меню:
+        <div class="console">
+          <pre><code>1. Показать всех студентов
+2. Показать студента по идентификатору
+3. Добавить нового студента в список
+4. Удалить студента из списка по идентификатору
+5. Добавить оценку студенту</code></pre>
+        </div>
+        </p>
+
+        <p>Все студенты хранятся в <span class="hl-text">списке</span>. Студент – это <span class="hl-text">экземпляр
+            класса "Студент"</span>.</p>
+
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">проходит по каждому студенту из списка</span> и <span
+              class="hl-text">выводит в консоль его строковое представление</span> в виде:
+            <div class="console">
+              <pre><code>{идентификатор} {имя} {фамилия} {группа} {средняя_оценка}</code></pre>
+            </div>
+          </li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор студента</span>.</li>
+          <li>Если студент с указанным идентификатором найден в списке, то <span class="hl-text">выводит в консоль его
+              строковое представление</span> и <span class="hl-text">оценки</span> в виде:
+            <div class="console">
+              <pre><code>{идентификатор} {имя} {фамилия} {группа} {средняя_оценка}
+{оценка} {оценка} {оценка} ...</code></pre>
+            </div>
+          </li>
+          <li>В противном случае программа <span class="hl-text">сообщает о результате</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 3</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>, <span
+              class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">группу</span>.
+          </li>
+          <li>Если студент с указанным идентификатором не найден в списке, то <span class="hl-text">добавляет его в
+              список</span>.</li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 4</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>.</li>
+          <li>Если студент с указанным идентификатором найден в списке, то <span class="hl-text">удаляет его из
+              списка</span>.</li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 5</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>.</li>
+          <li>Если студент с указанным идентификатором найден в списке, то <span class="hl-text">запрашивает с консоли
+              оценку</span> и <span class="hl-text">добавляет её студенту</span>.</li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 42.3</h2>
+        <p>Создайте класс <span class="hl-text">"Банковская карта"</span>. Этот класс должен <span
+            class="hl-text">хранить
+            поля</span>:
+        <ul>
+          <li>Идентификатор</li>
+          <li>Имя</li>
+          <li>Фамилия</li>
+          <li>Баланс</li>
+          <li>CVV/CVC код</li>
+        </ul>
+        </p>
+
+        <p>Для класса определите <span class="hl-text">методы</span>:
+        <ul>
+          <li>Конструктор (<span class="special-names"><b>__init__</b></span>)</li>
+          <li>Строковое представление (<span class="special-names"><b>__str__</b></span>)</li>
+          <li>Пополнение баланса
+            <ul>
+              <li>Принимает <span class="hl-text">сумму пополнения</span>.</li>
+              <li>Если сумма положительная, то добавляет <span class="hl-text">сумму к балансу</span>. <span
+                  class="hl-text">Возвращает</span> <code class="python"><b>True</b></code>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+              </li>
+            </ul>
+          </li>
+          <li>Снятие с баланса
+            <ul>
+              <li>Принимает <span class="hl-text">сумму снятия</span>.</li>
+              <li>Если сумма положительная и баланс больше-равен сумме, то отнимает <span class="hl-text">сумму из
+                  баланса</span>. <span class="hl-text">Возвращает</span> <code class="python"><b>True</b></code>.</li>
+              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
+              </li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 42.4</h2>
+        <p>Используя созданный класс в <span class="hl-text">Практическом Задании 42.3</span>, реализуйте следующее
+          меню:
+        <div class="console">
+          <pre><code>1. Показать все карты
+2. Показать карту по идентификатору
+3. Добавить карту в список
+4. Удалить карту из списка по идентификатору
+5. Пополнить баланс карты по идентификатору
+6. Снять баланс карты по идентификатору</code></pre>
+        </div>
+        </p>
+
+        <p>Все карты хранятся в <span class="hl-text">списке</span>. Карта – это <span class="hl-text">экземпляр
+            класса "Банковская карта"</span>.</p>
+
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">проходит по каждой карте из списка</span> и <span class="hl-text">выводит
+              в консоль её строковое представление</span> в виде:
+            <div class="console">
+              <pre><code>{идентификатор} {имя} {фамилия}</code></pre>
+            </div>
+          </li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор карты</span>.</li>
+          <li>Если карта с указанным идентификатором найдена в списке, то <span class="hl-text">запрашивает с консоли
+              CVV/CVC код</span>.</li>
+          <li>Если CVV/CVC код совпадает с указанной на карте, то <span class="hl-text">выводит в консоль её строковое
+              представление</span>, <span class="hl-text">баланс</span> и <span class="hl-text">CVV/CVC код карты</span>
+            в виде:
+            <div class="console">
+              <pre><code>{идентификатор} {имя} {фамилия} {CVV/CVC_код}
+Баланс: {баланс}</code></pre>
+            </div>
+          </li>
+          <li>В противном случае программа <span class="hl-text">сообщает о результате</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 3</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>, <span
+              class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">CVV/CVC
+              код</span>, <span class="hl-text">баланс</span>.</li>
+          <li>Если карта с указанным идентификатором не найдена в списке, то <span class="hl-text">добавляет её в
+              список</span>.</li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 4</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>.</li>
+          <li>Если карта с указанным идентификатором найдена в списке, то <span class="hl-text">удаляет её из
+              списка</span>.
+          </li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 5</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>.</li>
+          <li>Если карта с указанным идентификатором найдена, то <span class="hl-text">запрашивает с консоли
+              сумму пополнения</span> и <span class="hl-text">пополняет баланс карты</span>.</li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 6</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>.</li>
+          <li>Если карта с указанным идентификатором найдена, то <span class="hl-text">запрашивает с консоли
+              сумму снятия</span> и <span class="hl-text">снимает баланс карты</span>.</li>
+          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
+          </li>
+        </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
+</body>

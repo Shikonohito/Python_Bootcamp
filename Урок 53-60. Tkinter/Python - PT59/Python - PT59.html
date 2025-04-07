@@ -1,0 +1,697 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - PT59</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #CCCCCC 0%, #BFBFBF 52%, #C9C9C9 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #CCCCCC 0%, #C9C9C9 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    .console {
+      background-color: #1E1F22;
+      border-radius: 5px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal;
+      padding: 20px 10px;
+    }
+
+    .console code {
+      color: #BCBEC4;
+    }
+
+    .console .input {
+      color: #6AAB73;
+      font-style: italic;
+    }
+
+    code {
+      font-family: "JetBrains mono", monospace;
+      color: #BCBEC4;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px 10px;
+      background-color: #FFC000;
+      color: #1E1F22;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "JetBrains mono", monospace;
+      font-weight: bold;
+    }
+
+    .string {
+      color: #6AAB73;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket,
+    .string-esc,
+    .keyword {
+      color: #CF8E6D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .self {
+      color: #94558D;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .string-bracket-inner {
+      color: #BCBEC4;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .number {
+      color: #2AACB8;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .comments {
+      color: #7A7E85;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .metadata {
+      color: #B3AE60;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .built-in {
+      color: #8888C6;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .function {
+      color: #56A8F5;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .special-names {
+      color: #B200B2;
+      font-family: "JetBrains mono", monospace;
+    }
+
+    .keyword-argument {
+      color: #AA4926;
+      font-family: "JetBrains mono", monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2025</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Практическое Задание 59.1</h2>
+        <p>Используя код, указанный ниже, <span class="hl-text">оформите задний фон фреймов</span>, <span class="hl-text">реализуйте проверки полей</span> и <span class="hl-text">оповещения о результатах работы кнопок</span>.</p>
+        <h3>Код:</h3>
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">class Student:
+    __id = ""
+    __name = ""
+    __grades: list[int] = list()
+
+    def __init__(self, id: str, name: str, grades: list[int] = None):
+        self.__id = id
+        self.__name = name.title()
+        if grades:
+            self.__grades = grades
+        else:
+            self.__grades: list[int] = list()
+
+    def __str__(self):
+        result = f"{self.__id} {self.__name}"
+        return result
+
+    def set_id(self, id: str):
+        self.__id = id
+
+    def get_id(self):
+        return self.__id
+
+    def set_name(self, name: str):
+        self.__name = name
+
+    def get_name(self):
+        return self.__name
+
+    def set_grades(self, grades: list[int]):
+        self.__grades = grades
+
+    def get_grades(self):
+        return tuple(self.__grades)
+
+    def add_grade(self, grade: int) -> bool:
+        is_success = False
+        if 1 <= grade and grade <= 12:
+            self.__grades.append(grade)
+            is_success = True
+        return is_success
+
+
+class DB:
+    __student_list: list[Student] = list()
+
+    def __init__(self):
+        self.__student_list: list[Student] = list()
+
+    def set_students(self, student_list: list[Student]):
+        self.__student_list = student_list
+
+    def get_students(self):
+        return tuple(self.__student_list)
+
+    def __get_student_index(self, student_id: str):
+        found_index = -1
+        for i in range(len(self.__student_list)):
+            if student_id == self.__student_list[i].get_id():
+                found_index = i
+                break
+        return found_index
+
+    def get_student(self, student_id: str) -> None | Student:
+        index = self.__get_student_index(student_id)
+        if index != -1:
+            student = self.__student_list[index]
+        else:
+            student = None
+        return student
+
+    def add_student(self, student: Student):
+        is_success = False
+        index = self.__get_student_index(student.get_id())
+        if index == -1:
+            self.__student_list.append(student)
+            is_success = True
+        return is_success
+
+    def remove_student_by_id(self, student_id: str):
+        is_success = False
+        index = self.__get_student_index(student_id)
+        if index != -1:
+            del self.__student_list[index]
+            is_success = True
+        return is_success
+
+    def change_student(self, student_id: str, changed_student: Student):
+        is_success = False
+        student = self.get_student(student_id)
+        if student:
+            changed_student_id = changed_student.get_id()
+            changed_student_index = self.__get_student_index(changed_student_id)
+            if student_id == changed_student_id or changed_student_index == -1:
+                student.set_id(changed_student.get_id())
+                student.set_name(changed_student.get_name())
+                is_success = True
+        return is_success
+
+
+import tkinter
+from tkinter import ttk
+
+student_1 = Student("ABC1234", "Tom", [12, 10, 12])
+student_2 = Student("XYZ5869", "Bob", [12, 12, 12])
+student_3 = Student("CBE1324", "Tom", [11, 10, 12])
+student_4 = Student("XYZ1234", "Kate", [10, 10, 11])
+student_5 = Student("RTE2345", "Jim", [9, 11, 11])
+
+
+data_base = DB()
+data_base.add_student(student_1)
+data_base.add_student(student_2)
+data_base.add_student(student_3)
+data_base.add_student(student_4)
+data_base.add_student(student_5)
+
+root = tkinter.Tk()
+root.title("Frames and Menu")
+root.geometry("720x480")
+root.resizable(False, False)
+
+frame_student = tkinter.Frame(root)
+frame_student.pack(expand=True, fill="both")
+
+frame_grades = tkinter.Frame(root)
+frame_grades.pack_forget()
+
+
+def show_students():
+    # Скрываем всё, что не нужно
+    frame_grades.pack_forget()
+
+    # Изменяем размеры окна, если хотим
+    root.geometry("720x480")
+
+    # Показываем всё, что требуется показать
+    frame_student.pack(fill="both", expand=True)
+
+
+def show_grades():
+    # Скрываем всё, что не нужно
+    frame_student.pack_forget()
+
+    # Изменяем размеры окна, если хотим
+    root.geometry("720x480")
+
+    # Показываем всё, что нужно
+    frame_grades.pack(fill="both", expand=True)
+
+
+def close_program():
+    root.quit()
+
+
+root_menu = tkinter.Menu(root)
+root.config(menu=root_menu)
+show_menu = tkinter.Menu(root_menu, tearoff=False)
+show_menu.add_command(label="Students", command=show_students)
+show_menu.add_command(label="Grades", command=show_grades)
+show_menu.add_separator()
+show_menu.add_command(label="Exit", command=close_program)
+root_menu.add_cascade(label="Show", menu=show_menu)
+
+
+# BEGIN FRAME STUDENT
+fs_student_listbox = tkinter.Listbox(frame_student, font=("Arial", 18), height=13)
+fs_student_listbox.place(x=20, y=20)
+
+
+def fill_student_listbox():
+    fs_student_listbox.delete(0, tkinter.END)
+    for student in data_base.get_students():
+        fs_student_listbox.insert(tkinter.END, str(student))
+
+
+fill_student_listbox()
+
+fs_student_id_lbl = tkinter.Label(frame_student, text="ID:", font=("Arial", 18))
+fs_student_id_lbl.place(x=340, y=20)
+
+fs_student_id_entry = tkinter.Entry(frame_student, font=("Arial", 18))
+fs_student_id_entry.place(x=340, y=60)
+
+fs_student_name_lbl = tkinter.Label(frame_student, text="Name:", font=("Arial", 18))
+fs_student_name_lbl.place(x=340, y=100)
+
+fs_student_name_entry = tkinter.Entry(frame_student, font=("Arial", 18))
+fs_student_name_entry.place(x=340, y=140)
+
+fs_student_info_lbl = tkinter.Label(frame_student, text="User info:", font=("Arial", 18))
+fs_student_info_lbl.place(x=340, y=300)
+
+fs_student_info = tkinter.Label(frame_student, text="", font=("Arial", 18))
+fs_student_info.place(x=340, y=340)
+
+
+def fs_add_student():
+    # Считываем данные из полей фронтенда
+    new_id = fs_student_id_entry.get()
+    new_name = fs_student_name_entry.get()
+
+    # Формируем из данных объект
+    new_student = Student(new_id, new_name)
+
+    # Добавляем объект в бэкенд
+    if data_base.add_student(new_student):
+        # Формируем строковое представление объекта
+        new_student_listbox = str(new_student)
+
+        # Добавляем строковое представление объекта во фронтенд
+        fs_student_listbox.insert(tkinter.END, new_student_listbox)
+
+        fg_student_combobox["values"] = data_base.get_students()
+
+    # Для проверки соответствия наполнения бэкенда и фронтенда
+    print()
+    for student in data_base.get_students():
+        print(student)
+
+
+fs_student_add_btn = tkinter.Button(frame_student, text="New", font=("Arial", 14), command=fs_add_student)
+fs_student_add_btn.place(x=20, y=400)
+
+
+def fs_delete_student():
+    # Считываем индексы выделенных элементов из фронтенда
+    student_listbox_ind = fs_student_listbox.curselection()
+    if len(student_listbox_ind) > 0:
+        # Считываем элемент по индексу
+        selected_student = fs_student_listbox.get(student_listbox_ind[0])
+
+        # Отдельно выделяем идентификатор
+        student_id = selected_student.split()[0]
+
+        # Пытаемся удалить из бэкенда
+        if data_base.remove_student_by_id(student_id):
+            # Удаляем из фронтенда
+            fs_student_listbox.delete(student_listbox_ind[0])
+
+            fg_student_combobox["values"] = data_base.get_students()
+
+    # Для проверки соответствия наполнения бэкенда и фронтенда
+    print()
+    for student in data_base.get_students():
+        print(student)
+
+
+fs_student_delete_btn = tkinter.Button(frame_student, text="Delete", font=("Arial", 14), command=fs_delete_student)
+fs_student_delete_btn.place(x=75, y=400)
+
+
+def change_student():
+    # Считываем индексы выделенных элементов из фронтенда
+    student_listbox_ind = fs_student_listbox.curselection()
+    if len(student_listbox_ind) > 0:
+        # Считываем элемент по индексу
+        selected_student = fs_student_listbox.get(student_listbox_ind[0])
+
+        # Отдельно выделяем идентификатор
+        selected_id = selected_student.split()[0]
+
+        # Считываем данные из полей фронтенда
+        new_id = fs_student_id_entry.get()
+        new_name = fs_student_name_entry.get()
+
+        # Формируем из данных объект
+        new_student = Student(new_id, new_name)
+
+        # Пытаемся изменить объект в бэкенде
+        if data_base.change_student(selected_id, new_student):
+            # Формируем строковое представление объекта
+            new_student_listbox = str(new_student)
+
+            # Изменяем данные во фронтенде
+            fs_student_listbox.delete(student_listbox_ind[0])
+            fs_student_listbox.insert(student_listbox_ind[0], new_student_listbox)
+
+            # Обновляем фронтенд для корректного отображения
+            fg_student_combobox["values"] = data_base.get_students()
+            fg_student_combobox.set("")
+            fg_selected_student_info.config(text="", justify="left")
+            fg_grades_listbox.delete(0, tkinter.END)
+
+    # Для проверки соответствия наполнения бэкенда и фронтенда
+    print()
+    for student in data_base.get_students():
+        print(student)
+
+
+fs_student_change_btn = tkinter.Button(frame_student, text="Change", font=("Arial", 14), command=change_student)
+fs_student_change_btn.place(x=150, y=400)
+
+
+def show_student_data():
+    # Считываем индексы выделенных элементов из фронтенда
+    student_listbox_ind = fs_student_listbox.curselection()
+    if len(student_listbox_ind) > 0:
+        # Считываем элемент по индексу
+        selected_student = fs_student_listbox.get(student_listbox_ind[0])
+
+        # Отдельно выделяем идентификатор
+        selected_id = selected_student.split()[0]
+
+        # Запрашиваем из бэкенда объект по идентификатору
+        student = data_base.get_student(selected_id)
+        if student:
+            student_data = f"ID: {student.get_id()}\nName: {student.get_name()}"
+            fs_student_info.config(text=student_data, justify="left")
+
+
+fs_student_info_btn = tkinter.Button(frame_student, text="Info", font=("Arial", 14), command=show_student_data)
+fs_student_info_btn.place(x=235, y=400)
+
+# def fill_student_info(event):
+#     student_listbox_ind = fs_student_listbox.curselection()
+#     if len(student_listbox_ind) > 0:
+#         selected_student = fs_student_listbox.get(student_listbox_ind[0])
+#         selected_id = selected_student.split()[0]
+#         student = data_base.get_student(selected_id)
+#         if student:
+#             fs_student_id_entry.delete(0, tkinter.END)
+#             fs_student_id_entry.insert(0, student.get_id())
+#             fs_student_name_entry.delete(0, tkinter.END)
+#             fs_student_name_entry.insert(0, student.get_name())
+#
+#
+# fs_student_listbox.bind("<&ltListboxSelect>>", fill_student_info)
+
+# END FRAME STUDENT
+
+# BEGIN FRAME GRADES
+fg_student_lbl = tkinter.Label(frame_grades, text="Student:", font=("Arial", 16))
+fg_student_lbl.place(x=20, y=20)
+fg_student_combobox = ttk.Combobox(frame_grades, values=data_base.get_students(), font=("Arial", 18), state="readonly")
+fg_student_combobox.place(x=20, y=60)
+
+fg_selected_student_info_lbl = tkinter.Label(frame_grades, text="Student:", font=("Arial", 16))
+fg_selected_student_info_lbl.place(x=400, y=20)
+fg_selected_student_info = tkinter.Label(frame_grades, text="", font=("Arial", 16))
+fg_selected_student_info.place(x=480, y=20)
+
+fg_grades_listbox = tkinter.Listbox(frame_grades, font=("Arial", 18), height=13)
+fg_grades_listbox.place(x=400, y=60)
+
+fg_student_grade_lbl = tkinter.Label(frame_grades, text="Grade:", font=("Arial", 16))
+fg_student_grade_lbl.place(x=20, y=100)
+fg_student_grade_entry = tkinter.Entry(frame_grades, width=3, font=("Arial", 16))
+fg_student_grade_entry.place(x=100, y=100)
+
+
+def fill_grades_listbox(student: Student):
+    fg_grades_listbox.delete(0, tkinter.END)
+    for grade in student.get_grades():
+        fg_grades_listbox.insert(tkinter.END, str(grade))
+
+
+# def show_grades_event(event):
+#     student_str = fg_student_combobox.get()
+#     fg_selected_student_info.config(text=f"{student_str}", justify="left")
+#
+#     student_str_id = student_str.split()[0]
+#     student = data_base.get_student(student_str_id)
+#
+#     if student:
+#         fill_grades_listbox(student)
+#
+#
+# fg_student_combobox.bind("<&ltComboboxSelected>>", show_grades_event)
+
+
+def show_grades():
+    student_str = fg_student_combobox.get()
+    fg_selected_student_info.config(text=f"{student_str}", justify="left")
+
+    student_str_id = student_str.split()[0]
+    student = data_base.get_student(student_str_id)
+
+    if student:
+        fill_grades_listbox(student)
+
+
+fg_show_grades_btn = tkinter.Button(frame_grades, text="Show grades", font=("Arial", 16), command=show_grades)
+fg_show_grades_btn.place(x=400, y=430)
+
+
+def fg_add_grade():
+    grade = int(fg_student_grade_entry.get())
+    student_str = fg_student_combobox.get()
+    student_str_id = student_str.split()[0]
+    student = data_base.get_student(student_str_id)
+
+    if student:
+        student.add_grade(grade)
+        show_grades()
+
+
+fg_add_grades_btn = tkinter.Button(frame_grades, text="Add grade", font=("Arial", 16), command=fg_add_grade)
+fg_add_grades_btn.place(x=20, y=140)
+
+# END FRAME OPERATIONS
+
+root.mainloop()</code></pre>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    function copyCode(button) {
+      var codeBlock = button.nextElementSibling.querySelector('code');
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      changeCopyButton(button);
+    }
+
+    function changeCopyButton(button) {
+      var originalHTML = button.innerHTML;
+      button.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0633 5.67375C18.5196 5.98487 18.6374 6.607 18.3262 7.06331L10.8262 18.0633C10.6585 18.3093 10.3898 18.4678 10.0934 18.4956C9.79688 18.5234 9.50345 18.4176 9.29289 18.2071L4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929C5.18342 11.9023 5.81658 11.9023 6.20711 12.2929L9.85368 15.9394L16.6738 5.93664C16.9849 5.48033 17.607 5.36263 18.0633 5.67375Z" fill="currentColor"></path></svg>Copied!
+    `;
+      setTimeout(function() {
+        button.innerHTML = originalHTML;
+      }, 2000);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('code.python');
+      codeBlocks.forEach(function(codeBlock, index) {
+        let innerHTML = codeBlock.innerHTML;
+        console.log(index, innerHTML);
+        // STRING
+        let regex = /(?<!\\)(f?"[^"\\]*(?:\\.[^"\\]*)*")/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        regex = /(?<!\\)(f?'[^'\\]*(?:\\.[^'\\]*)*')/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string">${match}</span>`;
+        });
+        // KEYWORD CLASS
+        regex = /(class)(?!=)/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORDS
+        const keywords = [
+          'def', 'for', 'in', 'while', 'and', 'or', 'not',
+          'if', 'elif', 'else', 'continue', 'break', 'try', 'with',
+          'as', 'except', 'finally', 'return', 'True', 'False', 'from', 'import', 'None'
+        ];
+        regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="keyword">${match}</span>`;
+        });
+        // KEYWORD NUMBER
+        regex = /\b\d+(\.\d+)?/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="number">${match}</span>`;
+        });
+        // STRING-ESC
+        regex = /\\./g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="string-esc">${match}</span>`;
+        });
+        // COMMENTS
+        regex = /(#.*$)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="comments">${match}</span>`;
+        });
+        // METADATA
+        regex = /^(\s*@\w+)/gm;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="metadata">${match}</span>`;
+        });
+        // SELF
+        regex = /\bself\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="self">${match}</span>`;
+        });
+        // BUILT-IN
+        regex = /\b(open|print|input|int|float|str|list|dict|range|len|bool|tuple)\b/g;
+        innerHTML = innerHTML.replace(regex, (match) => {
+          return `<span class="built-in">${match}</span>`;
+        });
+        // FUNCTION
+        regex = /(<span class="keyword">def<\/span>)\s(\w+)\(/g;
+        innerHTML = innerHTML.replace(regex, '$1 <span class="function">$2</span>(');
+        // SPECIAL-NAMES
+        regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
+        innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
+        // KEYWORD-ARGUMENT
+        regex = /(end|sep|expand|fill|font|height|x|y|text|command|justify|width|values|state)=/g;
+        innerHTML = innerHTML.replace(regex, '<span class="keyword-argument">$1</span>=');
+        codeBlock.innerHTML = innerHTML
+      });
+    });
+  </script>
+</body>

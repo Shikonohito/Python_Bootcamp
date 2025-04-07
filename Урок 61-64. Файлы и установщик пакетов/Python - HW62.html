@@ -1,0 +1,151 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - HW62</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #333333 0%, #404040 57%, #363636 100%);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      margin: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar img {
+      height: 240px;
+      width: 240px;
+    }
+
+    .sidebar #copyrights {
+      background: linear-gradient(to right, #343434 0%, #363636 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .right-block {
+      flex: 1;
+      width: 70%;
+      gap: 50px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 25px 50px 0;
+      margin: 10px;
+    }
+
+    .right-rect {
+      background-color: rgba(38, 38, 38, 0.75);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px 25px;
+      border-radius: 10px;
+      min-width: 631px;
+    }
+
+    .right-rect h2,
+    .right-rect .hl-text {
+      margin: 0;
+      color: #FFC000;
+    }
+
+    .right-rect h3 {
+      margin-top: 40px;
+      margin-bottom: 0px;
+      color: #FFC000;
+    }
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 0px;
+    }
+
+    ol {
+      counter-reset: list;
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    ol li {
+      counter-increment: list;
+      position: relative;
+      padding-left: 1.2em;
+      padding-bottom: 0.7em;
+    }
+
+    ol li::before {
+      content: counter(list) ". ";
+      position: absolute;
+      left: 0;
+      color: #FFC000;
+      font-weight: bold;
+    }
+
+    .no-padding-bottom {
+      padding-bottom: 0;
+    }
+
+    .right-rect img {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2025</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2>Домашнее Задание 62.1</h2>
+        <p>На основе <span class="hl-text">Вашего финального проекта</span> реализуйте <span class="hl-text">сохранение</span> и <span class="hl-text">загрузку базы данных в файл внутри Вашего класса</span>. Также реализуйте <span class="hl-text">в графическом приложении</span> возможность <span class="hl-text">сохранять</span> и <span class="hl-text">загружать базу данных</span>.</p>
+
+        <p>На это домашнее задание Вы отправляете свой <span class="hl-text">итоговый вариант финального проекта</span>.</p>
+
+        <h3>Как отправлять:</h3>
+        <ol>
+          <li>Найдите папку с проектом.</li>
+          <li>Заархивируйте папку с проектом.</li>
+          <li class="no-padding-bottom">Отправьте полученный архив.</li>
+        </ol>
+
+        <h3>Как найти место хранения проекта:</h3>
+        <ol>
+          <li>Откройте проект в <span class="hl-text">PyCharm</span>.</li>
+          <li>Слева нажмите <span class="hl-text">Правой Кнопкой Мыши</span> по папке с названием проекта.</li>
+          <li>Выберите <span class="hl-text">"Open In"</span>.</li>
+          <li class="no-padding-bottom">Выберите <span class="hl-text">"Explorer"</span>.</li>
+        </ol>
+        <img src="https://i.imgur.com/Kw999K6.png">
+
+        <h3>Как заархивировать:</h3>
+        <ol>
+          <li>Нажмите <span class="hl-text">Правой Кнопкой Мыши</span> по папке с проектом.</li>
+          <li>Наведите курсор на <span class="hl-text">"WinRAR"</span>.</li>
+          <li class="no-padding-bottom">Выберите <span class="hl-text">"Add to "Название""</span>.</li>
+        </ol>
+        <img src="https://i.imgur.com/3qeK2U5.png">
+
+      </div>
+    </div>
+  </div>
+</body>
