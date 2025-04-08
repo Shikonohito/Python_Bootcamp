@@ -1,256 +1,291 @@
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Python - PT42</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/pt.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python - PT52</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/pt.css">
 </head>
 
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
-      <p id="copyrights">© Фикрет Зейналов, 2025</p>
-    </div>
-    <div class="right-block">
-      <div class="right-rect">
-        <h2>Практическое Задание 42.1</h2>
-        <p>Создайте класс <span class="hl-text">"Студент"</span>. Этот класс должен <span class="hl-text">хранить
-            поля</span>:
-        <ul>
-          <li>Идентификатор</li>
-          <li>Имя</li>
-          <li>Фамилия</li>
-          <li>Группа</li>
-          <li>Список оценок</li>
-          <li>Среднюю оценку</li>
-        </ul>
-        </p>
-
-        <p>Для класса определите <span class="hl-text">методы</span>:
-        <ul>
-          <li>Конструктор (<span class="special-names"><b>__init__</b></span>)</li>
-          <li>Строковое представление (<span class="special-names"><b>__str__</b></span>)</li>
-          <li>Добавление оценки
-            <ul>
-              <li>Принимает <span class="hl-text">оценку</span>.</li>
-              <li>Если оценка от <code class="python"><b>1</b></code> до <code class="python"><b>12</b></code>
-                включительно, то добавляет <span class="hl-text">оценку в список</span>. Обновляет <span
-                  class="hl-text">среднюю оценку</span>. <span class="hl-text">Возвращает</span> <code
-                  class="python"><b>True</b></code>.</li>
-              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
-              </li>
-            </ul>
-          </li>
-        </ul>
-        </p>
-      </div>
-      <div class="right-rect">
-        <h2>Практическое Задание 42.2</h2>
-        <p>Используя созданный класс в <span class="hl-text">Практическом Задании 42.1</span>, реализуйте следующее
-          меню:
-        <div class="console">
-          <pre><code>1. Показать всех студентов
-2. Показать студента по идентификатору
-3. Добавить нового студента в список
-4. Удалить студента из списка по идентификатору
-5. Добавить оценку студенту</code></pre>
+    <div class="container">
+        <div class="sidebar">
+            <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+            <p id="copyrights">© Фикрет Зейналов, 2025</p>
         </div>
-        </p>
-
-        <p>Все студенты хранятся в <span class="hl-text">списке</span>. Студент – это <span class="hl-text">экземпляр
-            класса "Студент"</span>.</p>
-
-        <p>Выбран <span class="hl-text">пункт 1</span>:
-        <ul>
-          <li>Программа <span class="hl-text">проходит по каждому студенту из списка</span> и <span
-              class="hl-text">выводит в консоль его строковое представление</span> в виде:
-            <div class="console">
-              <pre><code>{идентификатор} {имя} {фамилия} {группа} {средняя_оценка}</code></pre>
+        <div class="right-block">
+            <div class="right-rect">
+                <h2>Подготовка</h2>
+                <p>Решайте задачи в созданном проекте <span class="hl-text">в файле main.py</span> (где писали ответы на
+                    теоретические вопросы). Решения <span class="hl-text">нумеруйте в том же порядке, под каким
+                        находится задача</span>. Можете оставлять комментарии по коду, но не обязательно.
+                </p>
             </div>
-          </li>
-        </ul>
-        </p>
-
-        <p>Выбран <span class="hl-text">пункт 2</span>:
-        <ul>
-          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор студента</span>.</li>
-          <li>Если студент с указанным идентификатором найден в списке, то <span class="hl-text">выводит в консоль его
-              строковое представление</span> и <span class="hl-text">оценки</span> в виде:
-            <div class="console">
-              <pre><code>{идентификатор} {имя} {фамилия} {группа} {средняя_оценка}
-{оценка} {оценка} {оценка} ...</code></pre>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.1</h2>
+                <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли цвет словами</span> и <span
+                        class="hl-text">выводит в консоль действие</span>. Правило следующее:
+                <ul>
+                    <li><span class="hl-text"><b>Цвет красный</b></span>: вывод <code
+                            class="python"><b>"Стой!"</b></code>.</li>
+                    <li><span class="hl-text"><b>Цвет жёлтый</b></span>: вывод <code
+                            class="python"><b>"Подожди!"</b></code>.</li>
+                    <li><span class="hl-text"><b>Цвет зелёный</b></span>: вывод <code
+                            class="python"><b>"Иди!"</b></code>.</li>
+                    <li><span class="hl-text"><b>Другие цвета</b></span>: вывод <code
+                            class="python"><b>"Неизвестный сигнал"</b></code>.</li>
+                </ul>
+                </p>
             </div>
-          </li>
-          <li>В противном случае программа <span class="hl-text">сообщает о результате</span>.</li>
-        </ul>
-        </p>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.2</h2>
+                <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли стоимость корзины</span> и
+                    <span class="hl-text">количество непрерывных дней захода</span>. Программа <span
+                        class="hl-text">выводит в консоль итоговую стоимость с учётом скидки</span>. Условия по скидке:
+                <ul>
+                    <li>Если стоимость корзины <span class="hl-text">от <code class="python"><b>100</b></code> и
+                            выше</span>: <code class="python"><b>+5%</b></code> к итоговой скидке.</li>
+                    <li>За каждые <code class="python"><b>6</b></code> <span class="hl-text">непрерывных дней
+                            захода</span>: <code class="python"><b>+5%</b></code> к итоговой скидке.</li>
+                    <li>Если количество непрерывных дней захода <span class="hl-text">от <code
+                                class="python"><b>30</b></code> и выше</span>: <code class="python"><b>+5%</b></code> к
+                        итоговой скидке.</li>
+                    <li>Скидка <span class="hl-text">не может превышать</span> <code class="python"><b>50%</b></code>.
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.3</h2>
+                <p>Оптимизируйте код, указанный ниже.</p>
+                <div class="console">
+                    <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Copy code</button>
+                    <pre><code class="python">acc_online = {}
+                    
+name = input("Введите имя: ")
+if name != "":
+    print(f"Привет, {name}")
+    password = input("Введите пароль: ")
+    if name == "admin":
+        if password == "5869":
+            is_logged_in = True
 
-        <p>Выбран <span class="hl-text">пункт 3</span>:
-        <ul>
-          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>, <span
-              class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">группу</span>.
-          </li>
-          <li>Если студент с указанным идентификатором не найден в списке, то <span class="hl-text">добавляет его в
-              список</span>.</li>
-          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
-          </li>
-        </ul>
-        </p>
+if bool(is_logged_in) == True:
+    print("Добро пожаловать!")
+    if bool(acc_online) == False:
+        print("Вы первый пользователь.")
+        acc_online["name"] = name
+        acc_online["password"] = password
+    
+        age = acc_online.get("age")
+    
+        if name != None:
+            print("Имя присутствует.")
+        else:
+            print("У вас не указан возраст.")
+    
+        if age != None:
+            print("Возраст присутствует.")
+        else:
+            print("У вас не указан возраст.")
+else:
+    print("Неверный логин или пароль.")</code></pre>
+                </div>
+            </div>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.4</h2>
+                <p>Оптимизируйте код, указанный ниже.</p>
+                <div class="console">
+                    <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Copy code</button>
+                    <pre><code class="python">delivery = input("Выберите способ доставки (1. Быстрый / 2. Стандартный / 3. Самовывоз): ")
+price = 1000
+tax_rate = 0.15
 
-        <p>Выбран <span class="hl-text">пункт 4</span>:
-        <ul>
-          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>.</li>
-          <li>Если студент с указанным идентификатором найден в списке, то <span class="hl-text">удаляет его из
-              списка</span>.</li>
-          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
-          </li>
-        </ul>
-        </p>
-
-        <p>Выбран <span class="hl-text">пункт 5</span>:
-        <ul>
-          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>.</li>
-          <li>Если студент с указанным идентификатором найден в списке, то <span class="hl-text">запрашивает с консоли
-              оценку</span> и <span class="hl-text">добавляет её студенту</span>.</li>
-          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
-          </li>
-        </ul>
-        </p>
-      </div>
-      <div class="right-rect">
-        <h2>Практическое Задание 42.3</h2>
-        <p>Создайте класс <span class="hl-text">"Банковская карта"</span>. Этот класс должен <span
-            class="hl-text">хранить
-            поля</span>:
-        <ul>
-          <li>Идентификатор</li>
-          <li>Имя</li>
-          <li>Фамилия</li>
-          <li>Баланс</li>
-          <li>CVV/CVC код</li>
-        </ul>
-        </p>
-
-        <p>Для класса определите <span class="hl-text">методы</span>:
-        <ul>
-          <li>Конструктор (<span class="special-names"><b>__init__</b></span>)</li>
-          <li>Строковое представление (<span class="special-names"><b>__str__</b></span>)</li>
-          <li>Пополнение баланса
-            <ul>
-              <li>Принимает <span class="hl-text">сумму пополнения</span>.</li>
-              <li>Если сумма положительная, то добавляет <span class="hl-text">сумму к балансу</span>. <span
-                  class="hl-text">Возвращает</span> <code class="python"><b>True</b></code>.</li>
-              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
-              </li>
-            </ul>
-          </li>
-          <li>Снятие с баланса
-            <ul>
-              <li>Принимает <span class="hl-text">сумму снятия</span>.</li>
-              <li>Если сумма положительная и баланс больше-равен сумме, то отнимает <span class="hl-text">сумму из
-                  баланса</span>. <span class="hl-text">Возвращает</span> <code class="python"><b>True</b></code>.</li>
-              <li>В противном случае <span class="hl-text">возвращает</span> <code class="python"><b>False</b></code>.
-              </li>
-            </ul>
-          </li>
-        </ul>
-        </p>
-      </div>
-      <div class="right-rect">
-        <h2>Практическое Задание 42.4</h2>
-        <p>Используя созданный класс в <span class="hl-text">Практическом Задании 42.3</span>, реализуйте следующее
-          меню:
-        <div class="console">
-          <pre><code>1. Показать все карты
-2. Показать карту по идентификатору
-3. Добавить карту в список
-4. Удалить карту из списка по идентификатору
-5. Пополнить баланс карты по идентификатору
-6. Снять баланс карты по идентификатору</code></pre>
+if delivery == "1":
+    total = price + 300
+    total_with_tax = total + (total * tax_rate)
+    print("К оплате:", total_with_tax)
+if delivery == "2":
+    total = price + 150
+    total_with_tax = total + (total * tax_rate)
+    print("К оплате:", total_with_tax)
+if delivery == "3":
+    total_with_tax = price + (price * tax_rate)
+    print("К оплате:", total_with_tax)</code></pre>
+                </div>
+            </div>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.5</h2>
+                <p>Переделайте циклы <code class="python"><b>for</b></code> в циклы <code
+                        class="python"><b>while</b></code>.</p>
+                <div class="console">
+                    <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Copy code</button>
+                    <pre><code class="python">words = ["дом", "комок", "палка", "топот", "река"]
+to_find_symbol = "о"
+for word in words:
+    for symbol in word:
+        if symbol == to_find_symbol:
+            print(word)
+            break</code></pre>
+                </div>
+            </div>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.6</h2>
+                <p>Переделайте цикл <code class="python"><b>while</b></code> в цикл <code
+                        class="python"><b>for</b></code>.</p>
+                <div class="console">
+                    <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Copy code</button>
+                    <pre><code class="python">some_list = [10, "дом", 55, "библиотека", 25, "информационное обеспечение", 86, "кот"]
+i = 1
+while i < len(some_list):
+    if len(some_list[i])> 5:
+        print(some_list[i])
+        i += 2</code></pre>
+                </div>
+            </div>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.7</h2>
+                <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли текст</span>, формирует из
+                    неё <span class="hl-text">обратную строку</span> с помощью <code class="python"><b>while</b></code>,
+                    затем <span class="hl-text">выводит в консоль результат</span>.
+                </p>
+            </div>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.8</h2>
+                <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли строку</span>, <span
+                        class="hl-text">индекс начала</span> и <span class="hl-text">символ для поиска</span>. С помощью
+                    цикла <code class="python"><b>for</b></code> программа должна <span class="hl-text">найти индекс
+                        первого вхождения символа в строку</span> и <span class="hl-text">вывести в консоль найденный
+                        индекс</span>. Если индекс не найден, то программа должна <span class="hl-text">вывести в
+                        консоль</span> <code class="python"><b>-1</b></code>.
+                </p>
+            </div>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.9</h2>
+                <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли числа через пробел в одну
+                        строку</span>, формирует из них <span class="hl-text">список чисел</span>. Все <span
+                        class="hl-text">нечётные числа</span> программа должна заменить на <code
+                        class="python"><b>0</b></code>, затем <span class="hl-text">вывести в консоль в одну строку все
+                        элементы списка через пробел</span>.
+                </p>
+            </div>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.10</h2>
+                <p>Создайте <span class="hl-text">функцию</span>, которая <span class="hl-text">принимает строку</span>,
+                    <span class="hl-text">возвращает кортеж векторного направления</span>. Соответствие следующее:
+                <ul>
+                    <li><code class="python"><b>"W"</b></code>: <code class="python"><b>(1, 0)</b></code>.</li>
+                    <li><code class="python"><b>"S"</b></code>: <code class="python"><b>(-1, 0)</b></code>.</li>
+                    <li><code class="python"><b>"A"</b></code>: <code class="python"><b>(0, 1)</b></code>.</li>
+                    <li><code class="python"><b>"D"</b></code>: <code class="python"><b>(0, -1)</b></code>.</li>
+                    <li><span class="hl-text"><b>Остальные значения</b></span>: <code
+                            class="python"><b>(0, 0)</b></code>.</li>
+                </ul>
+                </p>
+            </div>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.11</h2>
+                <p>Создайте <span class="hl-text">функцию</span>, которая <span class="hl-text">принимает список</span>,
+                    <span class="hl-text">индекс начала</span> (по умолчанию <code class="python"><b>0</b></code>) и
+                    <span class="hl-text">индекс конца</span> (по умолчанию <code class="python"><b>-1</b></code>).
+                    Функция должна <span class="hl-text">удалять элементы списка по параметрам</span>. Если индекс конца
+                    равен <code class="python"><b>-1</b></code>, это значит, что удалять нужно <span class="hl-text">до
+                        конца списка</span>. Функция <span class="hl-text">ничего не возвращает</span>.
+                </p>
+            </div>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.12</h2>
+                <p>Реализуйте <span class="hl-text">добавление нового студента в список</span>. Данные передаются <span
+                        class="hl-text">через консоль</span>. Программа <span class="hl-text">не должна позволять
+                        добавлять студента</span>, идентификатор которого совпадает с идентификатором какого-либо
+                    студента из списка. Тестовый список студентов указан ниже.</p>
+                <div class="console">
+                    <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Copy code</button>
+                    <pre><code class="python">student_list = [
+    {"id": "S-5869", "name": "Teston", "avg_grade": 11.6},
+    {"id": "S-0955", "name": "Kate", "avg_grade": 9.3},
+    {"id": "S-1143", "name": "Bob", "avg_grade": 10.4}
+]</code></pre>
+                </div>
+            </div>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.13</h2>
+                <p>Реализуйте <span class="hl-text">меню</span>, где можно выбрать <span class="hl-text">показ словаря в
+                        виде</span> <code class="python"><b>"ключ - значение"</b></code>, <span
+                        class="hl-text">добавление</span>, <span class="hl-text">изменение</span> и <span
+                        class="hl-text">удаление</span> элементов словаря.</p>
+            </div>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.14</h2>
+                <p>Создайте <span class="hl-text">функцию</span>, которая <span class="hl-text">принимает список
+                        студентов</span> и <span class="hl-text">символ</span>. Функция должна <span
+                        class="hl-text">создать новый список</span> и <span class="hl-text">заполнить его всеми теми
+                        студентами</span>, у которых имя начинается с указанного символа. Затем функция должна <span
+                        class="hl-text">вернуть итоговый список</span>. Тестовые данные указаны ниже.</p>
+                <div class="console">
+                    <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Copy code</button>
+                    <pre><code class="python">student_list = [
+    {"id": "S-5869", "name": "Teston", "avg_grade": 11.6},
+    {"id": "S-0955", "name": "Kate", "avg_grade": 9.3},
+    {"id": "S-1143", "name": "Bob", "avg_grade": 10.4},
+    {"id": "S-2390", "name": "Tom", "avg_grade": 7.9},
+    {"id": "S-5322", "name": "Bill", "avg_grade": 9.1},
+    {"id": "S-4521", "name": "Timmy", "avg_grade": 8.8}
+]</code></pre>
+                </div>
+            </div>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.15</h2>
+                <p>Создайте класс <span class="hl-text">"Банковский аккаунт"</span>. Класс должен уметь <span
+                        class="hl-text">изменять свой баланс</span>. Также должна быть возможность <span
+                        class="hl-text">разблокировать</span> или <span class="hl-text">заблокировать</span> аккаунт.
+                </p>
+            </div>
+            <div class="right-rect">
+                <h2>Практическое Задание 52.16</h2>
+                <p>Протестируйте класс из <span class="hl-text">Практического Задания 52.15</span>.</p>
+            </div>
         </div>
-        </p>
-
-        <p>Все карты хранятся в <span class="hl-text">списке</span>. Карта – это <span class="hl-text">экземпляр
-            класса "Банковская карта"</span>.</p>
-
-        <p>Выбран <span class="hl-text">пункт 1</span>:
-        <ul>
-          <li>Программа <span class="hl-text">проходит по каждой карте из списка</span> и <span class="hl-text">выводит
-              в консоль её строковое представление</span> в виде:
-            <div class="console">
-              <pre><code>{идентификатор} {имя} {фамилия}</code></pre>
-            </div>
-          </li>
-        </ul>
-        </p>
-
-        <p>Выбран <span class="hl-text">пункт 2</span>:
-        <ul>
-          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор карты</span>.</li>
-          <li>Если карта с указанным идентификатором найдена в списке, то <span class="hl-text">запрашивает с консоли
-              CVV/CVC код</span>.</li>
-          <li>Если CVV/CVC код совпадает с указанной на карте, то <span class="hl-text">выводит в консоль её строковое
-              представление</span>, <span class="hl-text">баланс</span> и <span class="hl-text">CVV/CVC код карты</span>
-            в виде:
-            <div class="console">
-              <pre><code>{идентификатор} {имя} {фамилия} {CVV/CVC_код}
-Баланс: {баланс}</code></pre>
-            </div>
-          </li>
-          <li>В противном случае программа <span class="hl-text">сообщает о результате</span>.</li>
-        </ul>
-        </p>
-
-        <p>Выбран <span class="hl-text">пункт 3</span>:
-        <ul>
-          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>, <span
-              class="hl-text">имя</span>, <span class="hl-text">фамилию</span>, <span class="hl-text">CVV/CVC
-              код</span>, <span class="hl-text">баланс</span>.</li>
-          <li>Если карта с указанным идентификатором не найдена в списке, то <span class="hl-text">добавляет её в
-              список</span>.</li>
-          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
-          </li>
-        </ul>
-        </p>
-
-        <p>Выбран <span class="hl-text">пункт 4</span>:
-        <ul>
-          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>.</li>
-          <li>Если карта с указанным идентификатором найдена в списке, то <span class="hl-text">удаляет её из
-              списка</span>.
-          </li>
-          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
-          </li>
-        </ul>
-        </p>
-
-        <p>Выбран <span class="hl-text">пункт 5</span>:
-        <ul>
-          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>.</li>
-          <li>Если карта с указанным идентификатором найдена, то <span class="hl-text">запрашивает с консоли
-              сумму пополнения</span> и <span class="hl-text">пополняет баланс карты</span>.</li>
-          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
-          </li>
-        </ul>
-        </p>
-
-        <p>Выбран <span class="hl-text">пункт 6</span>:
-        <ul>
-          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>.</li>
-          <li>Если карта с указанным идентификатором найдена, то <span class="hl-text">запрашивает с консоли
-              сумму снятия</span> и <span class="hl-text">снимает баланс карты</span>.</li>
-          <li>В зависимости от результата, в консоли <span class="hl-text">выводится соответствующее сообщение</span>.
-          </li>
-        </ul>
-        </p>
-      </div>
     </div>
-  </div>
-  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
-  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
+    <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+    <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>
