@@ -60,7 +60,7 @@
             </div>
             <div class="right-rect">
                 <h2>Практическое Задание 52.3</h2>
-                <p>Оптимизируйте код, указанный ниже.</p>
+                <p>Оптимизируйте <span class="hl-text">условия</span> в указанном ниже коде.</p>
                 <div class="console">
                     <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg"
                             width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
@@ -69,41 +69,41 @@
                                 clip-rule="evenodd"></path>
                         </svg>
                         Copy code</button>
-                    <pre><code class="python">acc_online = {}
-                    
-name = input("Введите имя: ")
+                    <pre><code class="python">name = input("Введите имя: ")
 if name != "":
     print(f"Привет, {name}")
-    password = input("Введите пароль: ")
-    if name == "admin":
-        if password == "5869":
-            is_logged_in = True
 
-if bool(is_logged_in) == True:
-    print("Добро пожаловать!")
-    if bool(acc_online) == False:
-        print("Вы первый пользователь.")
-        acc_online["name"] = name
-        acc_online["password"] = password
-    
-        age = acc_online.get("age")
-    
-        if name != None:
-            print("Имя присутствует.")
-        else:
-            print("У вас не указан возраст.")
-    
-        if age != None:
-            print("Возраст присутствует.")
-        else:
-            print("У вас не указан возраст.")
-else:
-    print("Неверный логин или пароль.")</code></pre>
+
+password = input("Введите пароль: ")
+if name == "admin":
+    if password == "5869":
+        is_admin = True
+
+
+if bool(is_admin) == True:
+    print("Добро пожаловать, администратор!")
+
+
+acc_online = {}
+if bool(acc_online) == False:
+    print("Сохранённые данные не найдены.")
+    acc_online["name"] = name
+    age = acc_online.get("age")
+
+    if name != None:
+        print("Имя присутствует.")
+    else:
+        print("У вас не указан возраст.")
+
+    if age != None:
+        print("Возраст присутствует.")
+    else:
+        print("У вас не указан возраст.")</code></pre>
                 </div>
             </div>
             <div class="right-rect">
                 <h2>Практическое Задание 52.4</h2>
-                <p>Оптимизируйте код, указанный ниже.</p>
+                <p>Оптимизируйте <span class="hl-text">код</span>, указанный ниже.</p>
                 <div class="console">
                     <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg"
                             width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
@@ -167,7 +167,7 @@ i = 1
 while i < len(some_list):
     if len(some_list[i])> 5:
         print(some_list[i])
-        i += 2</code></pre>
+    i += 2</code></pre>
                 </div>
             </div>
             <div class="right-rect">
