@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return `<span class="self">${match}</span>`;
         });
         // BUILT-IN
-        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max|sort|bool|sorted)\b/g;
+        regex = /\b(open|print|input|int|float|str|list|set|dict|range|len|sum|min|max|sort|bool|sorted|tuple)\b/g;
         innerHTML = innerHTML.replace(regex, (match) => {
             return `<span class="built-in">${match}</span>`;
         });
