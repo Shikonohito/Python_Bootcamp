@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
         regex = /(<span class="function">)(__\w+__)(<\/span>)/g;
         innerHTML = innerHTML.replace(regex, '$1<span class="special-names">$2</span>$3');
         // KEYWORD-ARGUMENT
-        regex = /, (end|sep)=/g;
+        regex = /, (end|sep|expand|fill|font|height|text|x|y|command)=/g;
         innerHTML = innerHTML.replace(regex, ', <span class="keyword-argument">$1</span>=');
         codeBlock.innerHTML = innerHTML
     });
