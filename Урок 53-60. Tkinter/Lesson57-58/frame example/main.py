@@ -125,13 +125,13 @@ some_list = ["FIRST ITEM", "SECOND ITEM", "THIRD ITEM"]
 some_listbox = tkinter.Listbox(second_frame, font=("Arial", 18), height=13)
 some_listbox.place(x=20, y=20)
 
-def fill_listbox():
+def refresh_listbox():
     some_listbox.delete(0, tkinter.END)
     for item in some_list:
         some_listbox.insert(tkinter.END, str(item))
 
 
-fill_listbox()
+refresh_listbox()
 # END SECOND FRAME
 
 root.mainloop()
