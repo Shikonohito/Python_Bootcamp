@@ -1,99 +1,120 @@
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Python - HW30</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/hw.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python - HW30</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/hw.css">
 </head>
 
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
-      <p id="copyrights">© Фикрет Зейналов, 2025</p>
-    </div>
-    <div class="right-block">
-      <div class="right-rect">
-        <h2><strong>Примечание</strong></h2>
-        <p>Оформляйте ввод и вывод данных в соответствии с примерами заданий. Используйте только то, что было пройдено
-          до этого урока включительно. Не используйте в условии оператор <code class="python"><b>in</b></code>. Не
-          используйте готовые методы, только если в заданиях не говорится об использовании тех или иных методов. Методы
-          <code class="python"><b>format()</b></code>, <code class="python"><b>split()</b></code> и <code
-            class="python"><b>append()</b></code> использовать можно. Не используйте срезы.
-        </p>
-      </div>
-      <div class="right-rect">
-        <h2>Домашнее Задание 30.1</h2>
-        <p>Напишите функцию <span class="function"><b>generate_password</b></span>, которая <span
-            class="hl-text">принимает необязательную длину</span> (по умолчанию <code class="python"><b>8</b></code>) и
-          <code class="python"><b>3</b></code> <span class="hl-text">необязательных параметра</span> (по умолчанию <code
-            class="python"><b>False</b></code>), которые принимают только <code class="python"><b>True</b></code> или
-          <code class="python"><b>False</b></code> – <span class="hl-text">содержит цифры</span>, <span
-            class="hl-text">заглавные буквы</span>, <span class="hl-text">специальные символы</span>. Функция должна
-          <span class="hl-text">сформировать строку пароля по указанным параметрам</span> и <span
-            class="hl-text">вернуть её</span>.
-        </p>
-        <h3>Подсказка:</h3>
-        <p>Решение можете взять из <span class="hl-text">Домашнего Задания 22.8</span>.</p>
-      </div>
-      <div class="right-rect">
-        <h2>Домашнее Задание 30.2</h2>
-        <p>Напишите функцию <span class="function"><b>convert_seconds</b></span>, которая <span
-            class="hl-text">принимает секунды</span> и <span class="hl-text">необязательный символ</span> (по умолчанию
-          <code class="python"><b>"m"</b></code>). Функция должна <span class="hl-text">перевести секунды</span> и <span
-            class="hl-text">вернуть результат</span>. Переводы зависят от необязательного символа:
-        <ul>
-          <li>Если символ <code class="python"><b>"m"</b></code>, то перевод в <span class="hl-text">минуты</span>.</li>
-          <li>Если символ <code class="python"><b>"h"</b></code>, то перевод в <span class="hl-text">часы</span>.</li>
-          <li>Если символ <code class="python"><b>"d"</b></code>, то перевод в <span class="hl-text">дни</span>.</li>
-        </ul>
-        </p>
-      </div>
-      <div class="right-rect">
-        <h2>Домашнее Задание 30.3</h2>
-        <p>Напишите функцию <span class="function"><b>find_str_index</b></span>, которая <span class="hl-text">принимает
-            строку</span>, <span class="hl-text">символ</span> и <span class="hl-text">необязательный индекс</span> (по
-          умолчанию <code class="python"><b>0</b></code>). Функция должна <span class="hl-text">вернуть индекс первого
-            вхождения символа в строку, начиная поиск с указанного индекса</span>. Если индекс не найден, то функция
-          должна <span class="hl-text">вернуть</span> <code class="python"><b>-1</code></b>.
-        </p>
-      </div>
-      <div class="right-rect">
-        <h2>Домашнее Задание 30.4</h2>
-        <p>Напишите функцию <span class="function"><b>users_expiration_check</b></span>, которая <span
-            class="hl-text">принимает список пользователей</span>, <span class="hl-text">необязательные количество дней
-            как число</span> (по умолчанию <code class="python"><b>30</b></code>) и <span class="hl-text">режим как
-            строку</span> (по умолчанию <code class="python"><b>"safe"</b></code>). Функция должна <span
-            class="hl-text">найти всех пользователей, у которых число дней с последнего захода больше, чем указано во
-            втором параметре функции</span>, и <span class="hl-text">действовать в зависимости от режима</span>:
-        <ul>
-          <li><span class="hl-text"><b>safe:</b></span> не изменяет список пользователей, возвращает список из
-            найденных индексов пользователей.</li>
-          <li><span class="hl-text"><b>pop:</b></span> добавляет найденного пользователя в новый список, удаляет из
-            списка пользователей, возвращает новый список.</li>
-          <li><span class="hl-text"><b>remove:</b></span> удаляет из списка пользователей найденных пользователей,
-            возвращает пустой список.</li>
-        </ul>
-        </p>
-        <p>Пользователь это список, у которого по индексу <code class="python"><b>0</b></code> находится <span
-            class="hl-text">логин</span>, по индексу <code class="python"><b>1</b></code> находится <span
-            class="hl-text">пароль</span>, по индексу <code class="python"><b>2</b></code> находится <span
-            class="hl-text">число дней с последнего захода</span>.</p>
+    <div class="container">
+        <div class="sidebar">
+            <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+            <p id="copyrights">© Фикрет Зейналов, 2025</p>
+        </div>
+        <div class="right-block">
+            <div class="right-rect">
+                <h2><strong>Примечание</strong></h2>
+                <p>Оформляйте ввод и вывод данных в соответствии с примерами заданий. Используйте только то, что было
+                    пройдено
+                    до этого урока включительно. Не используйте в условии оператор <code
+                        class="python"><b>in</b></code>. Не
+                    используйте готовые методы, только если в заданиях не говорится об использовании тех или иных
+                    методов. Методы
+                    <code class="python"><b>format()</b></code>, <code class="python"><b>split()</b></code> и <code
+                        class="python"><b>append()</b></code> использовать можно. Не используйте срезы.
+                </p>
+            </div>
+            <div class="right-rect">
+                <h2>Домашнее Задание 30.1</h2>
+                <p>Напишите функцию <span class="function"><b>generate_password</b></span>, которая <span
+                        class="hl-text">принимает необязательную длину</span> (по умолчанию <code
+                        class="python"><b>8</b></code>) и
+                    <code class="python"><b>3</b></code> <span class="hl-text">необязательных параметра</span> (по
+                    умолчанию <code class="python"><b>False</b></code>), которые принимают только <code
+                        class="python"><b>True</b></code> или
+                    <code class="python"><b>False</b></code> – <span class="hl-text">содержит цифры</span>, <span
+                        class="hl-text">заглавные буквы</span>, <span class="hl-text">специальные символы</span>.
+                    Функция должна
+                    <span class="hl-text">сформировать строку пароля по указанным параметрам</span> и <span
+                        class="hl-text">вернуть её</span>.
+                </p>
+                <h3>Подсказка:</h3>
+                <p>Решение можете взять из <span class="hl-text">Домашнего Задания 22.8</span>.</p>
+            </div>
+            <div class="right-rect">
+                <h2>Домашнее Задание 30.2</h2>
+                <p>Напишите функцию <span class="function"><b>convert_seconds</b></span>, которая <span
+                        class="hl-text">принимает секунды</span> и <span class="hl-text">необязательный символ</span>
+                    (по умолчанию
+                    <code class="python"><b>"m"</b></code>). Функция должна <span class="hl-text">перевести
+                        секунды</span> и <span class="hl-text">вернуть результат</span>. Переводы зависят от
+                    необязательного символа:
+                <ul>
+                    <li>Если символ <code class="python"><b>"m"</b></code>, то перевод в <span
+                            class="hl-text">минуты</span>.</li>
+                    <li>Если символ <code class="python"><b>"h"</b></code>, то перевод в <span
+                            class="hl-text">часы</span>.</li>
+                    <li>Если символ <code class="python"><b>"d"</b></code>, то перевод в <span
+                            class="hl-text">дни</span>.</li>
+                </ul>
+                </p>
+            </div>
+            <div class="right-rect">
+                <h2>Домашнее Задание 30.3</h2>
+                <p>Напишите функцию <span class="function"><b>find_str_index</b></span>, которая <span
+                        class="hl-text">принимает
+                        строку</span>, <span class="hl-text">символ</span> и <span class="hl-text">необязательный
+                        индекс</span> (по
+                    умолчанию <code class="python"><b>0</b></code>). Функция должна <span class="hl-text">вернуть индекс
+                        первого
+                        вхождения символа в строку, начиная поиск с указанного индекса</span>. Если индекс не найден, то
+                    функция
+                    должна <span class="hl-text">вернуть</span> <code class="python"><b>-1</code></b>.
+                </p>
+            </div>
+            <div class="right-rect">
+                <h2>Домашнее Задание 30.4</h2>
+                <p>Напишите функцию <span class="function"><b>users_expiration_check</b></span>, которая <span
+                        class="hl-text">принимает список пользователей</span>, <span class="hl-text">необязательные
+                        количество дней
+                        как число</span> (по умолчанию <code class="python"><b>30</b></code>) и <span
+                        class="hl-text">режим как
+                        строку</span> (по умолчанию <code class="python"><b>"safe"</b></code>). Функция должна <span
+                        class="hl-text">найти всех пользователей, у которых число дней с последнего захода больше, чем
+                        указано во
+                        втором параметре функции</span>, и <span class="hl-text">действовать в зависимости от
+                        режима</span>:
+                <ul>
+                    <li><span class="hl-text"><b>safe:</b></span> не изменяет список пользователей, возвращает список из
+                        найденных индексов пользователей.</li>
+                    <li><span class="hl-text"><b>pop:</b></span> добавляет найденного пользователя в новый список,
+                        удаляет из
+                        списка пользователей, возвращает новый список.</li>
+                    <li><span class="hl-text"><b>remove:</b></span> удаляет из списка пользователей найденных
+                        пользователей,
+                        возвращает пустой список.</li>
+                </ul>
+                </p>
+                <p>Пользователь это список, у которого по индексу <code class="python"><b>0</b></code> находится <span
+                        class="hl-text">логин</span>, по индексу <code class="python"><b>1</b></code> находится <span
+                        class="hl-text">пароль</span>, по индексу <code class="python"><b>2</b></code> находится <span
+                        class="hl-text">число дней с последнего захода</span>.</p>
 
-        <h3>Тестовый список пользователей:</h3>
-        <div class="console">
-          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
-              height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-              <path fill="currentColor" fill-rule="evenodd"
-                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                clip-rule="evenodd"></path>
-            </svg>
-            Copy code</button>
-          <pre><code class="python">user_list = [
+                <h3>Тестовый список пользователей:</h3>
+                <div class="console">
+                    <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Copy code</button>
+                    <pre><code class="python">user_list = [
     ["teston", "teston5869", 1],
     ["firestorm", "T4mN9zX", 89],
     ["shadowFox", "kJ8^P2q0", 12],
@@ -115,24 +136,26 @@
     ["bravoKing", "lMN3!q1", 5],
     ["xFactor", "Y8*UioP4", 18]
 ]</code></pre>
-        </div>
-      </div>
-      <div class="right-rect">
-        <h2>Домашнее Задание 30.5</h2>
-        <p><span class="hl-text">Teston Lebra</span> написал фронтенд программы. Но другой программист не смог составить
-          бэкенд. <span class="hl-text">Опишите только функции, соблюдая их сигнатуру</span>. Фронтенд трогать <span
-            class="hl-text">нельзя</span>. После описания всех функций, программа должна работать <span
-            class="hl-text">корректно</span>.</p>
-        <h3>Код:</h3>
-        <div class="console">
-          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
-              height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-              <path fill="currentColor" fill-rule="evenodd"
-                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                clip-rule="evenodd"></path>
-            </svg>
-            Copy code</button>
-          <pre><code class="python">def create_account(login: str, password: str, balance: int) -> list:
+                </div>
+            </div>
+            <div class="right-rect">
+                <h2>Домашнее Задание 30.5</h2>
+                <p><span class="hl-text">Teston Lebra</span> написал фронтенд программы. Но другой программист не смог
+                    составить
+                    бэкенд. <span class="hl-text">Опишите только функции, соблюдая их сигнатуру</span>. Фронтенд трогать
+                    <span class="hl-text">нельзя</span>. После описания всех функций, программа должна работать <span
+                        class="hl-text">корректно</span>.
+                </p>
+                <h3>Код:</h3>
+                <div class="console">
+                    <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Copy code</button>
+                    <pre><code class="python">def create_account(login: str, password: str, balance: int) -> list:
     """
     Функция формирует аккаунт в виде списка.
     :param login: Логин аккаунта.
@@ -383,7 +406,7 @@ while not is_exit:
                             print("Введите Y для подтверждения или N для отказа.")
                     is_exit = False
                 elif choice == "4":
-                    if get_subscribe(user):
+                    if get_user_subscribe(user):
                         games_str = games_to_str(games)
                         print("Игры, доступные по подписке:")
                         print(games_str)
@@ -404,22 +427,23 @@ while not is_exit:
     else:
         print("Отсутствует выбранное действие.")
     print("========================================")</code></pre>
-        </div>
-      </div>
-      <div class="right-rect">
-        <h2>Домашнее Задание 30.6</h2>
-        <p>Измените указанный ниже код так, чтобы <span class="hl-text">функции перестали использовать глобальную
-            переменную</span>.</p>
-        <h3>Код:</h3>
-        <div class="console">
-          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
-              height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-              <path fill="currentColor" fill-rule="evenodd"
-                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                clip-rule="evenodd"></path>
-            </svg>
-            Copy code</button>
-          <pre><code class="python">student_list = list()
+                </div>
+            </div>
+            <div class="right-rect">
+                <h2>Домашнее Задание 30.6</h2>
+                <p>Измените указанный ниже код так, чтобы <span class="hl-text">функции перестали использовать
+                        глобальную
+                        переменную</span>.</p>
+                <h3>Код:</h3>
+                <div class="console">
+                    <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Copy code</button>
+                    <pre><code class="python">student_list = list()
 
 
 def show_students():
@@ -532,16 +556,17 @@ while True:
     else:
         print("Неверный ввод. Пожалуйста, выберите пункт из меню.")
     print("==================================")</code></pre>
+                </div>
+            </div>
+            <div class="right-rect">
+                <h2>Домашнее Задание 30.7 (Необязательное)</h2>
+                <p>Измените исходный код из <span class="hl-text">Домашнего Задания 30.6</span> таким образом, чтобы
+                    <span class="grey"><b>student_list</b></span> перестал быть глобальной переменной, используя <span
+                        class="hl-text">замыкание</span>.
+                </p>
+            </div>
         </div>
-      </div>
-      <div class="right-rect">
-        <h2>Домашнее Задание 30.7 (Необязательное)</h2>
-        <p>Измените исходный код из <span class="hl-text">Домашнего Задания 30.6</span> таким образом, чтобы <span
-            class="grey"><b>student_list</b></span> перестал быть глобальной переменной, используя <span
-            class="hl-text">замыкание</span>.</p>
-      </div>
     </div>
-  </div>
-  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
-  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
+    <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+    <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>
