@@ -54,13 +54,28 @@
           принимала любые строки, поэтому в списке есть мусорные данные. Напишите функцию
           <b><span class="function">check_mails</span></b>, которая <span class="hl-text">принимает список
             строк</span>, <span class="hl-text">удаляет дубликаты</span>, <span class="hl-text">проверяет правильность
-            почты</span> и <span class="hl-text">возвращает кортеж из строк, которые прошли проверку</span>. Почта
-          считается правильной, если <span class="hl-text">строка содержит символ <code
-              class="python"><b>"@"</b></code>, после которого идёт символ <code class="python"><b>"."</b></code>, но не
-            сразу</span>.
+            почты</span> и <span class="hl-text">возвращает кортеж из строк, которые прошли проверку</span>. Общий
+          верный формат почты <code class="python"><b>"локальная-часть@домен"</b></code>.
         </p>
-        <p>Пример правильной почты: <span
-            class="string"><b>{хотя_бы_один_символ}@{хотя_бы_один_символ}.{хотя_бы_один_символ}</b></span>
+        <p>Локальная часть может содержать:
+        <ul>
+          <li>латинские буквы (<span class="hl-text"><b>A</b></span>–<span class="hl-text"><b>Z</b></span>, <span
+              class="hl-text"><b>a</b></span>–<span class="hl-text"><b>z</b></span>)</li>
+          <li>цифры (<span class="hl-text"><b>0</b></span>–<span class="hl-text"><b>9</b></span>)</li>
+          <li>спецсимволы: <span class="hl-text"><b>! # $ % & ' * + - / = ? ^ _ { | } ~ `</b></span></li>
+          <li>точку (<span class="hl-text"><b>.</b></span>), но не в начале, не в конце и не подряд</li>
+        </ul>
+        </p>
+        <p>Доменная часть может содержать:
+        <ul>
+          <li>латинские буквы (<span class="hl-text"><b>A</b></span>–<span class="hl-text"><b>Z</b></span>, <span
+              class="hl-text"><b>a</b></span>–<span class="hl-text"><b>z</b></span>)</li>
+          <li>цифры (<span class="hl-text"><b>0</b></span>–<span class="hl-text"><b>9</b></span>)</li>
+          <li>дефис (<span class="hl-text"><b>-</b></span>), но не в начале и не в конце</li>
+          <li>домен верхнего уровня (например, <span class="hl-text"><b>.com</b></span>, <span
+              class="hl-text"><b>.ru</b></span>, <span class="hl-text"><b>.org</b></span>, <span
+              class="hl-text"><b>.edu.az</b></span>) в конце</li>
+        </ul>
         </p>
       </div>
       <div class="right-rect">
