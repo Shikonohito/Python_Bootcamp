@@ -235,20 +235,45 @@ number = randint(1000, 9999)  # Генерация случайного четы
       <div class="right-rect">
         <h2>Домашнее Задание 14.3</h2>
         <p><span class="hl-text">Teston Lebra</span> попросили написать программу, которая поможет HR-менеджерам
-          определить уровень кандидата и давать некоторые комментарии по навыкам, если они низкие. Проверять нужно <span
-            class="hl-text">опыт работы</span> (от <code class="python"><b>1</b></code> до <code
-            class="python"><b>10</b></code> лет – баллы соответственно), <span class="hl-text">образование</span>
-          (специальное – <code class="python"><b>2</b></code> балла, базовое – <code class="python"><b>1</b></code>
-          балл, отсутствует – <code class="python"><b>0</b></code> баллов), <span class="hl-text">навыки</span> (от
-          <code class="python"><b>1</b></code> до <code class="python"><b>8</b></code> баллов включительно). Из баллов
-          по навыкам нужно получить <span class="hl-text">средний балл</span>. После этого <span class="hl-text">средний
-            балл</span> нужно сложить со <span class="hl-text">всеми баллами</span> и проверять на уровень кандидата.
-          <span class="hl-text">Teston Lebra</span> написал программу и отдал HR-менеджерам на пользование. Менеджеры
+          определить уровень кандидата и давать некоторые комментарии по навыкам, если они низкие.</p>
+        <p>Требования к программе:
+        <ul>
+          <li>Хранит <span class="hl-text">рейтинг</span>.</li>
+          <li>Запрашивает с консоли <span class="hl-text">опыт работы в полных годах</span>, добавляет к <span
+              class="hl-text">рейтингу</span>. Верхней границей считается число
+            <code class="python"><b>10</b></code>.
+          </li>
+          <li>Запрашивает с консоли <span class="hl-text">образование в виде числа</span> <code
+              class="python"><b>1</b></code> (специальное), <code class="python"><b>2</b></code> (базовое) или <code
+              class="python"><b>3</b></code> (отсутствует), добавляет к <span class="hl-text">рейтингу</span> <code
+              class="python"><b>2</b></code>, <code class="python"><b>1</b></code> или <code
+              class="python"><b>0</b></code> соответственно.</li>
+          <li>Запрашивает с консоли <span class="hl-text">уровни навыков</span> от <code class="python"><b>1</b></code>
+            до <code class="python"><b>8</b></code> – коммуникативные, технические, лидерские, аналитические, уровень
+            работы в команде. Суммирует <span class="hl-text">результаты</span>, делит на <span
+              class="hl-text">количество</span>. Добавляет итоговый результат к <span class="hl-text">рейтингу</span>.
+          </li>
+          <li>Если коммуникативные навыки от <code class="python"><b>4</b></code> и меньше, то об этом сообщается в
+            <span class="hl-text">консоли</span>.
+          </li>
+          <li>Если технические навыки меньше <code class="python"><b>5</b></code>, то об этом сообщается в <span
+              class="hl-text">консоли</span>.</li>
+          <li>Если лидерские навыки меньше <code class="python"><b>3</b></code>, то об этом сообщается в <span
+              class="hl-text">консоли</span>.</li>
+          <li>Если аналитические навыки меньше <code class="python"><b>5</b></code>, то об этом сообщается в <span
+              class="hl-text">консоли</span>.</li>
+          <li>Если работа в команде меньше <code class="python"><b>4</b></code>, то об этом сообщается в <span
+              class="hl-text">консоли</span>.</li>
+          <li>Уровень кандидата определяется по <span class="hl-text">рейтингу</span>, от низкого до высокого. Уровень
+            меняется с шагом в <code class="python"><b>5</b></code> единиц. Верхней границей считается число <code
+              class="python"><b>20</b></code>.</li>
+        </ul>
+        </p>
+        <p><span class="hl-text">Teston Lebra</span> написал программу и отдал HR-менеджерам на пользование. Менеджеры
           провели несколько десятков собеседований, но заметили, что им очень часто попадаются средний и низкий уровни
           кандидатов, а также показывается только одна подсказка. <span class="hl-text">Исправьте программу, чтобы она
             работала корректно, и рядом напишите комментарии о том, почему изменённый вариант должен работать
-            верно</span>.
-        </p>
+            верно</span>.</p>
         <h3>Код:</h3>
         <div class="console">
           <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
