@@ -159,7 +159,7 @@ def delete_human():
     # Считываем индексы выделенных элементов из фронтенда
     human_listbox_indexes = human_listbox.curselection()
     print(human_listbox_indexes)
-    if len(human_listbox_indexes) > 0:
+    if human_listbox_indexes > 0:
         # Считываем элемент по индексу
         selected_human_str = human_listbox.get(human_listbox_indexes[0])
         print(selected_human_str)
@@ -186,7 +186,7 @@ human_delete_btn.place(x=75, y=400)
 def change_human():
     # Считываем индексы выделенных элементов из фронтенда
     human_listbox_indexes = human_listbox.curselection()
-    if len(human_listbox_indexes) > 0:
+    if human_listbox_indexes:
         # Считываем элемент по индексу
         selected_human_str = human_listbox.get(human_listbox_indexes[0])
 
@@ -227,7 +227,7 @@ human_change_btn.place(x=150, y=400)
 def show_human_data():
     # Считываем индексы выделенных элементов из фронтенда
     human_listbox_indexes = human_listbox.curselection()
-    if len(human_listbox_indexes) > 0:
+    if human_listbox_indexes:
         # Считываем элемент по индексу
         selected_human_str = human_listbox.get(human_listbox_indexes[0])
 

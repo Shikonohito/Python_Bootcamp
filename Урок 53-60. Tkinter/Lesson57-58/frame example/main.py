@@ -39,14 +39,16 @@ switch_to_second_frame_btn = tkinter.Button(first_frame, text="Second frame", fo
 switch_to_second_frame_btn.place(x=390, y=200)
 
 num_1_lbl = tkinter.Label(first_frame, text="First number:", font=("Arial", 18))
-num_2_lbl = tkinter.Label(first_frame, text="Second number:", font=("Arial", 18))
 num_1_lbl.place(x=20, y=20)
+
+num_2_lbl = tkinter.Label(first_frame, text="Second number:", font=("Arial", 18))
 num_2_lbl.place(x=320, y=20)
 
 
 num_1_entry = tkinter.Entry(first_frame, font=("Arial", 18))
-num_2_entry = tkinter.Entry(first_frame, font=("Arial", 18))
 num_1_entry.place(x=20, y=60)
+
+num_2_entry = tkinter.Entry(first_frame, font=("Arial", 18))
 num_2_entry.place(x=320, y=60)
 
 sum_lbl = tkinter.Label(first_frame, text="0", font=("Arial", 18))
@@ -79,8 +81,8 @@ def find_dif():
         sum_lbl.config(text=result)
 
 
-sum_btn = tkinter.Button(first_frame, text="-", font=("Arial", 18), command=find_dif)
-sum_btn.place(x=60, y=120)
+dif_btn = tkinter.Button(first_frame, text="-", font=("Arial", 18), command=find_dif)
+dif_btn.place(x=60, y=120)
 
 
 def find_prod():
@@ -94,8 +96,8 @@ def find_prod():
         sum_lbl.config(text=result)
 
 
-sum_btn = tkinter.Button(first_frame, text="*", font=("Arial", 18), command=find_prod)
-sum_btn.place(x=100, y=120)
+prod_btn = tkinter.Button(first_frame, text="*", font=("Arial", 18), command=find_prod)
+prod_btn.place(x=100, y=120)
 
 
 def find_div():
@@ -112,8 +114,8 @@ def find_div():
         sum_lbl.config(text=result)
 
 
-sum_btn = tkinter.Button(first_frame, text="/", font=("Arial", 18), command=find_div)
-sum_btn.place(x=140, y=120)
+div_btn = tkinter.Button(first_frame, text="/", font=("Arial", 18), command=find_div)
+div_btn.place(x=140, y=120)
 # END FIRST FRAME
 
 # BEGIN SECOND FRAME

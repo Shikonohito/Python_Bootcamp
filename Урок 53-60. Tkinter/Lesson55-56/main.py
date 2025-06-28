@@ -188,7 +188,7 @@ def delete_person():
     # Считываем индексы выделенных элементов из фронтенда
     selected_person_indexes = person_listbox.curselection()
 
-    if len(selected_person_indexes) > 0:
+    if selected_person_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_person_index = selected_person_indexes[0]
 
@@ -219,7 +219,7 @@ person_delete_btn.place(x=75, y=400)
 def change_person():
     # Считываем индексы выделенных элементов из фронтенда
     selected_person_indexes = person_listbox.curselection()
-    if len(selected_person_indexes) > 0:
+    if selected_person_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_person_index = selected_person_indexes[0]
 
@@ -262,7 +262,7 @@ person_change_btn.place(x=150, y=400)
 def show_person_data():
     # Считываем индексы выделенных элементов из фронтенда
     selected_person_indexes = person_listbox.curselection()
-    if len(selected_person_indexes) > 0:
+    if selected_person_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_person_index = selected_person_indexes[0]
 
@@ -285,7 +285,7 @@ person_info_btn.place(x=235, y=400)
 
 # def fill_person_info(event):
 #     selected_person_indexes = person_listbox.curselection()
-#     if len(selected_person_indexes) > 0:
+#     if selected_person_indexes:
 #         selected_person_str = person_listbox.get(selected_person_indexes[0])
 #         selected_person_id = selected_person_str.split()[0]
 #         selected_person = data_base.get_person(selected_person_id)

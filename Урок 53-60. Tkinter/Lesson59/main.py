@@ -389,7 +389,7 @@ fs_student_add_btn.place(x=20, y=400)
 
 def fs_delete_student():
     selected_student_indexes = fs_student_listbox.curselection()
-    if len(selected_student_indexes) > 0:
+    if selected_student_indexes:
         fs_student_info.config(text="", justify="left", fg="black")
         selected_student_index = selected_student_indexes[0]
         selected_student_str = fs_student_listbox.get(selected_student_index)
@@ -417,7 +417,7 @@ fs_student_delete_btn.place(x=75, y=400)
 
 def fs_change_student():
     selected_student_indexes = fs_student_listbox.curselection()
-    if len(selected_student_indexes) > 0:
+    if selected_student_indexes:
         fs_student_info.config(text="", justify="left", fg="black")
         selected_student_index = selected_student_indexes[0]
         selected_student_str = fs_student_listbox.get(selected_student_index)
@@ -454,7 +454,7 @@ fs_student_change_btn.place(x=150, y=400)
 
 def fs_show_student_data():
     selected_student_indexes = fs_student_listbox.curselection()
-    if len(selected_student_indexes) > 0:
+    if selected_student_indexes:
         selected_student_index = selected_student_indexes[0]
         selected_student_str = fs_student_listbox.get(selected_student_index)
         selected_student_id = selected_student_str.split()[0]
@@ -523,7 +523,7 @@ fg_group_add_btn.place(x=20, y=400)
 
 def fg_delete_group():
     selected_group_indexes = fg_group_listbox.curselection()
-    if len(selected_group_indexes) > 0:
+    if selected_group_indexes:
         selected_group_index = selected_group_indexes[0]
         selected_group_str = fg_group_listbox.get(selected_group_index)
         selected_group_id = selected_group_str.split()[0]
@@ -546,7 +546,7 @@ fg_group_delete_btn.place(x=75, y=400)
 
 def fg_change_group():
     selected_group_indexes = fg_group_listbox.curselection()
-    if len(selected_group_indexes) > 0:
+    if selected_group_indexes:
         selected_group_index = selected_group_indexes[0]
         selected_group_str = fg_group_listbox.get(selected_group_index)
         selected_group_id = selected_group_str.split()[0]
@@ -574,7 +574,7 @@ fg_group_change_btn.place(x=150, y=400)
 
 def fg_show_group_data():
     selected_group_indexes = fg_group_listbox.curselection()
-    if len(selected_group_indexes) > 0:
+    if selected_group_indexes:
         selected_group_index = selected_group_indexes[0]
         selected_group_str = fg_group_listbox.get(selected_group_index)
         selected_group_id = selected_group_str.split()[0]
@@ -620,7 +620,7 @@ def fatg_show_students_listbox():
     fatg_selected_group_info.config(text=f"{selected_group_str}", justify="left")
 
     selected_group_list = selected_group_str.split()
-    if len(selected_group_list) > 0:
+    if selected_group_list:
         selected_group_id = selected_group_list[0]
     else:
         selected_group_id = ""
@@ -663,7 +663,7 @@ fatg_add_student_btn.place(x=20, y=240)
 
 def fatg_remove_student():
     selected_student_indexes = fatg_student_listbox.curselection()
-    if len(selected_student_indexes) > 0:
+    if selected_student_indexes:
         selected_student_index = selected_student_indexes[0]
         selected_student_str = fatg_student_listbox.get(selected_student_index)
         selected_student_id = selected_student_str.split()[0]

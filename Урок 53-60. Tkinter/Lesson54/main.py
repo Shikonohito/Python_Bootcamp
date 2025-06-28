@@ -132,7 +132,7 @@ def delete_customer():
     # Считываем индексы выделенных элементов из фронтенда
     selected_customer_indexes = customer_listbox.curselection()
     print(selected_customer_indexes)
-    if len(selected_customer_indexes) > 0:
+    if selected_customer_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_customer_index = selected_customer_indexes[0]
 
@@ -165,7 +165,7 @@ customer_delete_btn.place(x=75, y=400)
 def change_customer():
     # Считываем индексы выделенных элементов из фронтенда
     selected_customer_indexes = customer_listbox.curselection()
-    if len(selected_customer_indexes) > 0:
+    if selected_customer_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_customer_index = selected_customer_indexes[0]
 
@@ -207,7 +207,7 @@ customer_change_btn.place(x=150, y=400)
 def show_customer_data():
     # Считываем индексы выделенных элементов из фронтенда
     selected_customer_indexes = customer_listbox.curselection()
-    if len(selected_customer_indexes) > 0:
+    if selected_customer_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_customer_index = selected_customer_indexes[0]
 

@@ -79,13 +79,15 @@
 # user_data_frame.pack(expand=True, fill="both")
 #
 # user_name_label = tkinter.Label(user_data_frame, text="Name:", font=("Arial", 18))
-# user_age_label = tkinter.Label(user_data_frame, text="Age:", font=("Arial", 18))
 # user_name_label.place(y=20, x=20)
+#
+# user_age_label = tkinter.Label(user_data_frame, text="Age:", font=("Arial", 18))
 # user_age_label.place(y=20, x=300)
 #
 # user_name_entry = tkinter.Entry(user_data_frame, font=("Arial", 18))
-# user_age_entry = tkinter.Entry(user_data_frame, font=("Arial", 18))
 # user_name_entry.place(y=60, x=20)
+#
+# user_age_entry = tkinter.Entry(user_data_frame, font=("Arial", 18))
 # user_age_entry.place(y=60, x=300)
 #
 #

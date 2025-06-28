@@ -9,8 +9,9 @@ frame = tkinter.Frame(root)
 frame.pack(expand=True, fill="both")
 
 num_1_lbl = tkinter.Label(frame, text="First number:", font=("Arial", 18))
-num_2_lbl = tkinter.Label(frame, text="Second number:", font=("Arial", 18))
 num_1_lbl.place(x=20, y=20)
+
+num_2_lbl = tkinter.Label(frame, text="Second number:", font=("Arial", 18))
 num_2_lbl.place(x=320, y=20)
 
 
@@ -59,12 +60,13 @@ num_2_lbl.place(x=320, y=20)
 
 
 num_1_entry = tkinter.Entry(frame, font=("Arial", 18))
-num_2_entry = tkinter.Entry(frame, font=("Arial", 18))
 num_1_entry.place(x=20, y=60)
+
+num_2_entry = tkinter.Entry(frame, font=("Arial", 18))
 num_2_entry.place(x=320, y=60)
 
-sum_lbl = tkinter.Label(frame, text="0", font=("Arial", 18))
-sum_lbl.place(x=20, y=200)
+result_lbl = tkinter.Label(frame, text="0", font=("Arial", 18))
+result_lbl.place(x=20, y=200)
 
 
 def find_sum():
@@ -75,7 +77,7 @@ def find_sum():
         num_1 = float(num_1)
         num_2 = float(num_2)
         result = str(num_1 + num_2)
-        sum_lbl.config(text=result)
+        result_lbl.config(text=result)
 
 
 sum_btn = tkinter.Button(frame, text="+", font=("Arial", 18), command=find_sum)
@@ -90,11 +92,11 @@ def find_dif():
         num_1 = float(num_1)
         num_2 = float(num_2)
         result = str(num_1 - num_2)
-        sum_lbl.config(text=result)
+        result_lbl.config(text=result)
 
 
-sum_btn = tkinter.Button(frame, text="-", font=("Arial", 18), command=find_dif)
-sum_btn.place(x=60, y=120)
+dif_btn = tkinter.Button(frame, text="-", font=("Arial", 18), command=find_dif)
+dif_btn.place(x=60, y=120)
 
 
 def find_prod():
@@ -105,11 +107,11 @@ def find_prod():
         num_1 = float(num_1)
         num_2 = float(num_2)
         result = str(num_1 * num_2)
-        sum_lbl.config(text=result)
+        result_lbl.config(text=result)
 
 
-sum_btn = tkinter.Button(frame, text="*", font=("Arial", 18), command=find_prod)
-sum_btn.place(x=100, y=120)
+prod_btn = tkinter.Button(frame, text="*", font=("Arial", 18), command=find_prod)
+prod_btn.place(x=100, y=120)
 
 
 def find_div():
@@ -123,11 +125,11 @@ def find_div():
             result = str(num_1 / num_2)
         else:
             result = "Divided by Zero"
-        sum_lbl.config(text=result)
+        result_lbl.config(text=result)
 
 
-sum_btn = tkinter.Button(frame, text="/", font=("Arial", 18), command=find_div)
-sum_btn.place(x=140, y=120)
+div_btn = tkinter.Button(frame, text="/", font=("Arial", 18), command=find_div)
+div_btn.place(x=140, y=120)
 
 
 # def hide_frame():

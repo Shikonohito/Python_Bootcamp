@@ -1,38 +1,38 @@
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Python - PT54</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/pt.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python - PT54</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/pt.css">
 </head>
 
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
-      <p id="copyrights">© Фикрет Зейналов, 2025</p>
-    </div>
-    <div class="right-block">
-      <div class="right-rect">
-        <h2>Практическое Задание 54.1</h2>
-        <p>Дополните код, указанный ниже, ещё двумя полями – <span class="hl-text">фамилией</span> и <span
-            class="hl-text">возрастом</span>. Также измените код <span class="hl-text">изменения клиента в
-            бэкенде</span>, а во <span class="hl-text">фронтенде добавление</span>, <span
-            class="hl-text">изменение</span>, <span class="hl-text">показ данных клиента</span>.</p>
-        <h3>Код:</h3>
-        <div class="console">
-          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
-              height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
-              <path fill="currentColor" fill-rule="evenodd"
-                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                clip-rule="evenodd"></path>
-            </svg>
-            Copy code</button>
-          <pre><code class="python">customer_1 = {"id": "ABC1234", "name": "Tom"}
+    <div class="container">
+        <div class="sidebar">
+            <img src="https://i.imgur.com/1Q6xlRO.png" alt="STEP IT Academy">
+            <p id="copyrights">© Фикрет Зейналов, 2025</p>
+        </div>
+        <div class="right-block">
+            <div class="right-rect">
+                <h2>Практическое Задание 54.1</h2>
+                <p>Дополните код, указанный ниже, ещё двумя полями – <span class="hl-text">фамилией</span> и <span
+                        class="hl-text">возрастом</span>. Также измените код <span class="hl-text">изменения клиента в
+                        бэкенде</span>, а во <span class="hl-text">фронтенде добавление</span>, <span
+                        class="hl-text">изменение</span>, <span class="hl-text">показ данных клиента</span>.</p>
+                <h3>Код:</h3>
+                <div class="console">
+                    <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Copy code</button>
+                    <pre><code class="python">customer_1 = {"id": "ABC1234", "name": "Tom"}
 customer_2 = {"id": "DEF5869", "name": "Bob"}
 customer_3 = {"id": "QWE1556", "name": "Kate"}
 customer_list = [customer_1, customer_2, customer_3]
@@ -163,7 +163,7 @@ def delete_customer():
     # Считываем индексы выделенных элементов из фронтенда
     selected_customer_indexes = customer_listbox.curselection()
     print(selected_customer_indexes)
-    if len(selected_customer_indexes) > 0:
+    if selected_customer_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_customer_index = selected_customer_indexes[0]
 
@@ -196,7 +196,7 @@ customer_delete_btn.place(x=75, y=400)
 def change_customer():
     # Считываем индексы выделенных элементов из фронтенда
     selected_customer_indexes = customer_listbox.curselection()
-    if len(selected_customer_indexes) > 0:
+    if selected_customer_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_customer_index = selected_customer_indexes[0]
 
@@ -238,7 +238,7 @@ customer_change_btn.place(x=150, y=400)
 def show_customer_data():
     # Считываем индексы выделенных элементов из фронтенда
     selected_customer_indexes = customer_listbox.curselection()
-    if len(selected_customer_indexes) > 0:
+    if selected_customer_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_customer_index = selected_customer_indexes[0]
 
@@ -259,11 +259,11 @@ customer_info_btn = tkinter.Button(customer_frame, text="Info", font=("Arial", 1
 customer_info_btn.place(x=235, y=400)
 
 root.mainloop()</code></pre>
-        </div>
+                </div>
 
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
-  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
+    <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+    <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
 </body>
