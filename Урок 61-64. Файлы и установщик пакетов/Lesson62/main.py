@@ -458,7 +458,7 @@ fs_student_add_btn.place(x=20, y=400)
 def fs_delete_student():
     # Считываем индексы выделенных элементов из фронтенда
     student_listbox_ind = fs_student_listbox.curselection()
-    if len(student_listbox_ind) > 0:
+    if student_listbox_ind:
         # Считываем элемент по индексу
         selected_student = fs_student_listbox.get(student_listbox_ind[0])
 
@@ -487,7 +487,7 @@ fs_student_delete_btn.place(x=75, y=400)
 def fs_change_student():
     # Считываем индексы выделенных элементов из фронтенда
     student_listbox_ind = fs_student_listbox.curselection()
-    if len(student_listbox_ind) > 0:
+    if student_listbox_ind:
         # Считываем элемент по индексу
         selected_student = fs_student_listbox.get(student_listbox_ind[0])
 
@@ -529,7 +529,7 @@ fs_student_change_btn.place(x=150, y=400)
 def fs_show_student_data():
     # Считываем индексы выделенных элементов из фронтенда
     student_listbox_ind = fs_student_listbox.curselection()
-    if len(student_listbox_ind) > 0:
+    if student_listbox_ind:
         # Считываем элемент по индексу
         selected_student = fs_student_listbox.get(student_listbox_ind[0])
 
@@ -611,7 +611,7 @@ fg_product_add_btn.place(x=300, y=20)
 def fg_delete_group():
     # Считываем индексы выделенных элементов из фронтенда
     group_listbox_ind = fg_group_listbox.curselection()
-    if len(group_listbox_ind) > 0:
+    if group_listbox_ind:
         # Считываем элемент по индексу
         selected_group = fg_group_listbox.get(group_listbox_ind[0])
 
@@ -639,7 +639,7 @@ fg_group_delete_btn.place(x=300, y=70)
 def fg_change_group():
     # Считываем индексы выделенных элементов из фронтенда
     group_listbox_ind = fg_group_listbox.curselection()
-    if len(group_listbox_ind) > 0:
+    if group_listbox_ind:
         # Считываем элемент по индексу
         selected_group = fg_group_listbox.get(group_listbox_ind[0])
 
@@ -677,7 +677,7 @@ fg_group_change_btn.place(x=300, y=120)
 def fg_show_group_data():
     # Считываем индексы выделенных элементов из фронтенда
     group_listbox_ind = fg_group_listbox.curselection()
-    if len(group_listbox_ind) > 0:
+    if group_listbox_ind:
         # Считываем элемент по индексу
         selected_group = fg_group_listbox.get(group_listbox_ind[0])
 

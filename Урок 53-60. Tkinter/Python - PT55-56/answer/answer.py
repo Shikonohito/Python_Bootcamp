@@ -185,7 +185,7 @@ def delete_employee():
     # Считываем индексы выделенных элементов из фронтенда
     selected_employee_indexes = employee_listbox.curselection()
 
-    if len(selected_employee_indexes) > 0:
+    if selected_employee_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_employee_index = selected_employee_indexes[0]
 
@@ -213,7 +213,7 @@ employee_delete_btn.place(x=75, y=400)
 def change_employee():
     # Считываем индексы выделенных элементов из фронтенда
     selected_employee_indexes = employee_listbox.curselection()
-    if len(selected_employee_indexes) > 0:
+    if selected_employee_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_employee_index = selected_employee_indexes[0]
 
@@ -253,7 +253,7 @@ employee_change_btn.place(x=150, y=400)
 def show_employee_data():
     # Считываем индексы выделенных элементов из фронтенда
     selected_employee_indexes = employee_listbox.curselection()
-    if len(selected_employee_indexes) > 0:
+    if selected_employee_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_employee_index = selected_employee_indexes[0]
 

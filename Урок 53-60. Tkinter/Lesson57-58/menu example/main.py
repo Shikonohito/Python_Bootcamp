@@ -225,7 +225,7 @@ fs_student_add_btn.place(x=20, y=400)
 def fs_delete_student():
     # Считываем индексы выделенных элементов из фронтенда
     selected_student_indexes = fs_student_listbox.curselection()
-    if len(selected_student_indexes) > 0:
+    if selected_student_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_student_index = selected_student_indexes[0]
 
@@ -265,7 +265,7 @@ fs_student_delete_btn.place(x=75, y=400)
 def fs_change_student():
     # Считываем индексы выделенных элементов из фронтенда
     selected_student_indexes = fs_student_listbox.curselection()
-    if len(selected_student_indexes) > 0:
+    if selected_student_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_student_index = selected_student_indexes[0]
 
@@ -312,7 +312,7 @@ fs_student_change_btn.place(x=150, y=400)
 def fs_show_student_data():
     # Считываем индексы выделенных элементов из фронтенда
     selected_student_indexes = fs_student_listbox.curselection()
-    if len(selected_student_indexes) > 0:
+    if selected_student_indexes:
         # Выделяем в переменную индекс выбранного элемента
         selected_student_index = selected_student_indexes[0]
 
@@ -334,7 +334,7 @@ fs_student_info_btn.place(x=235, y=400)
 
 # def fs_fill_student_info(event):
 #     selected_student_indexes = fs_student_listbox.curselection()
-#     if len(selected_student_indexes) > 0:
+#     if selected_student_indexes:
 #         selected_student_str = fs_student_listbox.get(selected_student_indexes[0])
 #         selected_student_id = selected_student_str.split()[0]
 #         selected_student = data_base.get_student(selected_student_id)

@@ -273,7 +273,7 @@ number = randint(1000, 9999)  # Генерация случайного четы
           провели несколько десятков собеседований, но заметили, что им очень часто попадаются средний и низкий уровни
           кандидатов, а также показывается только одна подсказка. <span class="hl-text">Исправьте программу, чтобы она
             работала корректно, и рядом напишите комментарии о том, почему изменённый вариант должен работать
-            верно</span>.</p>
+            верно</span>. Также <span class="hl-text">переменным дайте говорящие имена</span>.</p>
         <h3>Код:</h3>
         <div class="console">
           <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
@@ -283,51 +283,51 @@ number = randint(1000, 9999)  # Генерация случайного четы
                 clip-rule="evenodd"></path>
             </svg>
             Copy code</button>
-          <pre><code class="python">rating = 0
+          <pre><code class="python">a = 0
 
-job_exp = int(input("Введите опыт работы (полные года): "))
-if job_exp >= 10:
-    rating += 10
-if job_exp >= 1:
-    rating += job_exp
+b = int(input("Введите опыт работы (полные года): "))
+if b >= 10:
+    a += 10
+if b >= 1:
+    a += b
 
-education_level = input("Введите образование (1 - специальное, 2 - базовое, 3 - отсутствует): ")
-if education_level == 1:
-    rating += 2
-elif education_level == 2:
-    rating += 1
+c = input("Введите образование (1 - специальное, 2 - базовое, 3 - отсутствует): ")
+if c == 1:
+    a += 2
+elif c == 2:
+    a += 1
 else:
-    rating += 0
+    a += 0
 
 print()
 print("Оцените от 1 до 8 баллов включительно уровень навыков, где 1 - низкий уровень, 8 - высокий уровень.")
-communication_skill = int(input("Введите уровень коммуникативных навыков: "))
-technical_skill = int(input("Введите уровень технических навыков: "))
-leadership_skill = int(input("Введите уровень лидерских навыков: "))
-analytic_skill = int(input("Введите уровень аналитических способностей: "))
-teamwork_skill = int(input("Введите уровень работы в команде: "))
+d = int(input("Введите уровень коммуникативных навыков: "))
+e = int(input("Введите уровень технических навыков: "))
+f = int(input("Введите уровень лидерских навыков: "))
+g = int(input("Введите уровень аналитических способностей: "))
+h = int(input("Введите уровень работы в команде: "))
 
-total_skill = (communication_skill + technical_skill + leadership_skill + analytic_skill + teamwork_skill) // 5
+j = (d + e + f + g + h) // 5
 
-if communication_skill <= 3:
+if d <= 3:
     print("- Есть проблемы с коммуникацией")
-elif technical_skill < 5:
+elif e < 5:
     print("- Технические навыки слабые")
-elif leadership_skill < 3:
+elif f < 3:
     print("- Не обладает лидерскими навыками")
-elif analytic_skill < 5:
+elif g < 5:
     print("- Слабые аналитические способности")
-elif teamwork_skill < 4:
+elif h < 4:
     print("- Работа в команде слабая")
 
 print()
-if 0 <= rating and rating <= 5:
+if 0 <= a and a <= 5:
     print("Низкий уровень кандидата, не рекомендуется для приема на работу.")
-if 6 <= rating and rating <= 10:
+if 6 <= a and a <= 10:
     print("Средний уровень кандидата, требуется дополнительное обучение и развитие.")
-if 11 <= rating and rating <= 16:
+if 11 <= a and a <= 16:
     print("Хороший уровень кандидата, рекомендуется к рассмотрению на должность.")
-if 17 <= rating and rating <= 20:
+if 17 <= a and a <= 20:
     print("Высокий уровень кандидата, рекомендуется для приема на работу.")</code></pre>
         </div>
         <h3>Пример работы в консоли:</h3>
