@@ -80,7 +80,7 @@ if you do so, you are insulting yourself."
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 28.4</h2>
-        <p>Напишите функцию <span class="function"><b>draw_quad</b></span>, которая <span class="hl-text">принимает
+        <p>Напишите функцию <span class="function"><b>draw_rectangle</b></span>, которая <span class="hl-text">принимает
             символ</span>, <span class="hl-text">длину</span>, <span class="hl-text">ширину</span> и <span
             class="hl-text">рисует в консоли незаполненный прямоугольник из этого символа указанного размера</span>.</p>
       </div>
@@ -185,7 +185,7 @@ def get_total_price(cart: list[str], storage_product_names: list[str], storage_p
     return total_price
 
 
-def pay_cart(cart: list[str], balance, storage_product_names: list[str], storage_product_prices: list[float]):
+def pay_cart(cart: list[str], balance: int, storage_product_names: list[str], storage_product_prices: list[float]):
     is_success = True
     total_price = get_total_price(cart, storage_product_names, storage_product_prices)
     if balance < total_price:
