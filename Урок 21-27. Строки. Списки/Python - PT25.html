@@ -53,6 +53,234 @@
         <h2>Практическое Задание 25.3</h2>
         <p>Реализуйте следующее меню:
         <div class="console">
+          <pre><code>1. Показать список заказанного
+2. Добавить новый заказ в конец
+3. Добавить новый заказ в начало
+4. Добавить новый заказ по номеру
+5. Опустошить список заказов
+6. Завершить программу</code></pre>
+        </div>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">выводит в консоль каждый заказ в виде:</span></li>
+          <div class="console">
+            <pre><code>{порядковый_номер_заказа} - {название_заказанного}
+{порядковый_номер_заказа} - {название_заказанного}
+{порядковый_номер_заказа} - {название_заказанного}
+...</code></pre>
+          </div>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли название заказа</span>.</li>
+          <li>Добавляет <span class="hl-text">введённое название в конец списка</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 3</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли название заказа</span>.</li>
+          <li>Добавляет <span class="hl-text">введённое название в начало списка</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 4</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли название заказа</span>, затем <span
+              class="hl-text">запрашивает с консоли порядковый номер заказа</span>.</li>
+          <li>Добавляет <span class="hl-text">в список введённое название по указанному порядковому номеру</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 5</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли подтверждение</span>.</li>
+          <li>Если пользователь подтвердил, то <span class="hl-text">список заказов опустошается</span>.</li>
+        </ul>
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 25.4</h2>
+        <p>Даны 2 списка – <span class="hl-text">список логинов</span> и <span class="hl-text">список соответствующих
+            паролей</span>:
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+              height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd"
+                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">acc_login = ["admin", "xandie", "davuaaaa", "ullarie", "sergey1987", "olyanyan", "HTanya", "leylanay", "pera", "eferyst"]
+acc_pass = ["root", "X@NDEE", "davu4a", "Larie-Ul!2022", "Serg87&pas", "Olya2024", "TaNyA#45", "*Leyla*2021", "Max.Sok0lov!", "Novik#9"]</code></pre>
+        </div>
+        </p>
+
+        <p>Реализуйте следующее меню:
+        <div class="console">
+          <pre><code>1. Показать список аккаунтов
+2. Изменить пароль у аккаунта
+3. Завершить программу</code></pre>
+        </div>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">выводит в консоль данные аккаунта в виде:</span></li>
+          <div class="console">
+            <pre><code>{логин} - {пароль}
+{логин} - {пароль}
+{логин} - {пароль}
+...</code></pre>
+          </div>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли логин</span>.</li>
+          <li>Если логин найден в списке логинов, то <span class="hl-text">запрашивает с консоли новый пароль</span> и
+            <span class="hl-text">заменяет соответствующий пароль</span>.
+          </li>
+          <li>В зависимости от результата программа <span class="hl-text">показывает сообщение</span>.</li>
+        </ul>
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 25.5</h2>
+        <p>Даны 2 списка – <span class="hl-text">список названий товаров</span> и <span class="hl-text">список с
+            соответствующим количеством</span>:
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+              height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd"
+                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">product_name = ["Яблоки", "Груши", "Бананы", "Апельсины", "Киви", "Виноград", "Ананасы", "Манго", "Персики", "Сливы"]
+product_quantity = [10, 0, 8, 12, 0, 0, 6, 9, 0, 0]</code></pre>
+        </div>
+        </p>
+
+        <p>Реализуйте следующее меню:
+        <div class="console">
+          <pre><code>1. Показать список продуктов
+2. Удалить все отсутствующие продукты
+3. Завершить программу</code></pre>
+        </div>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">выводит в консоль данные аккаунта в виде:</span></li>
+          <div class="console">
+            <pre><code>{название_продукта} - {количество}
+{название_продукта} - {количество}
+{название_продукта} - {количество}
+...</code></pre>
+          </div>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">удаляет все товары, количество которых равно <code
+                class="python"><b>0</b></code></span>.</li>
+        </ul>
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 25.6</h2>
+        <p>Даны 3 списка – <span class="hl-text">список названий</span>, <span class="hl-text">список соответствующих
+            цен</span> и <span class="hl-text">список с соответствующим количеством</span>:
+        <div class="console">
+          <button class="copy-button" onclick="copyCode(this)"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+              height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd"
+                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">product_name = ["Молоко", "Хлеб", "Сыр", "Масло", "Кофе", "Чай", "Сахар", "Мука", "Яйца", "Рис"]
+product_price = [85, 40, 320, 150, 480, 300, 95, 60, 110, 130]
+product_quantity = [20, 35, 0, 0, 5, 12, 25, 18, 30, 16]</code></pre>
+        </div>
+        </p>
+
+        <p>Реализуйте следующее меню:
+        <div class="console">
+          <pre><code>1. Показать список товаров
+2. Добавить товар
+3. Удалить товар
+4. Изменить товар
+5. Продать товар
+6. Завершить программу</code></pre>
+        </div>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 1</span>:
+        <ul>
+          <li>Программа <span class="hl-text">выводит в консоль данные товаров в виде:</span></li>
+          <div class="console">
+            <pre><code>{название} - {цена} - {количество}
+{название} - {цена} - {количество}
+{название} - {цена} - {количество}
+...</code></pre>
+          </div>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 2</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли название</span>.</li>
+          <li>Если название найдено в списке названий, то <span class="hl-text">запрашивает с консоли только
+              количество</span> и <span class="hl-text">добавляет количество соответствующему продукту</span>.</li>
+          <li>В противном случае, <span class="hl-text">запрашивает с консоли цену</span> и <span
+              class="hl-text">количество</span>, затем <span class="hl-text">добавляет в конец данные продукта в
+              соответствующие списки</span>.</li>
+          <li>В зависимости от результата программа <span class="hl-text">показывает сообщение</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 3</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли название</span>.</li>
+          <li>Если название найдено в списке названий, то <span class="hl-text">удаляет из всех списков данные о
+              найденном продукте</span>.</li>
+          <li>В зависимости от результата программа <span class="hl-text">показывает сообщение</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 4</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли название</span>.</li>
+          <li>Если название найдено в списке названий, то программа <span class="hl-text">запрашивает новое
+              название</span>, <span class="hl-text">цену</span> и <span class="hl-text">количество</span>.</li>
+          <li>Если введённые данные пустые, то <span class="hl-text">исходные данные не меняются</span>.</li>
+          <li>В зависимости от результата программа <span class="hl-text">показывает сообщение</span>.</li>
+        </ul>
+        </p>
+
+        <p>Выбран <span class="hl-text">пункт 5</span>:
+        <ul>
+          <li>Программа <span class="hl-text">запрашивает с консоли название</span>.</li>
+          <li>Если название найдено в списке названий, то программа <span class="hl-text">запрашивает количество</span>.
+          </li>
+          <li>Если количества достаточно, то <span class="hl-text">показывает итоговую сумму</span> и <span
+              class="hl-text">отнимает количество соответствующего товара</span>.</li>
+          <li>В зависимости от результата программа <span class="hl-text">показывает сообщение</span>.</li>
+        </ul>
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Практическое Задание 25.7</h2>
+        <p>Реализуйте следующее меню:
+        <div class="console">
           <pre><code>1. Внести доход/расход в отчёт
 2. Показать полную историю
 3. Показать историю по границам
