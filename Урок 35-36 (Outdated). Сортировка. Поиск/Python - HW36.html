@@ -1,0 +1,103 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python - HW36</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://shikonohito.github.io/Python_Bootcamp/styles/hw.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://i.imgur.com/S9prf0J.png" alt="STEP IT Academy">
+      <p id="copyrights">© Фикрет Зейналов, 2025</p>
+    </div>
+    <div class="right-block">
+      <div class="right-rect">
+        <h2><strong>Примечание</strong></h2>
+        <p>Оформляйте ввод и вывод данных в соответствии с <span class="hl-text">примерами заданий</span>. Используйте
+          только то, что было пройдено <span class="hl-text">до этого урока включительно</span>. Реализуйте защиту
+          входных данных от <span class="hl-text">исключений</span>.
+        </p>
+
+        <p>Сайт с визуализацией сортировок: <a
+            href="https://airtucha.github.io/SortVis/">https://airtucha.github.io/SortVis/</a></p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 36.1</h2>
+        <p>Реализуйте следующее меню:
+        <div class="console">
+          <pre><code>1. Показать всех сотрудников
+2. Показать всех сотрудников в отсортированном виде по имени в алфавитном порядке
+3. Показать всех сотрудников в отсортированном виде по возрасту по убыванию
+4. Добавить нового сотрудника</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 1</span> программа <span class="hl-text">выводит в консоль всех
+            сотрудников в формате</span>:
+        <div class="console">
+          <pre><code>Имя: {Имя}        Возраст: {Возраст}
+Имя: {Имя}        Возраст: {Возраст}
+...</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 2</span> программа <span class="hl-text">сортирует копию списка по
+            имени</span> и <span class="hl-text">выводит в консоль всех сотрудников в формате</span>:
+        <div class="console">
+          <pre><code>Имя: {Имя}        Возраст: {Возраст}
+Имя: {Имя}        Возраст: {Возраст}
+...</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 3</span> программа <span class="hl-text">сортирует копию списка по
+            возрасту</span> и <span class="hl-text">выводит в консоль всех сотрудников в формате</span>:
+        <div class="console">
+          <pre><code>Имя: {Имя}        Возраст: {Возраст}
+Имя: {Имя}        Возраст: {Возраст}
+...</code></pre>
+        </div>
+        </p>
+
+        <p>При выборе <span class="hl-text">пункта 4 программа запрашивает с консоли Имя</span> и <span
+            class="hl-text">Возраст</span>, затем <span class="hl-text">добавляет в список сотрудников данные в
+            виде</span> <code class="python"><b>[{имя}, {возраст}]</b></code>.
+        </p>
+      </div>
+      <div class="right-rect">
+        <h2>Домашнее Задание 36.2</h2>
+        <p>В программе есть следующий список:
+        <div class="console"><button class="copy-button" onclick="copyCode(this)"><svg
+              xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" class="icon-sm">
+              <path fill="currentColor" fill-rule="evenodd"
+                d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Copy code</button>
+          <pre><code class="python">matrix = [[1,  4,  7,  8, 12, 16],
+          [2,  6,  9, 11, 18, 20],
+          [3,  8, 12, 14, 20, 22],
+          [5, 10, 14, 17, 21, 24],
+          [7, 11, 16, 19, 23, 28]]</code></pre>
+        </div>
+        </p>
+        <p>Напишите программу, которая <span class="hl-text">запрашивает с консоли число</span>, затем <span
+            class="hl-text">находит первое вхождение числа</span> и <span class="hl-text">выводит в консоль индексы
+            введённого числа</span>. Например, если ввести число <code class="python"><b>14</b></code>, то программа
+          выведет <code class="python"><b>[2, 3]</b></code>, то есть строка с индексом <code
+            class="python"><b>2</b></code> и столбец с индексом <code class="python"><b>3</b></code>.</p>
+        <p>У этого задания есть как минимум <code class="python"><b>3</b></code> решения. Попробуйте реализовать все
+          <code class="python"><b>3</b></code>.
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/copyButton.js"></script>
+  <script src="https://shikonohito.github.io/Python_Bootcamp/scripts/highlighter.js"></script>
+</body>
