@@ -57,6 +57,80 @@
         </div>
         </p>
 
+        <p>Сперва <span class="hl-text">реализуйте функции</span>, описанные ниже. Везде, где требуется <span
+            class="hl-text">получать данные студента по индексам</span> или <span class="hl-text">изменять данные
+            студента по индексам</span>, вызывайте <span class="hl-text">соответствующую функцию</span>. Функции
+          следующие:
+        <ul>
+          <li><span class="function"><b>get_student_id</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">студента</span>.</li>
+              <li>Возвращает <span class="hl-text">элемент под индексом</span> <code class="python"><b>0</b></code>.
+              </li>
+            </ul>
+          </li>
+          <li><span class="function"><b>get_student_surname</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">студента</span>.</li>
+              <li>Возвращает <span class="hl-text">элемент под индексом</span> <code class="python"><b>1</b></code>.
+              </li>
+            </ul>
+          </li>
+          <li><span class="function"><b>get_student_name</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">студента</span>.</li>
+              <li>Возвращает <span class="hl-text">элемент под индексом</span> <code class="python"><b>2</b></code>.
+              </li>
+            </ul>
+          </li>
+          <li><span class="function"><b>get_student_grades</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">студента</span>.</li>
+              <li>Возвращает <span class="hl-text">элемент под индексом</span> <code class="python"><b>3</b></code>.
+              </li>
+            </ul>
+          </li>
+          <li><span class="function"><b>set_student_id</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">студента</span> и <span class="hl-text">идентификатор</span>.
+              </li>
+              <li>Заменяет <span class="hl-text">значение под индексом</span> <code class="python"><b>0</b></code> на
+                <span class="hl-text">новое</span>.
+              </li>
+              <li>Ничего <span class="hl-text">не возвращает</span>.</li>
+            </ul>
+          </li>
+          <li><span class="function"><b>set_student_surname</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">студента</span> и <span class="hl-text">фамилию</span>.</li>
+              <li>Заменяет <span class="hl-text">значение под индексом</span> <code class="python"><b>1</b></code> на
+                <span class="hl-text">новое</span>.
+              </li>
+              <li>Ничего <span class="hl-text">не возвращает</span>.</li>
+            </ul>
+          </li>
+          <li><span class="function"><b>set_student_name</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">студента</span> и <span class="hl-text">имя</span>.</li>
+              <li>Заменяет <span class="hl-text">значение под индексом</span> <code class="python"><b>2</b></code> на
+                <span class="hl-text">новое</span>.
+              </li>
+              <li>Ничего <span class="hl-text">не возвращает</span>.</li>
+            </ul>
+          </li>
+          <li><span class="function"><b>set_student_grades</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">студента</span> и <span class="hl-text">список оценок</span>.
+              </li>
+              <li>Заменяет <span class="hl-text">значение под индексом</span> <code class="python"><b>3</b></code> на
+                <span class="hl-text">новое</span>.
+              </li>
+              <li>Ничего <span class="hl-text">не возвращает</span>.</li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+
         <p>Выбран <span class="hl-text">пункт 1</span>:
         <ul>
           <li>Программа <span class="hl-text">выводит в консоль список студентов в следующем формате</span>:
@@ -126,7 +200,20 @@
               class="hl-text">фамилию</span>, <span class="hl-text">имя</span> и <span class="hl-text">отдельно строку
               оценок через пробел</span>.</li>
           <li>Строку оценок <span class="hl-text">превращает в список чисел</span>.</li>
-          <li>Формирует из введённых данных <span class="hl-text">студента</span>.</li>
+          <li>Формирует из введённых данных <span class="hl-text">студента</span>. Реализуйте через функцию <span
+              class="function"><b>create_student</b></span>:
+            <ul>
+              <li>Функция принимает <span class="hl-text">идентификатор</span>, <span class="hl-text">фамилию</span>,
+                <span class="hl-text">имя</span> и <span class="hl-text">список оценок</span>.
+              </li>
+              <li>Из входных данный функция <span class="hl-text">создаёт список</span>, где по индексу <code
+                  class="python"><b>0</b></code> находится <span class="hl-text">идентификатор</span>, по индексу <code
+                  class="python"><b>1</b></code> находится <span class="hl-text">фамилия</span>, по индексу <code
+                  class="python"><b>2</b></code> находится <span class="hl-text">имя</span>, по индексу <code
+                  class="python"><b>3</b></code> находится <span class="hl-text">список оценок</span>.</li>
+              <li>Возвращает <span class="hl-text">полученный список</span>.</li>
+            </ul>
+          </li>
           <li>Сформированного студента <span class="hl-text">добавляет в список студентов</span>.</li>
           <li>Выводит в консоль <span class="hl-text">оповещение о результате</span>.</li>
           <li>Реализуйте через функцию <span class="function"><b>add_student</b></span>:

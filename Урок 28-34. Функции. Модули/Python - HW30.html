@@ -255,9 +255,19 @@ def top_up_balance(account: list, balance: int) -> bool:
     pass
 
 
+def can_withdraw(account: list, balance: int) -> bool:
+    """
+    Функция проверяет, можно ли с аккаунта снять указанный баланс.
+    :param account: Аккаунт в виде списка.
+    :param balance: Баланс снятия в виде целого числа.
+    :return: Если можно снять - True. В противном случае - False.
+    """
+    pass
+
+
 def withdraw_balance(account: list, balance: int) -> bool:
     """
-    Функция снимает деньги с баланса аккаунта. Для проверки баланса использует check_balance.
+    Функция снимает деньги с баланса аккаунта. Для проверки баланса использует check_balance. Для проверки снятия использует can_withdraw.
     :param account: Аккаунт в виде списка.
     :param balance: Баланс снятия в виде целого числа.
     :return: Если удалось снять - True. В противном случае - False.
@@ -267,10 +277,10 @@ def withdraw_balance(account: list, balance: int) -> bool:
 
 def can_subscribe(account: list, subscribe_price: int) -> bool:
     """
-    Функция проверяет, достаточно ли на балансе денег для оформления подписки.
+    Функция проверяет, достаточно ли на балансе денег для оформления подписки и отсутствует ли подписка.
     :param account: Аккаунт в виде списка.
     :param subscribe_price: Стоимость подписки в виде целого числа.
-    :return: Если денег на балансе достаточно для оформления подписки - True. В противном случае - False.
+    :return: Если денег на балансе достаточно для оформления подписки и отсутствует подписка - True. В противном случае - False.
     """
     pass
 
@@ -508,41 +518,41 @@ while True:
     if choice == "1":
         show_students()
     elif choice == "2":
-        name = input("Введите имя: ")
-        found_index = get_student_index(name)
-        if found_index == -1:
-            print(f"Студента с именем {name} не существует.")
+        input_name = input("Введите имя: ")
+        result_index = get_student_index(input_name)
+        if result_index == -1:
+            print(f"Студента с именем {input_name} не существует.")
         else:
-            print(f"Студент {name} найден по индексу {found_index}.")
+            print(f"Студент {input_name} найден по индексу {result_index}.")
     elif choice == "3":
-        name = input("Введите имя: ")
-        found_student = get_student(name)
-        if found_student:
-            print(f"Имя: {found_student[0]}\t\tВозраст: {found_student[1]}")
+        input_name = input("Введите имя: ")
+        result_student = get_student(input_name)
+        if result_student:
+            print(f"Имя: {result_student[0]}\t\tВозраст: {result_student[1]}")
         else:
-            print(f"Студент с именем {name} не найден.")
+            print(f"Студент с именем {input_name} не найден.")
     elif choice == "4":
-        new_student_name = input("Введите имя нового студента: ")
-        new_student_age = int(input("Введите возраст нового студента: "))
-        new_student = [new_student_name, new_student_age]
-        if add_student(new_student):
-            print(f"{new_student_name} был добавлен в список.")
+        new_student_name_input = input("Введите имя нового студента: ")
+        new_student_age_input = int(input("Введите возраст нового студента: "))
+        new_student_input = [new_student_name_input, new_student_age_input]
+        if add_student(new_student_input):
+            print(f"{new_student_name_input} был добавлен в список.")
         else:
             print("Такое имя уже присутствует.")
     elif choice == "5":
-        index = int(input("Введите индекс: "))
-        new_student_name = input("Введите имя нового студента: ")
-        new_student_age = input("Введите возраст нового студента: ")
-        if new_student_age != "":
-            new_student_age = int(new_student_age)
-        new_student = [new_student_name, new_student_age]
-        if change_student(new_student, index):
+        input_index = int(input("Введите индекс: "))
+        new_student_name_input = input("Введите имя нового студента: ")
+        new_student_age_input = input("Введите возраст нового студента: ")
+        if new_student_age_input != "":
+            new_student_age_input = int(new_student_age_input)
+        new_student_input = [new_student_name_input, new_student_age_input]
+        if change_student(new_student_input, input_index):
             print("Данные студента были изменены.")
         else:
             print("Изменения отклонены. Возможно Вы указали неверный индекс или имя студента уже есть в списке.")
     elif choice == "6":
-        index = int(input("Введите индекс: "))
-        if remove_student(index):
+        input_index = int(input("Введите индекс: "))
+        if remove_student(input_index):
             print("Студент был удалён.")
         else:
             print("Студент не был найден.")
