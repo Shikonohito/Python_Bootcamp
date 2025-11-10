@@ -399,6 +399,169 @@
 # print(total_price)
 
 # ====================================================================================================
+
+# from random import random, randint
+#
+# class Unit:
+#     __name = str()
+#     __current_health = int()
+#     __max_health = int()
+#     __attack_power = int()
+#     __latest_received_damage = int()
+#
+#     def __init__(self, name: str, hp: int, atk: int):
+#         self.__name = name.title()
+#         if hp >= 0:
+#             self.__max_health = hp
+#         else:
+#             self.__max_health = 100
+#
+#         self.__current_health = self.__max_health
+#         self.__attack_power = atk
+#         self.__latest_received_damage = 0
+#
+#     def __str__(self):
+#         return f"{self.__name} {self.__current_health}/{self.__max_health}"
+#
+#     def set_health(self, hp: int):
+#         if hp < 0:
+#             self.__current_health = 0
+#         elif hp > self.__max_health:
+#             self.__current_health = self.__max_health
+#         else:
+#             self.__current_health = hp
+#
+#     def get_latest_damage(self):
+#         return self.__latest_received_damage
+#
+#     def get_attack_power(self):
+#         return self.__attack_power
+#
+#     def receive_damage(self, damage: int):
+#         new_health = self.__current_health - damage
+#         self.__latest_received_damage = damage
+#         self.set_health(new_health)
+#
+#     def attack(self, target: 'Unit'):
+#         target.receive_damage(self.__attack_power)
+#
+#     def is_alive(self):
+#         return self.__current_health > 0
+#
+# class Swordsman(Unit):
+#     __armor = float()
+#
+#     def __init__(self, name: str, hp=200, atk=15, armor=0.5):
+#         super().__init__(name, hp, atk)
+#         if armor < 0:
+#             self.__armor = 0
+#         elif armor > 1:
+#             self.__armor = 1
+#         else:
+#             self.__armor = armor
+#
+#     def receive_damage(self, damage: int):
+#         super().receive_damage(int(damage - damage * self.__armor))
+#
+# class Archer(Unit):
+#     __crit_chance = int()
+#
+#     def __init__(self, name: str, hp=80, atk=10, crit_chance=0.25):
+#         super().__init__(name, hp, atk)
+#
+#         if crit_chance > 1:
+#             self.__crit_chance = 1
+#         elif crit_chance < 0:
+#             self.__crit_chance = 0
+#         else:
+#             self.__crit_chance = crit_chance
+#
+#     def attack(self, target: 'Unit'):
+#         chance = random()
+#         if chance <= self.__crit_chance:
+#             dmg = self.get_attack_power() * 2
+#         else:
+#             dmg = self.get_attack_power()
+#         target.receive_damage(dmg)
+#
+# class Orc(Swordsman):
+#     def __init__(self, hp=100):
+#         super().__init__("Uruk-hai", hp=hp, atk=25, armor=0.3)
+#
+#
+# def send_to_fight(unit: Unit):
+#     enemy_units: list[Unit] = list()
+#
+#     enemy_amount = randint(1, 10)
+#     for i in range(enemy_amount):
+#         enemy_units.append(Orc(hp=randint(10, 100)))
+#
+#     print(unit)
+#     print("=" * 80)
+#     for i in range(enemy_amount):
+#         print(f"{i + 1}. {enemy_units[i]}")
+#     print("=" * 80)
+#     is_exit = input("Начать битву? (Y/N): ").upper() != "Y"
+#     while not is_exit:
+#         target = int(input("Выберите цель: ")) - 1
+#         target_unit = enemy_units[target]
+#         unit.attack(target_unit)
+#         print("=" * 80)
+#         print(f"Герой {unit} наносит {target_unit.get_latest_damage()} единиц урона")
+#
+#         if not target_unit.is_alive():
+#             print("Цель убита.")
+#             del enemy_units[target]
+#             enemy_amount -= 1
+#         else:
+#             print(f"{target_unit} ещё жив.")
+#
+#         print("=" * 80)
+#         if enemy_amount > 0 and random() < max(25.0, min(10.83 * enemy_amount + 3.36, 90.0)) / 100:
+#             enemy: Unit = enemy_units[randint(0, enemy_amount - 1)]
+#             enemy.attack(unit)
+#             print(f"{enemy} наносит {unit.get_latest_damage()} единиц урона герою.")
+#             print("=" * 80)
+#
+#         print(unit)
+#         print("=" * 80)
+#         for i in range(enemy_amount):
+#             print(f"{i + 1}. {enemy_units[i]}")
+#
+#         if enemy_amount > 0:
+#             print("=" * 80)
+#             is_exit = input("Продолжать бой? (Y/N): ").upper() != "Y"
+#         else:
+#             print("Все противники побеждены.")
+#             input("Нажмите любую клавишу...")
+#             is_exit = True
+#     print("=" * 80)
+#
+#
+# aragorn = Swordsman("Aragorn", hp=1000, atk=50, armor=0.75)
+# legolas = Archer("Legolas", hp=500, atk=40, crit_chance=0.5)
+#
+# while True:
+#     print("1. Отправить героя сражаться.")
+#     print("2. Завершить программу.")
+#
+#     choice = input("Выберите действие: ")
+#     if choice == "2":
+#         break
+#     elif choice == "1":
+#         print("=" * 80)
+#         print(f"1. {aragorn}")
+#         print(f"2. {legolas}")
+#         choice = input("Выберите кого отправить: ")
+#         print("=" * 80)
+#         if choice == "1":
+#             send_to_fight(aragorn)
+#         elif choice == "2":
+#             send_to_fight(legolas)
+#         else:
+#             print("Неверный выбор.")
+
+# ====================================================================================================
 # ПЗ 45.1 - 45.2
 # ====================================================================================================
 
