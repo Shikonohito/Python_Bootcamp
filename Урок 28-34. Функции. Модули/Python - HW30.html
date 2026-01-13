@@ -28,16 +28,15 @@
                 <h2>Домашнее Задание 30.1</h2>
                 <p>Напишите функцию <span class="function"><b>generate_password</b></span>, которая <span
                         class="hl-text">принимает необязательную длину</span> (по умолчанию <code
-                        class="python"><b>8</b></code>) и
-                    <code class="python"><b>3</b></code> <span class="hl-text">необязательных параметра</span> (по
-                    умолчанию <code class="python"><b>False</b></code>), которые принимают только <code
-                        class="python"><b>True</b></code> или
-                    <code class="python"><b>False</b></code> – <span class="hl-text">содержит цифры</span>, <span
-                        class="hl-text">заглавные буквы</span>, <span class="hl-text">специальные символы</span>.
-                    Функция должна
-                    <span class="hl-text">сформировать строку пароля по указанным параметрам</span> и <span
-                        class="hl-text">вернуть её</span>.
-                </p>
+                        class="python"><b>8</b></code>) и <code class="python"><b>3</b></code> <span
+                        class="hl-text">необязательных параметра</span> (по умолчанию <code
+                        class="python"><b>False</b></code>), которые принимают только <code
+                        class="python"><b>True</b></code> или <code class="python"><b>False</b></code> – <span
+                        class="hl-text">содержит цифры</span>, <span class="hl-text">заглавные буквы английского
+                        алфавита</span>, <span class="hl-text">специальные символы</span>. Функция должна <span
+                        class="hl-text">сформировать строку пароля по указанным параметрам</span> и <span
+                        class="hl-text">вернуть её</span>. Пароль базово может содержать <span class="hl-text">маленькие
+                        буквы английского алфавита</span>.</p>
                 <h3>Подсказка:</h3>
                 <p>Решение можете взять из <span class="hl-text">Домашнего Задания 22.8</span>.</p>
             </div>
@@ -288,8 +287,7 @@ def can_subscribe(account: list, subscribe_price: int) -> bool:
 def subscribe_account(account: list, subscribe_price: int) -> bool:
     """
     Функция оформляет подписку для account.
-    Вызывает get_user_subscribe, передаёт ей account, и вызывает can_subscribe,
-    передаёт ей account и subscribe_price для проверки. Если проверки пройдены, то оформляет подписку.
+    Вызывает can_subscribe, передаёт ей account и subscribe_price для проверки. Если проверки пройдены, то оформляет подписку.
     :param account: Аккаунт в виде списка.
     :param subscribe_price: Стоимость подписки в виде целого числа.
     :return: Если удалось оформить подписку - True. В противном случае - False.
@@ -558,6 +556,7 @@ while True:
             print("Студент не был найден.")
     elif choice == "7":
         print("Программа завершается.")
+        break
     else:
         print("Неверный ввод. Пожалуйста, выберите пункт из меню.")
     print("==================================")</code></pre>

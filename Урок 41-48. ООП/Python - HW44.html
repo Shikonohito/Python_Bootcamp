@@ -404,7 +404,7 @@ print(car_1.is_engine_started())  # False</code></pre>
     rating = 0
     grades = list()
 
-    def __init__(self, login: str, f_name: str, l_name: str, coins=0, crystals=0, grades=None):
+    def __init__(self, login: str, f_name: str, l_name: str, coins=0, crystals=0, grades: list = None):
         self.login = login
         self.f_name = f_name
         self.l_name = l_name

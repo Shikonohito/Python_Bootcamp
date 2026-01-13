@@ -290,7 +290,8 @@ def change_book_author(some_book: list, new_author: str) -> bool:
 def change_book(some_library: list, original_book: list, changed_book: list) -> bool:
     """
     Функция вызывает is_book_in_library и передаёт ей some_library и original_book.
-    Если original_book присутствует, то заменяет все данные из original_book на данные из changed_book.
+    Если original_book присутствует, то вызывает is_book_in_library и передаёт ей some_library и changed_book.
+    Если changed_book отсутствует, заменяет все данные из original_book на данные из changed_book.
     :param some_library: Список книг.
     :param original_book: Книга, которую нужно изменить.
     :param changed_book: Книга, на которую меняется original_book.

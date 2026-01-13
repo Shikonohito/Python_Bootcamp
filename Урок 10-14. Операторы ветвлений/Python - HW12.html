@@ -242,26 +242,19 @@ else:
       </div>
       <div class="right-rect">
         <h2>Домашнее Задание 12.7</h2>
-        <p><span class="hl-text">Teston Lebra</span> написал программу, которая запрашивает с консоли средний балл
-          студента, имеются ли долги и рекомендации у студента, возраст студента, затем выводит в консоль
-          <code class="python"><b>"Студент может получить стипендию."</b></code> или
-          <code class="python"><b>"Студент не может получить стипендию."</b></code> в зависимости от
-          критериев. Критерии подсказал ему преподаватель кафедры дискретной математики.
-        </p>
+        <p><span class="hl-text">Teston Lebra</span> написал программу, которая запрашивает с консоли <span
+            class="hl-text">средний балл студента</span>, имеются ли <span class="hl-text">долги</span> и <span
+            class="hl-text">рекомендации</span> у студента, <span class="hl-text">возраст студента</span>, затем выводит
+          в консоль <code class="python"><b>"Студент может получить стипендию."</b></code> или <code
+            class="python"><b>"Студент не может получить стипендию."</b></code> в зависимости от критериев. Критерии
+          подсказал ему преподаватель кафедры дискретной математики.</p>
         <p>Интерпретация следующая:
         <ul>
-          <li>Средний балл студента от <code class="python"><b>80</b></code> <span class="hl-text">и
-              выше</span> или средний балл от <code class="python"><b>80</b></code> <span class="hl-text">и
-              выше</span>, но при этом возраст студента <span class="hl-text">больше</span>
-            <code class="python"><b>21</b></code> и <span class="hl-text">нет долгов</span> или же возраст
-            студента от <code class="python"><b>21</b></code> <span class="hl-text">и меньше</span> и <span
-              class="hl-text">нет долгов</span>.
-          </li>
-          <li><span class="hl-text">Нет долгов</span>, при этом <span class="hl-text">есть рекомендация</span> или
-            <span class="hl-text">нет долгов</span>.
-          </li>
-          <li>Средний балл студента от <code class="python"><b>80</b></code> <span class="hl-text">и
-              выше</span> или же <span class="hl-text">ниже</span> <code class="python"><b>80</b></code>.
+          <li><span class="hl-text">Средний балл</span> от 80 и выше или <span class="hl-text">возраст студента</span>
+            выше 21 и <span class="hl-text">средний балл</span> от 80 и выше.</li>
+          <li>Нет <span class="hl-text">долгов</span> и при этом или есть <span class="hl-text">рекомендация</span>, или
+            <span class="hl-text">возраст студента</span> выше 21 и нет <span class="hl-text">долгов</span>, или <span
+              class="hl-text">возраст студента</span> от 21 и меньше и нет <span class="hl-text">долгов</span>.
           </li>
         </ul>
         </p>
@@ -281,7 +274,7 @@ student_age = int(input("Введите возраст студента: "))
 has_debt = input("Студент сдал экзамены с долгами (Y/N): ") == "N"
 has_recommendation = input("Студент имеет рекомендацию (Y/N): ") == "Y"
 
-condition = (avg_rating >= 80 or (avg_rating >= 80 and ((student_age > 21 and not has_debt) or (student_age <= 21 and not has_debt))) and (not has_debt and (has_recommendation or not has_debt) and (avg_rating >= 80 or avg_rating < 80)))
+condition = (avg_rating >= 80 or (student_age > 21 and avg_rating >= 80)) and (not has_debt and (has_recommendation or (student_age > 21 and not has_debt) or (student_age <= 21 and not has_debt)))
 print()
 if condition:
     print("Студент может получить стипендию.")
