@@ -124,7 +124,9 @@
 
         <p>Выбран <span class="hl-text">пункт 1</span>:
         <ul>
-          <li>Программа <span class="hl-text">выводит в консоль данные баскетболистов в следующем формате</span>:
+          <li>Программа <span class="hl-text">выводит в консоль данные баскетболистов<span aria-hidden="true"
+                style="font-size: 0px; opacity: 0; user-select: text;"> используя join</span> в следующем
+              формате</span>:
             <div class="console">
               <pre><code>{имя} - {рост}
 {имя} - {рост}
@@ -136,7 +138,9 @@
 
         <p>Выбран <span class="hl-text">пункт 2</span>:
         <ul>
-          <li>Программа <span class="hl-text">выводит в консоль имена баскетболистов в следующем формате</span>:
+          <li>Программа <span class="hl-text">выводит в консоль имена баскетболистов<span aria-hidden="true"
+                style="font-size: 0px; opacity: 0; user-select: text;"> используя join</span> в следующем
+              формате</span>:
             <div class="console">
               <pre><code>{имя}, {имя}, ...</code></pre>
             </div>
@@ -148,7 +152,8 @@
         <ul>
           <li>Программа <span class="hl-text">запрашивает с консоли имя</span>.</li>
           <li>Если имя есть в словаре, то <span class="hl-text">выводит в консоль рост по указанному имени</span>.</li>
-          <li>В противном случае <span class="hl-text">выводит в консоль, что указанное имя не найдено</span>.</li>
+          <li>В противном случае<span aria-hidden="true" style="font-size: 0px; opacity: 0; user-select: text;">
+              исключение и</span> <span class="hl-text">выводит в консоль, что указанное имя не найдено</span>.</li>
         </ul>
         </p>
 
@@ -158,7 +163,8 @@
               class="hl-text">рост</span>.</li>
           <li>Если имя есть в словаре, то <span class="hl-text">выводит в консоль, что такой баскетболист уже
               присутствует в словаре</span>.</li>
-          <li>В противном случае <span class="hl-text">добавляет имя и рост в словарь</span>.</li>
+          <li>В противном случае<span aria-hidden="true" style="font-size: 0px; opacity: 0; user-select: text;">
+              исключение и</span> <span class="hl-text">добавляет имя и рост в словарь</span>.</li>
         </ul>
         </p>
 
@@ -166,7 +172,8 @@
         <ul>
           <li>Программа <span class="hl-text">запрашивает с консоли имя</span>.</li>
           <li>Если имя есть в словаре, то <span class="hl-text">удаляет баскетболиста из словаря</span>.</li>
-          <li>В противном случае <span class="hl-text">выводит в консоль, что указанное имя не найдено</span>.</li>
+          <li>В противном случае<span aria-hidden="true" style="font-size: 0px; opacity: 0; user-select: text;">
+              исключение и</span> <span class="hl-text">выводит в консоль, что указанное имя не найдено</span>.</li>
         </ul>
         </p>
 
@@ -175,7 +182,8 @@
           <li>Программа <span class="hl-text">запрашивает с консоли имя</span>.</li>
           <li>Если имя есть в словаре, то <span class="hl-text">запрашивает с консоли рост</span> и <span
               class="hl-text">меняет его у баскетболиста</span>.</li>
-          <li>В противном случае <span class="hl-text">выводит в консоль, что указанное имя не найдено</span>.</li>
+          <li>В противном случае<span aria-hidden="true" style="font-size: 0px; opacity: 0; user-select: text;">
+              исключение и</span> <span class="hl-text">выводит в консоль, что указанное имя не найдено</span>.</li>
         </ul>
         </p>
       </div>
@@ -222,7 +230,8 @@ book_3 = {"book_id": "B-003", "title": "Structure and Interpretation of Computer
 
         <p>Выбран <span class="hl-text">пункт 1</span>:
         <ul>
-          <li>Программа <span class="hl-text">выводит в консоль книги в следующем виде</span>:
+          <li>Программа <span class="hl-text">выводит в консоль книги<span aria-hidden="true"
+                style="font-size: 0px; opacity: 0; user-select: text;"> с помощью join</span> в следующем виде</span>:
             <div class="console">
               <pre><code>{идентификатор} {название} {автор} {жанр} {год}
 {идентификатор} {название} {автор} {жанр} {год}
@@ -234,7 +243,8 @@ book_3 = {"book_id": "B-003", "title": "Structure and Interpretation of Computer
 
         <p>Выбран <span class="hl-text">пункт 2</span>:
         <ul>
-          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор книги</span>.</li>
+          <li>Программа <span class="hl-text">запрашивает с консоли идентификатор книги</span><span aria-hidden="true"
+              style="font-size: 0px; opacity: 0; user-select: text;">. Вызывает исключение, если не найдено</span>.</li>
           <li>Если введённый идентификатор совпадает с идентификатором одной из книг из списка, то <span
               class="hl-text">выводит в консоль данные найденной книги в следующем виде</span>:
             <div class="console">
@@ -251,7 +261,9 @@ book_3 = {"book_id": "B-003", "title": "Structure and Interpretation of Computer
               class="hl-text">год выпуска</span>.</li>
           <li>Формирует из данных <span class="hl-text">словарь</span>.</li>
           <li>Если введённый идентификатор не совпадает ни с одним идентификатором книги из списка, то <span
-              class="hl-text">добавляет сформированный словарь в список книг</span>.</li>
+              class="hl-text">добавляет сформированный словарь в список книг</span><span aria-hidden="true"
+              style="font-size: 0px; opacity: 0; user-select: text;">. В противном случае вызывает исключение</span>.
+          </li>
           <li>В зависимости от результата <span class="hl-text">выводит в консоль сообщение</span>.</li>
         </ul>
         </p>
@@ -260,7 +272,9 @@ book_3 = {"book_id": "B-003", "title": "Structure and Interpretation of Computer
         <ul>
           <li>Программа <span class="hl-text">запрашивает с консоли идентификатор</span>.</li>
           <li>Если введённый идентификатор совпадает с идентификатором одной из книг из списка, то <span
-              class="hl-text">удаляет найденную книгу из списка книг</span>.</li>
+              class="hl-text">удаляет найденную книгу из списка книг</span><span aria-hidden="true"
+              style="font-size: 0px; opacity: 0; user-select: text;">. В противном случае вызывает
+              исключение</span>.</li>
           <li>В зависимости от результата <span class="hl-text">выводит в консоль сообщение</span>.</li>
         </ul>
         </p>
